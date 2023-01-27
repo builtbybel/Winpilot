@@ -1,8 +1,8 @@
-# Debloos 
-### Debloat OS - Universal Debloater an PC Manager for Windows 11
+# Debloos (Debloat OS)
+### Universal Debloater an PC Manager for Windows 11
 
-**Download initial release**
-https://github.com/builtbybel/Debloos/releases
+
+### Download initial release here https://github.com/builtbybel/Debloos/releases
 
 Windows 11 has a gazillion toggles and settings options. And general users don’t know where to find most of these features, what to make of them, and which setting to enable or disable. **Debloos** streamlines and houses all the essential settings under one app and allows you to disable and remove unnecessary features with just a simple click. 
 
