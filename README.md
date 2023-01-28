@@ -10,6 +10,7 @@ It comes with a few modules that will be expanded over time, similar to [ThisIsW
 _Debloos may also replace the [ThisIsWin11](https://github.com/builtbybel/ThisIsWin11) app sooner or later and serve as a universal app debloater._
 
 - It features a **BloatFinder app**, which allows you to remove pre-installed apps automatically or the manual way. 
+- The **WinModder app** allows you to apply automation capabilities based on PowerShell and community scripts.
 - Next to this the app installer **InstaPackage** is integrated, which allows you to install some of the most important apps with a click and in bulk.
 
 
