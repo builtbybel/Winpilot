@@ -9,7 +9,7 @@ Windows 11 has a gazillion toggles and settings options. And general users donâ€
 It comes with a few modules that will be expanded over time, similar to [ThisIsWin11](https://github.com/builtbybel/ThisIsWin11). 
 _Debloos may also replace the [ThisIsWin11](https://github.com/builtbybel/ThisIsWin11) app sooner or later and serve as a universal app debloater._
 
-- Via the link in the lower right corner "I want to set up Windows 11 for the first time", you can call a **Windows 11 Setup/Assistant* and customize your system step by step and debloat it.
+- Via the link in the lower right corner **"I want to set up Windows 11 for the first time"**, you can call a **Windows 11 Setup/Assistant** and customize your system step by step and debloat it.
 - It features a **BloatFinder app**, which allows you to remove pre-installed apps automatically or the manual way. 
 - The **WinModder app** allows you to apply code snippets based on PowerShell and community scripts.
 - Next to this the app installer **InstaPackage** is integrated, which allows you to install some of the most important apps with a click and in bulk.
