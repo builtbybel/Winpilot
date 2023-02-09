@@ -1,8 +1,7 @@
 # Debloos (Debloat OS)
 ### Universal Debloater and PC Manager for Windows 11
 
-
-![Debloos_vPno998xF1](https://user-images.githubusercontent.com/57478606/215881364-ffdf1e71-92c9-4639-b02e-dccb986ee9f9.png)
+![Debloos_INaNqDOl9n](https://user-images.githubusercontent.com/57478606/217926169-612fa522-0e0c-45b7-bcbe-1970e074b650.png)
 
 
 ### Download here https://github.com/builtbybel/Debloos/releases
