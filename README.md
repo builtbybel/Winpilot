@@ -21,4 +21,4 @@ _Debloos may also replace the [ThisIsWin11](https://github.com/builtbybel/ThisIs
 
 
 
-More information to come.. 🌃
+More infos here https://www.builtbybel.com/blog/about-debloos
