@@ -1,7 +1,7 @@
 # Debloos (Debloat OS)
 ### Universal Debloater and PC Manager for the most up-to-date version of the Redmond OS (Windows 11)
 
-![Debloos_INaNqDOl9n](https://user-images.githubusercontent.com/57478606/217926169-612fa522-0e0c-45b7-bcbe-1970e074b650.png)
+![OCAJUnUNrc](https://user-images.githubusercontent.com/57478606/218247253-db0309f6-db24-4bb4-ac62-afdfc7ccd2af.png)
 
 
 ### Download here (early stable) https://github.com/builtbybel/Debloos/releases
