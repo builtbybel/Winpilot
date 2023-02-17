@@ -1,0 +1,62 @@
+<Debloos>
+     <Mod>
+     <id>Backup Edge Bookmarks</id>
+	 <description>Read Microsoft Edge (based on Chromium) Bookmarks (JSON File) and Export/Backup to HTML-File (Edge/Firefox/Chrome compatible Format) on your Desktop.</description>
+	<dev>AveYo</dev>
+    <uri>https://raw.githubusercontent.com/builtbybel/Debloos/main/mods/Backup%20Edge%20Bookmarks.ini,https://raw.githubusercontent.com/builtbybel/Debloos/main/mods/backup-edge_chromium-bookmarks.ps1</uri>
+   </Mod>
+     <Mod>
+     <id>Bypass Edge default handler</id>
+	 <description>This mod will bypass Microsoft Edge default handler</description>
+	<dev>https://github.com/AveYo/fox/blob/main/ChrEdgeFkOff.cmd</dev>
+    <uri>https://raw.githubusercontent.com/builtbybel/Debloos/main/mods/Bypass%20Edge%20default%20handler.ini,https://raw.githubusercontent.com/builtbybel/Debloos/main/mods/bypass-edge_default_handler_web.ps1</uri>
+   </Mod>
+      <Mod>
+     <id>Clean up Windows </id>
+	 <description>This mod will use classic Disk clean-up utility aka Cleanmgr.exe to clear unnecessary files from your computer's hard disk </description>
+	<dev>Builtbybel</dev>
+    <uri>https://raw.githubusercontent.com/builtbybel/Debloos/main/mods/Clean-up%20Windows.ini,https://raw.githubusercontent.com/builtbybel/Debloos/main/mods/clean-up_windows.ps1</uri>
+   </Mod>
+   <Mod>
+     <id>Remove telemetry</id>
+	 <description>This will install mods to remove telemetry, disable services etc. </description>
+	<dev>Builtbybel</dev>
+    <uri>https://raw.githubusercontent.com/builtbybel/Debloos/main/mods/Disable%20services.ini,https://raw.githubusercontent.com/builtbybel/Debloos/main/mods/disable-services.ps1</uri>
+   </Mod>
+      <Mod>
+     <id>Remove OneDrive</id>
+	 <description>This mod will remove and disable OneDrive integration.</description>
+	<dev>W4RH4WK</dev>
+    <uri>https://raw.githubusercontent.com/builtbybel/Debloos/main/mods/Remove%20OneDrive.ini,https://raw.githubusercontent.com/builtbybel/Debloos/main/mods/remove_onedrive.ps1</uri>
+   </Mod>
+    <Mod>
+     <id>Reinstall all in-box apps</id>
+	 <description>This mod will reinstall all in-box apps in a single step.</description>
+	<dev>Builtbybel</dev>
+    <uri>https://raw.githubusercontent.com/builtbybel/Debloos/main/mods/Restore%20In-box%20apps.ini,https://raw.githubusercontent.com/builtbybel/Debloos/main/mods/restore-inbox-apps.ps1</uri>
+   </Mod>
+    <Mod>
+     <id>Enable Ultimate Peformance Mode</id>
+	 <description>This mod will add an "Ultimate Performance" power plan option to energy options.</description>
+	<dev>Builtbybel</dev>
+    <uri>https://raw.githubusercontent.com/builtbybel/Debloos/main/mods/Ultimate%20Performance%20Mode.ini,https://raw.githubusercontent.com/builtbybel/Debloos/main/mods/ultimate_performance-mode.ps1</uri>
+   </Mod>
+    <Mod>
+     <id>AutoLogon </id>
+	 <description>This mod will enable secure Windows AutoLogon</description>
+	<dev>Andy Arismendi - Created.</dev>
+    <uri>https://raw.githubusercontent.com/builtbybel/Debloos/main/mods/AutoLogon.ini,https://raw.githubusercontent.com/builtbybel/Debloos/main/mods/autologon.ps1</uri>
+   </Mod>
+       <Mod>
+     <id>Update Microsoft Store apps</id>
+	 <description>This mod will run an update check for Microsoft Store apps.</description>
+	<dev>Builtbybel</dev>
+    <uri>https://raw.githubusercontent.com/builtbybel/Debloos/main/mods/Update%20Store%20apps.ini,https://raw.githubusercontent.com/builtbybel/Debloos/main/mods/update_store-apps.ps1</uri>
+   </Mod>
+         <Mod>
+     <id>Remove telemetry of third-party apps</id>
+	 <description>This mod will block and disable telemetry features of third party apps, e.g. CCleaner, Mozilla Firefox, Google Chrome etc.</description>
+	<dev>Builtbybel</dev>
+    <uri>https://raw.githubusercontent.com/builtbybel/Debloos/main/mods/Remove%20telemetry%20of%20third-party%20apps.ini,https://raw.githubusercontent.com/builtbybel/Debloos/main/mods/remove_telemetry-third-party-apps.ps1</uri>
+   </Mod>
+ </Debloos>
