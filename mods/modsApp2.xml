@@ -1,5 +1,11 @@
 <Debloos>
      <Mod>
+     <id>Update signature file</id>
+	 <description>All features offered here are obtained from this file.</description>
+	<dev>Builtbybel</dev>
+    <uri>https://raw.githubusercontent.com/builtbybel/Debloos/main/mods/modsApp2.xml</uri>
+   </Mod>
+     <Mod>
      <id>Backup Edge Bookmarks</id>
 	 <description>Read Microsoft Edge (based on Chromium) Bookmarks (JSON File) and Export/Backup to HTML-File (Edge/Firefox/Chrome compatible Format) on your Desktop.</description>
 	<dev>AveYo</dev>
