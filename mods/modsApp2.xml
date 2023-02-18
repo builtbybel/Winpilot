@@ -7,8 +7,8 @@
    </Mod>
      <Mod>
      <id>Backup Edge Bookmarks</id>
-	 <description>Read Microsoft Edge (based on Chromium) Bookmarks (JSON File) and Export/Backup to HTML-File (Edge/Firefox/Chrome compatible Format) on your Desktop.</description>
-	<dev>AveYo</dev>
+	 <description>Backup Edge Chromium Bookmarks as JSON-to-HTML to Desktop</description>
+	<dev>gunnarhaslinger</dev>
     <uri>https://raw.githubusercontent.com/builtbybel/Debloos/main/mods/Backup%20Edge%20Bookmarks.ini,https://raw.githubusercontent.com/builtbybel/Debloos/main/mods/backup-edge_chromium-bookmarks.ps1</uri>
    </Mod>
      <Mod>
