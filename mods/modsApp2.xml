@@ -12,7 +12,7 @@
     <uri>https://raw.githubusercontent.com/builtbybel/Debloos/main/mods/Backup%20Edge%20Bookmarks.ini,https://raw.githubusercontent.com/builtbybel/Debloos/main/mods/backup-edge_chromium-bookmarks.ps1</uri>
    </Mod>
        <Mod>
-     <id>Recommended configuration profile for Debloos "Bloaty & Nosey" module on main page</id>
+     <id>Recommended configuration profile for Debloos "Bloaty and Nosey" module on main page</id>
 	 <description>Goto main page > Kebap menu > Import profile to import this configuration</description>
 	<dev>Builtbybel</dev>
     <uri>https://raw.githubusercontent.com/builtbybel/Debloos/main/assets/debloos-recommended_profile.bloos</uri>
