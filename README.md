@@ -12,7 +12,7 @@ It comes with a few modules that will be expanded over time, similar to [ThisIsW
 _Debloos may also replace the [ThisIsWin11](https://github.com/builtbybel/ThisIsWin11) app sooner or later and serve as a universal app debloater._
 
 - Via the link in the lower right corner **"I want to set up Windows 11 for the first time"**, you can call a **Windows 11 Setup/Assistant** and customize your system step by step and debloat it.
-- You can skip the assistant and let the app module **Bloaty & Nosey** on the main page handle the analysis entirely. It will check a fix a tons of unnecessary components and creating a debloated Windows 11.
+- You can skip the assistant and let the app module **Bloaty & Nosey** on the main page handle the analysis entirely. It will check and fix a tons of unnecessary components and creating a debloated Windows 11.
 - It features a **BloatFinder app**, which allows you to remove pre-installed apps automatically or the manual way. 
 - The **WinModder app** allows you to apply code snippets based on PowerShell and community scripts.
 - Next to this the app installer **InstaPackage** is integrated, which allows you to install some of the most important apps with a click and in bulk.
