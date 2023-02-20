@@ -1,8 +1,7 @@
 # Bloaty 'Nosy
 ### Universal Debloater and PC Manager for the most up-to-date version of the Redmond OS (Windows 11)
 
-![OCAJUnUNrc](https://user-images.githubusercontent.com/57478606/218247253-db0309f6-db24-4bb4-ac62-afdfc7ccd2af.png)
-
+![screenshot](https://github.com/builtbybel/BloatyNosy/blob/main/assets/BloatyNosy.png)
 
 ### Download here (early stable) https://github.com/builtbybel/BloatyNosy/releases
 
@@ -18,7 +17,6 @@ _BloatyNosy may also replace the [ThisIsWin11](https://github.com/builtbybel/Thi
 - Next to this the app installer **InstaPackage** is integrated, which allows you to install some of the most important apps with a click and in bulk.
 
 
-![screenshot](https://github.com/builtbybel/BloatyNosy/blob/main/assets/BloatyNosy.png)
 
 
 
