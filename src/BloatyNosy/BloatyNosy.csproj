@@ -1,0 +1,239 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{44CAFCEB-0F6D-487F-9F5F-63F230DBB069}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>BloatyNosy</RootNamespace>
+    <AssemblyName>BloatyNosy</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup />
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>AppIcon.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Management.Automation, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\Windows\Microsoft.NET\assembly\GAC_MSIL\System.Management.Automation\v4.0_3.0.0.0__31bf3856ad364e35\System.Management.Automation.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="FeatureBase.cs" />
+    <Compile Include="FeatureNode.cs" />
+    <Compile Include="Features\Browser\GoogleChrome.cs" />
+    <Compile Include="Features\Browser\MozillaFirefox.cs" />
+    <Compile Include="Features\Desktop\AppsTheme.cs" />
+    <Compile Include="Features\Desktop\SnapAssistFlyout.cs" />
+    <Compile Include="Features\Desktop\Stickers.cs" />
+    <Compile Include="Features\Desktop\Transparency.cs" />
+    <Compile Include="Features\Desktop\Widgets.cs" />
+    <Compile Include="Features\Desktop\WidgetsR.cs" />
+    <Compile Include="Features\Desktop\WindowsTheme.cs" />
+    <Compile Include="Features\Explorer\FileExplorer.cs" />
+    <Compile Include="Features\Explorer\HiddenFileExt.cs" />
+    <Compile Include="Features\Explorer\HiddenFileFolder.cs" />
+    <Compile Include="Features\Recommendation\EnableWSL.cs" />
+    <Compile Include="Features\Gaming\GameDVR.cs" />
+    <Compile Include="Features\Gaming\PowerThrottling.cs" />
+    <Compile Include="Features\Gaming\VisualFX.cs" />
+    <Compile Include="Features\Privacy\Advertising.cs" />
+    <Compile Include="Features\Privacy\AppsAutoInstall.cs" />
+    <Compile Include="Features\Privacy\Biometrics.cs" />
+    <Compile Include="Features\Privacy\CompatibilityTelemetry.cs" />
+    <Compile Include="Features\Privacy\DiagnosticData.cs" />
+    <Compile Include="Features\Privacy\Feedback.cs" />
+    <Compile Include="Features\Privacy\LocationTracking.cs" />
+    <Compile Include="Features\Privacy\SuggestedContent.cs" />
+    <Compile Include="Features\Privacy\TailoredExperiences.cs" />
+    <Compile Include="Features\Privacy\Telemetry.cs" />
+    <Compile Include="Features\Privacy\WindowsTips.cs" />
+    <Compile Include="Features\Apps\StoreApps.cs" />
+    <Compile Include="Features\Apps\StoreAppsEngine.cs" />
+    <Compile Include="Features\System\FaxPrinter.cs" />
+    <Compile Include="Features\System\FullContextMenus.cs" />
+    <Compile Include="Features\System\OneDriveR.cs" />
+    <Compile Include="Features\System\RemoveW11Watermark.cs" />
+    <Compile Include="Features\System\TeamsAutostart.cs" />
+    <Compile Include="Features\System\TPMCheck.cs" />
+    <Compile Include="Features\System\XPSWriter.cs" />
+    <Compile Include="Features\Taskbar\MostUsedApps.cs" />
+    <Compile Include="Features\Taskbar\StartmenuLayout.cs" />
+    <Compile Include="Features\Taskbar\TaskbarChat.cs" />
+    <Compile Include="Features\Taskbar\TaskbarSearch.cs" />
+    <Compile Include="Features\Taskbar\TaskView.cs" />
+    <Compile Include="Helpers\ErrorHelper.cs" />
+    <Compile Include="Helpers\HelperTool.cs" />
+    <Compile Include="Helpers\OsHelper.cs" />
+    <Compile Include="ITreeNode.cs" />
+    <Compile Include="Helpers\RegistryHelper.cs" />
+    <Compile Include="MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Setup\Pages.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Views\AboutPageView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\AboutPageView.Designer.cs">
+      <DependentUpon>AboutPageView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\AppsPageView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\AppsPageView.Designer.cs">
+      <DependentUpon>AppsPageView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\WinModder\ModsParser.cs" />
+    <Compile Include="Modules\WinModder\ModsManifest.cs" />
+    <Compile Include="Views\ModsPageView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\ModsPageView.Designer.cs">
+      <DependentUpon>ModsPageView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PackagesPageView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\PackagesPageView.Designer.cs">
+      <DependentUpon>PackagesPageView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Helpers\WindowsHelper.cs" />
+    <Compile Include="Views\IModsPageView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\IModsPageView.Designer.cs">
+      <DependentUpon>IModsPageView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SetupPageView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\SetupPageView.Designer.cs">
+      <DependentUpon>SetupPageView.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="Views\AboutPageView.resx">
+      <DependentUpon>AboutPageView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\AppsPageView.resx">
+      <DependentUpon>AppsPageView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\ModsPageView.resx">
+      <DependentUpon>ModsPageView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\PackagesPageView.resx">
+      <DependentUpon>PackagesPageView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\IModsPageView.resx">
+      <DependentUpon>IModsPageView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\SetupPageView.resx">
+      <DependentUpon>SetupPageView.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="app.manifest" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="AppIcon.ico" />
+    <Content Include="Resources\systemApps.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.8">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.8 %28x86 und x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
