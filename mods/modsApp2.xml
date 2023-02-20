@@ -15,7 +15,7 @@
      <id>Recommended configuration profile for BloatyNosy</id>
 	 <description>Goto main page > Kebap menu > Import profile to import this configuration</description>
 	<dev>Builtbybel</dev>
-    <uri>https://raw.githubusercontent.com/builtbybel/BloatyNosy/main/assets/BloatyNosy-recommended_profile.bloos</uri>
+    <uri>https://raw.githubusercontent.com/builtbybel/BloatyNosy/main/assets/bloatynosy-recommended_profile.bloos</uri>
    </Mod>
      <Mod>
      <id>Bypass Edge default handler</id>
