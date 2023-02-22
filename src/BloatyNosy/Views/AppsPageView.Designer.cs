@@ -186,7 +186,7 @@
             this.btnBack.FlatAppearance.BorderSize = 0;
             this.btnBack.FlatAppearance.MouseOverBackColor = System.Drawing.Color.WhiteSmoke;
             this.btnBack.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBack.Font = new System.Drawing.Font("Segoe Fluent Icons", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBack.Font = new System.Drawing.Font("Segoe Fluent Icons", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnBack.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.btnBack.Location = new System.Drawing.Point(0, 0);
             this.btnBack.Name = "btnBack";
@@ -305,8 +305,8 @@
             this.btnHMenu.FlatAppearance.BorderSize = 0;
             this.btnHMenu.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gainsboro;
             this.btnHMenu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnHMenu.Font = new System.Drawing.Font("Segoe Fluent Icons", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnHMenu.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.btnHMenu.Font = new System.Drawing.Font("Segoe Fluent Icons", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnHMenu.ForeColor = System.Drawing.Color.Black;
             this.btnHMenu.Location = new System.Drawing.Point(35, 0);
             this.btnHMenu.Name = "btnHMenu";
             this.btnHMenu.Size = new System.Drawing.Size(42, 38);
