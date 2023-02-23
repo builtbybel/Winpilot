@@ -1,7 +1,7 @@
 <BloatyNosy>
      <Mod>
      <id>Update signature file</id>
-	 <description>All features offered here are obtained from this file.</description>
+	 <description>All features offered here are obtained from this file</description>
 	<dev>Builtbybel</dev>
     <uri>https://raw.githubusercontent.com/builtbybel/BloatyNosy/main/mods/modsApp2.xml</uri>
    </Mod>
@@ -13,7 +13,7 @@
    </Mod>
        <Mod>
      <id>Clear event logs</id>
-	 <description>This mods will clear System events and errors stored in event logs.</description>
+	 <description>This mod will clear System events and errors stored in event logs</description>
 	<dev>gunnarhaslinger</dev>
     <uri>https://raw.githubusercontent.com/builtbybel/BloatyNosy/main/mods/Clear%20event%20logs.ini,https://raw.githubusercontent.com/builtbybel/BloatyNosy/main/mods/clear-event_logs.ps1</uri>
    </Mod>
