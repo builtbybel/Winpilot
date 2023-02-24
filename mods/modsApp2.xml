@@ -1,21 +1,33 @@
 <BloatyNosy>
      <Mod>
      <id>Update signature file</id>
-	 <description>All features offered here are obtained from this file.</description>
+	 <description>All features offered here are obtained from this file</description>
 	<dev>Builtbybel</dev>
     <uri>https://raw.githubusercontent.com/builtbybel/BloatyNosy/main/mods/modsApp2.xml</uri>
    </Mod>
      <Mod>
      <id>Backup Edge Bookmarks</id>
-	 <description>Backup Edge Chromium Bookmarks as JSON-to-HTML to Desktop</description>
+	 <description>Mod to Backup Edge Chromium Bookmarks as JSON-to-HTML to Desktop</description>
 	<dev>gunnarhaslinger</dev>
     <uri>https://raw.githubusercontent.com/builtbybel/BloatyNosy/main/mods/Backup%20Edge%20Bookmarks.ini,https://raw.githubusercontent.com/builtbybel/BloatyNosy/main/mods/backup-edge_chromium-bookmarks.ps1</uri>
    </Mod>
        <Mod>
+     <id>Clear event logs</id>
+	 <description>This mod will clear System events and errors stored in event logs</description>
+	<dev>gunnarhaslinger</dev>
+    <uri>https://raw.githubusercontent.com/builtbybel/BloatyNosy/main/mods/Clear%20event%20logs.ini,https://raw.githubusercontent.com/builtbybel/BloatyNosy/main/mods/clear-event_logs.ps1</uri>
+   </Mod>
+       <Mod>
      <id>Recommended configuration profile for BloatyNosy</id>
-	 <description>Goto main page > Kebap menu > Import profile to import this configuration</description>
+	 <description>Goto main page > Kebap menu > Import profile (from apps directory of BloatyNosy) to import this configuration</description>
 	<dev>Builtbybel</dev>
     <uri>https://raw.githubusercontent.com/builtbybel/BloatyNosy/main/assets/bloatynosy-recommended_profile.bloos</uri>
+   </Mod>
+     <Mod>
+     <id>Offline packages template for InstaPackage</id>
+	 <description>Allows creating custom installation packages. To do this, open file "InstaPackage.app" in apps directory of BloatyNosy with any editor and add your Winget packages. (Support from version 0.32)</description>
+	<dev>Builtbybel</dev>
+    <uri>https://raw.githubusercontent.com/builtbybel/BloatyNosy/main/assets/InstaPackage.app</uri>
    </Mod>
      <Mod>
      <id>Bypass Edge default handler</id>
