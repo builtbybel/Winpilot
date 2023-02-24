@@ -209,13 +209,13 @@
             // 
             this.lblTools.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.lblTools.AutoSize = true;
-            this.lblTools.Font = new System.Drawing.Font("Segoe UI Variable Text", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTools.Font = new System.Drawing.Font("Segoe UI Variable Text Semibold", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTools.ForeColor = System.Drawing.Color.DeepPink;
-            this.lblTools.Location = new System.Drawing.Point(32, 749);
+            this.lblTools.Location = new System.Drawing.Point(32, 758);
             this.lblTools.Name = "lblTools";
-            this.lblTools.Size = new System.Drawing.Size(38, 30);
+            this.lblTools.Size = new System.Drawing.Size(35, 15);
             this.lblTools.TabIndex = 25;
-            this.lblTools.Text = "More\r\nApps!";
+            this.lblTools.Text = "NEW!";
             // 
             // cmbTools
             // 
@@ -230,7 +230,7 @@
             this.cmbTools.ItemHeight = 21;
             this.cmbTools.Location = new System.Drawing.Point(75, 750);
             this.cmbTools.Name = "cmbTools";
-            this.cmbTools.Size = new System.Drawing.Size(338, 29);
+            this.cmbTools.Size = new System.Drawing.Size(150, 29);
             this.cmbTools.TabIndex = 19;
             this.cmbTools.SelectedIndexChanged += new System.EventHandler(this.cmbTools_SelectedIndexChanged);
             // 

@@ -64,7 +64,7 @@ namespace BloatyNosy
             cmbTools.Items.Add("InstaPackage");
             cmbTools.Items.Add("BloatFinder");
             cmbTools.Items.Add("WinModder");
-            cmbTools.Items.Insert(0, "Select...");
+            cmbTools.Items.Insert(0, "More Apps");
             cmbTools.SelectedIndex = 0;
         }
 
@@ -234,7 +234,7 @@ namespace BloatyNosy
         private async void btnAnalyze_Click(object sender, EventArgs e)
         {
             Reset();
-
+            btnAnalyze.Enabled = false;
             int performFeaturesCount = 0;
 
             List<FeatureNode> selectedFeatures = CollectFeatureNodes();
@@ -286,11 +286,10 @@ namespace BloatyNosy
             sum.Append($"We've checked {selectedFeatures.Count} features of your Windows 11 installation.\r\n");
             sum.Append($"We like {selectedFeatures.Count - performFeaturesCount} of these features (no need for action).\r\n");
 
-            logger.Log(sum.ToString(), "");
-
+            logger.Log(sum.ToString(), ""); btnAnalyze.Enabled = true;
             lnkSubHeader.Text = $"There are {performFeaturesCount} features we don't like and which should be fixed (click for details).\r\n";
-    
         }
+
         private void SelectFeatureNodes(TreeNodeCollection trNodeCollection, bool isCheck)
         {
             foreach (TreeNode trNode in trNodeCollection)
@@ -387,7 +386,7 @@ namespace BloatyNosy
         {
             if (string.IsNullOrWhiteSpace(rtbLog.Text))
             {
-                MessageBox.Show("No analyze has taken place yet");
+                MessageBox.Show("No analyze has taken place yet.");
                 return;
             }
 
@@ -509,6 +508,5 @@ namespace BloatyNosy
                 MessageBox.Show("Profile has been successfully exported.", this.Text, MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
-
     }
 }

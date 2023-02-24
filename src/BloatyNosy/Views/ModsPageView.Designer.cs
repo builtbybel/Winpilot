@@ -39,7 +39,6 @@
             this.btnHMenu = new System.Windows.Forms.Button();
             this.btnBack = new System.Windows.Forms.Button();
             this.lnkExploreMods = new System.Windows.Forms.LinkLabel();
-            this.lblNoMods = new System.Windows.Forms.Label();
             this.tabD = new System.Windows.Forms.TabControl();
             this.tabDescription = new System.Windows.Forms.TabPage();
             this.rtbDesc = new System.Windows.Forms.RichTextBox();
@@ -98,7 +97,6 @@
             this.pnlMain.Controls.Add(this.btnHMenu);
             this.pnlMain.Controls.Add(this.btnBack);
             this.pnlMain.Controls.Add(this.lnkExploreMods);
-            this.pnlMain.Controls.Add(this.lblNoMods);
             this.pnlMain.Controls.Add(this.tabD);
             this.pnlMain.Controls.Add(this.textSearch);
             this.pnlMain.Controls.Add(this.lnkCode);
@@ -115,15 +113,15 @@
             // 
             // lblStatus
             // 
-            this.lblStatus.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.lblStatus.AutoEllipsis = true;
-            this.lblStatus.Font = new System.Drawing.Font("Segoe UI Variable Text Semiligh", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblStatus.ForeColor = System.Drawing.Color.DeepPink;
-            this.lblStatus.Location = new System.Drawing.Point(92, 94);
+            this.lblStatus.AutoSize = true;
+            this.lblStatus.Font = new System.Drawing.Font("Segoe UI Variable Text", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblStatus.ForeColor = System.Drawing.Color.HotPink;
+            this.lblStatus.Location = new System.Drawing.Point(88, 106);
             this.lblStatus.Name = "lblStatus";
-            this.lblStatus.Size = new System.Drawing.Size(802, 23);
-            this.lblStatus.TabIndex = 205;
+            this.lblStatus.Size = new System.Drawing.Size(94, 17);
+            this.lblStatus.TabIndex = 206;
+            this.lblStatus.Text = "Mods installed";
             // 
             // lblHeader
             // 
@@ -180,19 +178,6 @@
             this.lnkExploreMods.TabStop = true;
             this.lnkExploreMods.Text = "Explore Mods";
             this.lnkExploreMods.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lnkExploreMods_LinkClicked);
-            // 
-            // lblNoMods
-            // 
-            this.lblNoMods.AutoEllipsis = true;
-            this.lblNoMods.AutoSize = true;
-            this.lblNoMods.Font = new System.Drawing.Font("Segoe UI Variable Text Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNoMods.ForeColor = System.Drawing.Color.Thistle;
-            this.lblNoMods.Location = new System.Drawing.Point(386, 4);
-            this.lblNoMods.Name = "lblNoMods";
-            this.lblNoMods.Size = new System.Drawing.Size(168, 26);
-            this.lblNoMods.TabIndex = 200;
-            this.lblNoMods.Text = "No Mods installed";
-            this.lblNoMods.Visible = false;
             // 
             // tabD
             // 
@@ -312,7 +297,7 @@
             // 
             this.progress.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.progress.Location = new System.Drawing.Point(92, 120);
+            this.progress.Location = new System.Drawing.Point(92, 129);
             this.progress.Name = "progress";
             this.progress.Size = new System.Drawing.Size(857, 5);
             this.progress.TabIndex = 196;
@@ -389,7 +374,6 @@
         private System.Windows.Forms.TabPage tabCode;
         private System.Windows.Forms.RichTextBox rtbCode;
         private System.Windows.Forms.Panel pnlMain;
-        private System.Windows.Forms.Label lblNoMods;
         private System.Windows.Forms.TextBox textSearch;
         private System.Windows.Forms.LinkLabel lnkCode;
         private System.Windows.Forms.LinkLabel lnkDesc;
@@ -400,7 +384,7 @@
         private System.Windows.Forms.Label lblHeader;
         private System.Windows.Forms.Button btnHMenu;
         private System.Windows.Forms.Button btnBack;
-        private System.Windows.Forms.Label lblStatus;
         public System.Windows.Forms.LinkLabel lnkExploreMods;
+        private System.Windows.Forms.Label lblStatus;
     }
 }

@@ -73,7 +73,7 @@ namespace BloatyNosy
             foreach (ListViewItem item in listView.Items)
             {
                 var feature = item.SubItems[3].Text;
-                if (File.Exists(HelperTool.Utils.Data.DataRootDir + feature.Split('/').Last()) 
+                if (File.Exists(HelperTool.Utils.Data.DataRootDir + feature.Split('/').Last())
                     || File.Exists(HelperTool.Utils.Data.ModsRootDir + feature.Split('/').Last())
                     || File.Exists(AppDomain.CurrentDomain.BaseDirectory + feature.Split('/').Last()))
                     item.ForeColor = Color.Gray;
@@ -144,12 +144,14 @@ namespace BloatyNosy
 
                         try
                         {
-                            if (fileExt == ".ps1")
+                            if (fileExt == ".ps1" || fileExt == ".ini")
                                 await client.DownloadFileTaskAsync(uri, HelperTool.Utils.Data.ModsRootDir + filename);
                             else
-                                await client.DownloadFileTaskAsync(uri, AppDomain.CurrentDomain.BaseDirectory + filename
-
-                        );
+                            {
+                                HelperTool.Utils.CreateDataDir(); // Create appData folder
+                                await client.DownloadFileTaskAsync(uri, HelperTool.Utils.Data.DataRootDir + filename
+                            );
+                            }
                         }
                         catch (Exception ex)
                         {
@@ -197,7 +199,6 @@ namespace BloatyNosy
 
         private void listView_DrawItem(object sender, DrawListViewItemEventArgs e)
            => e.DrawDefault = true;
-        
 
         private void lnkGetModsOnline_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
              => HelperTool.Utils.LaunchUri("https://www.builtbybel.com/blog/about-debloos");

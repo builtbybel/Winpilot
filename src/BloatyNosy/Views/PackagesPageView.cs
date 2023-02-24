@@ -16,12 +16,16 @@ namespace BloatyNosy
         private List<string> Packages = new List<string>();
         private List<string> remoteApps = new List<string>();
 
+        private string fPackagesLocal = HelperTool.Utils.Data.DataRootDir + "InstaPackage.app";
+
         public PackagesPageView()
         {
             InitializeComponent();
 
             RequestPackagesRemote();
             listRemote.Items.AddRange(remoteApps.ToArray());
+
+            GetPackagesLocal();
 
             SetStyle();
         }
@@ -63,6 +67,24 @@ namespace BloatyNosy
             { MessageBox.Show(ex.Message); }
         }
 
+        public void GetPackagesLocal()
+        {
+            if (File.Exists(fPackagesLocal))
+            {
+                string[] appsInstall = File.ReadAllLines(fPackagesLocal);
+
+                listRemote.Items.Clear();
+                groupBox2.Text = "Offline ppackages";
+                foreach (var currentApp in appsInstall)
+                {
+                    if (!currentApp.StartsWith("#") && (!string.IsNullOrEmpty(currentApp)))
+                    {
+                        listRemote.Items.Add(currentApp.ToString());
+                    }
+                }
+            }
+            else return;
+        }
 
         private void textSearch_TextChanged(object sender, EventArgs e)
         {

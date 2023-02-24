@@ -79,7 +79,7 @@ namespace BloatyNosy
                     ModsList.Add(Path.GetFileNameWithoutExtension(manifest));
                 }
             }
-            catch { lblNoMods.Visible = true; btnApply.Visible = false; btnCancel.Visible = false; }
+            catch { lblStatus.Text = "No Mods installed"; btnApply.Visible = false; btnCancel.Visible = false; }
         }
 
         private async void DoMods(string language)
@@ -133,7 +133,7 @@ namespace BloatyNosy
 
                         break;
                 }
-                lblStatus.Text = "";
+                lblStatus.Text = "Installed Mods";
                 progress.Visible = false;
                 btnCancel.Visible = false;
                 btnApply.Enabled = true;

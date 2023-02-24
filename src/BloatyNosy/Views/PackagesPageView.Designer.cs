@@ -57,7 +57,7 @@
             this.groupBox2.Size = new System.Drawing.Size(411, 648);
             this.groupBox2.TabIndex = 49;
             this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Available packages";
+            this.groupBox2.Text = "Online packages";
             // 
             // listRemote
             // 
@@ -141,12 +141,13 @@
             // 
             // btnInstall
             // 
+            this.btnInstall.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnInstall.BackColor = System.Drawing.Color.MediumVioletRed;
             this.btnInstall.FlatAppearance.BorderColor = System.Drawing.Color.Orchid;
             this.btnInstall.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnInstall.Font = new System.Drawing.Font("Segoe UI Variable Text Semiligh", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnInstall.ForeColor = System.Drawing.Color.White;
-            this.btnInstall.Location = new System.Drawing.Point(797, 49);
+            this.btnInstall.Location = new System.Drawing.Point(825, 49);
             this.btnInstall.Name = "btnInstall";
             this.btnInstall.Size = new System.Drawing.Size(181, 30);
             this.btnInstall.TabIndex = 51;
