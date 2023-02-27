@@ -1,9 +1,9 @@
-# Bloaty 'Nosy (Bloaty & Nosy)
-### Universal Debloater and PC Manager for the most up-to-date version of the Redmond OS (Windows 11)
+# No more draw backs of upgrading to Windows 11 with - Bloaty 'Nosy (Bloaty & Nosy) -
 
 ![screenshot](https://github.com/builtbybel/BloatyNosy/blob/main/assets/bloatynosy.png?raw=true)
+**Universal Debloater and PC Manager for the most up-to-date version of the Redmond OS (Windows 11)**
 
-### Download here (early stable) https://github.com/builtbybel/BloatyNosy/releases
+### Download here https://github.com/builtbybel/BloatyNosy/releases
 
 Windows 11 has a gazillion toggles and settings options. And general users don’t know where to find most of these features, what to make of them, and which setting to enable or disable. **BloatyNosy** streamlines and houses all the essential settings under one app and allows you to disable and remove unnecessary features with just a simple click. 
 
@@ -15,9 +15,6 @@ _BloatyNosy may also replace the [ThisIsWin11](https://github.com/builtbybel/Thi
 - It features a **BloatFinder app**, which allows you to remove pre-installed apps automatically or the manual way. 
 - The **WinModder app** allows you to apply code snippets based on PowerShell and community scripts.
 - Next to this the app installer **InstaPackage** is integrated, which allows you to install some of the most important apps with a click and in bulk.
-
-
-
 
 
 More infos here https://www.builtbybel.com/blog/about-bloatynosy
