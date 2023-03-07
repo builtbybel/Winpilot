@@ -17,6 +17,12 @@
 	<dev>gunnarhaslinger</dev>
     <uri>https://raw.githubusercontent.com/builtbybel/BloatyNosy/main/mods/Clear%20event%20logs.ini,https://raw.githubusercontent.com/builtbybel/BloatyNosy/main/mods/clear-event_logs.ps1</uri>
    </Mod>
+          <Mod>
+     <id>Chris Titus Tech's Windows Utility - Install Programs, Tweaks, Fixes, and Updates</id>
+	 <description>Debloating Script from Chris Titus Tech. It has a few extras that complement BloatyNosy well and works for both windows 10 and 11</description>
+	<dev>gunnarhaslinger</dev>
+    <uri>https://raw.githubusercontent.com/builtbybel/BloatyNosy/main/mods/Chris%20Titus%20WinUtil.ini,https://raw.githubusercontent.com/builtbybel/BloatyNosy/main/mods/ChrisTitusApp.ps1</uri>
+   </Mod>
        <Mod>
      <id>Recommended configuration profile for BloatyNosy</id>
 	 <description>Goto main page > Kebap menu > Import profile (from apps directory of BloatyNosy) to import this configuration</description>
