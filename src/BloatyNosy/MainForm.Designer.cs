@@ -31,6 +31,8 @@
             this.components = new System.ComponentModel.Container();
             this.pnlForm = new System.Windows.Forms.Panel();
             this.pnlMain = new System.Windows.Forms.Panel();
+            this.lnkGitHubRepo = new System.Windows.Forms.LinkLabel();
+            this.lblAppOptionsFix = new System.Windows.Forms.Label();
             this.lnkRunSetup = new System.Windows.Forms.LinkLabel();
             this.btnAppOptions = new System.Windows.Forms.Button();
             this.btnSettings = new System.Windows.Forms.Button();
@@ -42,8 +44,8 @@
             this.lblTools = new System.Windows.Forms.Label();
             this.cmbTools = new System.Windows.Forms.ComboBox();
             this.lblHeader = new System.Windows.Forms.Label();
-            this.rtbLog = new System.Windows.Forms.RichTextBox();
             this.tvwFeatures = new System.Windows.Forms.TreeView();
+            this.rtbLog = new System.Windows.Forms.RichTextBox();
             this.contextKebapMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.menuAdvanced = new System.Windows.Forms.ToolStripMenuItem();
             this.menuIgnoreLowLevelP = new System.Windows.Forms.ToolStripMenuItem();
@@ -54,10 +56,13 @@
             this.menuFixInfo = new System.Windows.Forms.ToolStripTextBox();
             this.menuRestore = new System.Windows.Forms.ToolStripMenuItem();
             this.menuRestoreInfo = new System.Windows.Forms.ToolStripTextBox();
+            this.contextAppMenuOptions = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.menuAppConfigure = new System.Windows.Forms.ToolStripMenuItem();
             this.pnlForm.SuspendLayout();
             this.pnlMain.SuspendLayout();
             this.contextKebapMenu.SuspendLayout();
             this.contextAppMenu.SuspendLayout();
+            this.contextAppMenuOptions.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlForm
@@ -73,6 +78,8 @@
             // pnlMain
             // 
             this.pnlMain.AutoScroll = true;
+            this.pnlMain.Controls.Add(this.lnkGitHubRepo);
+            this.pnlMain.Controls.Add(this.lblAppOptionsFix);
             this.pnlMain.Controls.Add(this.lnkRunSetup);
             this.pnlMain.Controls.Add(this.btnAppOptions);
             this.pnlMain.Controls.Add(this.btnSettings);
@@ -84,13 +91,40 @@
             this.pnlMain.Controls.Add(this.lblTools);
             this.pnlMain.Controls.Add(this.cmbTools);
             this.pnlMain.Controls.Add(this.lblHeader);
-            this.pnlMain.Controls.Add(this.rtbLog);
             this.pnlMain.Controls.Add(this.tvwFeatures);
+            this.pnlMain.Controls.Add(this.rtbLog);
             this.pnlMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlMain.Location = new System.Drawing.Point(0, 0);
             this.pnlMain.Name = "pnlMain";
             this.pnlMain.Size = new System.Drawing.Size(1019, 801);
             this.pnlMain.TabIndex = 0;
+            // 
+            // lnkGitHubRepo
+            // 
+            this.lnkGitHubRepo.AutoEllipsis = true;
+            this.lnkGitHubRepo.Font = new System.Drawing.Font("Segoe UI Variable Text Semiligh", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lnkGitHubRepo.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
+            this.lnkGitHubRepo.LinkColor = System.Drawing.Color.HotPink;
+            this.lnkGitHubRepo.Location = new System.Drawing.Point(209, 112);
+            this.lnkGitHubRepo.Name = "lnkGitHubRepo";
+            this.lnkGitHubRepo.Size = new System.Drawing.Size(113, 23);
+            this.lnkGitHubRepo.TabIndex = 181;
+            this.lnkGitHubRepo.TabStop = true;
+            this.lnkGitHubRepo.Text = "Bloaty && Nosy";
+            this.lnkGitHubRepo.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lnkGitHubRepo_LinkClicked);
+            // 
+            // lblAppOptionsFix
+            // 
+            this.lblAppOptionsFix.AutoSize = true;
+            this.lblAppOptionsFix.BackColor = System.Drawing.Color.MediumVioletRed;
+            this.lblAppOptionsFix.Font = new System.Drawing.Font("Segoe UI Variable Text Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAppOptionsFix.ForeColor = System.Drawing.Color.White;
+            this.lblAppOptionsFix.Location = new System.Drawing.Point(360, 225);
+            this.lblAppOptionsFix.Name = "lblAppOptionsFix";
+            this.lblAppOptionsFix.Size = new System.Drawing.Size(25, 17);
+            this.lblAppOptionsFix.TabIndex = 180;
+            this.lblAppOptionsFix.Text = "Fix";
+            this.lblAppOptionsFix.Click += new System.EventHandler(this.lblAppOptionsFix_Click);
             // 
             // lnkRunSetup
             // 
@@ -114,9 +148,11 @@
             this.btnAppOptions.ForeColor = System.Drawing.Color.White;
             this.btnAppOptions.Location = new System.Drawing.Point(350, 213);
             this.btnAppOptions.Name = "btnAppOptions";
-            this.btnAppOptions.Size = new System.Drawing.Size(54, 42);
+            this.btnAppOptions.Padding = new System.Windows.Forms.Padding(0, 0, 5, 0);
+            this.btnAppOptions.Size = new System.Drawing.Size(62, 42);
             this.btnAppOptions.TabIndex = 178;
             this.btnAppOptions.Text = "...";
+            this.btnAppOptions.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnAppOptions.UseVisualStyleBackColor = false;
             this.btnAppOptions.Click += new System.EventHandler(this.btnAppOptions_Click);
             // 
@@ -144,22 +180,25 @@
             this.label1.Font = new System.Drawing.Font("Segoe UI Variable Text Semibold", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(47, 49);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(532, 43);
+            this.label1.Size = new System.Drawing.Size(575, 43);
             this.label1.TabIndex = 176;
-            this.label1.Text = "Welcome to the new era of Windows debloating";
+            this.label1.Text = "No more draw backs of upgrading to Windows 11 ";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             // 
             // btnKebapMenu
             // 
             this.btnKebapMenu.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnKebapMenu.FlatAppearance.BorderSize = 0;
+            this.btnKebapMenu.FlatAppearance.MouseOverBackColor = System.Drawing.Color.WhiteSmoke;
             this.btnKebapMenu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnKebapMenu.Font = new System.Drawing.Font("Segoe Fluent Icons", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnKebapMenu.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.btnKebapMenu.Location = new System.Drawing.Point(977, 0);
+            this.btnKebapMenu.Location = new System.Drawing.Point(970, 0);
             this.btnKebapMenu.Name = "btnKebapMenu";
             this.btnKebapMenu.Size = new System.Drawing.Size(42, 38);
             this.btnKebapMenu.TabIndex = 175;
             this.btnKebapMenu.Text = "...";
+            this.btnKebapMenu.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btnKebapMenu.UseVisualStyleBackColor = true;
             this.btnKebapMenu.Click += new System.EventHandler(this.btnMenu_Click);
             // 
@@ -174,7 +213,7 @@
             this.btnAnalyze.Name = "btnAnalyze";
             this.btnAnalyze.Size = new System.Drawing.Size(286, 42);
             this.btnAnalyze.TabIndex = 27;
-            this.btnAnalyze.Text = "Analyze";
+            this.btnAnalyze.Text = "Analyze Windows 11 ";
             this.btnAnalyze.UseVisualStyleBackColor = false;
             this.btnAnalyze.Click += new System.EventHandler(this.btnAnalyze_Click);
             // 
@@ -245,29 +284,9 @@
             this.lblHeader.Name = "lblHeader";
             this.lblHeader.Size = new System.Drawing.Size(843, 59);
             this.lblHeader.TabIndex = 16;
-            this.lblHeader.Text = "Windows 11 is too bloaty && nosey and has some annoying features that just need t" +
-    "o go.\r\nThis app will scan your system and inform you which features it likes or " +
-    "dislikes in your configuration.";
-            // 
-            // rtbLog
-            // 
-            this.rtbLog.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.rtbLog.BackColor = System.Drawing.Color.White;
-            this.rtbLog.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.rtbLog.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.rtbLog.Font = new System.Drawing.Font("Segoe UI Variable Text Semiligh", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rtbLog.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.rtbLog.HideSelection = false;
-            this.rtbLog.Location = new System.Drawing.Point(72, 305);
-            this.rtbLog.Name = "rtbLog";
-            this.rtbLog.ReadOnly = true;
-            this.rtbLog.Size = new System.Drawing.Size(861, 360);
-            this.rtbLog.TabIndex = 138;
-            this.rtbLog.Text = "";
-            this.rtbLog.Visible = false;
-            this.rtbLog.LinkClicked += new System.Windows.Forms.LinkClickedEventHandler(this.richLog_LinkClicked);
+            this.lblHeader.Text = "Windows 11 is too                        and has some annoying features that just" +
+    " need to go.\r\nThis app will scan your system and inform you which features it li" +
+    "kes or dislikes in your configuration.";
             // 
             // tvwFeatures
             // 
@@ -291,6 +310,27 @@
             this.tvwFeatures.TabIndex = 168;
             this.tvwFeatures.Visible = false;
             this.tvwFeatures.AfterCheck += new System.Windows.Forms.TreeViewEventHandler(this.treeFeatures_AfterCheck);
+            this.tvwFeatures.MouseUp += new System.Windows.Forms.MouseEventHandler(this.tvwFeatures_MouseUp);
+            // 
+            // rtbLog
+            // 
+            this.rtbLog.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.rtbLog.BackColor = System.Drawing.Color.White;
+            this.rtbLog.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.rtbLog.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.rtbLog.Font = new System.Drawing.Font("Segoe UI Variable Text Semiligh", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rtbLog.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.rtbLog.HideSelection = false;
+            this.rtbLog.Location = new System.Drawing.Point(72, 305);
+            this.rtbLog.Name = "rtbLog";
+            this.rtbLog.ReadOnly = true;
+            this.rtbLog.Size = new System.Drawing.Size(861, 360);
+            this.rtbLog.TabIndex = 138;
+            this.rtbLog.Text = "";
+            this.rtbLog.Visible = false;
+            this.rtbLog.LinkClicked += new System.Windows.Forms.LinkClickedEventHandler(this.richLog_LinkClicked);
             // 
             // contextKebapMenu
             // 
@@ -351,7 +391,7 @@
             // 
             this.menuFix.Name = "menuFix";
             this.menuFix.Size = new System.Drawing.Size(360, 32);
-            this.menuFix.Text = "Fix problems";
+            this.menuFix.Text = "Apply fixes";
             this.menuFix.Click += new System.EventHandler(this.menuFix_Click);
             // 
             // menuFixInfo
@@ -369,7 +409,7 @@
             // 
             this.menuRestore.Name = "menuRestore";
             this.menuRestore.Size = new System.Drawing.Size(360, 32);
-            this.menuRestore.Text = "Restore settings";
+            this.menuRestore.Text = "Restore default state";
             this.menuRestore.TextDirection = System.Windows.Forms.ToolStripTextDirection.Horizontal;
             this.menuRestore.Click += new System.EventHandler(this.menuRestore_Click);
             // 
@@ -382,7 +422,24 @@
             this.menuRestoreInfo.Margin = new System.Windows.Forms.Padding(5, 1, 1, 1);
             this.menuRestoreInfo.Name = "menuRestoreInfo";
             this.menuRestoreInfo.Size = new System.Drawing.Size(300, 16);
-            this.menuRestoreInfo.Text = "This will restore the default settings ";
+            this.menuRestoreInfo.Text = "This will restore the default settings  ";
+            // 
+            // contextAppMenuOptions
+            // 
+            this.contextAppMenuOptions.BackColor = System.Drawing.SystemColors.Control;
+            this.contextAppMenuOptions.Font = new System.Drawing.Font("Segoe UI Variable Text Semiligh", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.contextAppMenuOptions.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.menuAppConfigure});
+            this.contextAppMenuOptions.Name = "menuMain";
+            this.contextAppMenuOptions.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
+            this.contextAppMenuOptions.Size = new System.Drawing.Size(208, 30);
+            // 
+            // menuAppConfigure
+            // 
+            this.menuAppConfigure.Name = "menuAppConfigure";
+            this.menuAppConfigure.Size = new System.Drawing.Size(207, 26);
+            this.menuAppConfigure.Text = "Configure this app";
+            this.menuAppConfigure.Click += new System.EventHandler(this.menuAppConfigure_Click);
             // 
             // MainForm
             // 
@@ -391,6 +448,7 @@
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1019, 801);
             this.Controls.Add(this.pnlForm);
+            this.MinimumSize = new System.Drawing.Size(700, 700);
             this.Name = "MainForm";
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -402,6 +460,7 @@
             this.contextKebapMenu.ResumeLayout(false);
             this.contextAppMenu.ResumeLayout(false);
             this.contextAppMenu.PerformLayout();
+            this.contextAppMenuOptions.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -432,6 +491,10 @@
         private System.Windows.Forms.ToolStripMenuItem menuImportProfile;
         private System.Windows.Forms.LinkLabel lnkRunSetup;
         private System.Windows.Forms.ToolStripMenuItem menuExportProfile;
+        private System.Windows.Forms.ContextMenuStrip contextAppMenuOptions;
+        private System.Windows.Forms.ToolStripMenuItem menuAppConfigure;
+        private System.Windows.Forms.Label lblAppOptionsFix;
+        private System.Windows.Forms.LinkLabel lnkGitHubRepo;
     }
 }
 

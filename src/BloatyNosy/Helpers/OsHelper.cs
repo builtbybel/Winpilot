@@ -1,13 +1,14 @@
 ﻿using Microsoft.Win32;
 using System;
+using System.Windows.Forms;
 
 namespace HelperTool
 {
     public static class OsHelper
     {
-        public static readonly string thisOS = GetSupportedOS() + "\x20" + GetVersion();
+        public static readonly string thisOS = IsWin11() + "\x20" + GetVersion();
 
-        public static string GetSupportedOS()
+        public static bool IsWin11()
         {
             try
             {
@@ -15,11 +16,12 @@ namespace HelperTool
                 int osbuild = Convert.ToInt32(key.GetValue("CurrentBuildNumber"));
                 if (osbuild >= 21996)
                 {
-                    return "Windows 11";
+                    return true;
                 }
             }
-            catch { }
-            return "Windows 10";
+            catch (Exception ex)
+            { MessageBox.Show(ex.Message); }
+            return false;
         }
 
         public static string GetVersion()

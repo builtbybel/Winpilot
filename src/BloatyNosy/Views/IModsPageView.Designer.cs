@@ -31,7 +31,7 @@
             this.btnBack = new System.Windows.Forms.Button();
             this.lnkNoModsSig = new System.Windows.Forms.LinkLabel();
             this.lblHeader = new System.Windows.Forms.Label();
-            this.listView = new System.Windows.Forms.ListView();
+            this.lvMods = new System.Windows.Forms.ListView();
             this.btnInstall = new System.Windows.Forms.Button();
             this.progress = new System.Windows.Forms.ProgressBar();
             this.label1 = new System.Windows.Forms.Label();
@@ -80,31 +80,32 @@
             this.lblHeader.TabIndex = 205;
             this.lblHeader.Text = "WinModder Marketplace";
             // 
-            // listView
+            // lvMods
             // 
-            this.listView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.lvMods.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.listView.BackColor = System.Drawing.SystemColors.Control;
-            this.listView.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.listView.CheckBoxes = true;
-            this.listView.Font = new System.Drawing.Font("Segoe UI Variable Text Semiligh", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.listView.FullRowSelect = true;
-            this.listView.HideSelection = false;
-            this.listView.Location = new System.Drawing.Point(92, 85);
-            this.listView.Name = "listView";
-            this.listView.OwnerDraw = true;
-            this.listView.Size = new System.Drawing.Size(802, 326);
-            this.listView.TabIndex = 206;
-            this.listView.UseCompatibleStateImageBehavior = false;
-            this.listView.View = System.Windows.Forms.View.Details;
-            this.listView.DrawColumnHeader += new System.Windows.Forms.DrawListViewColumnHeaderEventHandler(this.listView_DrawColumnHeader);
-            this.listView.DrawItem += new System.Windows.Forms.DrawListViewItemEventHandler(this.listView_DrawItem);
+            this.lvMods.BackColor = System.Drawing.SystemColors.Control;
+            this.lvMods.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.lvMods.CheckBoxes = true;
+            this.lvMods.Font = new System.Drawing.Font("Segoe UI Variable Text Semiligh", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lvMods.FullRowSelect = true;
+            this.lvMods.HideSelection = false;
+            this.lvMods.Location = new System.Drawing.Point(92, 85);
+            this.lvMods.Name = "lvMods";
+            this.lvMods.OwnerDraw = true;
+            this.lvMods.Size = new System.Drawing.Size(802, 326);
+            this.lvMods.TabIndex = 206;
+            this.lvMods.UseCompatibleStateImageBehavior = false;
+            this.lvMods.View = System.Windows.Forms.View.Details;
+            this.lvMods.DrawColumnHeader += new System.Windows.Forms.DrawListViewColumnHeaderEventHandler(this.listView_DrawColumnHeader);
+            this.lvMods.DrawItem += new System.Windows.Forms.DrawListViewItemEventHandler(this.listView_DrawItem);
             // 
             // btnInstall
             // 
             this.btnInstall.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnInstall.BackColor = System.Drawing.Color.MediumVioletRed;
+            this.btnInstall.Enabled = false;
             this.btnInstall.FlatAppearance.BorderColor = System.Drawing.Color.Orchid;
             this.btnInstall.FlatAppearance.BorderSize = 0;
             this.btnInstall.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -164,7 +165,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.progress);
             this.Controls.Add(this.btnInstall);
-            this.Controls.Add(this.listView);
+            this.Controls.Add(this.lvMods);
             this.Controls.Add(this.lblHeader);
             this.Controls.Add(this.lnkNoModsSig);
             this.Controls.Add(this.btnBack);
@@ -179,7 +180,7 @@
         private System.Windows.Forms.Button btnBack;
         private System.Windows.Forms.LinkLabel lnkNoModsSig;
         private System.Windows.Forms.Label lblHeader;
-        private System.Windows.Forms.ListView listView;
+        private System.Windows.Forms.ListView lvMods;
         private System.Windows.Forms.Button btnInstall;
         private System.Windows.Forms.ProgressBar progress;
         private System.Windows.Forms.Label label1;

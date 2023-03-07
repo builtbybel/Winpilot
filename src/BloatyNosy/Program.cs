@@ -15,10 +15,17 @@ namespace BloatyNosy
         /// </summary>
         [STAThread]
         private static void Main()
-        {
+           {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new MainForm());
+
+            if (!HelperTool.OsHelper.IsWin11())
+            {
+                MessageBox.Show("You are running Bloaty&Nosy on a system older than Windows 11.\nBloatyNosy is limited to Windows 11 ONLY.", "OS not supported", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                Application.Exit();
+            }
+            else Application.Run(new MainForm());
+
         }
     }
 }

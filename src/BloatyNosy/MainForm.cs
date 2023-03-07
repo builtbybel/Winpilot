@@ -3,6 +3,7 @@ using Features.Feature;
 using HelperTool;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Linq;
@@ -36,7 +37,7 @@ namespace BloatyNosy
             btnAppOptions.Text = "\uE70D";
             btnKebapMenu.Text = "\u22ee";
             btnSettings.Text = "\uE713";
-            btnAnalyze.Text += "\x20" + OsHelper.thisOS;
+            btnAnalyze.Text += OsHelper.GetVersion();
 
             BackColor =
             tvwFeatures.BackColor =
@@ -356,7 +357,7 @@ namespace BloatyNosy
             }
 
             DoProgress(100);
-            lnkSubHeader.Text = "";
+            lnkSubHeader.Text = "Fixing complete (click for details).";
 
             tvwFeatures.Enabled = true;
         }
@@ -377,7 +378,7 @@ namespace BloatyNosy
             }
 
             DoProgress(100);
-            lnkSubHeader.Text = "";
+            lnkSubHeader.Text = "Undo complete (click for details).";
 
             tvwFeatures.Enabled = true;
         }
@@ -386,19 +387,21 @@ namespace BloatyNosy
         {
             if (string.IsNullOrWhiteSpace(rtbLog.Text))
             {
-                MessageBox.Show("No analyze has taken place yet.");
-                return;
+                btnAnalyze.Text = "Click here to analyze first";
             }
 
-            Reset();
+            if (MessageBox.Show("Do you want to apply selected fixes?", this.Text, MessageBoxButtons.YesNo, MessageBoxIcon.Information, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
+            {
+                Reset();
 
-            List<FeatureNode> performNodes = CollectFeatureNodes();
-            ApplyFeatures(performNodes);
+                List<FeatureNode> performNodes = CollectFeatureNodes();
+                ApplyFeatures(performNodes);
+            }
         }
 
         private void menuRestore_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("Do you want to restore selected features to Windows default state?", this.Text, MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
+            if (MessageBox.Show("Do you want to restore selected fixes to Windows default state?", this.Text, MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
             {
                 Reset();
 
@@ -451,6 +454,11 @@ namespace BloatyNosy
         private void lnkSubHeader_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
             => menuAdvanced.PerformClick();
 
+        private void lblAppOptionsFix_Click(object sender, EventArgs e)
+            => btnAppOptions.PerformClick();
+
+        private void lnkGitHubRepo_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+            => Process.Start(Utils.Uri.URL_GITREPO);
         private void menuImportProfile_Click(object sender, EventArgs e)
         {
             OpenFileDialog f = new OpenFileDialog();
@@ -489,7 +497,7 @@ namespace BloatyNosy
         {
             SaveFileDialog f = new SaveFileDialog();
             f.InitialDirectory = HelperTool.Utils.Data.DataRootDir;
-            f.FileName = "debloos-profile";
+            f.FileName = "BloatyNosy-profile";
             f.Filter = "BloatyNosy files *.bloos|*.bloos";
 
             if (f.ShowDialog() == DialogResult.OK)
@@ -506,6 +514,35 @@ namespace BloatyNosy
                     writer.Close();
                 }
                 MessageBox.Show("Profile has been successfully exported.", this.Text, MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+
+        private void tvwFeatures_MouseUp(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Right)
+            {
+                tvwFeatures.SelectedNode = tvwFeatures.GetNodeAt(e.X, e.Y);
+
+                // Configure .app-entries marked with asterix
+                if (tvwFeatures.SelectedNode != null && tvwFeatures.SelectedNode.Text.Contains("*"))
+                {
+                    contextAppMenuOptions.Show(tvwFeatures, e.Location);
+                }
+            }
+        }
+
+        private void menuAppConfigure_Click(object sender, EventArgs e)
+        {
+            TreeNode tn = tvwFeatures.SelectedNode;
+
+            switch (tn.Text)
+            {
+                case "*[HIGH] Search and remove pre-installed bloatware apps automatically (Right-click to remove bloatware manually)":
+                    this.SetView(new AppsPageView());                // In-box apps > BloatFinder view
+                    break;
+
+                default:
+                    break;
             }
         }
     }

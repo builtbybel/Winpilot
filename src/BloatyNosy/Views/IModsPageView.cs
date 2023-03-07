@@ -19,6 +19,7 @@ namespace BloatyNosy
             modsForm = ctr as ModsPageView;
 
             InitializeComponent();
+
             InitializeModsSignature();
 
             SetStyle();
@@ -26,17 +27,17 @@ namespace BloatyNosy
 
         private void SetStyle()
         {
-            listView.BackColor = Color.FromArgb(245, 241, 249);
+            lvMods.BackColor = Color.FromArgb(245, 241, 249);
             btnBack.Text = "\uE72B";
         }
 
         private void InitializeModsSignature()
         {
             // Add required columns
-            listView.Columns.Add("Name");
-            listView.Columns.Add("Description");
-            listView.Columns.Add("Developer");
-            listView.Columns.Add("Link");
+            lvMods.Columns.Add("Name");
+            lvMods.Columns.Add("Description");
+            lvMods.Columns.Add("Developer");
+            lvMods.Columns.Add("Link");
 
             try
             {
@@ -52,25 +53,26 @@ namespace BloatyNosy
                     dm.Element("uri").Value,
                     });
 
-                    listView.Items.Add(item);
+                    lvMods.Items.Add(item);
 
-                    listView.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
-                    listView.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
+                    lvMods.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
+                    lvMods.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
                 }
 
                 isFeatureInstalled();
+                btnInstall.Enabled = (lvMods.Items.Count > 0);
             }
             catch
             {
                 MessageBox.Show("Mods signature file not found.\nPlease re-download and install the signatures.");
-                listView.Visible = false;
+                lvMods.Visible = false;
                 lnkNoModsSig.Visible = true;
             }
         }
 
         public void isFeatureInstalled()
         {
-            foreach (ListViewItem item in listView.Items)
+            foreach (ListViewItem item in lvMods.Items)
             {
                 var feature = item.SubItems[3].Text;
                 if (File.Exists(HelperTool.Utils.Data.DataRootDir + feature.Split('/').Last())
@@ -105,9 +107,10 @@ namespace BloatyNosy
 
                     progress.Visible = false;
 
-                    MessageBox.Show("We will restart the app to complete the installation.", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    Application.Restart();
-                    Environment.Exit(0);
+                    // Update IMods page
+                    btnBack.PerformClick();
+                    modsForm.lnkExploreMods_LinkClicked(sender, e);
+              
                 }
             }
             catch (Exception ex)
@@ -118,7 +121,7 @@ namespace BloatyNosy
         {
             bool bNeedRestart = false;
 
-            if (listView.CheckedItems.Count == 0)
+            if (lvMods.CheckedItems.Count == 0)
             {
                 MessageBox.Show("No feature selected.", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
@@ -126,7 +129,7 @@ namespace BloatyNosy
 
             StringBuilder builder = new StringBuilder();
 
-            foreach (ListViewItem eachItem in listView.CheckedItems)
+            foreach (ListViewItem eachItem in lvMods.CheckedItems)
             {
                 List<string> list = new List<string>(eachItem.SubItems[3].Text.Split(new string[] { "," }, StringSplitOptions.RemoveEmptyEntries));
 
@@ -155,7 +158,7 @@ namespace BloatyNosy
                         }
                         catch (Exception ex)
                         {
-                            MessageBox.Show(ex.Message, listView.FocusedItem.Text, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            MessageBox.Show(ex.Message, lvMods.FocusedItem.Text, MessageBoxButtons.OK, MessageBoxIcon.Error);
                             return;
                         }
                     }

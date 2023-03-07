@@ -231,7 +231,7 @@ namespace BloatyNosy
         private void rtbDesc_LinkClicked(object sender, LinkClickedEventArgs e)
              => HelperTool.Utils.LaunchUri(e.LinkText);
 
-        private void lnkExploreMods_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        public void lnkExploreMods_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
             => this.SetView(new IModsPageView(this));
 
         private void lnkDesc_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
