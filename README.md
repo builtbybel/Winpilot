@@ -7,7 +7,7 @@ _Universal Debloater and PC Manager for the most up-to-date version of the Redmo
 [<img alt="alt_text" width="240px" src="https://upload.wikimedia.org/wikipedia/commons/f/f7/Get_it_from_Microsoft_Badge.svg" href=""/>](https://apps.microsoft.com/store/detail/XPDCJG88N6FD16) 
 
 Microsoft Store (Recommended)
-The app is distributed within the App [App Installer](ms-windows-store://pdp/?productid=XPDCJG88N6FD16) package.
+The app is distributed within the [App Installer](https://apps.microsoft.com/store/detail/XPDCJG88N6FD16) package.
 <br>
 _You can also download BloatyNosy directly from the [GitHub releases page](https://github.com/builtbybel/BloatyNosy/releases)_
 
