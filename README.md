@@ -4,7 +4,7 @@
 **Universal Debloater and PC Manager for the most up-to-date version of the Redmond OS (Windows 11)**
 
 ### Download
-[<img alt="alt_text" width="240px" src="https://upload.wikimedia.org/wikipedia/commons/f/f7/Get_it_from_Microsoft_Badge.svg" href=""/>](ms-windows-store://pdp/?productid=XPDCJG88N6FD16)
+[<img alt="alt_text" width="240px" src="https://upload.wikimedia.org/wikipedia/commons/f/f7/Get_it_from_Microsoft_Badge.svg" href=""/>](https://apps.microsoft.com/store/detail/XPDCJG88N6FD16) 
 
 Windows 11 has a gazillion toggles and settings options. And general users don’t know where to find most of these features, what to make of them, and which setting to enable or disable. **BloatyNosy** streamlines and houses all the essential settings under one app and allows you to disable and remove unnecessary features with just a simple click. 
 
