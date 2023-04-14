@@ -14,13 +14,13 @@
        <Mod>
      <id>Clear event logs</id>
 	 <description>This mod will clear System events and errors stored in event logs</description>
-	<dev>gunnarhaslinger</dev>
+	<dev>Builtbybel</dev>
     <uri>https://raw.githubusercontent.com/builtbybel/BloatyNosy/main/mods/Clear%20event%20logs.ini,https://raw.githubusercontent.com/builtbybel/BloatyNosy/main/mods/clear-event_logs.ps1</uri>
    </Mod>
           <Mod>
      <id>Chris Titus Tech's Windows Utility - Install Programs, Tweaks, Fixes, and Updates</id>
 	 <description>Debloating Script from Chris Titus Tech. It has a few extras that complement BloatyNosy well and works for both windows 10 and 11</description>
-	<dev>gunnarhaslinger</dev>
+	<dev>Chris Titus</dev>
     <uri>https://raw.githubusercontent.com/builtbybel/BloatyNosy/main/mods/Chris%20Titus%20WinUtil.ini,https://raw.githubusercontent.com/builtbybel/BloatyNosy/main/mods/ChrisTitusApp.ps1</uri>
    </Mod>
        <Mod>
