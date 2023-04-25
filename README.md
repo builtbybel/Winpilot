@@ -1,6 +1,7 @@
 # No more draw backs of upgrading to Windows 11 with - Bloaty 'Nosy (Bloaty & Nosy) -
 
 ![screenshot](https://github.com/builtbybel/BloatyNosy/blob/main/assets/bloatynosy.png?raw=true)
+
 _Universal Debloater and PC Manager for the most up-to-date version of the Redmond OS (Windows 11)_
 
 ### Microsoft store installation
