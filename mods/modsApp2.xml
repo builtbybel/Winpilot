@@ -14,15 +14,33 @@
        <Mod>
      <id>Clear event logs</id>
 	 <description>This mod will clear System events and errors stored in event logs</description>
-	<dev>gunnarhaslinger</dev>
+	<dev>Builtbybel</dev>
     <uri>https://raw.githubusercontent.com/builtbybel/BloatyNosy/main/mods/Clear%20event%20logs.ini,https://raw.githubusercontent.com/builtbybel/BloatyNosy/main/mods/clear-event_logs.ps1</uri>
    </Mod>
+          <Mod>
+     <id>Chris Titus Tech's Windows Utility - Install Programs, Tweaks, Fixes, and Updates</id>
+	 <description>Debloating Script from Chris Titus Tech. It has a few extras that complement BloatyNosy well and works for both windows 10 and 11</description>
+	<dev>Chris Titus</dev>
+    <uri>https://raw.githubusercontent.com/builtbybel/BloatyNosy/main/mods/Chris%20Titus%20WinUtil.ini,https://raw.githubusercontent.com/builtbybel/BloatyNosy/main/mods/ChrisTitusApp.ps1</uri>
+   </Mod>
        <Mod>
-     <id>Recommended configuration profile for BloatyNosy</id>
+     <id>Recommended OOBE preset file for BloatyNosy</id>
 	 <description>Goto main page > Kebap menu > Import profile (from apps directory of BloatyNosy) to import this configuration</description>
 	<dev>Builtbybel</dev>
-    <uri>https://raw.githubusercontent.com/builtbybel/BloatyNosy/main/assets/bloatynosy-recommended_profile.bloos</uri>
+    <uri>https://raw.githubusercontent.com/builtbybel/BloatyNosy/main/assets/OOBE_Profile.bloos</uri>
    </Mod>
+       <Mod>
+     <id>Gaming preset file for BloatyNosy</id>
+	 <description>Recommended settings for a better Gaming Experience</description>
+	<dev>Builtbybel</dev>
+    <uri>https://raw.githubusercontent.com/builtbybel/BloatyNosy/main/assets/Gaming_Profile.bloos</uri>
+   </Mod>
+      <Mod>
+     <id>Debloat preset file for BloatyNosy</id>
+	 <description>This will load a fast debloating preset that will allow you to automatically debloat your system</description>
+	<dev>Builtbybel</dev>
+    <uri>https://raw.githubusercontent.com/builtbybel/BloatyNosy/main/assets/Just-Debloat.bloos</uri>
+   </Mod> 
      <Mod>
      <id>Offline packages template for InstaPackage</id>
 	 <description>Allows creating custom installation packages. To do this, open file "InstaPackage.app" in apps directory of BloatyNosy with any editor and add your Winget packages. (Support from version 0.32)</description>
