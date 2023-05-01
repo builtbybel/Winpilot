@@ -51,7 +51,7 @@ namespace Features.Feature.Taskbar
                 var RegKey = Registry.LocalMachine.OpenSubKey(@"SOFTWARE\Policies\Microsoft\Windows\Explorer", true);
                 RegKey.DeleteValue("ShowOrHideMostUsedApps");
 
-                logger.Log("- Most Used Apps has been set to default behavior.");
+                logger.Log("+ Most Used Apps has been set to default behavior.");
                 return true;
             }
             catch

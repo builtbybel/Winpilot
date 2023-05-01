@@ -59,7 +59,7 @@ namespace Features.Feature.System
             {
                 Registry.SetValue(keyName, "com.squirrel.Teams.Teams", desiredValue, RegistryValueKind.String);
 
-                logger.Log("- Teams AutoStart has been enabled again.");
+                logger.Log("+ Teams AutoStart has been enabled again.");
                 logger.Log(keyName);
                 return true;
             }

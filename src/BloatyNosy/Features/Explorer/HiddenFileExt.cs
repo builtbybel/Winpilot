@@ -49,7 +49,7 @@ namespace Features.Feature.Explorer
             try
             {
                 Registry.SetValue(keyName, "HideFileExt", 1, RegistryValueKind.DWord);
-                logger.Log("- File name extensions are now hidden again.");
+                logger.Log("+ File name extensions are now hidden again.");
                 return true;
             }
             catch

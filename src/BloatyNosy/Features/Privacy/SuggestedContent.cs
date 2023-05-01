@@ -58,7 +58,7 @@ namespace Features.Feature.Privacy
                 Registry.SetValue(keyName2, "SubscribedContent-353694Enabled", 1, RegistryValueKind.DWord);
                 Registry.SetValue(keyName3, "SubscribedContent-353696Enabled", 1, RegistryValueKind.DWord);
 
-                logger.Log("- Suggested content in Settings app has been successfully enabled.");
+                logger.Log("+ Suggested content in Settings app has been successfully enabled.");
                 logger.Log(keyName + Environment.NewLine + keyName2 + Environment.NewLine + keyName3);
                 return true;
             }

@@ -51,7 +51,7 @@ namespace Features.Feature.Gaming
             {
                 Registry.SetValue(keyName, "VisualFXSetting", 0, RegistryValueKind.DWord);
 
-                logger.Log("- Visual effects has been set to default choosing Windows what's best for your computer.");
+                logger.Log("+ Visual effects has been set to default choosing Windows what's best for your computer.");
                 logger.Log(keyName);
                 return true;
             }

@@ -49,7 +49,7 @@ namespace Features.Feature.Privacy
             try
             {
                 Registry.SetValue(keyName, "TailoredExperiencesWithDiagnosticDataEnabled", 1, RegistryValueKind.DWord);
-                logger.Log("- Diagnostic data has been successfully enabled.");
+                logger.Log("+ Diagnostic data has been successfully enabled.");
                 return true;
             }
             catch

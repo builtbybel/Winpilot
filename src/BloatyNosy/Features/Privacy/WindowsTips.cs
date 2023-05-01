@@ -49,7 +49,7 @@ namespace Features.Feature.Privacy
             try
             {
                 Registry.SetValue(keyName, "SubscribedContent-338393Enabled", 1, RegistryValueKind.DWord);
-                logger.Log("- Windows 11 tips has been successfully enabled.");
+                logger.Log("+ Windows 11 tips has been successfully enabled.");
                 return true;
             }
             catch

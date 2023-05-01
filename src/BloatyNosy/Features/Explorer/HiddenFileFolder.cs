@@ -49,7 +49,7 @@ namespace Features.Feature.Explorer
             try
             {
                 Registry.SetValue(keyName, "Hidden", 2, RegistryValueKind.DWord);
-                logger.Log("- Files, folders and drives are now hidden again.");
+                logger.Log("+ Files, folders and drives are now hidden again.");
                 return true;
             }
             catch

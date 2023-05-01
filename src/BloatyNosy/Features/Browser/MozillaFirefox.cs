@@ -51,7 +51,7 @@ namespace Features.Feature.Browser
             try
             {
                 Registry.LocalMachine.DeleteSubKeyTree(@"Policies\Mozilla\Firefox", false);
-                logger.Log(" Mozilla Firefox Telemetry has been enabled.");
+                logger.Log("+ Mozilla Firefox Telemetry has been enabled.");
                 return true;
             }
             catch

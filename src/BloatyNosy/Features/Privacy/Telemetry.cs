@@ -70,7 +70,7 @@ namespace Features.Feature.Privacy
                 WindowsHelper.EnableService("DiagTrack");
                 WindowsHelper.EnableService("dmwappushservice");
 
-                logger.Log("- Connected User Experiences and Telemetry has been successfully enabled.");
+                logger.Log("+ Connected User Experiences and Telemetry has been successfully enabled.");
                 logger.Log(dataCollection + Environment.NewLine + diagTrack + Environment.NewLine + dmwappushservice);
                 return true;
             }

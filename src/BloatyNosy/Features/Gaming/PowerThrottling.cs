@@ -52,7 +52,7 @@ namespace Features.Feature.Gaming
                 var RegKey = Registry.LocalMachine.OpenSubKey(@"SYSTEM\CurrentControlSet\Control\Power\PowerThrottling", true);
                 RegKey.DeleteValue("PowerThrottlingOff");
 
-                logger.Log("- PowerThrottling has been successfully enabled.");
+                logger.Log("+ PowerThrottling has been successfully enabled.");
                 logger.Log(keyName);
                 return true;
             }

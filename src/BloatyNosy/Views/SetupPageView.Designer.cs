@@ -76,7 +76,7 @@
             this.btnHome.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.btnHome.Font = new System.Drawing.Font("Segoe UI Variable Text Semiligh", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnHome.ForeColor = System.Drawing.Color.Black;
-            this.btnHome.Location = new System.Drawing.Point(669, 728);
+            this.btnHome.Location = new System.Drawing.Point(669, 750);
             this.btnHome.Name = "btnHome";
             this.btnHome.Size = new System.Drawing.Size(89, 29);
             this.btnHome.TabIndex = 182;
@@ -91,7 +91,7 @@
             this.btnNext.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.btnNext.Font = new System.Drawing.Font("Segoe UI Variable Text", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnNext.ForeColor = System.Drawing.Color.White;
-            this.btnNext.Location = new System.Drawing.Point(859, 728);
+            this.btnNext.Location = new System.Drawing.Point(859, 750);
             this.btnNext.Name = "btnNext";
             this.btnNext.Size = new System.Drawing.Size(89, 29);
             this.btnNext.TabIndex = 183;
@@ -106,7 +106,7 @@
             this.btnPrev.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.btnPrev.Font = new System.Drawing.Font("Segoe UI Variable Text Semiligh", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPrev.ForeColor = System.Drawing.Color.Black;
-            this.btnPrev.Location = new System.Drawing.Point(764, 728);
+            this.btnPrev.Location = new System.Drawing.Point(764, 750);
             this.btnPrev.Name = "btnPrev";
             this.btnPrev.Size = new System.Drawing.Size(89, 29);
             this.btnPrev.TabIndex = 184;
@@ -120,7 +120,7 @@
             this.cbTable.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbTable.Font = new System.Drawing.Font("Segoe UI Variable Text Semiligh", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbTable.FormattingEnabled = true;
-            this.cbTable.Location = new System.Drawing.Point(102, 734);
+            this.cbTable.Location = new System.Drawing.Point(55, 756);
             this.cbTable.Name = "cbTable";
             this.cbTable.Size = new System.Drawing.Size(121, 23);
             this.cbTable.TabIndex = 185;
@@ -172,7 +172,7 @@
             this.lnkCustomize.Font = new System.Drawing.Font("Segoe UI Variable Text Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lnkCustomize.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
             this.lnkCustomize.LinkColor = System.Drawing.Color.DeepPink;
-            this.lnkCustomize.Location = new System.Drawing.Point(553, 493);
+            this.lnkCustomize.Location = new System.Drawing.Point(554, 481);
             this.lnkCustomize.Name = "lnkCustomize";
             this.lnkCustomize.Size = new System.Drawing.Size(177, 20);
             this.lnkCustomize.TabIndex = 191;
@@ -187,7 +187,7 @@
             this.lnkConfigure.Font = new System.Drawing.Font("Segoe UI Variable Text Semiligh", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lnkConfigure.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
             this.lnkConfigure.LinkColor = System.Drawing.Color.DeepPink;
-            this.lnkConfigure.Location = new System.Drawing.Point(553, 528);
+            this.lnkConfigure.Location = new System.Drawing.Point(554, 516);
             this.lnkConfigure.Name = "lnkConfigure";
             this.lnkConfigure.Size = new System.Drawing.Size(126, 20);
             this.lnkConfigure.TabIndex = 192;

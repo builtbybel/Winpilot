@@ -249,5 +249,11 @@ namespace BloatyNosy
             mainForm.pnlForm.Controls.Clear();
             if (mainForm.INavPage != null) mainForm.pnlForm.Controls.Add(mainForm.INavPage);
         }
+
+        private void menuModOpenDir_Click(object sender, EventArgs e)
+        {
+             Process.Start(new ProcessStartInfo("explorer.exe", HelperTool.Utils.Data.ModsRootDir) { UseShellExecute = true });
+        }
+
     }
 }

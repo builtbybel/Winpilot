@@ -48,7 +48,7 @@ namespace Features.Feature.System
             try
             {
                 Registry.CurrentUser.DeleteSubKeyTree(@"Software\Classes\CLSID\{86ca1aa0-34aa-4e8b-a509-50c905bae2a2}", false);
-
+                logger.Log("+ Truncated context menus has been enabled.");
                 return true;
             }
             catch

@@ -49,7 +49,7 @@ namespace Features.Feature.Privacy
             try
             {
                 Registry.SetValue(keyName, "TailoredExperiencesWithDiagnosticDataEnabled", 1, RegistryValueKind.DWord);
-                logger.Log("- Tailored experiences has been successfully enabled.");
+                logger.Log("+ Tailored experiences has been successfully enabled.");
                 return true;
             }
             catch

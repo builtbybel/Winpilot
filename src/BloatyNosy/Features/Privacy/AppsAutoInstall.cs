@@ -50,7 +50,7 @@ namespace Features.Feature.Privacy
             try
             {
                 Registry.SetValue(keyName, "SilentInstalledAppsEnabled", 1, RegistryValueKind.DWord);
-                logger.Log("- Automatic Installation of apps has been successfully enabled.");
+                logger.Log("+ Automatic Installation of apps has been successfully enabled.");
                 return true;
             }
             catch

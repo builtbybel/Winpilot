@@ -48,7 +48,7 @@ namespace Features.Feature.Recommendation
             powerShell.AddScript(script);
             powerShell.Invoke();
 
-            logger.Log("- Microsoft Windows Subsystem for Linux has been successfully enabled.");
+            logger.Log("+ Microsoft Windows Subsystem for Linux has been successfully enabled.");
             return true;
         }
 

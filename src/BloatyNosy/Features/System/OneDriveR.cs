@@ -66,7 +66,7 @@ namespace Features.Feature.System
             {
                 using (var client = new WebClient())
                 {
-                    logger.Log("We've opened the download link in your Browser.\n\nPlease install the package \"OneDrive\". ");
+                    logger.Log("= We've opened the download link in your Browser.\n\nPlease install the package \"OneDrive\". ");
                     Process.Start("https://www.microsoft.com/microsoft-365/onedrive/download");
 
                     return true;

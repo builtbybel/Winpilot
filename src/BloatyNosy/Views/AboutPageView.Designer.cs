@@ -207,13 +207,17 @@
             // 
             // btnAppMediaTweetIntent
             // 
-            this.btnAppMediaTweetIntent.Font = new System.Drawing.Font("Segoe UI Variable Text Semiligh", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAppMediaTweetIntent.Location = new System.Drawing.Point(67, 403);
+            this.btnAppMediaTweetIntent.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.btnAppMediaTweetIntent.FlatAppearance.BorderColor = System.Drawing.Color.Lime;
+            this.btnAppMediaTweetIntent.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAppMediaTweetIntent.Font = new System.Drawing.Font("Segoe UI Variable Display", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAppMediaTweetIntent.ForeColor = System.Drawing.Color.White;
+            this.btnAppMediaTweetIntent.Location = new System.Drawing.Point(66, 469);
             this.btnAppMediaTweetIntent.Name = "btnAppMediaTweetIntent";
-            this.btnAppMediaTweetIntent.Size = new System.Drawing.Size(149, 32);
+            this.btnAppMediaTweetIntent.Size = new System.Drawing.Size(302, 36);
             this.btnAppMediaTweetIntent.TabIndex = 191;
-            this.btnAppMediaTweetIntent.Text = "Tweet";
-            this.btnAppMediaTweetIntent.UseVisualStyleBackColor = true;
+            this.btnAppMediaTweetIntent.Text = "Rate BloatyNosy on Microsoft Store";
+            this.btnAppMediaTweetIntent.UseVisualStyleBackColor = false;
             this.btnAppMediaTweetIntent.Click += new System.EventHandler(this.btnAppMediaTweetIntent_Click);
             // 
             // lnkUpdateAvailable
@@ -235,9 +239,9 @@
             // btnHelp
             // 
             this.btnHelp.Font = new System.Drawing.Font("Segoe UI Variable Text Semiligh", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnHelp.Location = new System.Drawing.Point(67, 451);
+            this.btnHelp.Location = new System.Drawing.Point(66, 418);
             this.btnHelp.Name = "btnHelp";
-            this.btnHelp.Size = new System.Drawing.Size(134, 32);
+            this.btnHelp.Size = new System.Drawing.Size(163, 32);
             this.btnHelp.TabIndex = 196;
             this.btnHelp.Text = "Help";
             this.btnHelp.UseVisualStyleBackColor = true;
@@ -247,7 +251,6 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
-            this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.White;
             this.Controls.Add(this.btnHelp);
             this.Controls.Add(this.lnkUpdateAvailable);

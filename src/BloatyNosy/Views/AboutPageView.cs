@@ -109,7 +109,7 @@ namespace BloatyNosy
              => Process.Start(HelperTool.Utils.Uri.URL_DONATE);
 
         private void btnAppMediaTweetIntent_Click(object sender, System.EventArgs e)
-             => Process.Start(HelperTool.Utils.TweetIntent);
+             => Process.Start("ms-windows-store://review/?ProductId=XPDCJG88N6FD16");
 
         private void lnkUpdateAvailable_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
              => Utils.LaunchUri(Utils.Uri.URL_GITLATEST);

@@ -50,7 +50,7 @@ namespace Features.Feature.System
 
             if (powerShell.Streams.Error.Count > 0)
             {
-                logger.Log("XPS Documents Writer not found.");
+                logger.Log("= XPS Documents Writer not found.");
                 return false;
             }
 
@@ -67,11 +67,11 @@ namespace Features.Feature.System
             var results = powerShell.Invoke();
             if (powerShell.Streams.Error.Count > 0)
             {
-                logger.Log("XPS Documents Writer could not be installed.");
+                logger.Log("- XPS Documents Writer could not be installed.");
                 return false;
             }
 
-            logger.Log("- XPS Documents Writer has been successfully installed.");
+            logger.Log("+ XPS Documents Writer has been successfully installed.");
             return true;
         }
     }

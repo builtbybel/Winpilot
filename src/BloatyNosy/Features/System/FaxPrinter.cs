@@ -44,7 +44,7 @@ namespace Features.Feature.System
 
         public override bool UndoFeature()
         {
-            logger.Log("- Fax printer can not be installed.");
+            logger.Log("= Fax printer can not be installed.");
             return false;
         }
     }

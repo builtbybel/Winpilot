@@ -67,7 +67,7 @@ namespace Features.Feature.System
                 Registry.LocalMachine.OpenSubKey(@"SYSTEM\Setup\LabConfig", true).DeleteValue("BypassCPUCheck", false);
                 Registry.SetValue(@"HKEY_LOCAL_MACHINE\SYSTEM\Setup\MoSetup", "AllowUpgradesWithUnsupportedTPMOrCPU", "0", RegistryValueKind.DWord);
 
-                logger.Log("- TPM 2.0 Check has been enabled again.");
+                logger.Log("+ TPM 2.0 Check has been enabled again.");
                 return true;
             }
             catch

@@ -49,7 +49,7 @@ namespace Features.Feature.Privacy
             try
             {
                 Registry.SetValue(keyName, "Enabled", 1, RegistryValueKind.DWord);
-                logger.Log("- Advertising ID for Relevant Ads has been successfully enabled.");
+                logger.Log("+ Advertising ID for Relevant Ads has been successfully enabled.");
                 return true;
             }
             catch

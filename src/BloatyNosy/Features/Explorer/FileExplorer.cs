@@ -49,7 +49,7 @@ namespace Features.Feature.Explorer
                 var RegKey = Registry.LocalMachine.OpenSubKey(@"Software\Microsoft\Windows\CurrentVersion\Shell Extensions\Blocked", true);
                 RegKey.DeleteValue("{e2bf9676-5f8f-435c-97eb-11607a5bedf7}");
 
-                logger.Log("- Windows 10 File Explorer has been successfully disabled.\nRestart is required for the changes to take effect!");
+                logger.Log("+ Windows 10 File Explorer has been successfully disabled.\nRestart is required for the changes to take effect!");
                 return true;
             }
             catch

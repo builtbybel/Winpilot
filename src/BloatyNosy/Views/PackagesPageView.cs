@@ -154,7 +154,7 @@ namespace BloatyNosy
                 StartInfo = new ProcessStartInfo
                 {
                     FileName = HelperTool.Utils.Paths.ShellPS,
-                    Arguments = "winget install --id " + packageid + " --accept-source-agreements --accept-package-agreements",
+                    Arguments = "winget install --id " + packageid + " --silent --accept-source-agreements --accept-package-agreements",
                     UseShellExecute = false,
                     CreateNoWindow = true,
                 }

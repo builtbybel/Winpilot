@@ -49,7 +49,7 @@ namespace Features.Feature.Taskbar
             try
             {
                 Registry.SetValue(keyName, "TaskbarMn", 1, RegistryValueKind.DWord);
-                logger.Log("- Chat icon has been enabled.");
+                logger.Log("+ Chat icon has been enabled.");
                 return true;
             }
             catch

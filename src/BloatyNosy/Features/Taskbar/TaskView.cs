@@ -49,7 +49,7 @@ namespace Features.Feature.Taskbar
             try
             {
                 Registry.SetValue(keyName, "ShowTaskViewButton", 1, RegistryValueKind.DWord);
-                logger.Log("- Task view button has been enabled.");
+                logger.Log("+ Task view button has been enabled.");
                 return true;
             }
             catch

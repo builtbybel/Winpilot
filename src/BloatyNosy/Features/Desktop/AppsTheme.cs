@@ -51,7 +51,7 @@ namespace Features.Feature.Desktop
             try
             {
                 Registry.SetValue(keyName, "AppsUseLightTheme", "1", RegistryValueKind.DWord);
-                logger.Log("- Apps light theme has been successfully enabled.");
+                logger.Log("+ Apps light theme has been successfully enabled.");
                 return true;
             }
             catch

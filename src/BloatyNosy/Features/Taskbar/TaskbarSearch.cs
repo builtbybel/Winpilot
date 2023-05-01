@@ -49,7 +49,7 @@ namespace Features.Feature.Taskbar
             try
             {
                 Registry.SetValue(keyName, "SearchboxTaskbarMode", 1, RegistryValueKind.DWord);
-                logger.Log("- Search icon has been enabled.");
+                logger.Log("+ Search icon has been enabled.");
                 return true;
             }
             catch

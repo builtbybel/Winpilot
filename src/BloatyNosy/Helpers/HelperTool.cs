@@ -29,6 +29,7 @@ namespace HelperTool
         {
             public static string SysDir = Path.GetPathRoot(Environment.SystemDirectory);
             public static string LocalAppDataDir = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
+            public static string ProgramFiles = Environment.GetFolderPath(Environment.SpecialFolder.ProgramFiles);
 
             public static string ShellWT = LocalAppDataDir +
                                             @"\Microsoft\WindowsApps\wt.exe";

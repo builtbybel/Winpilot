@@ -50,7 +50,7 @@ namespace Features.Feature.System
                 var RegKey = Registry.CurrentUser.OpenSubKey(@"Control Panel\UnsupportedHardwareNotificationCache", true);
 
                 RegKey.DeleteValue("SV2");
-                logger.Log("- Watermark has been enabled again.");
+                logger.Log("+ Watermark has been enabled again.");
 
                 return true;
             }

@@ -31,7 +31,7 @@
             this.components = new System.ComponentModel.Container();
             this.pnlForm = new System.Windows.Forms.Panel();
             this.pnlMain = new System.Windows.Forms.Panel();
-            this.lnkGitHubRepo = new System.Windows.Forms.LinkLabel();
+            this.lblOS = new System.Windows.Forms.Label();
             this.lblAppOptionsFix = new System.Windows.Forms.Label();
             this.lnkRunSetup = new System.Windows.Forms.LinkLabel();
             this.btnAppOptions = new System.Windows.Forms.Button();
@@ -44,13 +44,19 @@
             this.lblTools = new System.Windows.Forms.Label();
             this.cmbTools = new System.Windows.Forms.ComboBox();
             this.lblHeader = new System.Windows.Forms.Label();
-            this.tvwFeatures = new System.Windows.Forms.TreeView();
             this.rtbLog = new System.Windows.Forms.RichTextBox();
+            this.tvwFeatures = new System.Windows.Forms.TreeView();
             this.contextKebapMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.textHeader = new System.Windows.Forms.ToolStripTextBox();
             this.menuAdvanced = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuIgnoreLowLevelP = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuImportProfile = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuIgnoreLowLevelI = new System.Windows.Forms.ToolStripMenuItem();
+            this.cbProfiles = new System.Windows.Forms.ToolStripComboBox();
+            this.menuLoadProfile = new System.Windows.Forms.ToolStripMenuItem();
             this.menuExportProfile = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.textExplanation = new System.Windows.Forms.ToolStripTextBox();
+            this.textExplanationIssue = new System.Windows.Forms.ToolStripTextBox();
+            this.textExplanationOK = new System.Windows.Forms.ToolStripTextBox();
             this.contextAppMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.menuFix = new System.Windows.Forms.ToolStripMenuItem();
             this.menuFixInfo = new System.Windows.Forms.ToolStripTextBox();
@@ -72,13 +78,13 @@
             this.pnlForm.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlForm.Location = new System.Drawing.Point(0, 0);
             this.pnlForm.Name = "pnlForm";
-            this.pnlForm.Size = new System.Drawing.Size(1019, 801);
+            this.pnlForm.Size = new System.Drawing.Size(430, 616);
             this.pnlForm.TabIndex = 0;
             // 
             // pnlMain
             // 
             this.pnlMain.AutoScroll = true;
-            this.pnlMain.Controls.Add(this.lnkGitHubRepo);
+            this.pnlMain.Controls.Add(this.lblOS);
             this.pnlMain.Controls.Add(this.lblAppOptionsFix);
             this.pnlMain.Controls.Add(this.lnkRunSetup);
             this.pnlMain.Controls.Add(this.btnAppOptions);
@@ -91,27 +97,26 @@
             this.pnlMain.Controls.Add(this.lblTools);
             this.pnlMain.Controls.Add(this.cmbTools);
             this.pnlMain.Controls.Add(this.lblHeader);
-            this.pnlMain.Controls.Add(this.tvwFeatures);
             this.pnlMain.Controls.Add(this.rtbLog);
+            this.pnlMain.Controls.Add(this.tvwFeatures);
             this.pnlMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlMain.Location = new System.Drawing.Point(0, 0);
             this.pnlMain.Name = "pnlMain";
-            this.pnlMain.Size = new System.Drawing.Size(1019, 801);
+            this.pnlMain.Size = new System.Drawing.Size(430, 616);
             this.pnlMain.TabIndex = 0;
             // 
-            // lnkGitHubRepo
+            // lblOS
             // 
-            this.lnkGitHubRepo.AutoEllipsis = true;
-            this.lnkGitHubRepo.Font = new System.Drawing.Font("Segoe UI Variable Text Semiligh", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lnkGitHubRepo.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
-            this.lnkGitHubRepo.LinkColor = System.Drawing.Color.HotPink;
-            this.lnkGitHubRepo.Location = new System.Drawing.Point(209, 112);
-            this.lnkGitHubRepo.Name = "lnkGitHubRepo";
-            this.lnkGitHubRepo.Size = new System.Drawing.Size(113, 23);
-            this.lnkGitHubRepo.TabIndex = 181;
-            this.lnkGitHubRepo.TabStop = true;
-            this.lnkGitHubRepo.Text = "Bloaty && Nosy";
-            this.lnkGitHubRepo.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lnkGitHubRepo_LinkClicked);
+            this.lblOS.AutoEllipsis = true;
+            this.lblOS.BackColor = System.Drawing.Color.MediumVioletRed;
+            this.lblOS.Font = new System.Drawing.Font("Segoe UI Variable Display", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblOS.ForeColor = System.Drawing.Color.White;
+            this.lblOS.Location = new System.Drawing.Point(119, 220);
+            this.lblOS.Name = "lblOS";
+            this.lblOS.Size = new System.Drawing.Size(177, 16);
+            this.lblOS.TabIndex = 181;
+            this.lblOS.Text = "Windows 11 ";
+            this.lblOS.Click += new System.EventHandler(this.lblOS_Click);
             // 
             // lblAppOptionsFix
             // 
@@ -119,7 +124,7 @@
             this.lblAppOptionsFix.BackColor = System.Drawing.Color.MediumVioletRed;
             this.lblAppOptionsFix.Font = new System.Drawing.Font("Segoe UI Variable Text Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblAppOptionsFix.ForeColor = System.Drawing.Color.White;
-            this.lblAppOptionsFix.Location = new System.Drawing.Point(360, 225);
+            this.lblAppOptionsFix.Location = new System.Drawing.Point(312, 219);
             this.lblAppOptionsFix.Name = "lblAppOptionsFix";
             this.lblAppOptionsFix.Size = new System.Drawing.Size(25, 17);
             this.lblAppOptionsFix.TabIndex = 180;
@@ -131,7 +136,7 @@
             this.lnkRunSetup.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.lnkRunSetup.AutoSize = true;
             this.lnkRunSetup.Font = new System.Drawing.Font("Segoe UI Variable Text", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lnkRunSetup.Location = new System.Drawing.Point(704, 764);
+            this.lnkRunSetup.Location = new System.Drawing.Point(70, 597);
             this.lnkRunSetup.Name = "lnkRunSetup";
             this.lnkRunSetup.Size = new System.Drawing.Size(229, 15);
             this.lnkRunSetup.TabIndex = 179;
@@ -146,7 +151,7 @@
             this.btnAppOptions.FlatAppearance.BorderSize = 0;
             this.btnAppOptions.Font = new System.Drawing.Font("Segoe Fluent Icons", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAppOptions.ForeColor = System.Drawing.Color.White;
-            this.btnAppOptions.Location = new System.Drawing.Point(350, 213);
+            this.btnAppOptions.Location = new System.Drawing.Point(302, 207);
             this.btnAppOptions.Name = "btnAppOptions";
             this.btnAppOptions.Padding = new System.Windows.Forms.Padding(0, 0, 5, 0);
             this.btnAppOptions.Size = new System.Drawing.Size(62, 42);
@@ -164,7 +169,7 @@
             this.btnSettings.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSettings.Font = new System.Drawing.Font("Segoe Fluent Icons", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSettings.ForeColor = System.Drawing.Color.MediumVioletRed;
-            this.btnSettings.Location = new System.Drawing.Point(965, 751);
+            this.btnSettings.Location = new System.Drawing.Point(376, 554);
             this.btnSettings.Name = "btnSettings";
             this.btnSettings.Size = new System.Drawing.Size(42, 38);
             this.btnSettings.TabIndex = 177;
@@ -174,16 +179,14 @@
             // 
             // label1
             // 
-            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.label1.AutoEllipsis = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI Variable Text Semibold", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(47, 49);
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI Variable Text Semibold", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(13, 50);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(575, 43);
+            this.label1.Size = new System.Drawing.Size(370, 36);
             this.label1.TabIndex = 176;
-            this.label1.Text = "No more draw backs of upgrading to Windows 11 ";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.label1.Text = "Boost your PC\'s performance";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // btnKebapMenu
             // 
@@ -193,9 +196,9 @@
             this.btnKebapMenu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnKebapMenu.Font = new System.Drawing.Font("Segoe Fluent Icons", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnKebapMenu.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.btnKebapMenu.Location = new System.Drawing.Point(970, 0);
+            this.btnKebapMenu.Location = new System.Drawing.Point(381, 0);
             this.btnKebapMenu.Name = "btnKebapMenu";
-            this.btnKebapMenu.Size = new System.Drawing.Size(42, 38);
+            this.btnKebapMenu.Size = new System.Drawing.Size(42, 47);
             this.btnKebapMenu.TabIndex = 175;
             this.btnKebapMenu.Text = "...";
             this.btnKebapMenu.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -207,13 +210,15 @@
             this.btnAnalyze.AutoEllipsis = true;
             this.btnAnalyze.BackColor = System.Drawing.Color.MediumVioletRed;
             this.btnAnalyze.FlatAppearance.BorderSize = 0;
-            this.btnAnalyze.Font = new System.Drawing.Font("Segoe UI Variable Text Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAnalyze.Font = new System.Drawing.Font("Segoe UI Variable Text Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAnalyze.ForeColor = System.Drawing.Color.White;
-            this.btnAnalyze.Location = new System.Drawing.Point(71, 213);
+            this.btnAnalyze.Location = new System.Drawing.Point(23, 207);
             this.btnAnalyze.Name = "btnAnalyze";
+            this.btnAnalyze.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
             this.btnAnalyze.Size = new System.Drawing.Size(286, 42);
             this.btnAnalyze.TabIndex = 27;
-            this.btnAnalyze.Text = "Analyze Windows 11 ";
+            this.btnAnalyze.Text = "Analyze ";
+            this.btnAnalyze.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnAnalyze.UseVisualStyleBackColor = false;
             this.btnAnalyze.Click += new System.EventHandler(this.btnAnalyze_Click);
             // 
@@ -222,15 +227,14 @@
             this.lnkSubHeader.ActiveLinkColor = System.Drawing.Color.MediumVioletRed;
             this.lnkSubHeader.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.lnkSubHeader.AutoEllipsis = true;
             this.lnkSubHeader.Font = new System.Drawing.Font("Segoe UI Variable Text Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lnkSubHeader.ForeColor = System.Drawing.Color.Black;
             this.lnkSubHeader.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.lnkSubHeader.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
             this.lnkSubHeader.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.lnkSubHeader.Location = new System.Drawing.Point(71, 679);
+            this.lnkSubHeader.Location = new System.Drawing.Point(12, 494);
             this.lnkSubHeader.Name = "lnkSubHeader";
-            this.lnkSubHeader.Size = new System.Drawing.Size(795, 18);
+            this.lnkSubHeader.Size = new System.Drawing.Size(400, 38);
             this.lnkSubHeader.TabIndex = 171;
             this.lnkSubHeader.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lnkSubHeader_LinkClicked);
             // 
@@ -238,9 +242,9 @@
             // 
             this.progress.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.progress.Location = new System.Drawing.Point(72, 285);
+            this.progress.Location = new System.Drawing.Point(9, 285);
             this.progress.Name = "progress";
-            this.progress.Size = new System.Drawing.Size(856, 5);
+            this.progress.Size = new System.Drawing.Size(409, 5);
             this.progress.TabIndex = 166;
             this.progress.Visible = false;
             // 
@@ -250,7 +254,7 @@
             this.lblTools.AutoSize = true;
             this.lblTools.Font = new System.Drawing.Font("Segoe UI Variable Text Semibold", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTools.ForeColor = System.Drawing.Color.DeepPink;
-            this.lblTools.Location = new System.Drawing.Point(32, 758);
+            this.lblTools.Location = new System.Drawing.Point(32, 561);
             this.lblTools.Name = "lblTools";
             this.lblTools.Size = new System.Drawing.Size(35, 15);
             this.lblTools.TabIndex = 25;
@@ -267,7 +271,7 @@
             this.cmbTools.FormattingEnabled = true;
             this.cmbTools.IntegralHeight = false;
             this.cmbTools.ItemHeight = 21;
-            this.cmbTools.Location = new System.Drawing.Point(75, 750);
+            this.cmbTools.Location = new System.Drawing.Point(75, 553);
             this.cmbTools.Name = "cmbTools";
             this.cmbTools.Size = new System.Drawing.Size(150, 29);
             this.cmbTools.TabIndex = 19;
@@ -278,15 +282,35 @@
             this.lblHeader.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.lblHeader.AutoEllipsis = true;
-            this.lblHeader.Font = new System.Drawing.Font("Segoe UI Variable Text Semiligh", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblHeader.Font = new System.Drawing.Font("Segoe UI Variable Text Semiligh", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblHeader.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.lblHeader.Location = new System.Drawing.Point(69, 112);
+            this.lblHeader.Location = new System.Drawing.Point(18, 112);
             this.lblHeader.Name = "lblHeader";
-            this.lblHeader.Size = new System.Drawing.Size(843, 59);
+            this.lblHeader.Size = new System.Drawing.Size(346, 70);
             this.lblHeader.TabIndex = 16;
-            this.lblHeader.Text = "Windows 11 is too                        and has some annoying features that just" +
-    " need to go.\r\nThis app will scan your system and inform you which features it li" +
-    "kes or dislikes in your configuration.";
+            this.lblHeader.Text = "Windows 11 is too bloaty && nosy and has some annoying features that just need to" +
+    " go. This app will scan your system and inform you which features it likes or di" +
+    "slikes in your configuration.";
+            // 
+            // rtbLog
+            // 
+            this.rtbLog.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.rtbLog.BackColor = System.Drawing.Color.White;
+            this.rtbLog.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.rtbLog.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.rtbLog.Font = new System.Drawing.Font("Segoe UI Variable Text Semiligh", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rtbLog.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.rtbLog.HideSelection = false;
+            this.rtbLog.Location = new System.Drawing.Point(9, 296);
+            this.rtbLog.Name = "rtbLog";
+            this.rtbLog.ReadOnly = true;
+            this.rtbLog.Size = new System.Drawing.Size(414, 175);
+            this.rtbLog.TabIndex = 138;
+            this.rtbLog.Text = "";
+            this.rtbLog.Visible = false;
+            this.rtbLog.LinkClicked += new System.Windows.Forms.LinkClickedEventHandler(this.richLog_LinkClicked);
             // 
             // tvwFeatures
             // 
@@ -301,82 +325,129 @@
             this.tvwFeatures.FullRowSelect = true;
             this.tvwFeatures.ItemHeight = 30;
             this.tvwFeatures.LineColor = System.Drawing.Color.HotPink;
-            this.tvwFeatures.Location = new System.Drawing.Point(72, 305);
+            this.tvwFeatures.Location = new System.Drawing.Point(9, 296);
             this.tvwFeatures.Name = "tvwFeatures";
             this.tvwFeatures.ShowLines = false;
             this.tvwFeatures.ShowNodeToolTips = true;
             this.tvwFeatures.ShowRootLines = false;
-            this.tvwFeatures.Size = new System.Drawing.Size(858, 360);
+            this.tvwFeatures.Size = new System.Drawing.Size(414, 175);
             this.tvwFeatures.TabIndex = 168;
             this.tvwFeatures.Visible = false;
             this.tvwFeatures.AfterCheck += new System.Windows.Forms.TreeViewEventHandler(this.treeFeatures_AfterCheck);
             this.tvwFeatures.MouseUp += new System.Windows.Forms.MouseEventHandler(this.tvwFeatures_MouseUp);
             // 
-            // rtbLog
-            // 
-            this.rtbLog.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.rtbLog.BackColor = System.Drawing.Color.White;
-            this.rtbLog.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.rtbLog.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.rtbLog.Font = new System.Drawing.Font("Segoe UI Variable Text Semiligh", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rtbLog.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.rtbLog.HideSelection = false;
-            this.rtbLog.Location = new System.Drawing.Point(72, 305);
-            this.rtbLog.Name = "rtbLog";
-            this.rtbLog.ReadOnly = true;
-            this.rtbLog.Size = new System.Drawing.Size(861, 360);
-            this.rtbLog.TabIndex = 138;
-            this.rtbLog.Text = "";
-            this.rtbLog.Visible = false;
-            this.rtbLog.LinkClicked += new System.Windows.Forms.LinkClickedEventHandler(this.richLog_LinkClicked);
-            // 
             // contextKebapMenu
             // 
-            this.contextKebapMenu.BackColor = System.Drawing.SystemColors.Control;
+            this.contextKebapMenu.BackColor = System.Drawing.Color.White;
             this.contextKebapMenu.Font = new System.Drawing.Font("Segoe UI Variable Text Semiligh", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.contextKebapMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.textHeader,
             this.menuAdvanced,
-            this.menuIgnoreLowLevelP,
-            this.menuImportProfile,
-            this.menuExportProfile});
+            this.menuIgnoreLowLevelI,
+            this.cbProfiles,
+            this.menuLoadProfile,
+            this.menuExportProfile,
+            this.toolStripSeparator1,
+            this.textExplanation,
+            this.textExplanationIssue,
+            this.textExplanationOK});
             this.contextKebapMenu.Name = "menuMain";
             this.contextKebapMenu.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
-            this.contextKebapMenu.Size = new System.Drawing.Size(259, 108);
+            this.contextKebapMenu.Size = new System.Drawing.Size(261, 251);
+            // 
+            // textHeader
+            // 
+            this.textHeader.BackColor = System.Drawing.Color.White;
+            this.textHeader.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textHeader.Font = new System.Drawing.Font("Segoe UI Variable Text Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textHeader.ForeColor = System.Drawing.Color.Gray;
+            this.textHeader.Margin = new System.Windows.Forms.Padding(5, 5, 0, 10);
+            this.textHeader.Name = "textHeader";
+            this.textHeader.ReadOnly = true;
+            this.textHeader.Size = new System.Drawing.Size(100, 18);
+            this.textHeader.Text = "App-Info";
             // 
             // menuAdvanced
             // 
             this.menuAdvanced.Name = "menuAdvanced";
-            this.menuAdvanced.Size = new System.Drawing.Size(258, 26);
+            this.menuAdvanced.Size = new System.Drawing.Size(260, 26);
             this.menuAdvanced.Text = "Advanced mode";
             this.menuAdvanced.Click += new System.EventHandler(this.menuAdvanced_Click);
             // 
-            // menuIgnoreLowLevelP
+            // menuIgnoreLowLevelI
             // 
-            this.menuIgnoreLowLevelP.Name = "menuIgnoreLowLevelP";
-            this.menuIgnoreLowLevelP.Size = new System.Drawing.Size(258, 26);
-            this.menuIgnoreLowLevelP.Text = "Ignore Low level problems";
-            this.menuIgnoreLowLevelP.TextDirection = System.Windows.Forms.ToolStripTextDirection.Horizontal;
-            this.menuIgnoreLowLevelP.Click += new System.EventHandler(this.menuIgnoreLowLevelP_Click);
+            this.menuIgnoreLowLevelI.Name = "menuIgnoreLowLevelI";
+            this.menuIgnoreLowLevelI.Size = new System.Drawing.Size(260, 26);
+            this.menuIgnoreLowLevelI.Text = "Ignore minor issues";
+            this.menuIgnoreLowLevelI.TextDirection = System.Windows.Forms.ToolStripTextDirection.Horizontal;
+            this.menuIgnoreLowLevelI.Click += new System.EventHandler(this.menuIgnoreLowLevelP_Click);
             // 
-            // menuImportProfile
+            // cbProfiles
             // 
-            this.menuImportProfile.Name = "menuImportProfile";
-            this.menuImportProfile.Size = new System.Drawing.Size(258, 26);
-            this.menuImportProfile.Text = "Import profile";
-            this.menuImportProfile.Click += new System.EventHandler(this.menuImportProfile_Click);
+            this.cbProfiles.AutoToolTip = true;
+            this.cbProfiles.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbProfiles.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.cbProfiles.Font = new System.Drawing.Font("Segoe UI Variable Text", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbProfiles.Name = "cbProfiles";
+            this.cbProfiles.Size = new System.Drawing.Size(200, 25);
+            // 
+            // menuLoadProfile
+            // 
+            this.menuLoadProfile.Font = new System.Drawing.Font("Segoe UI Variable Text Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.menuLoadProfile.Name = "menuLoadProfile";
+            this.menuLoadProfile.Size = new System.Drawing.Size(260, 26);
+            this.menuLoadProfile.Text = "Load profile";
+            this.menuLoadProfile.Click += new System.EventHandler(this.menuLoadProfile_Click);
             // 
             // menuExportProfile
             // 
             this.menuExportProfile.Name = "menuExportProfile";
-            this.menuExportProfile.Size = new System.Drawing.Size(258, 26);
+            this.menuExportProfile.Size = new System.Drawing.Size(260, 26);
             this.menuExportProfile.Text = "Export profile";
             this.menuExportProfile.Click += new System.EventHandler(this.menuExportProfile_Click);
             // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(257, 6);
+            // 
+            // textExplanation
+            // 
+            this.textExplanation.BackColor = System.Drawing.Color.White;
+            this.textExplanation.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textExplanation.Font = new System.Drawing.Font("Segoe UI Variable Text Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textExplanation.Margin = new System.Windows.Forms.Padding(5, 5, 1, 1);
+            this.textExplanation.Name = "textExplanation";
+            this.textExplanation.ReadOnly = true;
+            this.textExplanation.Size = new System.Drawing.Size(100, 26);
+            this.textExplanation.Text = "Explanation";
+            // 
+            // textExplanationIssue
+            // 
+            this.textExplanationIssue.BackColor = System.Drawing.Color.MediumVioletRed;
+            this.textExplanationIssue.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textExplanationIssue.Font = new System.Drawing.Font("Segoe UI Variable Text Semiligh", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textExplanationIssue.ForeColor = System.Drawing.Color.Transparent;
+            this.textExplanationIssue.Margin = new System.Windows.Forms.Padding(5, 1, 1, 1);
+            this.textExplanationIssue.Name = "textExplanationIssue";
+            this.textExplanationIssue.ReadOnly = true;
+            this.textExplanationIssue.Size = new System.Drawing.Size(190, 15);
+            this.textExplanationIssue.Text = "Color indicates a issue";
+            // 
+            // textExplanationOK
+            // 
+            this.textExplanationOK.BackColor = System.Drawing.Color.DarkGray;
+            this.textExplanationOK.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textExplanationOK.Font = new System.Drawing.Font("Segoe UI Variable Text Semiligh", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textExplanationOK.Margin = new System.Windows.Forms.Padding(5, 1, 1, 10);
+            this.textExplanationOK.Name = "textExplanationOK";
+            this.textExplanationOK.ReadOnly = true;
+            this.textExplanationOK.Size = new System.Drawing.Size(190, 15);
+            this.textExplanationOK.Text = "Color indicates that no action is needed";
+            // 
             // contextAppMenu
             // 
-            this.contextAppMenu.BackColor = System.Drawing.SystemColors.Control;
+            this.contextAppMenu.BackColor = System.Drawing.Color.White;
             this.contextAppMenu.Font = new System.Drawing.Font("Segoe UI Variable Text Semiligh", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.contextAppMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.menuFix,
@@ -396,7 +467,7 @@
             // 
             // menuFixInfo
             // 
-            this.menuFixInfo.BackColor = System.Drawing.SystemColors.Control;
+            this.menuFixInfo.BackColor = System.Drawing.Color.White;
             this.menuFixInfo.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.menuFixInfo.Enabled = false;
             this.menuFixInfo.Font = new System.Drawing.Font("Segoe UI Variable Text Semiligh", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -415,7 +486,7 @@
             // 
             // menuRestoreInfo
             // 
-            this.menuRestoreInfo.BackColor = System.Drawing.SystemColors.Control;
+            this.menuRestoreInfo.BackColor = System.Drawing.Color.White;
             this.menuRestoreInfo.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.menuRestoreInfo.Enabled = false;
             this.menuRestoreInfo.Font = new System.Drawing.Font("Segoe UI Variable Text Semiligh", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -446,9 +517,9 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1019, 801);
+            this.ClientSize = new System.Drawing.Size(430, 616);
             this.Controls.Add(this.pnlForm);
-            this.MinimumSize = new System.Drawing.Size(700, 700);
+            this.MinimumSize = new System.Drawing.Size(446, 655);
             this.Name = "MainForm";
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -458,6 +529,7 @@
             this.pnlMain.ResumeLayout(false);
             this.pnlMain.PerformLayout();
             this.contextKebapMenu.ResumeLayout(false);
+            this.contextKebapMenu.PerformLayout();
             this.contextAppMenu.ResumeLayout(false);
             this.contextAppMenu.PerformLayout();
             this.contextAppMenuOptions.ResumeLayout(false);
@@ -481,20 +553,26 @@
         private System.Windows.Forms.ToolStripMenuItem menuAdvanced;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnSettings;
-        private System.Windows.Forms.ToolStripMenuItem menuIgnoreLowLevelP;
+        private System.Windows.Forms.ToolStripMenuItem menuIgnoreLowLevelI;
         private System.Windows.Forms.Button btnAppOptions;
         private System.Windows.Forms.ContextMenuStrip contextAppMenu;
         private System.Windows.Forms.ToolStripMenuItem menuFix;
         private System.Windows.Forms.ToolStripTextBox menuFixInfo;
         private System.Windows.Forms.ToolStripMenuItem menuRestore;
         private System.Windows.Forms.ToolStripTextBox menuRestoreInfo;
-        private System.Windows.Forms.ToolStripMenuItem menuImportProfile;
+        private System.Windows.Forms.ToolStripMenuItem menuLoadProfile;
         private System.Windows.Forms.LinkLabel lnkRunSetup;
         private System.Windows.Forms.ToolStripMenuItem menuExportProfile;
         private System.Windows.Forms.ContextMenuStrip contextAppMenuOptions;
         private System.Windows.Forms.ToolStripMenuItem menuAppConfigure;
         private System.Windows.Forms.Label lblAppOptionsFix;
-        private System.Windows.Forms.LinkLabel lnkGitHubRepo;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        private System.Windows.Forms.ToolStripTextBox textExplanationIssue;
+        private System.Windows.Forms.ToolStripTextBox textExplanationOK;
+        private System.Windows.Forms.ToolStripComboBox cbProfiles;
+        private System.Windows.Forms.ToolStripTextBox textHeader;
+        private System.Windows.Forms.ToolStripTextBox textExplanation;
+        private System.Windows.Forms.Label lblOS;
     }
 }
 

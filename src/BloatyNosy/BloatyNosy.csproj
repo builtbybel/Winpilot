@@ -27,6 +27,7 @@
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>x64</PlatformTarget>
@@ -78,7 +79,9 @@
   <ItemGroup>
     <Compile Include="FeatureBase.cs" />
     <Compile Include="FeatureNode.cs" />
+    <Compile Include="Features\Apps\StoreHallOfShame.cs" />
     <Compile Include="Features\Browser\GoogleChrome.cs" />
+    <Compile Include="Features\Browser\MicrosoftEdge.cs" />
     <Compile Include="Features\Browser\MozillaFirefox.cs" />
     <Compile Include="Features\Desktop\AppsTheme.cs" />
     <Compile Include="Features\Desktop\SnapAssistFlyout.cs" />
@@ -90,13 +93,13 @@
     <Compile Include="Features\Explorer\FileExplorer.cs" />
     <Compile Include="Features\Explorer\HiddenFileExt.cs" />
     <Compile Include="Features\Explorer\HiddenFileFolder.cs" />
+    <Compile Include="Features\Privacy\BackgroundApps.cs" />
     <Compile Include="Features\Recommendation\EnableWSL.cs" />
     <Compile Include="Features\Gaming\GameDVR.cs" />
     <Compile Include="Features\Gaming\PowerThrottling.cs" />
     <Compile Include="Features\Gaming\VisualFX.cs" />
     <Compile Include="Features\Privacy\Advertising.cs" />
     <Compile Include="Features\Privacy\AppsAutoInstall.cs" />
-    <Compile Include="Features\Privacy\Biometrics.cs" />
     <Compile Include="Features\Privacy\CompatibilityTelemetry.cs" />
     <Compile Include="Features\Privacy\DiagnosticData.cs" />
     <Compile Include="Features\Privacy\Feedback.cs" />
@@ -106,7 +109,7 @@
     <Compile Include="Features\Privacy\Telemetry.cs" />
     <Compile Include="Features\Privacy\WindowsTips.cs" />
     <Compile Include="Features\Apps\StoreApps.cs" />
-    <Compile Include="Features\Apps\StoreAppsEngine.cs" />
+    <Compile Include="Features\Apps\StoreEngine.cs" />
     <Compile Include="Features\System\FaxPrinter.cs" />
     <Compile Include="Features\System\FullContextMenus.cs" />
     <Compile Include="Features\System\OneDriveR.cs" />

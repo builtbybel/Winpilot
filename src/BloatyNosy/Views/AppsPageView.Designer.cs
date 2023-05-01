@@ -32,7 +32,7 @@
             System.Windows.Forms.ToolStripMenuItem menuAppsExport;
             this.listRemove = new System.Windows.Forms.ListBox();
             this.rtbStatus = new System.Windows.Forms.RichTextBox();
-            this.btnRefresh = new System.Windows.Forms.Button();
+            this.btnAppOptions = new System.Windows.Forms.Button();
             this.btnRestoreAll = new System.Windows.Forms.Button();
             this.btnRestore = new System.Windows.Forms.Button();
             this.btnMoveAll = new System.Windows.Forms.Button();
@@ -43,6 +43,7 @@
             this.listApps = new System.Windows.Forms.ListBox();
             this.checkAppsSystem = new System.Windows.Forms.CheckBox();
             this.groupBin = new System.Windows.Forms.GroupBox();
+            this.picAppsPoster = new System.Windows.Forms.PictureBox();
             this.lblAppsBinOptions = new System.Windows.Forms.LinkLabel();
             this.groupInstalled = new System.Windows.Forms.GroupBox();
             this.textSearch = new System.Windows.Forms.TextBox();
@@ -50,25 +51,29 @@
             this.contextAppMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.menuAppsImport = new System.Windows.Forms.ToolStripMenuItem();
             this.menuAppsRemoveAll = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.menuSyncCommunity = new System.Windows.Forms.ToolStripMenuItem();
+            this.contextAppMenuOptions = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.menuAppsCommunity = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuAppsHallOfShame = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.menuRefresh = new System.Windows.Forms.ToolStripMenuItem();
             menuAppsExport = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBin.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picAppsPoster)).BeginInit();
             this.groupInstalled.SuspendLayout();
             this.contextAppMenu.SuspendLayout();
+            this.contextAppMenuOptions.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuAppsExport
             // 
             menuAppsExport.Name = "menuAppsExport";
-            menuAppsExport.Size = new System.Drawing.Size(337, 22);
+            menuAppsExport.Size = new System.Drawing.Size(193, 22);
             menuAppsExport.Text = "Export bloatware in bin";
             menuAppsExport.Click += new System.EventHandler(this.menuAppsExport_Click);
             // 
             // listRemove
             // 
-            this.listRemove.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.listRemove.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.listRemove.BackColor = System.Drawing.Color.White;
             this.listRemove.BorderStyle = System.Windows.Forms.BorderStyle.None;
@@ -101,24 +106,25 @@
             this.rtbStatus.Text = "";
             this.rtbStatus.Visible = false;
             // 
-            // btnRefresh
+            // btnAppOptions
             // 
-            this.btnRefresh.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnRefresh.BackColor = System.Drawing.Color.MediumVioletRed;
-            this.btnRefresh.FlatAppearance.BorderColor = System.Drawing.Color.Orchid;
-            this.btnRefresh.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRefresh.Font = new System.Drawing.Font("Segoe Fluent Icons", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRefresh.ForeColor = System.Drawing.Color.White;
-            this.btnRefresh.Location = new System.Drawing.Point(977, 49);
-            this.btnRefresh.Name = "btnRefresh";
-            this.btnRefresh.Size = new System.Drawing.Size(31, 30);
-            this.btnRefresh.TabIndex = 38;
-            this.btnRefresh.Text = "Refresh";
-            this.btnRefresh.UseVisualStyleBackColor = false;
-            this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
+            this.btnAppOptions.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnAppOptions.BackColor = System.Drawing.Color.MediumVioletRed;
+            this.btnAppOptions.FlatAppearance.BorderColor = System.Drawing.Color.Orchid;
+            this.btnAppOptions.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAppOptions.Font = new System.Drawing.Font("Segoe Fluent Icons", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAppOptions.ForeColor = System.Drawing.Color.White;
+            this.btnAppOptions.Location = new System.Drawing.Point(977, 49);
+            this.btnAppOptions.Name = "btnAppOptions";
+            this.btnAppOptions.Size = new System.Drawing.Size(31, 30);
+            this.btnAppOptions.TabIndex = 38;
+            this.btnAppOptions.Text = "...";
+            this.btnAppOptions.UseVisualStyleBackColor = false;
+            this.btnAppOptions.Click += new System.EventHandler(this.btnAppOptions_Click);
             // 
             // btnRestoreAll
             // 
+            this.btnRestoreAll.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnRestoreAll.Font = new System.Drawing.Font("Segoe UI Variable Text", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRestoreAll.ForeColor = System.Drawing.Color.Black;
             this.btnRestoreAll.Location = new System.Drawing.Point(482, 313);
@@ -131,6 +137,7 @@
             // 
             // btnRestore
             // 
+            this.btnRestore.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnRestore.Font = new System.Drawing.Font("Segoe UI Variable Text", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRestore.ForeColor = System.Drawing.Color.Black;
             this.btnRestore.Location = new System.Drawing.Point(482, 342);
@@ -143,6 +150,7 @@
             // 
             // btnMoveAll
             // 
+            this.btnMoveAll.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnMoveAll.Font = new System.Drawing.Font("Segoe UI Variable Text", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnMoveAll.ForeColor = System.Drawing.Color.Black;
             this.btnMoveAll.Location = new System.Drawing.Point(482, 201);
@@ -155,6 +163,7 @@
             // 
             // btnMove
             // 
+            this.btnMove.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnMove.Font = new System.Drawing.Font("Segoe UI Variable Text", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnMove.ForeColor = System.Drawing.Color.Black;
             this.btnMove.Location = new System.Drawing.Point(482, 230);
@@ -205,7 +214,7 @@
             this.lblHeader.Name = "lblHeader";
             this.lblHeader.Size = new System.Drawing.Size(960, 32);
             this.lblHeader.TabIndex = 177;
-            this.lblHeader.Text = "BloatFinder";
+            this.lblHeader.Text = "AppyTrash";
             // 
             // listApps
             // 
@@ -241,12 +250,12 @@
             // 
             // groupBin
             // 
-            this.groupBin.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.groupBin.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBin.Controls.Add(this.picAppsPoster);
+            this.groupBin.Controls.Add(this.rtbStatus);
             this.groupBin.Controls.Add(this.lblAppsBinOptions);
             this.groupBin.Controls.Add(this.listRemove);
-            this.groupBin.Controls.Add(this.rtbStatus);
             this.groupBin.Font = new System.Drawing.Font("Segoe UI Variable Text", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBin.ForeColor = System.Drawing.Color.DeepPink;
             this.groupBin.Location = new System.Drawing.Point(609, 82);
@@ -256,17 +265,31 @@
             this.groupBin.TabStop = false;
             this.groupBin.Text = "Recycle bin";
             // 
+            // picAppsPoster
+            // 
+            this.picAppsPoster.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.picAppsPoster.ErrorImage = null;
+            this.picAppsPoster.InitialImage = null;
+            this.picAppsPoster.Location = new System.Drawing.Point(38, 105);
+            this.picAppsPoster.Name = "picAppsPoster";
+            this.picAppsPoster.Size = new System.Drawing.Size(331, 454);
+            this.picAppsPoster.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.picAppsPoster.TabIndex = 161;
+            this.picAppsPoster.TabStop = false;
+            this.picAppsPoster.Visible = false;
+            // 
             // lblAppsBinOptions
             // 
             this.lblAppsBinOptions.ActiveLinkColor = System.Drawing.Color.MediumVioletRed;
             this.lblAppsBinOptions.AutoEllipsis = true;
-            this.lblAppsBinOptions.AutoSize = true;
-            this.lblAppsBinOptions.Font = new System.Drawing.Font("Segoe UI Variable Text Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAppsBinOptions.Font = new System.Drawing.Font("Segoe UI Variable Text", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblAppsBinOptions.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
-            this.lblAppsBinOptions.LinkColor = System.Drawing.Color.Black;
+            this.lblAppsBinOptions.LinkColor = System.Drawing.Color.Gray;
             this.lblAppsBinOptions.Location = new System.Drawing.Point(8, 36);
             this.lblAppsBinOptions.Name = "lblAppsBinOptions";
-            this.lblAppsBinOptions.Size = new System.Drawing.Size(318, 16);
+            this.lblAppsBinOptions.Size = new System.Drawing.Size(361, 16);
             this.lblAppsBinOptions.TabIndex = 159;
             this.lblAppsBinOptions.TabStop = true;
             this.lblAppsBinOptions.Text = "Move the apps you want to uninstall here or import via file.";
@@ -275,8 +298,9 @@
             // 
             // groupInstalled
             // 
-            this.groupInstalled.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
+            this.groupInstalled.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.groupInstalled.Controls.Add(this.listApps);
             this.groupInstalled.Font = new System.Drawing.Font("Segoe UI Variable Text", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupInstalled.ForeColor = System.Drawing.Color.Violet;
@@ -289,6 +313,7 @@
             // 
             // textSearch
             // 
+            this.textSearch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.textSearch.BackColor = System.Drawing.Color.WhiteSmoke;
             this.textSearch.Font = new System.Drawing.Font("Segoe UI Variable Text", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textSearch.ForeColor = System.Drawing.Color.Gray;
@@ -322,39 +347,65 @@
             this.contextAppMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.menuAppsImport,
             menuAppsExport,
-            this.menuAppsRemoveAll,
-            this.toolStripSeparator1,
-            this.menuSyncCommunity});
+            this.menuAppsRemoveAll});
             this.contextAppMenu.Name = "menuMain";
             this.contextAppMenu.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
-            this.contextAppMenu.Size = new System.Drawing.Size(338, 98);
+            this.contextAppMenu.Size = new System.Drawing.Size(194, 70);
             this.contextAppMenu.Text = "Info";
             // 
             // menuAppsImport
             // 
             this.menuAppsImport.Name = "menuAppsImport";
-            this.menuAppsImport.Size = new System.Drawing.Size(337, 22);
+            this.menuAppsImport.Size = new System.Drawing.Size(193, 22);
             this.menuAppsImport.Text = "Import bloatware list";
             this.menuAppsImport.Click += new System.EventHandler(this.menuAppsImport_Click);
             // 
             // menuAppsRemoveAll
             // 
             this.menuAppsRemoveAll.Name = "menuAppsRemoveAll";
-            this.menuAppsRemoveAll.Size = new System.Drawing.Size(337, 22);
+            this.menuAppsRemoveAll.Size = new System.Drawing.Size(193, 22);
             this.menuAppsRemoveAll.Text = "Uninstall all apps";
             this.menuAppsRemoveAll.Click += new System.EventHandler(this.menuAppsRemoveAll_Click);
             // 
-            // toolStripSeparator1
+            // contextAppMenuOptions
             // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(334, 6);
+            this.contextAppMenuOptions.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.contextAppMenuOptions.Font = new System.Drawing.Font("Segoe UI Variable Text Semiligh", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.contextAppMenuOptions.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.menuAppsCommunity,
+            this.menuAppsHallOfShame,
+            this.toolStripSeparator2,
+            this.menuRefresh});
+            this.contextAppMenuOptions.Name = "menuMain";
+            this.contextAppMenuOptions.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
+            this.contextAppMenuOptions.Size = new System.Drawing.Size(368, 76);
+            this.contextAppMenuOptions.Text = "Info";
             // 
-            // menuSyncCommunity
+            // menuAppsCommunity
             // 
-            this.menuSyncCommunity.Name = "menuSyncCommunity";
-            this.menuSyncCommunity.Size = new System.Drawing.Size(337, 22);
-            this.menuSyncCommunity.Text = "Sync bloatware with community list (Slasher Mode)";
-            this.menuSyncCommunity.Click += new System.EventHandler(this.menuSyncCommunity_Click);
+            this.menuAppsCommunity.Name = "menuAppsCommunity";
+            this.menuAppsCommunity.Size = new System.Drawing.Size(367, 22);
+            this.menuAppsCommunity.Text = "Add bloatware rated by community to recycle bin";
+            this.menuAppsCommunity.Click += new System.EventHandler(this.menuAppsCommunity_Click);
+            // 
+            // menuAppsHallOfShame
+            // 
+            this.menuAppsHallOfShame.Name = "menuAppsHallOfShame";
+            this.menuAppsHallOfShame.Size = new System.Drawing.Size(367, 22);
+            this.menuAppsHallOfShame.Text = "Add the 10 most hated apps of Windows 11 to recycle bin";
+            this.menuAppsHallOfShame.Click += new System.EventHandler(this.menuAppsHallOfShame_Click);
+            // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(364, 6);
+            // 
+            // menuRefresh
+            // 
+            this.menuRefresh.Name = "menuRefresh";
+            this.menuRefresh.Size = new System.Drawing.Size(367, 22);
+            this.menuRefresh.Text = "Refresh";
+            this.menuRefresh.Click += new System.EventHandler(this.menuRefresh_Click);
             // 
             // AppsPageView
             // 
@@ -369,7 +420,7 @@
             this.Controls.Add(this.btnBack);
             this.Controls.Add(this.btnUninstall);
             this.Controls.Add(this.groupBin);
-            this.Controls.Add(this.btnRefresh);
+            this.Controls.Add(this.btnAppOptions);
             this.Controls.Add(this.btnRestoreAll);
             this.Controls.Add(this.groupInstalled);
             this.Controls.Add(this.btnRestore);
@@ -378,9 +429,10 @@
             this.Name = "AppsPageView";
             this.Size = new System.Drawing.Size(1054, 795);
             this.groupBin.ResumeLayout(false);
-            this.groupBin.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picAppsPoster)).EndInit();
             this.groupInstalled.ResumeLayout(false);
             this.contextAppMenu.ResumeLayout(false);
+            this.contextAppMenuOptions.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -388,7 +440,7 @@
 
         #endregion
         private System.Windows.Forms.ListBox listRemove;
-        private System.Windows.Forms.Button btnRefresh;
+        private System.Windows.Forms.Button btnAppOptions;
         private System.Windows.Forms.Button btnRestoreAll;
         private System.Windows.Forms.Button btnRestore;
         private System.Windows.Forms.Button btnMoveAll;
@@ -407,7 +459,11 @@
         private System.Windows.Forms.ContextMenuStrip contextAppMenu;
         private System.Windows.Forms.ToolStripMenuItem menuAppsImport;
         private System.Windows.Forms.ToolStripMenuItem menuAppsRemoveAll;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
-        private System.Windows.Forms.ToolStripMenuItem menuSyncCommunity;
+        private System.Windows.Forms.ContextMenuStrip contextAppMenuOptions;
+        private System.Windows.Forms.ToolStripMenuItem menuAppsCommunity;
+        private System.Windows.Forms.ToolStripMenuItem menuAppsHallOfShame;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
+        private System.Windows.Forms.ToolStripMenuItem menuRefresh;
+        private System.Windows.Forms.PictureBox picAppsPoster;
     }
 }

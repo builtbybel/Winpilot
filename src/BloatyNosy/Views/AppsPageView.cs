@@ -39,7 +39,10 @@ namespace BloatyNosy
 
             btnHMenu.Text = "\uE700";
             btnBack.Text = "\uE72B";
-            btnRefresh.Text = "\uE72C";
+            btnAppOptions.Text = "\uE972";
+
+            if (!HelperTool.Utils.IsInet()) picAppsPoster.Visible = false;
+            else picAppsPoster.ImageLocation = "https://github.com/builtbybel/ThisIsWin11/blob/main/assets/pages/page-apps.png?raw=true";
         }
 
         private void InitializeApps()
@@ -131,15 +134,21 @@ namespace BloatyNosy
 
             if (listRemove.Items.Count == 0)
             {
-                rtbStatus.Visible = true;
+
                 lblAppsBinOptions.Visible = true;
+                picAppsPoster.Visible = true;
+
+                rtbStatus.Visible = true;
                 listRemove.Visible = false;
+
             }
             else
             {
-                listRemove.Visible = true;
                 lblAppsBinOptions.Visible = false;
+                picAppsPoster.Visible = false;
+
                 rtbStatus.Visible = false;
+                listRemove.Visible = true;
             }
 
             if (installed == 0)
@@ -159,16 +168,6 @@ namespace BloatyNosy
                 btnRestoreAll.Enabled =
                 btnRestore.Enabled =
                 true;
-        }
-
-        private void btnRefresh_Click(object sender, EventArgs e)
-        {
-            listApps.Items.Clear();
-            listRemove.Items.Clear();
-            removeAppsList.Clear();
-
-            InitializeAppsSystem();
-            InitializeApps();
         }
 
         private void btnRestoreAll_Click(object sender, EventArgs e)
@@ -289,7 +288,7 @@ namespace BloatyNosy
                                                      "as these apps are needed for the Windows 11 Experience and for other programs. If you try, you’ll see an error message saying the removal failed.";
                 }
 
-                btnRefresh.PerformClick();
+                menuRefresh.PerformClick();
 
                 btnUninstall.Enabled = true;
                 rtbStatus.Text = message + Environment.NewLine;
@@ -403,12 +402,12 @@ namespace BloatyNosy
             }
         }
 
-        private void menuSyncCommunity_Click(object sender, EventArgs e)
+        private void menuAppsCommunity_Click(object sender, EventArgs e)
         {
             if (MessageBox.Show("This will add all the annoying bloatware apps, " +
-        "pre-installed on Windows 11 including some apps your PC manufacturer included to the removal list." +
-        "\r\n\nMost of these apps are garbage, but if you find important stuff on the list just remove it " +
-        "from the right box before hitting \"Uninstall\".", this.Text, MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                                "pre-installed on Windows 11 including some apps your PC manufacturer included to the removal list." +
+                                "\r\n\nMost of these apps are garbage, but if you find important stuff on the list just remove it " +
+                                "from the right box before hitting \"Uninstall\".", this.Text, MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
             {
                 var apps = BloatwareList.GetList();
                 listRemove.Visible = true;
@@ -421,6 +420,35 @@ namespace BloatyNosy
                 InitializeApps();
                 RefreshApps();
             }
+        }
+
+        private void menuAppsHallOfShame_Click(object sender, EventArgs e)
+        {
+            var apps = BloatwareHallOfShame.GetList();
+            listRemove.Visible = true;
+
+            foreach (string app in apps)
+            {
+                listRemove.Items.Add(app);
+            }
+
+            InitializeApps();
+            RefreshApps();
+        }
+
+        private void btnAppOptions_Click(object sender, EventArgs e)
+            => this.contextAppMenuOptions.Show(Cursor.Position.X, Cursor.Position.Y);
+
+        private void menuRefresh_Click(object sender, EventArgs e)
+        {
+            listApps.Items.Clear();
+            listRemove.Items.Clear();
+            removeAppsList.Clear();
+
+            InitializeAppsSystem();
+            InitializeApps();
+
+            picAppsPoster.Visible = false;
         }
     }
 }

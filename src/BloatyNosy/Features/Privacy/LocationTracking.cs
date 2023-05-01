@@ -49,7 +49,7 @@ namespace Features.Feature.Privacy
             try
             {
                 Registry.SetValue(keyName, "Value", "Allow", RegistryValueKind.String);
-                logger.Log("- Location tracking info has been successfully enabled.");
+                logger.Log("+ Location tracking info has been successfully enabled.");
                 return true;
             }
             catch

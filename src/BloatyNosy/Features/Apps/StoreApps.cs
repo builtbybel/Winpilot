@@ -17,7 +17,7 @@ namespace Features.Feature.Apps
 
         public override string Info()
         {
-            return "To remove specific apps use the BloatFinder app in the \"More Apps\" section or right click on this feature";
+            return "To remove specific apps use the AppyTrash app in the \"More Apps\" section or right click on this feature";
         }
 
         private void RemoveApps(string str)

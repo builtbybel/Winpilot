@@ -48,7 +48,7 @@ namespace Features.Feature.Desktop
             try
             {
                 Registry.SetValue(keyName, "EnableStickers", "1", RegistryValueKind.DWord);
-                logger.Log("- Desktop Sticker feature has been enabled again.");
+                logger.Log("+ Desktop Sticker feature has been enabled again.");
                 return true;
             }
             catch

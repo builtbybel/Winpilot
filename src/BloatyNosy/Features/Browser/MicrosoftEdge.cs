@@ -1,18 +1,18 @@
 ﻿using BloatyNosy;
 using Microsoft.Win32;
 
-namespace Features.Feature.Desktop
+namespace Features.Feature.Browser
 {
-    internal class WindowsTheme : FeatureBase
+    internal class EdgeBingAIButton : FeatureBase
     {
         private static readonly ErrorHelper logger = ErrorHelper.Instance;
 
-        private const string keyName = @"HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Themes\Personalize";
+        private const string keyName = @"HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Edge";
         private const int desiredValue = 0;
 
         public override string ID()
         {
-            return "[LOW] Use Windows dark theme";
+            return "[HIGH] Disable giant Bing search (AI chat) button in Edge Browser";
         }
 
         public override string Info()
@@ -23,18 +23,19 @@ namespace Features.Feature.Desktop
         public override bool CheckFeature()
         {
             return !(
-               RegistryHelper.IntEquals(keyName, "SystemUsesLightTheme", desiredValue)
-             );
+               RegistryHelper.IntEquals(keyName, "HubsSidebarEnabled", desiredValue)
+           );
         }
 
         public override bool DoFeature()
         {
             try
             {
-                Registry.SetValue(keyName, "SystemUsesLightTheme", desiredValue, RegistryValueKind.DWord);
+                Registry.SetValue(keyName, "HubsSidebarEnabled", desiredValue, RegistryValueKind.DWord);
 
-                logger.Log("- Windows dark theme has been successfully enabled.");
+                logger.Log("- Bing search (AI chat) button has been disabled.");
                 logger.Log(keyName);
+
                 return true;
             }
             catch
@@ -47,8 +48,10 @@ namespace Features.Feature.Desktop
         {
             try
             {
-                Registry.SetValue(keyName, "SystemUsesLightTheme", "1", RegistryValueKind.DWord);
-                logger.Log("+ Windows light theme has been successfully enabled.");
+                var RegKey = Registry.LocalMachine.OpenSubKey(@"Software\Policies\Microsoft\Edge", true);
+                RegKey.DeleteValue("HubsSidebarEnabled");
+
+                logger.Log("+ Bing search (AI chat) button has been enabled.");
                 return true;
             }
             catch

@@ -3,7 +3,6 @@ using Features.Feature;
 using HelperTool;
 using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Linq;
@@ -28,6 +27,7 @@ namespace BloatyNosy
         {
             this.AddDefaultFeatures();
             this.AddMoreApps();
+            this.Piglet1();
 
             this.SetStyle();
         }
@@ -37,7 +37,7 @@ namespace BloatyNosy
             btnAppOptions.Text = "\uE70D";
             btnKebapMenu.Text = "\u22ee";
             btnSettings.Text = "\uE713";
-            btnAnalyze.Text += OsHelper.GetVersion();
+            lblOS.Text += OsHelper.GetVersion();
 
             BackColor =
             tvwFeatures.BackColor =
@@ -45,6 +45,9 @@ namespace BloatyNosy
                 Color.FromArgb(244, 241, 249);
             logger.SetTarget(rtbLog);          // Log messages to target richLog
             INavPage = pnlForm.Controls[0];     // Set default NavPage
+
+            this.Location = new Point((Screen.PrimaryScreen.WorkingArea.Width - this.Width) / 2,
+                                    (Screen.PrimaryScreen.WorkingArea.Height - this.Height));
         }
 
         public void SetView(Control View)
@@ -62,11 +65,33 @@ namespace BloatyNosy
 
         private void AddMoreApps()
         {
-            cmbTools.Items.Add("InstaPackage");
-            cmbTools.Items.Add("BloatFinder");
+            cmbTools.Items.Add("AppyTrash");
             cmbTools.Items.Add("WinModder");
             cmbTools.Items.Insert(0, "More Apps");
             cmbTools.SelectedIndex = 0;
+            if (File.Exists(HelperTool.Utils.Paths.ProgramFiles + @"\Builtbybel\BloatyNosy\BloatyNosy.exe"))
+            {
+                /* if (MessageBox.Show("InstaPackage app is not available in the Microsoft Store version of the app because, " +
+                                     "according to Microsoft, it triggers conflicts with the store policies.\n\n" +
+                                     "Do you want to download the open source version hosted on GitHub?", "Not available in Store", MessageBoxButtons.YesNo, MessageBoxIcon.Information, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
+                     Process.Start(HelperTool.Utils.Uri.URL_GITREPO);*/
+            }
+            else
+                cmbTools.Items.Add("InstaPackage");
+        }
+
+        private void Piglet1()
+        {
+            cbProfiles.Items.Clear();
+            cbProfiles.Items.Insert(0, "Select profile");
+            cbProfiles.SelectedIndex = 0;
+
+            try
+            {
+                string[] files = Directory.GetFiles(HelperTool.Utils.Data.DataRootDir, "*.bloos");
+                cbProfiles.Items.AddRange(files.Select((string filePath) => Path.GetFileNameWithoutExtension(filePath)).ToArray());
+            }
+            catch { cbProfiles.Text = "No profiles found."; }
         }
 
         /// <summary>
@@ -77,18 +102,18 @@ namespace BloatyNosy
         private void cmbTools_SelectedIndexChanged(object sender, EventArgs e)
         {
             string message = Convert.ToString(cmbTools.SelectedItem);
-            string[] keys = new string[] { "Insta", "Bloat", "Mod" };
+            string[] keys = new string[] { "Package", "Trash", "Mod" };
 
             string sKeyResult = keys.FirstOrDefault<string>(s => message.Contains(s));
 
             switch (sKeyResult)
             {
-                case "Insta":
+                case "Package":
                     this.SetView(new PackagesPageView());            // Packages > InstaPackages view
                     break;
 
-                case "Bloat":
-                    this.SetView(new AppsPageView());                // In-box apps > BloatFinder view
+                case "Trash":
+                    this.SetView(new AppsPageView());                // In-box apps > AppyTrash view
                     break;
 
                 case "Mod":
@@ -112,12 +137,13 @@ namespace BloatyNosy
             tvwFeatures.BeginUpdate();
 
             // Root node
-            TreeNode root = new TreeNode("Problems to be checked ")
+            TreeNode root = new TreeNode("Potential issues ")
             {
                 Checked = true,
             };
 
             TreeNode browser = new TreeNode("Browser", new TreeNode[] {
+                 new FeatureNode(new Features.Feature.Browser.EdgeBingAIButton()),
                 new FeatureNode(new Features.Feature.Browser.ChromeTelemetry()),
                 new FeatureNode(new Features.Feature.Browser.FirefoxTelemetry()),
             })
@@ -188,10 +214,10 @@ namespace BloatyNosy
                 new FeatureNode(new Features.Feature.Privacy.Advertising()),
                 new FeatureNode(new Features.Feature.Privacy.Feedback()),
                 new FeatureNode(new Features.Feature.Privacy.SuggestedContent()),
-                new FeatureNode(new Features.Feature.Privacy.Biometrics()),
                 new FeatureNode(new Features.Feature.Privacy.AppsAutoInstall()),
                 new FeatureNode(new Features.Feature.Privacy.WindowsTips()),
                 new FeatureNode(new Features.Feature.Privacy.TailoredExperiences()),
+                new FeatureNode(new Features.Feature.Privacy.BackgroundApps()),
             })
             {
                 Checked = true
@@ -249,7 +275,7 @@ namespace BloatyNosy
                 bool shouldPerform = await analyzeTask;
                 lnkSubHeader.Text = "Check " + feature.ID();
 
-                if (menuIgnoreLowLevelP.Checked == true)
+                if (menuIgnoreLowLevelI.Checked == true)
                     if (shouldPerform & !node.Text.Contains("LOW"))
                     {
                         logger.Log("Problem on " + node.Parent.Text + ": " + feature.ID());
@@ -316,6 +342,16 @@ namespace BloatyNosy
             progressionIncrease = (int)Math.Floor(100.0f / selectedFeatures.Count);
 
             return selectedFeatures;
+        }
+
+        private void ResetColorNode(TreeNodeCollection nodes, Color Color)
+        {
+            foreach (System.Windows.Forms.TreeNode child in nodes)
+            {
+                child.BackColor = Color;
+                if (child.Nodes != null && child.Nodes.Count > 0)
+                    ResetColorNode(child.Nodes, Color);
+            }
         }
 
         private void Reset()
@@ -438,7 +474,7 @@ namespace BloatyNosy
 
         private void menuIgnoreLowLevelP_Click(object sender, EventArgs e)
         {
-            menuIgnoreLowLevelP.Checked = !(menuIgnoreLowLevelP.Checked);
+            menuIgnoreLowLevelI.Checked = !(menuIgnoreLowLevelI.Checked);
             SelectFeatureNodes(tvwFeatures.Nodes, true);
         }
 
@@ -457,40 +493,42 @@ namespace BloatyNosy
         private void lblAppOptionsFix_Click(object sender, EventArgs e)
             => btnAppOptions.PerformClick();
 
-        private void lnkGitHubRepo_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-            => Process.Start(Utils.Uri.URL_GITREPO);
-        private void menuImportProfile_Click(object sender, EventArgs e)
+        private void lblOS_Click(object sender, EventArgs e)
+        => btnAnalyze.PerformClick();
+
+        private void menuLoadProfile_Click(object sender, EventArgs e)
         {
-            OpenFileDialog f = new OpenFileDialog();
-            f.InitialDirectory = HelperTool.Utils.Data.DataRootDir;
-            f.Filter = "BloatyNosy files (*.bloos)|*.bloos|ThisIsWin11 files (*.tiw1)|*.tiw1";
+            string filePath = HelperTool.Utils.Data.DataRootDir + "\\" + cbProfiles.Text + ".bloos";
 
-            if (f.ShowDialog() == DialogResult.OK)
+            ResetColorNode(tvwFeatures.Nodes, Color.FromArgb(244, 241, 249));
+            SelectFeatureNodes(tvwFeatures.Nodes, false);
+            tvwFeatures.ExpandAll();
+            tvwFeatures.Nodes[0].EnsureVisible();
+
+            try
             {
-                SelectFeatureNodes(tvwFeatures.Nodes, false);
-                tvwFeatures.ExpandAll();
-                tvwFeatures.Nodes[0].EnsureVisible();
-                menuAdvanced.PerformClick();
-
-                using (StreamReader reader = new StreamReader(f.OpenFile()))
+                using (StreamReader reader = new StreamReader(filePath))
                 {
                     while (!reader.EndOfStream)
                     {
                         string line = reader.ReadLine();
-                        foreach (TreeNode treeNode in tvwFeatures.Nodes.All())
+                        foreach (System.Windows.Forms.TreeNode treeNode in tvwFeatures.Nodes.All())
                         {
                             if (treeNode.Text.Contains(line))
                             {
                                 treeNode.BackColor = Color.Yellow;
-                                treeNode.Text += "\x20" + "(" + Path.GetFileNameWithoutExtension(f.FileName) + ")";
                                 treeNode.Checked = true;
+                                tvwFeatures.SelectedNode = treeNode;
                             }
                         }
                     }
-
-                    MessageBox.Show("Profile has been successfully imported.\n\nWe have highlighted the configuration that would be enabled (no changes are done yet).", this.Text, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    if (new FileInfo(filePath).Length == 0) logger.Log("- Empty configuration loaded.");
                 }
+
+                btnAnalyze.PerformClick();
+                logger.Log($"[{cbProfiles.Text} has been successfully loaded].\nWe have highlighted the configuration that would be enabled (no changes are done yet).");
             }
+            catch { { MessageBox.Show("No profile selected."); } }
         }
 
         private void menuExportProfile_Click(object sender, EventArgs e)
@@ -538,7 +576,7 @@ namespace BloatyNosy
             switch (tn.Text)
             {
                 case "*[HIGH] Search and remove pre-installed bloatware apps automatically (Right-click to remove bloatware manually)":
-                    this.SetView(new AppsPageView());                // In-box apps > BloatFinder view
+                    this.SetView(new AppsPageView());                // In-box apps > AppyTrash view
                     break;
 
                 default:

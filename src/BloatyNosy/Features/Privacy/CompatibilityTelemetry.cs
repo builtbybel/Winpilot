@@ -50,7 +50,7 @@ namespace Features.Feature.Privacy
                 var RegKey = Registry.LocalMachine.OpenSubKey(@"Software\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\CompatTelRunner.exe", true);
                 RegKey.DeleteValue("Debugger");
 
-                logger.Log("- Compatibility Telemetry has been successfully enabled.");
+                logger.Log("+ Compatibility Telemetry has been successfully enabled.");
                 return true;
             }
             catch

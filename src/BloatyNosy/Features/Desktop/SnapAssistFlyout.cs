@@ -49,7 +49,7 @@ namespace Features.Feature.Desktop
             try
             {
                 Registry.SetValue(keyName, "EnableSnapAssistFlyout", 1, RegistryValueKind.DWord);
-                logger.Log("- Snap Assist has been enabled.\nPlease restart your PC for the changes to take effect.");
+                logger.Log("+ Snap Assist has been enabled.\nPlease restart your PC for the changes to take effect.");
                 return true;
             }
             catch

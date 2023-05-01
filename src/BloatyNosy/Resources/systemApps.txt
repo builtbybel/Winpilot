@@ -26,7 +26,6 @@ Microsoft.Windows.AssignedAccessLockApp
 Microsoft.Windows.CapturePicker
 Microsoft.Windows.CloudExperienceHost
 Microsoft.Windows.ContentDeliveryManager
-Microsoft.Windows.Cortana
 Microsoft.Windows.NarratorQuickStart
 Microsoft.Windows.OOBENetworkCaptivePortal
 Microsoft.Windows.OOBENetworkConnectionFlow

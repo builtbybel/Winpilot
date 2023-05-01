@@ -61,7 +61,7 @@ namespace Features.Feature.Gaming
                 Registry.SetValue(keyName, "GameDVR_FSEBehaviorMode", "0", RegistryValueKind.DWord);
                 Registry.SetValue(keyName2, "value", 1, RegistryValueKind.DWord);
 
-                logger.Log("- Game DVR feature has been successfully enabled.");
+                logger.Log("+ Game DVR feature has been successfully enabled.");
                 logger.Log(keyName + Environment.NewLine + keyName2);
                 return true;
             }

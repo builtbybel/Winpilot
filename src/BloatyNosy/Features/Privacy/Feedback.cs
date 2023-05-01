@@ -55,7 +55,7 @@ namespace Features.Feature.Privacy
                 RegKey.DeleteValue("NumberOfSIUFInPeriod");
                 RegKey.DeleteValue("PeriodInNanoSeconds");
 
-                logger.Log("- Feedback has been successfully enabled.");
+                logger.Log("+ Feedback has been successfully enabled.");
                 return true;
             }
             catch

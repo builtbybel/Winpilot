@@ -49,7 +49,7 @@ namespace Features.Feature.Taskbar
             try
             {
                 Registry.SetValue(keyName, "Start_Layout", 0, RegistryValueKind.DWord);
-                logger.Log("- Showing more Pins on Start menu has been enabled.");
+                logger.Log("+ Showing more Pins on Start menu has been enabled.");
                 return true;
             }
             catch

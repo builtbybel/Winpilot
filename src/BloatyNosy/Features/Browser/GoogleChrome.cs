@@ -53,7 +53,7 @@ namespace Features.Feature.Browser
             try
             {
                 Registry.LocalMachine.DeleteSubKeyTree(@"Software\Policies\Google\Chrome", false);
-                logger.Log("- Google Chrome Telemetry has been enabled.");
+                logger.Log("+ Google Chrome Telemetry has been enabled.");
                 return true;
             }
             catch

@@ -49,7 +49,7 @@ namespace Features.Feature.Desktop
             try
             {
                 Registry.SetValue(keyName, "EnableTransparency", 1, RegistryValueKind.DWord);
-                logger.Log("- Transparency effects has been enabled.");
+                logger.Log("+ Transparency effects has been enabled.");
                 return true;
             }
             catch

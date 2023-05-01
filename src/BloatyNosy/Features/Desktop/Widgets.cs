@@ -49,7 +49,7 @@ namespace Features.Feature.Desktop
             try
             {
                 Registry.SetValue(keyName, "TaskbarDa", 1, RegistryValueKind.DWord);
-                logger.Log("- Widgets has been enabled.");
+                logger.Log("+ Widgets has been enabled.");
                 return true;
             }
             catch

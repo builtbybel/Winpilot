@@ -32,6 +32,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ModsPageView));
             this.contextAppMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.menuModEdit = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuModOpenDir = new System.Windows.Forms.ToolStripMenuItem();
             this.pnlForm = new System.Windows.Forms.Panel();
             this.pnlMain = new System.Windows.Forms.Panel();
             this.lblStatus = new System.Windows.Forms.Label();
@@ -64,18 +65,26 @@
             this.contextAppMenu.BackColor = System.Drawing.Color.WhiteSmoke;
             this.contextAppMenu.Font = new System.Drawing.Font("Segoe UI Variable Text Semiligh", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.contextAppMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.menuModEdit});
+            this.menuModEdit,
+            this.menuModOpenDir});
             this.contextAppMenu.Name = "menuMain";
             this.contextAppMenu.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
-            this.contextAppMenu.Size = new System.Drawing.Size(122, 26);
+            this.contextAppMenu.Size = new System.Drawing.Size(181, 70);
             this.contextAppMenu.Text = "Info";
             // 
             // menuModEdit
             // 
             this.menuModEdit.Name = "menuModEdit";
-            this.menuModEdit.Size = new System.Drawing.Size(121, 22);
+            this.menuModEdit.Size = new System.Drawing.Size(180, 22);
             this.menuModEdit.Text = "Edit Mod";
             this.menuModEdit.Click += new System.EventHandler(this.menuModEdit_Click);
+            // 
+            // menuModOpenDir
+            // 
+            this.menuModOpenDir.Name = "menuModOpenDir";
+            this.menuModOpenDir.Size = new System.Drawing.Size(180, 22);
+            this.menuModOpenDir.Text = "Open Mods Folder";
+            this.menuModOpenDir.Click += new System.EventHandler(this.menuModOpenDir_Click);
             // 
             // pnlForm
             // 
@@ -386,5 +395,6 @@
         private System.Windows.Forms.Button btnBack;
         public System.Windows.Forms.LinkLabel lnkExploreMods;
         private System.Windows.Forms.Label lblStatus;
+        private System.Windows.Forms.ToolStripMenuItem menuModOpenDir;
     }
 }
