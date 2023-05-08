@@ -1,4 +1,4 @@
-# No more draw backs of upgrading to Windows 11 with - Bloaty 'Nosy (Bloaty & Nosy) -
+# Let's customize your Windows 11 experience with - BloatyNosy (Bloaty & Nosy) -
 
 ![screenshot](https://github.com/builtbybel/BloatyNosy/blob/main/assets/bloatynosy.png?raw=true)
 
