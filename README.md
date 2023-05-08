@@ -4,6 +4,7 @@
 
 _Universal Debloater and PC Manager for the most up-to-date version of the Redmond OS (Windows 11)_
 
+## Download
 ### GitHub releases page (Recommended)
 You can also download BloatyNosy directly from the [GitHub releases page](https://github.com/builtbybel/BloatyNosy/releases)
 
