@@ -12,12 +12,12 @@ namespace Features.Feature.Apps
 
         public override string ID()
         {
-            return "*[HIGH] Search and remove pre-installed bloatware apps automatically (Right-click to remove bloatware manually)";
+            return "*[HIGH] Search and remove pre-installed bloatware apps automatically (Configure with a right-click)";
         }
 
         public override string Info()
         {
-            return "To remove specific apps use the AppyTrash app in the \"More Apps\" section or right click on this feature";
+            return "To remove specific apps use the BloatPilot app in the \"More Apps\" section or right click on this feature";
         }
 
         private void RemoveApps(string str)
@@ -58,7 +58,7 @@ namespace Features.Feature.Apps
                 string current = result.ToString();
 
                 if (!apps.Contains(Regex.Replace(current, "(@{Name=)|(})", ""))) continue;
-                logger.Log("- " + (Regex.Replace(current, "(@{Name=)|(})", "")));
+                logger.Log("[-] " + (Regex.Replace(current, "(@{Name=)|(})", "")));
             }
             return true;
         }
@@ -70,7 +70,7 @@ namespace Features.Feature.Apps
             logger.Log("Searching bloatware database...");
             foreach (var str in apps)
             {
-                logger.Log("- Uninstalling " + str.ToString());
+                logger.Log("[-] Uninstalling " + str.ToString());
                 RemoveApps(str);
             }
 
@@ -79,7 +79,7 @@ namespace Features.Feature.Apps
 
         public override bool UndoFeature()
         {
-            logger.Log("-[RemoveStoreApps] This feature does not provide a restore mode.");
+            logger.Log("-[Remove Store Apps] This feature does not provide a restore mode.");
             return false;
         }
     }

@@ -37,7 +37,7 @@ namespace BloatyNosy
             listRemote.BackColor =
             listLocal.BackColor =
             richStatus.BackColor =
-              Color.FromArgb(245, 241, 249);
+                Color.FromArgb(239, 239, 247);
             btnBack.Text = "\uE72B";
         }
 

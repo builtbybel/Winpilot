@@ -2,6 +2,7 @@
 using System;
 using System.Diagnostics;
 using System.IO;
+using System.Linq;
 using System.Net;
 using System.Windows.Forms;
 
@@ -10,7 +11,7 @@ namespace HelperTool
     internal class Utils
 
     {
-        private static readonly ErrorHelper logger = ErrorHelper.Instance;
+        private static readonly ErrorHelper logger = ErrorHelper.Instance; 
 
         public static readonly string TweetIntent = "https://twitter.com/intent/tweet?text=Try%20the%20new%20next%20Gen-Debloat%20App%20%23BloatyNosy%20for%20Windows%2011%0a%0ahttps://www.builtbybel.com/blog/about-debloos";
 
@@ -27,8 +28,8 @@ namespace HelperTool
 
         public static class Paths
         {
-            public static string SysDir = Path.GetPathRoot(Environment.SystemDirectory);
-            public static string LocalAppDataDir = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
+            public static string SysDir = Path.GetPathRoot(Environment.SystemDirectory); 
+            public static string LocalAppDataDir = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);   
             public static string ProgramFiles = Environment.GetFolderPath(Environment.SpecialFolder.ProgramFiles);
 
             public static string ShellWT = LocalAppDataDir +
@@ -38,7 +39,7 @@ namespace HelperTool
                                             @"Windows\System32\cmd.exe";
 
             public static string ShellPS = SysDir +
-                                            @"Windows\System32\WindowsPowerShell\v1.0\powershell.exe";
+                                            @"Windows\System32\WindowsPowerShell\v1.0\powershell.exe"; 
         }
 
         public static class Data
@@ -78,6 +79,47 @@ namespace HelperTool
             return
                 ((!string.IsNullOrWhiteSpace(url)) &&
                 (url.ToLower().StartsWith("http")));
+        }
+
+        public static void CheckForUpdates()
+        {
+            if (IsInet() == true)
+            {
+                try
+                {
+                    string assemblyInfo = new WebClient().DownloadString(Utils.Uri.URL_ASSEMBLY);
+
+                    var readVersion = assemblyInfo.Split('\n');
+                    var infoVersion = readVersion.Where(t => t.Contains("[assembly: AssemblyFileVersion"));
+                    var latestVersion = "";
+                    foreach (var item in infoVersion)
+                    {
+                        latestVersion = item.Substring(item.IndexOf('(') + 2, item.LastIndexOf(')') - item.IndexOf('(') - 3);
+                    }
+
+                    if (latestVersion ==
+                        Program.GetCurrentVersionTostring())                      // Up-to-date
+                    {
+                        MessageBox.Show($"No new updates available.");
+                    }
+
+                    if (latestVersion !=                                        // Update available
+                          Program.GetCurrentVersionTostring())
+
+                    {
+                       if (MessageBox.Show($"App version {latestVersion} available.\nDo you want to open the Download page?", "App update available", MessageBoxButtons.YesNo, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1) == DialogResult.Yes)
+                         Process.Start(HelperTool.Utils.Uri.URL_GITLATEST);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Checking for App updates failed.\n{ex.Message}");
+                }
+            }
+            else if (IsInet() == false)
+            {
+               MessageBox.Show ( $"Problem on Internet connection: Checking for App updates failed");
+            }
         }
 
         // Check Inet

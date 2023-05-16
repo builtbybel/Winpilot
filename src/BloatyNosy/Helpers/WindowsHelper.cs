@@ -15,7 +15,6 @@ namespace BloatyNosy
             ProcStart(HelperTool.Utils.Paths.ShellCommandPrompt, args);
         }
 
-        //  Windows Terminal will be the default command line experience in TIW11 in 2022
         public static void RunWT(string args)
         {
             ProcStart(HelperTool.Utils.Paths.ShellWT, args);

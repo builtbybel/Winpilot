@@ -31,7 +31,7 @@ namespace BloatyNosy
         private void SetStyle()
         {
             BackColor =
-              Color.FromArgb(245, 241, 249);
+                Color.FromArgb(239, 239, 247);
             btnBack.Text = "\uE72B";
 
             btnAssist.FlatAppearance.MouseOverBackColor = btnAssist.BackColor;

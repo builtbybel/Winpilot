@@ -3,6 +3,7 @@ using Features.Feature;
 using HelperTool;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Linq;
@@ -19,12 +20,14 @@ namespace BloatyNosy
         private int progression = 0;
         private int progressionIncrease = 0;
         private static readonly ErrorHelper logger = ErrorHelper.Instance;
+        private bool switchMode = true;
 
         public MainForm()
            => InitializeComponent();
 
         private void MainForm_Shown(object sender, EventArgs e)
         {
+            _lblAssembly.Text = "Version " + Program.GetCurrentVersionTostring();
             this.AddDefaultFeatures();
             this.AddMoreApps();
             this.Piglet1();
@@ -34,20 +37,26 @@ namespace BloatyNosy
 
         private void SetStyle()
         {
-            btnAppOptions.Text = "\uE70D";
             btnKebapMenu.Text = "\u22ee";
-            btnSettings.Text = "\uE713";
-            lblOS.Text += OsHelper.GetVersion();
-
             BackColor =
             tvwFeatures.BackColor =
             rtbLog.BackColor =
-                Color.FromArgb(244, 241, 249);
+                   Color.FromArgb(239, 239, 247);
             logger.SetTarget(rtbLog);          // Log messages to target richLog
             INavPage = pnlForm.Controls[0];     // Set default NavPage
 
-            this.Location = new Point((Screen.PrimaryScreen.WorkingArea.Width - this.Width) / 2,
-                                    (Screen.PrimaryScreen.WorkingArea.Height - this.Height));
+            // Border
+            border.FlatAppearance.MouseOverBackColor = border.BackColor;
+            border.BackColorChanged += (s, e) =>
+            {
+                border.FlatAppearance.MouseOverBackColor = border.BackColor;
+            };
+
+            // Background Tile
+            if (!HelperTool.Utils.IsInet())
+            { lblInetCheck.Visible = true; }
+            else
+                pbBackground.ImageLocation = "https://github.com/builtbybel/BloatyNosy/blob/main/assets/BackgroundImage.png?raw=true";
         }
 
         public void SetView(Control View)
@@ -65,19 +74,11 @@ namespace BloatyNosy
 
         private void AddMoreApps()
         {
-            cmbTools.Items.Add("AppyTrash");
+            cmbTools.Items.Add("BloatPilot");
             cmbTools.Items.Add("WinModder");
-            cmbTools.Items.Insert(0, "More Apps");
+            cmbTools.Items.Add("InstaPackage");
+            cmbTools.Items.Insert(0, "Find more apps");
             cmbTools.SelectedIndex = 0;
-            if (File.Exists(HelperTool.Utils.Paths.ProgramFiles + @"\Builtbybel\BloatyNosy\BloatyNosy.exe"))
-            {
-                /* if (MessageBox.Show("InstaPackage app is not available in the Microsoft Store version of the app because, " +
-                                     "according to Microsoft, it triggers conflicts with the store policies.\n\n" +
-                                     "Do you want to download the open source version hosted on GitHub?", "Not available in Store", MessageBoxButtons.YesNo, MessageBoxIcon.Information, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
-                     Process.Start(HelperTool.Utils.Uri.URL_GITREPO);*/
-            }
-            else
-                cmbTools.Items.Add("InstaPackage");
         }
 
         private void Piglet1()
@@ -102,7 +103,7 @@ namespace BloatyNosy
         private void cmbTools_SelectedIndexChanged(object sender, EventArgs e)
         {
             string message = Convert.ToString(cmbTools.SelectedItem);
-            string[] keys = new string[] { "Package", "Trash", "Mod" };
+            string[] keys = new string[] { "Package", "Bloat", "Mod" };
 
             string sKeyResult = keys.FirstOrDefault<string>(s => message.Contains(s));
 
@@ -112,8 +113,10 @@ namespace BloatyNosy
                     this.SetView(new PackagesPageView());            // Packages > InstaPackages view
                     break;
 
-                case "Trash":
-                    this.SetView(new AppsPageView());                // In-box apps > AppyTrash view
+                case "Bloat":
+                    try
+                    { this.SetView(new AppsPageView()); }    // In-box apps > BloatPilot view
+                    catch { MessageBox.Show("To use this feature, the application needs to be extracted from the archive.", this.Text, MessageBoxButtons.OK, MessageBoxIcon.Exclamation); }
                     break;
 
                 case "Mod":
@@ -128,16 +131,13 @@ namespace BloatyNosy
         private void lnkRunSetup_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
              => this.SetView(new SetupPageView(this));               // Mods > Setup view
 
-        private void btnSettings_Click(object sender, EventArgs e)
-            => this.SetView(new AboutPageView());                    // Settings view
-
         public void AddDefaultFeatures()
         {
             tvwFeatures.Nodes.Clear();
             tvwFeatures.BeginUpdate();
 
             // Root node
-            TreeNode root = new TreeNode("Potential issues ")
+            TreeNode root = new TreeNode("Potential issues on Windows 11 " + OsHelper.GetVersion())
             {
                 Checked = true,
             };
@@ -152,7 +152,6 @@ namespace BloatyNosy
             };
 
             TreeNode explorer = new TreeNode("Explorer", new TreeNode[] {
-                new FeatureNode(new Features.Feature.Explorer.FileExplorer()),
                 new FeatureNode(new Features.Feature.Explorer.HiddenFileFolder()),
                 new FeatureNode(new Features.Feature.Explorer.HiddenFileExt()),
             })
@@ -232,6 +231,7 @@ namespace BloatyNosy
 
             TreeNode apps = new TreeNode("Bloatware (from Microsoft, ASUS, Adobe, HP, Meta etc.)", new TreeNode[] {
                 new FeatureNode(new Features.Feature.Apps.StoreApps()),
+                new FeatureNode(new Features.Feature.Apps.StoreAppsPrivate()),
             })
             {
                 Checked = true,
@@ -273,7 +273,7 @@ namespace BloatyNosy
                 // logger.Log("Check {0}", node.Text);
 
                 bool shouldPerform = await analyzeTask;
-                lnkSubHeader.Text = "Check " + feature.ID();
+                lnkStatus.Text = "Check " + feature.ID();
 
                 if (menuIgnoreLowLevelI.Checked == true)
                     if (shouldPerform & !node.Text.Contains("LOW"))
@@ -312,9 +312,10 @@ namespace BloatyNosy
             sum.Append("======= Summary =======\n");
             sum.Append($"We've checked {selectedFeatures.Count} features of your Windows 11 installation.\r\n");
             sum.Append($"We like {selectedFeatures.Count - performFeaturesCount} of these features (no need for action).\r\n");
+            sum.Append($"We recommend to disable {performFeaturesCount} of these features (click above link to view details).\r\n");
 
-            logger.Log(sum.ToString(), ""); btnAnalyze.Enabled = true;
-            lnkSubHeader.Text = $"There are {performFeaturesCount} features we don't like and which should be fixed (click for details).\r\n";
+            logger.Log(sum.ToString(), ""); btnAnalyze.Enabled = true; switchMode = false;
+            lnkStatus.Text = $"There are {performFeaturesCount} features which require your attention (click for details).\r\n";
         }
 
         private void SelectFeatureNodes(TreeNodeCollection trNodeCollection, bool isCheck)
@@ -386,14 +387,14 @@ namespace BloatyNosy
                 var assessment = node.Feature;
                 ConfiguredTaskAwaitable<bool> performTask = Task<bool>.Factory.StartNew(() => assessment.DoFeature()).ConfigureAwait(true);
 
-                lnkSubHeader.Text = "Fixing " + node.Text;
+                lnkStatus.Text = "Fixing " + node.Text;
 
                 var result = await performTask;
                 IncrementProgress();
             }
 
             DoProgress(100);
-            lnkSubHeader.Text = "Fixing complete (click for details).";
+            lnkStatus.Text = "Fixing complete (click for details).";
 
             tvwFeatures.Enabled = true;
         }
@@ -407,25 +408,20 @@ namespace BloatyNosy
                 var assessment = node.Feature;
                 ConfiguredTaskAwaitable<bool> performTask = Task<bool>.Factory.StartNew(() => assessment.UndoFeature()).ConfigureAwait(true);
 
-                lnkSubHeader.Text = "Restore " + node.Text;
+                lnkStatus.Text = "Restore " + node.Text;
 
                 var result = await performTask;
                 IncrementProgress();
             }
 
             DoProgress(100);
-            lnkSubHeader.Text = "Undo complete (click for details).";
+            lnkStatus.Text = "Undo complete (click for details).";
 
             tvwFeatures.Enabled = true;
         }
 
         private void menuFix_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(rtbLog.Text))
-            {
-                btnAnalyze.Text = "Click here to analyze first";
-            }
-
             if (MessageBox.Show("Do you want to apply selected fixes?", this.Text, MessageBoxButtons.YesNo, MessageBoxIcon.Information, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
             {
                 Reset();
@@ -458,20 +454,6 @@ namespace BloatyNosy
             tvwFeatures.EndUpdate();
         }
 
-        private void menuAdvanced_Click(object sender, EventArgs e)
-        {
-            menuAdvanced.Checked = !(menuAdvanced.Checked);
-
-            if (menuAdvanced.Checked == true)
-            {
-                tvwFeatures.Visible = true;
-                tvwFeatures.BringToFront();
-            }
-            else if (menuAdvanced.Checked == false)
-                tvwFeatures.Visible = false;
-            rtbLog.Visible = true;
-        }
-
         private void menuIgnoreLowLevelP_Click(object sender, EventArgs e)
         {
             menuIgnoreLowLevelI.Checked = !(menuIgnoreLowLevelI.Checked);
@@ -485,16 +467,7 @@ namespace BloatyNosy
              => this.contextAppMenu.Show(Cursor.Position.X, Cursor.Position.Y);
 
         private void btnMenu_Click(object sender, EventArgs e)
-            => this.contextKebapMenu.Show(Cursor.Position.X, Cursor.Position.Y);
-
-        private void lnkSubHeader_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-            => menuAdvanced.PerformClick();
-
-        private void lblAppOptionsFix_Click(object sender, EventArgs e)
-            => btnAppOptions.PerformClick();
-
-        private void lblOS_Click(object sender, EventArgs e)
-        => btnAnalyze.PerformClick();
+           => this.contextKebapMenu.Show(Cursor.Position.X, Cursor.Position.Y);
 
         private void menuLoadProfile_Click(object sender, EventArgs e)
         {
@@ -575,13 +548,55 @@ namespace BloatyNosy
 
             switch (tn.Text)
             {
-                case "*[HIGH] Search and remove pre-installed bloatware apps automatically (Right-click to remove bloatware manually)":
-                    this.SetView(new AppsPageView());                // In-box apps > AppyTrash view
+                case "*[HIGH] Search and remove pre-installed bloatware apps automatically (Configure with a right-click)":
+                    this.SetView(new AppsPageView());                // In-box apps > BloatPilot view
+                    break;
+
+                case "*[LOW] Remove bloatware based on private signature (Configure with a right-click)":
+                    Process.Start("notepad.exe", HelperTool.Utils.Data.DataRootDir + "bloaty.txt");
                     break;
 
                 default:
                     break;
             }
         }
+
+        private void lnkStatus_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            if (rtbLog.Text == "")
+                rtbLog.Text = "Windows 11 is too bloaty & nosy and has some annoying features that just need to go. " +
+                       "This app will scan your system and inform you which features it likes or dislikes in your configuration.\n\n" +
+                       "Click on \"Analyze\" to scan your Windows 11 system for undesired configurations and features and make adjustments in one go.\n\n" +
+                       "If you have any questions or need assistance, please visit the open-source repository of the app at ." + HelperTool.Utils.Uri.URL_GITREPO;
+
+            if (switchMode)
+            {
+                tvwFeatures.Visible = false;
+                rtbLog.Visible = true;
+                switchMode = false;
+            }
+            else
+            {
+                tvwFeatures.Visible = true;
+                tvwFeatures.BringToFront();
+
+                switchMode = true;
+            }
+        }
+
+        private void lnkAppMediaGitHub_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+           => Process.Start(HelperTool.Utils.Uri.URL_GITREPO);
+
+        private void lnkAppMediaTwitter_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+         => Process.Start(HelperTool.Utils.Uri.URL_TWITTER);
+
+        private void lnkAppMediaHelp_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+         => Process.Start(HelperTool.Utils.Uri.URL_HELP);
+
+        private void lnkUpdateCheck_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+           => HelperTool.Utils.CheckForUpdates();
+
+        private void lnkAppMediaDonate_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+          => Process.Start(HelperTool.Utils.Uri.URL_DONATE);
     }
 }

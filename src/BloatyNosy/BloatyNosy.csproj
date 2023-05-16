@@ -79,6 +79,7 @@
   <ItemGroup>
     <Compile Include="FeatureBase.cs" />
     <Compile Include="FeatureNode.cs" />
+    <Compile Include="Features\Apps\StoreAppsPrivate.cs" />
     <Compile Include="Features\Apps\StoreHallOfShame.cs" />
     <Compile Include="Features\Browser\GoogleChrome.cs" />
     <Compile Include="Features\Browser\MicrosoftEdge.cs" />
@@ -90,7 +91,6 @@
     <Compile Include="Features\Desktop\Widgets.cs" />
     <Compile Include="Features\Desktop\WidgetsR.cs" />
     <Compile Include="Features\Desktop\WindowsTheme.cs" />
-    <Compile Include="Features\Explorer\FileExplorer.cs" />
     <Compile Include="Features\Explorer\HiddenFileExt.cs" />
     <Compile Include="Features\Explorer\HiddenFileFolder.cs" />
     <Compile Include="Features\Privacy\BackgroundApps.cs" />
@@ -136,12 +136,6 @@
     <Compile Include="Modules\Setup\Pages.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Views\AboutPageView.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Views\AboutPageView.Designer.cs">
-      <DependentUpon>AboutPageView.cs</DependentUpon>
-    </Compile>
     <Compile Include="Views\AppsPageView.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -189,9 +183,6 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="Views\AboutPageView.resx">
-      <DependentUpon>AboutPageView.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Views\AppsPageView.resx">
       <DependentUpon>AppsPageView.cs</DependentUpon>
     </EmbeddedResource>

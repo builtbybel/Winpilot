@@ -27,7 +27,7 @@ namespace BloatyNosy
 
         private void SetStyle()
         {
-            lvMods.BackColor = Color.FromArgb(245, 241, 249);
+            lvMods.BackColor =   Color.FromArgb(239, 239, 247);
             btnBack.Text = "\uE72B";
         }
 

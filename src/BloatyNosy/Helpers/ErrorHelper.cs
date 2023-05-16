@@ -10,20 +10,18 @@ namespace BloatyNosy
         // Errorlogger to target richLog
         public void SetTarget(RichTextBox richText)
         {
-            target = richText;
+            target = richText; 
         }
 
         public void Log(string format, params object[] args)
         {
-            format += "\r\n";
+            format += "\r\n"; 
 
             try
             {
-                if (target.InvokeRequired)
+                if (target.InvokeRequired) 
                 {
-                    target.Invoke(new Action(() =>
-                        target.AppendText(string.Format(format, args))
-                    ));
+                 target.Invoke(new Action(() => target.AppendText(string.Format(format, args)))); 
                 }
                 else
                 {
@@ -35,7 +33,7 @@ namespace BloatyNosy
 
         public static ErrorHelper Instance
         {
-            get => new ErrorHelper();
+            get => new ErrorHelper(); 
         }
     }
 }

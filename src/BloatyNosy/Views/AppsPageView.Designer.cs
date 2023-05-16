@@ -214,7 +214,7 @@
             this.lblHeader.Name = "lblHeader";
             this.lblHeader.Size = new System.Drawing.Size(960, 32);
             this.lblHeader.TabIndex = 177;
-            this.lblHeader.Text = "AppyTrash";
+            this.lblHeader.Text = "BloatPilot";
             // 
             // listApps
             // 

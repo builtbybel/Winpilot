@@ -39,7 +39,7 @@ namespace BloatyNosy
             tabCode.BackColor =
             rtbDesc.BackColor =
             rtbCode.BackColor =
-                Color.FromArgb(245, 241, 249);
+                  Color.FromArgb(239, 239, 247);
 
             btnHMenu.Text = "\uE700";
             btnBack.Text = "\uE72B";

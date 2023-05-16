@@ -154,8 +154,8 @@
             // 
             this.btnAssist.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnAssist.FlatAppearance.BorderColor = System.Drawing.Color.HotPink;
-            this.btnAssist.FlatAppearance.BorderSize = 8;
+            this.btnAssist.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.btnAssist.FlatAppearance.BorderSize = 2;
             this.btnAssist.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAssist.Font = new System.Drawing.Font("Segoe UI Variable Text Semiligh", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAssist.Location = new System.Drawing.Point(546, 131);

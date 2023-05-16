@@ -5,7 +5,7 @@ using System.Runtime.InteropServices;
 // Attribute gesteuert. Ändern Sie diese Attributwerte, um die Informationen zu ändern,
 // die einer Assembly zugeordnet sind.
 [assembly: AssemblyTitle("BloatyNosy")]
-[assembly: AssemblyDescription("Debloat your OS")]
+[assembly: AssemblyDescription("The Powertoy")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Builtbybel")]
 [assembly: AssemblyProduct("BloatyNosy")]
@@ -31,5 +31,5 @@ using System.Runtime.InteropServices;
 // Sie können alle Werte angeben oder Standardwerte für die Build- und Revisionsnummern verwenden,
 // indem Sie "*" wie unten gezeigt eingeben:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("0.51.0")]
-[assembly: AssemblyFileVersion("0.51.0")]
+[assembly: AssemblyVersion("0.80.0")]
+[assembly: AssemblyFileVersion("0.80.0")]

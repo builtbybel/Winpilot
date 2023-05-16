@@ -35,7 +35,7 @@ namespace BloatyNosy
             listApps.BackColor =
             listRemove.BackColor =
             rtbStatus.BackColor =
-              Color.FromArgb(245, 241, 249);
+                Color.FromArgb(239, 239, 247);
 
             btnHMenu.Text = "\uE700";
             btnBack.Text = "\uE72B";
@@ -134,13 +134,11 @@ namespace BloatyNosy
 
             if (listRemove.Items.Count == 0)
             {
-
                 lblAppsBinOptions.Visible = true;
                 picAppsPoster.Visible = true;
 
                 rtbStatus.Visible = true;
                 listRemove.Visible = false;
-
             }
             else
             {
