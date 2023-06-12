@@ -71,6 +71,7 @@
             this.menuRestoreInfo = new System.Windows.Forms.ToolStripTextBox();
             this.contextAppMenuOptions = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.menuAppConfigure = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnBack = new System.Windows.Forms.Button();
             this.pnlForm.SuspendLayout();
             this.pnlMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbBackground)).BeginInit();
@@ -93,6 +94,7 @@
             // 
             this.pnlMain.AutoScroll = true;
             this.pnlMain.AutoSize = true;
+            this.pnlMain.Controls.Add(this.btnBack);
             this.pnlMain.Controls.Add(this.lnkUpdateCheck);
             this.pnlMain.Controls.Add(this._lblAssembly);
             this.pnlMain.Controls.Add(this.lnkAppMediaHelp);
@@ -467,9 +469,9 @@
             this.pbBackground.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.pbBackground.ErrorImage = null;
             this.pbBackground.InitialImage = null;
-            this.pbBackground.Location = new System.Drawing.Point(3, -49);
+            this.pbBackground.Location = new System.Drawing.Point(0, 36);
             this.pbBackground.Name = "pbBackground";
-            this.pbBackground.Size = new System.Drawing.Size(445, 662);
+            this.pbBackground.Size = new System.Drawing.Size(445, 629);
             this.pbBackground.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pbBackground.TabIndex = 182;
             this.pbBackground.TabStop = false;
@@ -653,6 +655,22 @@
             this.menuAppConfigure.Text = "Configure this app";
             this.menuAppConfigure.Click += new System.EventHandler(this.menuAppConfigure_Click);
             // 
+            // btnBack
+            // 
+            this.btnBack.BackColor = System.Drawing.Color.Transparent;
+            this.btnBack.FlatAppearance.BorderSize = 0;
+            this.btnBack.FlatAppearance.MouseOverBackColor = System.Drawing.Color.WhiteSmoke;
+            this.btnBack.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBack.Font = new System.Drawing.Font("Segoe Fluent Icons", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBack.ForeColor = System.Drawing.Color.Black;
+            this.btnBack.Location = new System.Drawing.Point(0, 0);
+            this.btnBack.Name = "btnBack";
+            this.btnBack.Size = new System.Drawing.Size(42, 38);
+            this.btnBack.TabIndex = 220;
+            this.btnBack.Text = "...";
+            this.btnBack.UseVisualStyleBackColor = false;
+            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
@@ -724,6 +742,7 @@
         private System.Windows.Forms.LinkLabel lnkUpdateCheck;
         private System.Windows.Forms.ToolStripTextBox textHeaderAppInfo;
         private System.Windows.Forms.ToolStripTextBox textHeaderExperience;
+        private System.Windows.Forms.Button btnBack;
     }
 }
 

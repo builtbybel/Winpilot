@@ -13,12 +13,12 @@ namespace Features.Feature.Apps
 
         public override string ID()
         {
-            return "*[LOW] Remove bloatware based on private signature (Configure with a right-click)";
+            return "*[LOW] Remove bloatware based on private database (Configure with a right-click)";
         }
 
         public override string Info()
         {
-            return "Open the bloaty.txt file in the app directory of BloatyNosy to edit your signature or right click on this feature";
+            return "Open the bloaty.txt file in the app directory of BloatyNosy to edit your database or right click on this feature";
         }
 
         private void RemoveApps(string str)
@@ -35,32 +35,54 @@ namespace Features.Feature.Apps
 
         public override bool CheckFeature()
         {
-            logger.Log("The following apps would be removed based on your private signature:");
-            powerShell.Commands.Clear();
-            powerShell.AddCommand("get-appxpackage");
-            powerShell.AddCommand("Select").AddParameter("property", "name");
-
             try
             {
-                string[] num = File.ReadAllLines(HelperTool.Utils.Data.DataRootDir + "/bloaty.txt");
-
-                foreach (PSObject result in powerShell.Invoke())
+                string bloatyFilePath = Path.Combine(HelperTool.Utils.Data.DataRootDir, "bloaty.txt");
+                if (!File.Exists(bloatyFilePath))
                 {
-                    string current = result.ToString(); // Get the current app
+                    logger.Log("Your private signature is free of bloatware.");
+                    return false; // Indicate failure
+                }
 
-                    for (int i = 0; i < num.Length; i++)
+                string[] num = File.ReadAllLines(bloatyFilePath);
+
+                using (PowerShell powerShell = PowerShell.Create())
+                {
+                    powerShell.AddCommand("get-appxpackage")
+                        .AddCommand("Select").AddParameter("property", "name");
+
+                    bool foundMatch = false;
+                    logger.Log("The following apps would be removed based on your private bloatware database:");
+                    foreach (string line in num)
                     {
-                        string[] package = num[i].Split(':');
-                        string appx = package[0];
+                        string[] package = line.Split(':');
+                        string appx = package[0].Trim();
 
-                        if (current.Contains(appx))
-                            logger.Log("[-] App would be removed: " + appx);
+                        foreach (PSObject result in powerShell.Invoke())
+                        {
+                            string current = result.ToString(); // Get the current app
+
+                            if (current.Contains(appx))
+                            {
+                                foundMatch = true;
+                                logger.Log("[-] " + appx);
+                                break;
+                            }
+                        }
                     }
+                    if (!foundMatch)
+                    {
+                        logger.Log("Your private scan is free of bloatware.\n[TIP] You can manually expand and maintain your private bloatware database \"bloaty.txt\" in \"app\" directory.");
+                    }
+
+                    return foundMatch; // Return value of foundMatch
                 }
             }
-            catch
-            { logger.Log("[!] Could not find private signature file \"bloaty.txt\" in " + HelperTool.Utils.Data.DataRootDir); }
-            return true;
+            catch (Exception ex)
+            {
+                logger.Log("[!] An error occurred: " + ex.Message);
+                return false; // Indicate failure
+            }
         }
 
         public override bool DoFeature()

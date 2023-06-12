@@ -38,6 +38,8 @@ namespace BloatyNosy
         private void SetStyle()
         {
             btnKebapMenu.Text = "\u22ee";
+            btnBack.Text = "\uE72B";
+
             BackColor =
             tvwFeatures.BackColor =
             rtbLog.BackColor =
@@ -561,7 +563,7 @@ namespace BloatyNosy
             }
         }
 
-        private void lnkStatus_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private void btnBack_Click(object sender, EventArgs e)
         {
             if (rtbLog.Text == "")
                 rtbLog.Text = "Windows 11 is too bloaty & nosy and has some annoying features that just need to go. " +
@@ -584,6 +586,9 @@ namespace BloatyNosy
             }
         }
 
+        private void lnkStatus_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+           => btnBack.PerformClick();
+
         private void lnkAppMediaGitHub_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
            => Process.Start(HelperTool.Utils.Uri.URL_GITREPO);
 
@@ -598,5 +603,6 @@ namespace BloatyNosy
 
         private void lnkAppMediaDonate_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
           => Process.Start(HelperTool.Utils.Uri.URL_DONATE);
+
     }
 }

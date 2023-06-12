@@ -20,13 +20,13 @@ namespace Features.Feature.Apps
             return "To remove specific apps use the BloatPilot app in the \"More Apps\" section or right click on this feature";
         }
 
-        private void RemoveApps(string str)
+        private void RemoveApps(string str, out bool removed)
         {
+            removed = false;
             bool error = false;
             using (PowerShell script = PowerShell.Create())
             {
                 script.AddScript("Get-AppxPackage " + str + " | Remove-AppxPackage");
-
                 script.Invoke();
                 error = script.HadErrors;
             }
@@ -38,9 +38,8 @@ namespace Features.Feature.Apps
             else
             {
                 logger.Log("App removed " + str);
+                removed = true;
             }
-
-            return;
         }
 
         public override bool CheckFeature()
@@ -51,30 +50,46 @@ namespace Features.Feature.Apps
             powerShell.AddCommand("get-appxpackage");
             powerShell.AddCommand("Select").AddParameter("property", "name");
 
-            logger.Log("We found the following bloatware on your system: (if no apps are listed, then nothing was found)");
+            bool foundMatches = false; // Flag variable to track if matches are found
+            logger.Log("The following bloatware has been found:");
 
             foreach (PSObject result in powerShell.Invoke())
             {
-                string current = result.ToString();
+                string current = result.Properties["Name"].Value.ToString();
 
-                if (!apps.Contains(Regex.Replace(current, "(@{Name=)|(})", ""))) continue;
-                logger.Log("[-] " + (Regex.Replace(current, "(@{Name=)|(})", "")));
+                if (apps.Contains(Regex.Replace(current, "(@{Name=)|(})", "")))
+                {
+
+                    foundMatches = true;
+                    logger.Log((Regex.Replace(current, "(@{Name=)|(})", "")));
+                }
             }
-            return true;
+
+            if (!foundMatches)
+            {
+                logger.Log("Your system is free of bloatware.");
+            }
+
+            return foundMatches; // Return value of foundMatches
         }
 
         public override bool DoFeature()
         {
             var apps = BloatwareList.GetList();
-
             logger.Log("Searching bloatware database...");
+            bool foundAndDeleted = false;
+
             foreach (var str in apps)
             {
-                logger.Log("[-] Uninstalling " + str.ToString());
-                RemoveApps(str);
+                RemoveApps(str, out bool removed);
+                if (removed)
+                {
+                    logger.Log("[-] Uninstalled " + str.ToString());
+                    foundAndDeleted = true;
+                }
             }
 
-            return true;
+            return foundAndDeleted;
         }
 
         public override bool UndoFeature()
