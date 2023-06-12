@@ -21,3 +21,8 @@ Windows 11 has a gazillion toggles and settings options. And general users donâ€
 
 
 More infos here https://www.builtbybel.com/blog/about-bloatynosy
+
+## Star History
+
+[![Star History Chart](https://api.star-history.com/svg?repos=builtbybel/BloatyNosy&type=Timeline)](https://star-history.com/#builtbybel/BloatyNosy&Timeline)
+
