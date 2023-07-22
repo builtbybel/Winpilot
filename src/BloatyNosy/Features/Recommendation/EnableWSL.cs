@@ -9,7 +9,7 @@ namespace Features.Feature.Recommendation
 
         public override string ID()
         {
-            return "[LOW] We've recommend enabling Microsoft Windows Subsystem for Linux";
+            return "[LOW] We recommend enabling Microsoft Windows Subsystem for Linux";
         }
 
         public override string Info()
