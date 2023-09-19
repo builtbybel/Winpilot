@@ -20,7 +20,7 @@ Windows 11 has a gazillion toggles and settings options. And general users donâ€
 - Next to this the app installer **InstaPackage** is integrated, which allows you to install some of the most important apps with a click and in bulk.
 
 
-More infos here https://www.builtbybel.com/blog/about-bloatynosy
+More infos here https://www.builtbybel.com/apps/bloatynosy
 
 ## Star History
 
