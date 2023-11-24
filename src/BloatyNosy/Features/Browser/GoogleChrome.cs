@@ -25,7 +25,7 @@ namespace Features.Feature.Browser
             return !(
                RegistryHelper.IntEquals(keyName, "MetricsReportingEnabled", desiredValue) &&
                RegistryHelper.IntEquals(keyName, "ChromeCleanupReportingEnabled", desiredValue) &&
-               RegistryHelper.IntEquals(keyName, "SubscribedContent-353696Enabled", desiredValue)
+               RegistryHelper.IntEquals(keyName, "ChromeCleanupEnabled", desiredValue)
            );
         }
 
@@ -35,7 +35,7 @@ namespace Features.Feature.Browser
             {
                 Registry.SetValue(keyName, "MetricsReportingEnabled", desiredValue, RegistryValueKind.DWord);
                 Registry.SetValue(keyName, "ChromeCleanupReportingEnabled", desiredValue, RegistryValueKind.DWord);
-                Registry.SetValue(keyName, "SubscribedContent-353696Enabled", desiredValue, RegistryValueKind.DWord);
+                Registry.SetValue(keyName, "ChromeCleanupEnabled", desiredValue, RegistryValueKind.DWord);
 
                 logger.Log("- Google Chrome Telemetry has been disabled.");
                 logger.Log(keyName);

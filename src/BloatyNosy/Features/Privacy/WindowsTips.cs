@@ -8,7 +8,7 @@ namespace Features.Feature.Privacy
     {
         private static readonly ErrorHelper logger = ErrorHelper.Instance;
 
-        private const string keyName = @"HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager ";
+        private const string keyName = @"HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager";
         private const int desiredValue = 0;
 
         public override string ID()
