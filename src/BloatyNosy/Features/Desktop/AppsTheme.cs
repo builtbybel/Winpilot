@@ -1,4 +1,4 @@
-﻿using BloatyNosy;
+﻿using Bloatynosy;
 using Microsoft.Win32;
 
 namespace Features.Feature.Desktop
@@ -36,7 +36,7 @@ namespace Features.Feature.Desktop
                 logger.Log("- Apps dark theme has been successfully enabled.");
                 logger.Log(keyName);
 
-                logger.Log("\n\nDark theme will also be enabled for BloatyNosy.\nPlease restart the app for the changes to take effect.");
+                logger.Log("\n\nDark theme will also be enabled for Bloatynosy.\nPlease restart the app for the changes to take effect.");
 
                 return true;
             }

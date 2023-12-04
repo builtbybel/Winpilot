@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 
-namespace BloatyNosy
+namespace Bloatynosy
 {
     internal static class Program
     {
@@ -21,7 +21,7 @@ namespace BloatyNosy
 
             if (!HelperTool.OsHelper.IsWin11())
             {
-                MessageBox.Show("You are running Bloaty&Nosy on a system older than Windows 11.\nBloatyNosy is limited to Windows 11 ONLY.", "OS not supported", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("You are running Bloaty&Nosy on a system older than Windows 11.\nBloatynosy is limited to Windows 11 ONLY.", "OS not supported", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 Application.Exit();
             }
             else Application.Run(new MainForm());

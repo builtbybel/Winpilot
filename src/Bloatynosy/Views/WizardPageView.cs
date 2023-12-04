@@ -1,14 +1,13 @@
-﻿using BloatyNosy.Setup;
+﻿using Bloatynosy.Setup;
 using System;
 using System.Diagnostics;
 using System.Drawing;
 using System.IO;
-using System.Linq;
 using System.Windows.Forms;
 
-namespace BloatyNosy
+namespace Bloatynosy.Views
 {
-    public partial class SetupPageView : UserControl
+    public partial class WizardPageView : UserControl
     {
         private PageTitle INavPage = PageTitle.Setup;
         private string wallpaperPath = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData).ToString() + @"\Microsoft\Windows\Themes\TranscodedWallpaper";
@@ -16,7 +15,7 @@ namespace BloatyNosy
 
         private MainForm mainForm = null;
 
-        public SetupPageView(Form frm)
+        public WizardPageView(Form frm)
         {
             mainForm = frm as MainForm;
             InitializeComponent();
@@ -30,10 +29,12 @@ namespace BloatyNosy
         // Some UI nicety
         private void SetStyle()
         {
+            // Some color styling
             BackColor =
-                Color.FromArgb(239, 239, 247);
+                Color.FromArgb(245, 241, 249);
             btnBack.Text = "\uE72B";
 
+            // Border of description 
             btnAssist.FlatAppearance.MouseOverBackColor = btnAssist.BackColor;
             btnAssist.BackColorChanged += (s, e) =>
             {
@@ -104,7 +105,7 @@ namespace BloatyNosy
             {
                 case PageTitle.Setup:
                     lnkConfigure.Visible = false;
-                    lnkCustomize.Visible = false;
+                    btnCustomize.Visible = false;
                     if (!HelperTool.Utils.IsInet())
                         lblHeader.Text = "We cannot connect to the Internet. Some functions of the Windows 11 Setup module are not available.";
                     else lblHeader.Text = "Hi " + Environment.UserName;
@@ -121,8 +122,8 @@ namespace BloatyNosy
 
                 case PageTitle.NewLook:
                     lnkConfigure.Visible = true;
-                    lnkCustomize.Visible = true;
-                    lnkCustomize.Text = "Customize Windows 11";
+                    btnCustomize.Visible = true;
+                    btnCustomize.Text = "Customize Windows 11";
                     lblHeader.Text = "A new look";
                     btnAssist.Text = "As you already see, Windows 11 features a clean design with rounded corners, pastel shades and a centered Start menu and Taskbar.";
                     pbView.Visible = true;
@@ -132,8 +133,8 @@ namespace BloatyNosy
 
                 case PageTitle.StartMenu:
                     lnkConfigure.Visible = true;
-                    lnkCustomize.Visible = true;
-                    lnkCustomize.Text = defaultCustomizerText;
+                    btnCustomize.Visible = true;
+                    btnCustomize.Text = defaultCustomizerText;
                     lblHeader.Text = "New Start Menu";
                     btnAssist.Text = "Of all the new Windows 11 features, the new launcher-style floating Start Menu is the most distinctive part of Microsoft’s next-gen desktop OS.\n\n" +
                                         "Unlike the traditional Start Menu, the new Start — as Microsoft is calling it — sits right at the center of the taskbar.\n\n" +
@@ -145,8 +146,8 @@ namespace BloatyNosy
 
                 case PageTitle.Apps:
                     lnkConfigure.Visible = true;
-                    lnkCustomize.Visible = true;
-                    lnkCustomize.Text = "Remove bloatware";
+                    btnCustomize.Visible = true;
+                    btnCustomize.Text = "Remove bloatware";
                     lblHeader.Text = "Apps";
                     btnAssist.Text = "Apparently Windows 11 is also lighter than Windows 10 as for the preinstalled apps.\n\n" +
                                     "The good thing is that at least some of the Windows 10 apps aren’t installed. However, you will still have installed all the hoard of apps that belong to Microsoft, such as Mail and Calendar, Your Phone, Mixed Reality Portal, Solitaire Collection, Get Help, Paint 3D, XBox Game Bar, etc.";
@@ -157,8 +158,8 @@ namespace BloatyNosy
 
                 case PageTitle.Privacy:
                     lnkConfigure.Visible = true;
-                    lnkCustomize.Visible = true;
-                    lnkCustomize.Text = "Fix privacy issues";
+                    btnCustomize.Visible = true;
+                    btnCustomize.Text = "Fix privacy issues";
                     lblHeader.Text = "Privacy";
                     btnAssist.Text = "One thing Microsoft didn't discuss is about Windows 11 privacy.\n\n" +
                                     "Since Windows 11 Home will essentially require a Microsoft account for most users, data harvesting is part of the package. \n\n" +
@@ -171,8 +172,8 @@ namespace BloatyNosy
 
                 case PageTitle.MicrosoftStore:
                     lnkConfigure.Visible = false;
-                    lnkCustomize.Visible = true;
-                    lnkCustomize.Text = "Install packages";
+                    btnCustomize.Visible = true;
+                    btnCustomize.Text = "Install packages";
                     lblHeader.Text = "New Microsoft Store";
                     btnAssist.Text = "There’s a complete UI overhaul on the app store and some speed improvements.\n\n" +
                                    "The key change is allowing more apps into the store. The Microsoft Store is changing on Windows 11, and eventually Windows 10, to include any traditional desktop apps.\n\n" +
@@ -184,8 +185,8 @@ namespace BloatyNosy
 
                 case PageTitle.ActionCenter:
                     lnkConfigure.Visible = true;
-                    lnkCustomize.Visible = false;
-                    lnkCustomize.Text = defaultCustomizerText;
+                    btnCustomize.Visible = false;
+                    btnCustomize.Text = defaultCustomizerText;
                     lblHeader.Text = "Action Center";
                     btnAssist.Text = "Another great feature of Windows 11 is the revamped Action Center.\n\n" +
                                     "It follows a design language that we have seen on mobile OSes, and I quite like this mobile - first approach to important system toggles\n\n" +
@@ -197,8 +198,8 @@ namespace BloatyNosy
 
                 case PageTitle.FileExplorer:
                     lnkConfigure.Visible = true;
-                    lnkCustomize.Visible = true;
-                    lnkCustomize.Text = defaultCustomizerText;
+                    btnCustomize.Visible = true;
+                    btnCustomize.Text = defaultCustomizerText;
                     lblHeader.Text = "Modern File Explorer";
                     btnAssist.Text = "The new experience of file explorer didn’t come with multiple Tabs options similar to tabs in the Microsoft Edge browser.\n\n" +
                                      "By default, File Explorer is now optimized for tablet users.\n\n" +
@@ -210,8 +211,8 @@ namespace BloatyNosy
 
                 case PageTitle.SettingsApp:
                     lnkConfigure.Visible = false;
-                    lnkCustomize.Visible = true;
-                    lnkCustomize.Text = "Check all settings";
+                    btnCustomize.Visible = true;
+                    btnCustomize.Text = "Check all settings";
                     lblHeader.Text = "Redesigned Settings App";
                     btnAssist.Text = "The Settings app has been redesigned with a radically different look and it is now using a new navigation menu on the left, similar to Control Panel.\n\n" +
                                     "It comes with a slightly reorganized layout which enables easier access to all your PC settings.\n\n" +
@@ -223,7 +224,7 @@ namespace BloatyNosy
 
                 case PageTitle.WindowsUpdates:
                     lnkConfigure.Visible = true;
-                    lnkCustomize.Visible = false;
+                    btnCustomize.Visible = false;
                     lblHeader.Text = "Faster Windows Updates";
                     btnAssist.Text = "Yes, you read that right. With Windows 11, you will have a much faster Windows update process, thanks to the background installation mechanism. Microsoft has promised that Windows updates will now be 40% smaller, making the process even more efficient. ";
                     pbView.Visible = true;
@@ -233,8 +234,8 @@ namespace BloatyNosy
 
                 case PageTitle.SnapLayouts:
                     lnkConfigure.Visible = false;
-                    lnkCustomize.Visible = true;
-                    lnkCustomize.Text = "Disable SnapLayouts feature";
+                    btnCustomize.Visible = true;
+                    btnCustomize.Text = "Disable SnapLayouts feature";
                     lblHeader.Text = "Snap Layouts";
                     btnAssist.Text = "Snap is a productivity feature that helps users arrange applications and other windows logically on-screen.\n\n" +
                                     "In 2019, Microsoft relaunched the PowerToys brand with a new utility called FancyZones that extends the Snap experience to allow for more complex and useful on-screen window layouts. A key part of this utility, incredibly, has been integrated into Windows 11 and is now called Snap Layouts.\n\n" +
@@ -246,8 +247,8 @@ namespace BloatyNosy
 
                 case PageTitle.Widgets:
                     lnkConfigure.Visible = false;
-                    lnkCustomize.Visible = true;
-                    lnkCustomize.Text = "Disable Widgets feature";
+                    btnCustomize.Visible = true;
+                    btnCustomize.Text = "Disable Widgets feature";
                     lblHeader.Text = "Widgets";
                     btnAssist.Text = "With Windows 11, Microsoft has brought Widgets, where you can find all kinds of information with just a click. It’s similar to Google Assistant’s Snapshot and the “Today View” in Apple’s iOS 15 or macOS Monterey.";
                     pbView.Visible = true;
@@ -257,7 +258,7 @@ namespace BloatyNosy
 
                 case PageTitle.GestureControls:
                     lnkConfigure.Visible = true;
-                    lnkCustomize.Visible = false;
+                    btnCustomize.Visible = false;
                     lblHeader.Text = "Advanced Gesture Controls";
                     btnAssist.Text = "Gestures have long been part of Windows 10, but frankly speaking, they were not very smooth, and the transitions between apps and virtual desktops were awful. With the new Advanced Gesture Controls and mandatory precision touchpad requirement for Windows 11, things might get better.\n\n" +
                                     "Now, you can customize three-finger and four-finger swipes according to your preference.";
@@ -268,7 +269,7 @@ namespace BloatyNosy
 
                 case PageTitle.WallpapersNSounds:
                     lnkConfigure.Visible = true;
-                    lnkCustomize.Visible = false;
+                    btnCustomize.Visible = false;
                     lblHeader.Text = "New Wallpapers && Sounds";
                     btnAssist.Text = "Along with Windows 11, Microsoft has also brought a series of beautiful wallpapers, sounds, and themes. Wallpapers such as Captured Motion, Flow, Sunrise, Glow are some of the nicest wallpapers you can find on a desktop OS.\n\n" +
                                     "Also, the startup and notification sound is really good.\nPress the Magic Button to listen to the startup sound.\n\n" +
@@ -280,7 +281,7 @@ namespace BloatyNosy
 
                 case PageTitle.LockScreen:
                     lnkConfigure.Visible = true;
-                    lnkCustomize.Visible = false;
+                    btnCustomize.Visible = false;
                     lblHeader.Text = "New Minimal Lock Screen";
                     btnAssist.Text = "Windows 11 supports animated lock-screen background on PCs that have accelerometer.\n\n" +
                                     "It applies an acrylic blur in the background, and the new variable Segoe UI font makes things even better. If you don’t want all the links and recommendations on the lock screen, you can disable them from Settings for a clean lock screen.";
@@ -291,7 +292,7 @@ namespace BloatyNosy
 
                 case PageTitle.TouchKeyboard:
                     lnkConfigure.Visible = true;
-                    lnkCustomize.Visible = false;
+                    btnCustomize.Visible = false;
                     lblHeader.Text = "Touch Keyboard Improvements";
                     btnAssist.Text = "Windows 11 comes with a Touch Keyboard feature that remains turned off by default. You can use this touch keyboard on a computer or laptop, which is not a touch screen. It is a handy application if your physical keyboard is totally not working or a few keys are not working.\n\n" +
                                     "Microsoft made it more intuitive to use by drawing inspiration from smartphone keyboards.\n\nEven you can use this Touch Keyboard as a substitute for a mechanical keyboard.";
@@ -301,8 +302,8 @@ namespace BloatyNosy
 
                 case PageTitle.AndroidApps:
                     lnkConfigure.Visible = false;
-                    lnkCustomize.Visible = true;
-                    lnkCustomize.Text = "Install Windows Subsystem for Android";
+                    btnCustomize.Visible = true;
+                    btnCustomize.Text = "Install Windows Subsystem for Android";
                     lblHeader.Text = "Android Apps Support";
                     btnAssist.Text = "Microsoft has released Android apps support in the Beta Channel of Windows 11.\n\n" +
                                     "The experience of installing apps is very simple. Microsoft has partnered with Amazon, so the Microsoft Store will list apps but send you over to Amazon’s Appstore app to get them installed or updated.\n\n" +
@@ -314,9 +315,9 @@ namespace BloatyNosy
 
                 case PageTitle.Gaming:
                     lnkConfigure.Visible = true;
-                    lnkCustomize.Visible = true;
+                    btnCustomize.Visible = true;
                     lblHeader.Text = "Gaming";
-                    lnkCustomize.Text = "Improve Gaming";
+                    btnCustomize.Text = "Improve Gaming";
                     btnAssist.Text = "If you're a gamer, Windows 11 was made for you and the following three features will make it great for gaming.\n\n" +
                                     "1. During the Windows 11 unveiling, Microsoft announced support for Auto HDR that would elevate the viewing experience while playing games.\n\n" +
                                     "HDR stands for High Dynamic Range, as opposed to SDR or Standard Dynamic Range. With a higher range of colors, HDR gives more vibrant and realistic colors to your video games and makes the sceneries look even better.\n\n" +
@@ -329,9 +330,9 @@ namespace BloatyNosy
 
                 case PageTitle.Finish:
                     lnkConfigure.Visible = false;
-                    lnkCustomize.Visible = true;
+                    btnCustomize.Visible = true;
                     lblHeader.Text = "See you in a bit";
-                    lnkCustomize.Text = "We have some tips for you!";
+                    btnCustomize.Text = "We have some tips for you!";
                     btnAssist.Text = "We're finish setting up your device.";
                     pbView.Visible = true;
                     pbView.ImageLocation = "https://github.com/builtbybel/ThisIsWin11/blob/main/assets/pages/endpage.png?raw=true";
@@ -340,57 +341,13 @@ namespace BloatyNosy
 
                 case PageTitle.Custom:
                     lnkConfigure.Visible = false;
-                    lnkCustomize.Visible = true;
-                    lnkCustomize.Text = "Customize Windows 11";
-                    lblHeader.Text = "Customization marketplace";
-                    btnAssist.Text = "You will find here code snippets (Mods) to customize Windows 11 according to your wishes.";
+                    btnCustomize.Visible = true;
+                    btnCustomize.Text = "Customize Windows 11";
+                    lblHeader.Text = "Install Plugins for Bloatynosy";
+                    btnAssist.Text = "You will find here Plugins (based on PowerShell script files) to customize Windows 11 according to your wishes.";
                     pbView.Visible = false;
                     pbView.ImageLocation = "";
 
-                    break;
-            }
-        }
-
-        private void btnBack_Click(object sender, EventArgs e)
-        {
-            var mainForm = Application.OpenForms.OfType<MainForm>().Single();
-            mainForm.pnlForm.Controls.Clear();
-            if (mainForm.INavPage != null) mainForm.pnlForm.Controls.Add(mainForm.INavPage);
-        }
-
-        private void lnkCustomize_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            switch (INavPage)
-            {
-                case PageTitle.Apps:
-                    mainForm.SetView(new AppsPageView());
-                    break;
-
-                case PageTitle.MicrosoftStore:
-                    mainForm.SetView(new PackagesPageView());
-                    break;
-
-                case PageTitle.Custom:
-                    mainForm.SetView(new ModsPageView());
-                    break;
-
-                case PageTitle.Finish:  // Open Microsoft Tips app
-
-                    bool tipsApp = Directory.Exists(Path.Combine
-                                    (Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData),
-                                    "Packages\\Microsoft.Getstarted_8wekyb3d8bbwe"));
-
-                    if (!tipsApp) MessageBox.Show("Microsoft Tips app is not installed on this system :(\nYou can get it on the Microsoft Store.", "We are sorry...", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    else
-                    {
-                        Process.Start(@"shell:appsfolder\Microsoft.Getstarted_8wekyb3d8bbwe!App");
-                    }
-
-                    break;
-
-                default:
-
-                    btnBack.PerformClick();
                     break;
             }
         }
@@ -492,6 +449,41 @@ namespace BloatyNosy
 
                 case PageTitle.Custom:
 
+                    break;
+            }
+        }
+
+        private void btnBack_Click(object sender, EventArgs e) => ViewHelper.SwitchView.SetMainFormAsView();
+
+        private void btnCustomize_Click(object sender, EventArgs e)
+        {
+            switch (INavPage)
+            {
+                case PageTitle.Apps:
+                    ViewHelper.SwitchView.SetView(new BloatyPageView());
+                    break;
+
+                case PageTitle.MicrosoftStore:
+                    ViewHelper.SwitchView.SetView(new PackagesPageView());
+                    break;
+
+                case PageTitle.Finish:  // Open Microsoft Tips app
+
+                    bool tipsApp = Directory.Exists(Path.Combine
+                                    (Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData),
+                                    "Packages\\Microsoft.Getstarted_8wekyb3d8bbwe"));
+
+                    if (!tipsApp) MessageBox.Show("Microsoft Tips app is not installed on this system :(\nYou can get it on the Microsoft Store.", "We are sorry...", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    else
+                    {
+                        Process.Start(@"shell:appsfolder\Microsoft.Getstarted_8wekyb3d8bbwe!App");
+                    }
+
+                    break;
+
+                default:
+
+                    btnBack.PerformClick();
                     break;
             }
         }

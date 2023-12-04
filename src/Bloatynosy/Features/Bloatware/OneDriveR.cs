@@ -1,10 +1,10 @@
-﻿using BloatyNosy;
+﻿using Bloatynosy;
 using System;
 using System.Diagnostics;
 using System.IO;
 using System.Net;
 
-namespace Features.Feature.System
+namespace Features.Feature.Bloatware
 {
     internal class OneDriveRemove : FeatureBase
     {

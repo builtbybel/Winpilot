@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.1.32210.238
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BloatyNosy", "BloatyNosy\BloatyNosy.csproj", "{44CAFCEB-0F6D-487F-9F5F-63F230DBB069}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bloatynosy", "Bloatynosy\Bloatynosy.csproj", "{44CAFCEB-0F6D-487F-9F5F-63F230DBB069}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

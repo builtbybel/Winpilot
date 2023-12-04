@@ -8,9 +8,9 @@ using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace BloatyNosy
+namespace Bloatynosy.Views
 {
-    public partial class AppsPageView : UserControl
+    public partial class BloatyPageView : UserControl
     {
         private List<string> removeAppsList = new List<string>();
         private List<string> removeAppsFailedList = new List<string>();
@@ -18,7 +18,7 @@ namespace BloatyNosy
 
         private readonly PowerShell powerShell = PowerShell.Create();
 
-        public AppsPageView()
+        public BloatyPageView()
         {
             InitializeComponent();
 
@@ -31,15 +31,16 @@ namespace BloatyNosy
         // Some UI nicety
         private void SetStyle()
         {
+            // Segoe MDL2 Assets
+            btnHMenu.Text = "\uE700";
+            btnRefresh.Text = "\uE895";
+            btnBack.Text = "\uE72B";
+            // Some color styling
             BackColor =
             listApps.BackColor =
             listRemove.BackColor =
             rtbStatus.BackColor =
-                Color.FromArgb(239, 239, 247);
-
-            btnHMenu.Text = "\uE700";
-            btnBack.Text = "\uE72B";
-            btnAppOptions.Text = "\uE972";
+                Color.FromArgb(245, 241, 249);
 
             if (!HelperTool.Utils.IsInet()) picAppsPoster.Visible = false;
             else picAppsPoster.ImageLocation = "https://github.com/builtbybel/ThisIsWin11/blob/main/assets/pages/page-apps.png?raw=true";
@@ -82,7 +83,7 @@ namespace BloatyNosy
             catch (FileNotFoundException) // Create file if it doesnt exisits
             {
                 StreamWriter sw = File.CreateText(HelperTool.Utils.Data.DataRootDir + "systemApps.txt");
-                sw.Write(BloatyNosy.Properties.Resources.systemApps);    // Populate it with built in preset
+                sw.Write(Bloatynosy.Properties.Resources.systemApps);    // Populate it with built in preset
                 sw.Close();
 
                 Database = File.OpenText(HelperTool.Utils.Data.DataRootDir + "systemApps.txt");
@@ -129,22 +130,16 @@ namespace BloatyNosy
         {
             int installed = listApps.Items.Count;
             int remove = listRemove.Items.Count;
-            groupInstalled.Text = installed.ToString() + " apps installed";
-            groupBin.Text = "Recycle bin" + " (" + remove.ToString() + ")";
+            lblInstalled.Text = installed.ToString() + " apps installed";
+            lblBin.Text = "Recycle bin" + " (" + remove.ToString() + ")";
 
             if (listRemove.Items.Count == 0)
             {
-                lblAppsBinOptions.Visible = true;
-                picAppsPoster.Visible = true;
-
                 rtbStatus.Visible = true;
                 listRemove.Visible = false;
             }
             else
             {
-                lblAppsBinOptions.Visible = false;
-                picAppsPoster.Visible = false;
-
                 rtbStatus.Visible = false;
                 listRemove.Visible = true;
             }
@@ -245,7 +240,7 @@ namespace BloatyNosy
             {
                 selectedApps += app + Environment.NewLine;
             }
-            if (MessageBox.Show("Do you want to empty the Recycle bin and delete all apps in it?", this.Text, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            if (MessageBox.Show("Do you want to permanently delete all apps in the bin? ", this.Text, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 removeAppsList.Clear();
                 removeAppsFailedList.Clear();
@@ -286,7 +281,7 @@ namespace BloatyNosy
                                                      "as these apps are needed for the Windows 11 Experience and for other programs. If you try, you’ll see an error message saying the removal failed.";
                 }
 
-                menuRefresh.PerformClick();
+                btnRefresh.PerformClick();
 
                 btnUninstall.Enabled = true;
                 rtbStatus.Text = message + Environment.NewLine;
@@ -294,11 +289,40 @@ namespace BloatyNosy
             }
         }
 
-        private void btnBack_Click(object sender, EventArgs e)
+        private void lblBloatOpt1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            var mainForm = Application.OpenForms.OfType<MainForm>().Single();
-            mainForm.pnlForm.Controls.Clear();
-            if (mainForm.INavPage != null) mainForm.pnlForm.Controls.Add(mainForm.INavPage);
+            if (MessageBox.Show("This will add all the annoying bloatware apps, " +
+                      "pre-installed on Windows 11 including some apps your PC manufacturer included to the removal list." +
+                      "\r\n\nMost of these apps are garbage, but if you find important stuff on the list just remove it " +
+                      "from the right box before hitting \"Uninstall\".", this.Text, MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+            {
+                var apps = BloatwareList.GetList();
+                listRemove.Visible = true;
+
+                foreach (string app in apps)
+                {
+                    listRemove.Items.Add(app);
+                }
+
+                InitializeApps();
+                RefreshApps();
+                lblBloatOpt1.Enabled = false;
+            }
+        }
+
+        private void lblBloatOpt2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            var apps = BloatwareHallOfShame.GetList();
+            listRemove.Visible = true;
+
+            foreach (string app in apps)
+            {
+                listRemove.Items.Add(app);
+            }
+
+            InitializeApps();
+            RefreshApps();
+            lblBloatOpt2.Enabled = false;
         }
 
         private void textSearch_TextChanged(object sender, EventArgs e)
@@ -372,12 +396,6 @@ namespace BloatyNosy
             }
         }
 
-        private void btnHMenu_Click(object sender, EventArgs e)
-            => this.contextAppMenu.Show(Cursor.Position.X, Cursor.Position.Y);
-
-        private void lblAppsBinOptions_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-            => menuAppsImport.PerformClick();
-
         private void menuAppsRemoveAll_Click(object sender, EventArgs e)
         {
             if (MessageBox.Show("This will remove all pre-installed apps for the logged in user, except the Microsoft Store. Do you wish to continue?", this.Text, MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
@@ -400,53 +418,22 @@ namespace BloatyNosy
             }
         }
 
-        private void menuAppsCommunity_Click(object sender, EventArgs e)
-        {
-            if (MessageBox.Show("This will add all the annoying bloatware apps, " +
-                                "pre-installed on Windows 11 including some apps your PC manufacturer included to the removal list." +
-                                "\r\n\nMost of these apps are garbage, but if you find important stuff on the list just remove it " +
-                                "from the right box before hitting \"Uninstall\".", this.Text, MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
-            {
-                var apps = BloatwareList.GetList();
-                listRemove.Visible = true;
-
-                foreach (string app in apps)
-                {
-                    listRemove.Items.Add(app);
-                }
-
-                InitializeApps();
-                RefreshApps();
-            }
-        }
-
-        private void menuAppsHallOfShame_Click(object sender, EventArgs e)
-        {
-            var apps = BloatwareHallOfShame.GetList();
-            listRemove.Visible = true;
-
-            foreach (string app in apps)
-            {
-                listRemove.Items.Add(app);
-            }
-
-            InitializeApps();
-            RefreshApps();
-        }
-
-        private void btnAppOptions_Click(object sender, EventArgs e)
-            => this.contextAppMenuOptions.Show(Cursor.Position.X, Cursor.Position.Y);
-
-        private void menuRefresh_Click(object sender, EventArgs e)
+        private void btnRefresh_Click(object sender, EventArgs e)
         {
             listApps.Items.Clear();
             listRemove.Items.Clear();
             removeAppsList.Clear();
+            lblBloatOpt1.Enabled =
+            lblBloatOpt2.Enabled = true;
 
             InitializeAppsSystem();
             InitializeApps();
-
-            picAppsPoster.Visible = false;
         }
+
+        private void btnBack_Click(object sender, EventArgs e)
+            => ViewHelper.SwitchView.SetMainFormAsView();
+
+        private void btnHMenu_Click(object sender, EventArgs e)
+            => this.contextAppMenu.Show(Cursor.Position.X, Cursor.Position.Y);
     }
 }

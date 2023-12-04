@@ -1,7 +1,13 @@
-﻿namespace Features.Feature
+﻿using Bloatynosy;
+using System.Threading.Tasks;
+
+namespace Features.Feature
 {
     public abstract class FeatureBase
     {
+        private static readonly ErrorHelper logger = ErrorHelper.Instance;
+        public string ScriptFilePath { get; set; } // Path to Powershell plugins directory
+
         /// <summary>
         /// Name of Feature
         /// </summary>
@@ -9,7 +15,7 @@
         public abstract string ID();
 
         /// <summary>
-        /// Tooltip text of sssessments
+        /// Description of Feature
         /// </summary>
         /// <returns>The feature tooltip</returns>
         public abstract string Info();
@@ -31,5 +37,15 @@
         /// </summary>
         /// <returns>Returns true if the feature was successfull, false otherwise.</returns>
         public abstract bool UndoFeature();
+
+        public virtual bool LoadScriptFile()
+        {
+            // Check if the script file path is set for the feature
+            if (!string.IsNullOrEmpty(ScriptFilePath))
+            {
+            }
+
+            return false; // Return false if no script file path is set for the feature
+        }
     }
 }

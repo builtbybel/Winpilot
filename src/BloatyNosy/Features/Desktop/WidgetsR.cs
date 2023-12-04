@@ -1,4 +1,4 @@
-﻿using BloatyNosy;
+﻿using Bloatynosy;
 using System;
 using System.Diagnostics;
 using System.IO;

@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace BloatyNosy
+namespace Bloatynosy
 {
     public static class BloatwareHallOfShame
     {

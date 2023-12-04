@@ -4,11 +4,11 @@ using System.Runtime.InteropServices;
 // Allgemeine Informationen über eine Assembly werden über die folgenden
 // Attribute gesteuert. Ändern Sie diese Attributwerte, um die Informationen zu ändern,
 // die einer Assembly zugeordnet sind.
-[assembly: AssemblyTitle("BloatyNosy")]
-[assembly: AssemblyDescription("The Powertoy")]
+[assembly: AssemblyTitle("Bloatynosy")]
+[assembly: AssemblyDescription("The real Windows 11 Copilot")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Builtbybel")]
-[assembly: AssemblyProduct("BloatyNosy")]
+[assembly: AssemblyProduct("Bloatynosy")]
 [assembly: AssemblyCopyright("Copyright ©  2023 Builtbybel")]
 [assembly: AssemblyTrademark("Builtbybel")]
 [assembly: AssemblyCulture("")]
@@ -31,5 +31,5 @@ using System.Runtime.InteropServices;
 // Sie können alle Werte angeben oder Standardwerte für die Build- und Revisionsnummern verwenden,
 // indem Sie "*" wie unten gezeigt eingeben:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("1.1.20")]
-[assembly: AssemblyFileVersion("1.1.20")]
+[assembly: AssemblyVersion("1.2.12")]
+[assembly: AssemblyFileVersion("1.2.12")]

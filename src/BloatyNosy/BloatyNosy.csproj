@@ -6,13 +6,14 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{44CAFCEB-0F6D-487F-9F5F-63F230DBB069}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>BloatyNosy</RootNamespace>
-    <AssemblyName>BloatyNosy</AssemblyName>
+    <RootNamespace>Bloatynosy</RootNamespace>
+    <AssemblyName>Bloatynosy</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <AutoGenerateBindingRedirects>false</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
     <IsWebBootstrapper>false</IsWebBootstrapper>
+    <TargetFrameworkProfile />
     <PublishUrl>publish\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
@@ -27,10 +28,9 @@
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
-    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>x64</PlatformTarget>
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -66,6 +66,8 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\..\..\Windows\Microsoft.NET\assembly\GAC_MSIL\System.Management.Automation\v4.0_3.0.0.0__31bf3856ad364e35\System.Management.Automation.dll</HintPath>
     </Reference>
+    <Reference Include="System.Runtime.CompilerServices.VisualC" />
+    <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -79,8 +81,8 @@
   <ItemGroup>
     <Compile Include="FeatureBase.cs" />
     <Compile Include="FeatureNode.cs" />
-    <Compile Include="Features\Apps\StoreAppsPrivate.cs" />
-    <Compile Include="Features\Apps\StoreHallOfShame.cs" />
+    <Compile Include="Features\Bloatware\StoreAppsPrivate.cs" />
+    <Compile Include="Features\Bloatware\StoreHallOfShame.cs" />
     <Compile Include="Features\Browser\GoogleChrome.cs" />
     <Compile Include="Features\Browser\MicrosoftEdge.cs" />
     <Compile Include="Features\Browser\MozillaFirefox.cs" />
@@ -94,7 +96,6 @@
     <Compile Include="Features\Explorer\HiddenFileExt.cs" />
     <Compile Include="Features\Explorer\HiddenFileFolder.cs" />
     <Compile Include="Features\Privacy\BackgroundApps.cs" />
-    <Compile Include="Features\Recommendation\EnableWSL.cs" />
     <Compile Include="Features\Gaming\GameDVR.cs" />
     <Compile Include="Features\Gaming\PowerThrottling.cs" />
     <Compile Include="Features\Gaming\VisualFX.cs" />
@@ -108,23 +109,26 @@
     <Compile Include="Features\Privacy\TailoredExperiences.cs" />
     <Compile Include="Features\Privacy\Telemetry.cs" />
     <Compile Include="Features\Privacy\WindowsTips.cs" />
-    <Compile Include="Features\Apps\StoreApps.cs" />
-    <Compile Include="Features\Apps\StoreEngine.cs" />
+    <Compile Include="Features\Bloatware\StoreApps.cs" />
+    <Compile Include="Features\Bloatware\StoreEngine.cs" />
     <Compile Include="Features\System\FaxPrinter.cs" />
     <Compile Include="Features\System\FullContextMenus.cs" />
-    <Compile Include="Features\System\OneDriveR.cs" />
+    <Compile Include="Features\Bloatware\OneDriveR.cs" />
     <Compile Include="Features\System\RemoveW11Watermark.cs" />
     <Compile Include="Features\System\TeamsAutostart.cs" />
     <Compile Include="Features\System\TPMCheck.cs" />
     <Compile Include="Features\System\XPSWriter.cs" />
+    <Compile Include="Features\Taskbar\Copilot.cs" />
     <Compile Include="Features\Taskbar\MostUsedApps.cs" />
     <Compile Include="Features\Taskbar\StartmenuLayout.cs" />
+    <Compile Include="Features\Taskbar\StartmenuSearch.cs" />
     <Compile Include="Features\Taskbar\TaskbarChat.cs" />
     <Compile Include="Features\Taskbar\TaskbarSearch.cs" />
     <Compile Include="Features\Taskbar\TaskView.cs" />
     <Compile Include="Helpers\ErrorHelper.cs" />
     <Compile Include="Helpers\HelperTool.cs" />
     <Compile Include="Helpers\OsHelper.cs" />
+    <Compile Include="Helpers\ViewHelper.cs" />
     <Compile Include="ITreeNode.cs" />
     <Compile Include="Helpers\RegistryHelper.cs" />
     <Compile Include="MainForm.cs">
@@ -136,19 +140,17 @@
     <Compile Include="Modules\Setup\Pages.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Views\AppsPageView.cs">
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Github.cs" />
+    <Compile Include="Views\BloatyPageView.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Views\AppsPageView.Designer.cs">
-      <DependentUpon>AppsPageView.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Modules\WinModder\ModsParser.cs" />
-    <Compile Include="Modules\WinModder\ModsManifest.cs" />
-    <Compile Include="Views\ModsPageView.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Views\ModsPageView.Designer.cs">
-      <DependentUpon>ModsPageView.cs</DependentUpon>
+    <Compile Include="Views\BloatyPageView.Designer.cs">
+      <DependentUpon>BloatyPageView.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\PackagesPageView.cs">
       <SubType>UserControl</SubType>
@@ -157,17 +159,17 @@
       <DependentUpon>PackagesPageView.cs</DependentUpon>
     </Compile>
     <Compile Include="Helpers\WindowsHelper.cs" />
-    <Compile Include="Views\IModsPageView.cs">
+    <Compile Include="Views\NosyPageView.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Views\IModsPageView.Designer.cs">
-      <DependentUpon>IModsPageView.cs</DependentUpon>
+    <Compile Include="Views\NosyPageView.Designer.cs">
+      <DependentUpon>NosyPageView.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\SetupPageView.cs">
+    <Compile Include="Views\WizardPageView.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Views\SetupPageView.Designer.cs">
-      <DependentUpon>SetupPageView.cs</DependentUpon>
+    <Compile Include="Views\WizardPageView.Designer.cs">
+      <DependentUpon>WizardPageView.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
@@ -175,28 +177,20 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
-    </Compile>
-    <EmbeddedResource Include="Views\AppsPageView.resx">
-      <DependentUpon>AppsPageView.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Views\ModsPageView.resx">
-      <DependentUpon>ModsPageView.cs</DependentUpon>
+    <EmbeddedResource Include="Views\BloatyPageView.resx">
+      <DependentUpon>BloatyPageView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\PackagesPageView.resx">
       <DependentUpon>PackagesPageView.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\IModsPageView.resx">
-      <DependentUpon>IModsPageView.cs</DependentUpon>
+    <EmbeddedResource Include="Views\NosyPageView.resx">
+      <DependentUpon>NosyPageView.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\SetupPageView.resx">
-      <DependentUpon>SetupPageView.cs</DependentUpon>
+    <EmbeddedResource Include="Views\WizardPageView.resx">
+      <DependentUpon>WizardPageView.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="app.manifest" />
     <None Include="Properties\Settings.settings">
@@ -228,6 +222,5 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

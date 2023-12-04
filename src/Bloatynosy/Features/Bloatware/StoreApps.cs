@@ -1,9 +1,9 @@
-﻿using BloatyNosy;
+﻿using Bloatynosy;
 using System.Linq;
 using System.Management.Automation;
 using System.Text.RegularExpressions;
 
-namespace Features.Feature.Apps
+namespace Features.Feature.Bloatware
 {
     internal class StoreApps : FeatureBase
     {
@@ -12,12 +12,12 @@ namespace Features.Feature.Apps
 
         public override string ID()
         {
-            return "*[HIGH] Search and remove pre-installed bloatware apps automatically (Configure with a right-click)";
+            return "*[HIGH] Search and remove pre-installed bloatware apps automatically";
         }
 
         public override string Info()
         {
-            return "To remove specific apps use the BloatPilot app in the \"More Apps\" section or right click on this feature";
+            return "To remove specific apps use the Bloatpilot function in the bottom right corner.";
         }
 
         private void RemoveApps(string str, out bool removed)
@@ -51,26 +51,31 @@ namespace Features.Feature.Apps
             powerShell.AddCommand("Select").AddParameter("property", "name");
 
             bool foundMatches = false; // Flag variable to track if matches are found
-            logger.Log("The following bloatware has been found:");
+            logger.Log("8. The following bloatware has been found:");
 
-            foreach (PSObject result in powerShell.Invoke())
+            try
             {
-                string current = result.Properties["Name"].Value.ToString();
-
-                if (apps.Contains(Regex.Replace(current, "(@{Name=)|(})", "")))
+                foreach (PSObject result in powerShell.Invoke())
                 {
+                    string current = result.Properties["Name"].Value.ToString();
 
-                    foundMatches = true;
-                    logger.Log((Regex.Replace(current, "(@{Name=)|(})", "")));
+                    if (apps.Contains(Regex.Replace(current, "(@{Name=)|(})", "")))
+                    {
+
+                        foundMatches = true;
+                        logger.Log((Regex.Replace(current, "(@{Name=)|(})", "")));
+                    }
                 }
             }
+            catch { }
 
             if (!foundMatches)
-            {
-                logger.Log("Your system is free of bloatware.");
-            }
+                {
+                    logger.Log("Your system is free of bloatware.");
+                }
 
-            return foundMatches; // Return value of foundMatches
+                return foundMatches; // Return value of foundMatches
+         
         }
 
         public override bool DoFeature()

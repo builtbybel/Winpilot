@@ -2,7 +2,7 @@
 using System;
 using System.Windows.Forms;
 
-namespace BloatyNosy
+namespace Bloatynosy
 {
     // Check whether registry values equal
     internal class RegistryHelper

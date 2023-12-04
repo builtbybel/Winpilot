@@ -3,20 +3,19 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Drawing;
 using System.IO;
-using System.Linq;
 using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace BloatyNosy
+namespace Bloatynosy.Views
 {
     public partial class PackagesPageView : UserControl
     {
         private List<string> Packages = new List<string>();
         private List<string> remoteApps = new List<string>();
 
-        private string fPackagesLocal = HelperTool.Utils.Data.DataRootDir + "InstaPackage.app";
+        private string fPackagesLocal = HelperTool.Utils.Data.DataRootDir + "Packages.app";
 
         public PackagesPageView()
         {
@@ -26,26 +25,27 @@ namespace BloatyNosy
             listRemote.Items.AddRange(remoteApps.ToArray());
 
             GetPackagesLocal();
-
             SetStyle();
         }
 
         // Some UI nicety
         private void SetStyle()
         {
+            // Segoe MDL2 Assets
+            btnBack.Text = "\uE72B";
+            // Some color styling
             BackColor =
             listRemote.BackColor =
             listLocal.BackColor =
             richStatus.BackColor =
-                Color.FromArgb(239, 239, 247);
-            btnBack.Text = "\uE72B";
+               Color.FromArgb(245, 241, 249);
         }
 
         public void RequestPackagesRemote()
         {
             try
             {
-                var webRequest = WebRequest.Create(@"https://raw.githubusercontent.com/builtbybel/BloatyNosy/main/assets/packages.git");
+                var webRequest = WebRequest.Create(@"https://raw.githubusercontent.com/builtbybel/Bloatynosy/main/assets/packages.git");
                 string app;
 
                 using (var response = webRequest.GetResponse())
@@ -74,7 +74,7 @@ namespace BloatyNosy
                 string[] appsInstall = File.ReadAllLines(fPackagesLocal);
 
                 listRemote.Items.Clear();
-                groupBox2.Text = "Offline ppackages";
+                lblRemote.Text = "Offline packages";
                 foreach (var currentApp in appsInstall)
                 {
                     if (!currentApp.StartsWith("#") && (!string.IsNullOrEmpty(currentApp)))
@@ -197,18 +197,14 @@ namespace BloatyNosy
                 await Task.Run(() => WingetInstallPackage(p));
             }
 
-            groupBox1.Text = "The following apps have been installed";
+            lblLocal.Text = "The following apps have been installed";
             listLocal.Visible = true;
             btnInstall.Enabled = true;
             richStatus.Visible = false;
         }
 
         private void btnBack_Click(object sender, EventArgs e)
-        {
-            var mainForm = Application.OpenForms.OfType<MainForm>().Single();
-            mainForm.pnlForm.Controls.Clear();
-            if (mainForm.INavPage != null) mainForm.pnlForm.Controls.Add(mainForm.INavPage);
-        }
+            => ViewHelper.SwitchView.SetMainFormAsView();
 
         private void textSearch_Click(object sender, EventArgs e)
             => textSearch.Text = "";

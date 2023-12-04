@@ -1,4 +1,4 @@
-﻿using BloatyNosy;
+﻿using Bloatynosy;
 using Microsoft.Win32;
 using System;
 

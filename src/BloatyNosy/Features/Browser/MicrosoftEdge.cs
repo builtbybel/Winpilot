@@ -1,4 +1,4 @@
-﻿using BloatyNosy;
+﻿using Bloatynosy;
 using Microsoft.Win32;
 
 namespace Features.Feature.Browser
@@ -17,7 +17,8 @@ namespace Features.Feature.Browser
 
         public override string Info()
         {
-            return "";
+            return "This policy may lead to the following behavior in Edge Browser:\r\nManaged by your organization, your browser is managed." +
+                 "\r\nThe changes can be reverted at any time.";
         }
 
         public override bool CheckFeature()

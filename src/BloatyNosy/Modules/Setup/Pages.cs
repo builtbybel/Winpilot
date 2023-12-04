@@ -1,4 +1,4 @@
-﻿namespace BloatyNosy.Setup
+﻿namespace Bloatynosy.Setup
 {
     public enum PageTitle
     {

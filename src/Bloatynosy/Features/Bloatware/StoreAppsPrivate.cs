@@ -1,10 +1,10 @@
-﻿using BloatyNosy;
+﻿using Bloatynosy;
 using System;
 using System.Diagnostics;
 using System.IO;
 using System.Management.Automation;
 
-namespace Features.Feature.Apps
+namespace Features.Feature.Bloatware
 {
     internal class StoreAppsPrivate : FeatureBase
     {
@@ -13,12 +13,12 @@ namespace Features.Feature.Apps
 
         public override string ID()
         {
-            return "*[LOW] Remove bloatware based on private database (Configure with a right-click)";
+            return "*[LOW] Remove bloatware based on private database";
         }
 
         public override string Info()
         {
-            return "Open the bloaty.txt file in the app directory of BloatyNosy to edit your database or right click on this feature";
+            return "Open the bloaty.txt file in the app directory of Bloatynosy to edit your database.";
         }
 
         private void RemoveApps(string str)
@@ -52,7 +52,7 @@ namespace Features.Feature.Apps
                         .AddCommand("Select").AddParameter("property", "name");
 
                     bool foundMatch = false;
-                    logger.Log("The following apps would be removed based on your private bloatware database:");
+                    logger.Log("8. The following apps would be removed based on your private bloatware database:");
                     foreach (string line in num)
                     {
                         string[] package = line.Split(':');

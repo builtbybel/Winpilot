@@ -1,4 +1,4 @@
-﻿using BloatyNosy;
+﻿using Bloatynosy;
 using System.Management.Automation;
 
 namespace Features.Feature.System

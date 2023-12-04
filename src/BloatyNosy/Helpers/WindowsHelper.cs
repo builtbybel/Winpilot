@@ -2,8 +2,10 @@
 using System.Diagnostics;
 using System.Globalization;
 using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
 
-namespace BloatyNosy
+namespace Bloatynosy
 {
     public static class WindowsHelper
     {
@@ -69,6 +71,33 @@ namespace BloatyNosy
             RunCmd($"/c net start {service}");
             ProcStart(HelperTool.Utils.Paths.ShellPS, $"-command \"Set-Service -Name {service} -StartupType auto\"");
             logger.Log($"Enable {service} service");
+        }
+
+        public static async Task RunPowerShellScript(string scriptFilePath)
+        {
+            try
+            {
+                var startInfo = new ProcessStartInfo()
+                {
+                    FileName = "powershell.exe",
+                    UseShellExecute = false,
+                    WindowStyle = ProcessWindowStyle.Normal,
+                    Arguments = $"-executionpolicy bypass -file \"{scriptFilePath}\"",
+                    CreateNoWindow = false, // Show the console window
+                };
+
+                using (var process = Process.Start(startInfo))
+                {
+                    if (process != null)
+                    {
+                        await Task.Run(() => process.WaitForExit());
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error running PowerShell plugin: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }
