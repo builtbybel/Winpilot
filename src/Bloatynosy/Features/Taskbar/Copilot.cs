@@ -16,7 +16,7 @@ namespace Features.Feature.Taskbar
 
         public override string ID()
         {
-            return "[MIDDLE] Disable Windows Copilot";
+            return "Disable Windows Copilot";
         }
 
         public override string Info()

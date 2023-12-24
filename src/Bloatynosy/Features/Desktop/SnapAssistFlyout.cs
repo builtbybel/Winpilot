@@ -13,7 +13,7 @@ namespace Features.Feature.Desktop
 
         public override string ID()
         {
-            return "[LOW] Disable Snap Assist";
+            return "Disable Snap Assist";
         }
 
         public override string Info()

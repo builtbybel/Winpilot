@@ -12,7 +12,7 @@ namespace Features.Feature.Bloatware
 
         public override string ID()
         {
-            return "*[HIGH] Search and remove pre-installed bloatware apps automatically";
+            return "*Search and remove pre-installed bloatware apps automatically";
         }
 
         public override string Info()
@@ -51,7 +51,7 @@ namespace Features.Feature.Bloatware
             powerShell.AddCommand("Select").AddParameter("property", "name");
 
             bool foundMatches = false; // Flag variable to track if matches are found
-            logger.Log("8. The following bloatware has been found:");
+            logger.Log("The following bloatware has been found:");
 
             try
             {

@@ -13,7 +13,7 @@ namespace Features.Feature.Privacy
 
         public override string ID()
         {
-            return "[HIGH] Disable Automatic Installation of apps";
+            return "Disable Automatic Installation of apps";
         }
 
         public override string Info()

@@ -13,7 +13,7 @@ namespace Features.Feature.Privacy
 
         public override string ID()
         {
-            return "[LOW] Disable Windows tips";
+            return "Disable Windows tips";
         }
 
         public override string Info()

@@ -12,7 +12,7 @@ namespace Features.Feature.Bloatware
 
         public override string ID()
         {
-            return "[MIDDLE] Uninstall OneDrive";
+            return "Uninstall OneDrive";
         }
 
         public override string Info()

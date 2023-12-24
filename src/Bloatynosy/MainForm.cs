@@ -3,6 +3,9 @@ using HelperTool;
 using System;
 using System.Diagnostics;
 using System.Drawing;
+using System.IO;
+using System.Threading.Tasks;
+using System.Timers;
 using System.Windows.Forms;
 
 namespace Bloatynosy
@@ -10,10 +13,11 @@ namespace Bloatynosy
     public partial class MainForm : Form
     {
         private static readonly ErrorHelper logger = ErrorHelper.Instance;
-        private Stargazers github;
 
         // Declare nosyPage field
         private NosyPageView nosyPage;
+        private System.Timers.Timer timer;
+        private bool isMouseOverQRCode = false;
 
         public MainForm()
         {
@@ -21,25 +25,16 @@ namespace Bloatynosy
 
             // Initialize NosyPageView
             nosyPage = new NosyPageView(this);
-            // Fetch Github Stargazers
-            github = new Stargazers();
-            github.StargazersCountFetched += (sender, count) =>
-            {
-                if (count >= 0)
-                    lnkStargazers.Text = $"{count} Stars on Github";
-                else
-                    lnkStargazers.Text = "Error fetching stargazers";
-            };
-        }
 
-        private void MainForm_Load(object sender, EventArgs e)
-        {
-            // Stargazers link Event listener
-            lnkStargazers_LinkClicked(lnkStargazers, new LinkLabelLinkClickedEventArgs(lnkStargazers.Links[0]));
+            //Load QR code
+            GetQRCode();
         }
 
         private void MainForm_Shown(object sender, EventArgs e)
         {
+
+            // await Task.Delay(1000);
+
             // Refer to instance NosyPageView
             pnlMain.Controls.Add(nosyPage);
             nosyPage.Anchor = (AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right | AnchorStyles.Bottom);
@@ -55,28 +50,33 @@ namespace Bloatynosy
 
         private void SetStyle()
         {
-            // Segoe MDL2 Assets
-            btnGithub.Text += "\uEB52";
             // Some color styling
             BackColor = Color.FromArgb(243, 243, 243);
-            pnlRight.BackColor =
-            pnlRightSettings.BackColor = Color.White;
-
-            // Ref. SplitterContainer scaling bugs in .Net https://github.com/dotnet/winforms/issues/3168 OBSOLETE!
-            // this.sc.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
         }
 
-        public bool CheckIgnoreLowIssuesChecked
+        private void GetQRCode()
         {
-            get { return checkIgnoreLowIssues.Checked; }
-        }
+            string imagePath = Path.Combine(HelperTool.Utils.Data.DataRootDir, "qr.png");
 
-        private void checkIgnoreLowIssues_CheckedChanged(object sender, EventArgs e)
-        {
-            if (checkIgnoreLowIssues.Checked)
+            if (File.Exists(imagePath))
             {
-                nosyPage.SelectFeatureNodes(nosyPage.tvwFeatures.Nodes, true);
+                picQR.Visible =
+                lblQRInfo.Visible = true;
+                picQR.Image = Image.FromFile(imagePath);
             }
+            else
+            {
+                picQR.Visible =
+                lblQRInfo.Visible = false;
+            }
+
+            // Set up QR code timer
+            picQR.MouseEnter += picQR_MouseEnter;
+            picQR.MouseLeave += picQR_MouseLeave;
+
+            timer = new System.Timers.Timer();
+            timer.Interval = 500; 
+            timer.Elapsed += QRTimerElapsed;
         }
 
         private string GetMinorVersion(string version)
@@ -94,10 +94,10 @@ namespace Bloatynosy
         private void checkVersion_CheckedChanged(object sender, EventArgs e)
         {
             // Get full version
-            string fullVersion =  Program.GetCurrentVersionTostring();
+            string fullVersion = Program.GetCurrentVersionTostring();
 
             // Display version based on the CheckBox state
-            checkVersion.Text = checkVersion.Checked ? fullVersion :  GetMinorVersion(fullVersion);
+            checkVersion.Text = checkVersion.Checked ? fullVersion : GetMinorVersion(fullVersion);
 
             // Optionally, check for updates when checked
             if (checkVersion.Checked)
@@ -109,37 +109,31 @@ namespace Bloatynosy
         private void richLog_LinkClicked(object sender, LinkClickedEventArgs e)
             => Utils.LaunchUri(e.LinkText);
 
-        private void lnkURLDev_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-           => Process.Start(HelperTool.Utils.Uri.URL_BUILTBYBEL);
-
-        private void lnkURLTwitter_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-         => Process.Start(HelperTool.Utils.Uri.URL_TWITTER);
-
-        private void lnkURLReddit_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-         => Process.Start(HelperTool.Utils.Uri.URL_HELP);
-
-        private void lnkURLPayPal_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-          => Process.Start(HelperTool.Utils.Uri.URL_DONATE);
-
-        private void btnGithub_Click(object sender, EventArgs e)
-            => Process.Start(HelperTool.Utils.Uri.URL_GITREPO);
-
-        private void btnMenuChevronDown_Click(object sender, EventArgs e)
-            => this.contextMenuChevron.Show(Cursor.Position.X, Cursor.Position.Y);
-
-        private void btnAppBloatpilot_Click(object sender, EventArgs e)
-            => ViewHelper.SwitchView.SetView(new BloatyPageView());
-
-        private void menuWizard_Click(object sender, EventArgs e)
-            => ViewHelper.SwitchView.SetView(new WizardPageView(this));
-
-        private void menuPackages_Click(object sender, EventArgs e)
-            => ViewHelper.SwitchView.SetView(new PackagesPageView());
-
-        private async void lnkStargazers_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private void picQR_MouseEnter(object sender, EventArgs e)
         {
-            //e.Link.Visited = true;
-            await github.FetchStargazersAsync();
+            isMouseOverQRCode = true;
+            timer.Start();
+        }
+
+        private void picQR_MouseLeave(object sender, EventArgs e)
+        {
+            isMouseOverQRCode = false;
+            timer.Stop();
+        }
+        private void QRTimerElapsed(object sender, ElapsedEventArgs e)
+        {
+            // This method will be called when timer elapses
+            timer.Stop();
+
+            if (isMouseOverQRCode)
+            {
+                DialogResult result = MessageBox.Show("Do you want to view the introduction directly in your Desktop Browser?", "Introducing Bloatynosy", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                if (result == DialogResult.Yes)
+                {
+                    Process.Start("https://www.builtbybel.com/blog/bloatynosy-is-now-x");
+                }
+            }
         }
     }
 }

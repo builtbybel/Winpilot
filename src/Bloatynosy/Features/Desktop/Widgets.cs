@@ -13,7 +13,7 @@ namespace Features.Feature.Desktop
 
         public override string ID()
         {
-            return "[MIDDLE] Disable Widgets";
+            return "Disable Widgets";
         }
 
         public override string Info()

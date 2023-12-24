@@ -12,7 +12,7 @@ namespace Features.Feature.System
 
         public override string ID()
         {
-            return "[LOW] Remove Windows 11 System requirements watermark";
+            return "Remove Windows 11 System requirements watermark";
         }
 
         public override string Info()

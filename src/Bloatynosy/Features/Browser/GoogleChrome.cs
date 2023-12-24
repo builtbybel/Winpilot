@@ -12,7 +12,7 @@ namespace Features.Feature.Browser
 
         public override string ID()
         {
-            return "[HIGH] Disable Google Chrome Telemetry";
+            return "Disable Google Chrome Telemetry";
         }
 
         public override string Info()

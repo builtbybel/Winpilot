@@ -15,7 +15,7 @@ namespace Features.Feature.Privacy
 
         public override string ID()
         {
-            return "[MIDDLE] Disable Connected User Experiences and Telemetry";
+            return "Disable Connected User Experiences and Telemetry";
         }
 
         public override string Info()

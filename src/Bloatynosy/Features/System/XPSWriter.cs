@@ -9,7 +9,7 @@ namespace Features.Feature.System
 
         public override string ID()
         {
-            return "[LOW] Remove XPS Documents Writer";
+            return "Remove XPS Documents Writer";
         }
 
         public override string Info()

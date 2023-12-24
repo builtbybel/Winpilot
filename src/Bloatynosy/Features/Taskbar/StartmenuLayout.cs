@@ -13,7 +13,7 @@ namespace Features.Feature.Taskbar
 
         public override string ID()
         {
-            return "[MIDDLE] Pin more Apps on Start menu";
+            return "Pin more Apps on Start menu";
         }
 
         public override string Info()

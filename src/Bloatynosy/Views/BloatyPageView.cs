@@ -32,13 +32,11 @@ namespace Bloatynosy.Views
         private void SetStyle()
         {
             // Segoe MDL2 Assets
-            btnHMenu.Text = "\uE700";
+            btnMenuGripperBar.Text = "\uE76F";
             btnRefresh.Text = "\uE895";
             btnBack.Text = "\uE72B";
             // Some color styling
             BackColor =
-            listApps.BackColor =
-            listRemove.BackColor =
             rtbStatus.BackColor =
                 Color.FromArgb(245, 241, 249);
 
@@ -131,7 +129,7 @@ namespace Bloatynosy.Views
             int installed = listApps.Items.Count;
             int remove = listRemove.Items.Count;
             lblInstalled.Text = installed.ToString() + " apps installed";
-            lblBin.Text = "Recycle bin" + " (" + remove.ToString() + ")";
+            lblBin.Text = "Trash bin" + " (" + remove.ToString() + ")";
 
             if (listRemove.Items.Count == 0)
             {
@@ -365,7 +363,7 @@ namespace Bloatynosy.Views
 
                     RefreshApps();
 
-                    MessageBox.Show("We've synced your import list with the apps in Recycle bin.\n" +
+                    MessageBox.Show("We've synced your import list with the apps in Trash bin.\n" +
                         "Please note, that some of these apps may not be installed on your system.", this.Text, MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
@@ -375,7 +373,7 @@ namespace Bloatynosy.Views
         {
             if (listRemove.Items.Count == 0)
             {
-                MessageBox.Show("No apps in Recycle bin found.");
+                MessageBox.Show("No apps in Trash bin found.");
                 return;
             }
 
@@ -433,7 +431,7 @@ namespace Bloatynosy.Views
         private void btnBack_Click(object sender, EventArgs e)
             => ViewHelper.SwitchView.SetMainFormAsView();
 
-        private void btnHMenu_Click(object sender, EventArgs e)
+        private void btnMenuGripperBar_Click(object sender, EventArgs e)
             => this.contextAppMenu.Show(Cursor.Position.X, Cursor.Position.Y);
     }
 }

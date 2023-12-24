@@ -14,7 +14,7 @@ namespace Features.Feature.System
 
         public override string ID()
         {
-            return "[LOW] Disable TPM 2.0 Check";
+            return "Disable TPM 2.0 Check";
         }
 
         public override string Info()

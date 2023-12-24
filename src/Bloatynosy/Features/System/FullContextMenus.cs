@@ -12,7 +12,7 @@ namespace Features.Feature.System
 
         public override string ID()
         {
-            return "[MIDDLE] Enable Full Context Menus in Windows 11";
+            return "Enable Full Context Menus in Windows 11";
         }
 
         public override string Info()

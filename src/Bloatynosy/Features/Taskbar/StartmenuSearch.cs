@@ -13,7 +13,7 @@ namespace Features.Feature.Taskbar
 
         public override string ID()
         {
-            return "[HIGH] Disable start menu Bing search";
+            return "Disable start menu Bing search";
         }
 
         public override string Info()

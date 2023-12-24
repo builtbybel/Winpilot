@@ -12,7 +12,7 @@ namespace Features.Feature.Browser
 
         public override string ID()
         {
-            return "[HIGH] Disable giant Bing search (AI chat) button in Edge Browser";
+            return "Disable giant Bing search (AI chat) button in Edge Browser";
         }
 
         public override string Info()

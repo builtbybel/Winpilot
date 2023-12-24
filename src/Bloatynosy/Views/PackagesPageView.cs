@@ -35,8 +35,6 @@ namespace Bloatynosy.Views
             btnBack.Text = "\uE72B";
             // Some color styling
             BackColor =
-            listRemote.BackColor =
-            listLocal.BackColor =
             richStatus.BackColor =
                Color.FromArgb(245, 241, 249);
         }

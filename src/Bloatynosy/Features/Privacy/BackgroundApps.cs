@@ -13,7 +13,7 @@ namespace Features.Feature.Privacy
 
         public override string ID()
         {
-            return "[HIGH] Disable Apps running in background";
+            return "Disable Apps running in background";
         }
 
         public override string Info()

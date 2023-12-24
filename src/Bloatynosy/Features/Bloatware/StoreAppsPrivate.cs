@@ -13,12 +13,12 @@ namespace Features.Feature.Bloatware
 
         public override string ID()
         {
-            return "*[LOW] Remove bloatware based on private database";
+            return "*Remove bloatware based on private database";
         }
 
         public override string Info()
         {
-            return "Open the bloaty.txt file in the app directory of Bloatynosy to edit your database.";
+            return "Open the BLOAT-E.txt file in the app directory of Bloatynosy to edit your database.";
         }
 
         private void RemoveApps(string str)
@@ -37,7 +37,7 @@ namespace Features.Feature.Bloatware
         {
             try
             {
-                string bloatyFilePath = Path.Combine(HelperTool.Utils.Data.DataRootDir, "bloaty.txt");
+                string bloatyFilePath = Path.Combine(HelperTool.Utils.Data.DataRootDir, "BLOAT-E.txt");
                 if (!File.Exists(bloatyFilePath))
                 {
                     logger.Log("Your private signature is free of bloatware.");
@@ -52,7 +52,7 @@ namespace Features.Feature.Bloatware
                         .AddCommand("Select").AddParameter("property", "name");
 
                     bool foundMatch = false;
-                    logger.Log("8. The following apps would be removed based on your private bloatware database:");
+                    logger.Log("The following apps would be removed based on your private bloatware database:");
                     foreach (string line in num)
                     {
                         string[] package = line.Split(':');
@@ -72,7 +72,7 @@ namespace Features.Feature.Bloatware
                     }
                     if (!foundMatch)
                     {
-                        logger.Log("Your private scan is free of bloatware.\n[TIP] You can manually expand and maintain your private bloatware database \"bloaty.txt\" in \"app\" directory.");
+                        logger.Log("Your private scan is free of bloatware.\n[TIP] You can manually expand and maintain your private bloatware database \"BLOAT-E.txt\" in \"app\" directory.");
                     }
 
                     return foundMatch; // Return value of foundMatch
@@ -87,7 +87,7 @@ namespace Features.Feature.Bloatware
 
         public override bool DoFeature()
         {
-            string[] num = File.ReadAllLines(HelperTool.Utils.Data.DataRootDir + "/bloaty.txt");
+            string[] num = File.ReadAllLines(HelperTool.Utils.Data.DataRootDir + "/BLOAT-E.txt");
             powerShell.Commands.Clear();
             powerShell.AddCommand("get-appxpackage");
             powerShell.AddCommand("Select").AddParameter("property", "name");

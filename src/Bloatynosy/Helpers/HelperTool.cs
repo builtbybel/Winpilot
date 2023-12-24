@@ -94,7 +94,7 @@ namespace HelperTool
                     if (latestVersion ==
                         Program.GetCurrentVersionTostring())                      // Up-to-date
                     {
-                        MessageBox.Show($"No new updates available.");
+                        MessageBox.Show($"No new updates available.", "Update", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
 
                     if (latestVersion !=                                        // Update available

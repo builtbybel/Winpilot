@@ -13,7 +13,7 @@ namespace Features.Feature.Privacy
 
         public override string ID()
         {
-            return "[HIGH] Disable Compatibility Telemetry";
+            return "Disable Compatibility Telemetry";
         }
 
         public override string Info()

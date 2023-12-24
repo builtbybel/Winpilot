@@ -13,7 +13,7 @@ namespace Features.Feature.Privacy
 
         public override string ID()
         {
-            return "[HIGH] Disable Location tracking";
+            return "Disable Location tracking";
         }
 
         public override string Info()

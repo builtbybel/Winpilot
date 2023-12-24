@@ -13,7 +13,7 @@ namespace Features.Feature.Explorer
 
         public override string ID()
         {
-            return "[HIGH] Show hidden files, folders and drives in File Explorer";
+            return "Show hidden files, folders and drives in File Explorer";
         }
 
         public override string Info()

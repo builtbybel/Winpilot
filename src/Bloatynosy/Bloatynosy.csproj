@@ -66,6 +66,7 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\..\..\Windows\Microsoft.NET\assembly\GAC_MSIL\System.Management.Automation\v4.0_3.0.0.0__31bf3856ad364e35\System.Management.Automation.dll</HintPath>
     </Reference>
+    <Reference Include="System.Numerics" />
     <Reference Include="System.Runtime.CompilerServices.VisualC" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Xml.Linq" />
@@ -145,12 +146,21 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="Github.cs" />
+    <Compile Include="GitHub.cs" />
+    <Compile Include="ToogleSwitch.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Views\BloatyPageView.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Views\BloatyPageView.Designer.cs">
       <DependentUpon>BloatyPageView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SettingsPageView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\SettingsPageView.Designer.cs">
+      <DependentUpon>SettingsPageView.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\PackagesPageView.cs">
       <SubType>UserControl</SubType>
@@ -182,12 +192,17 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\BloatyPageView.resx">
       <DependentUpon>BloatyPageView.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\SettingsPageView.resx">
+      <DependentUpon>SettingsPageView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\PackagesPageView.resx">
       <DependentUpon>PackagesPageView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\NosyPageView.resx">
       <DependentUpon>NosyPageView.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\WizardPageView.resx">
       <DependentUpon>WizardPageView.cs</DependentUpon>
@@ -208,6 +223,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="AppIcon.ico" />
+    <None Include="GitHubIcon.png" />
     <Content Include="Resources\systemApps.txt" />
   </ItemGroup>
   <ItemGroup>

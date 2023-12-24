@@ -13,7 +13,7 @@ namespace Features.Feature.Privacy
 
         public override string ID()
         {
-            return "[HIGH] Disable Tailored experiences";
+            return "Disable Tailored experiences";
         }
 
         public override string Info()

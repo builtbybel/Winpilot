@@ -13,7 +13,7 @@ namespace Features.Feature.Taskbar
 
         public override string ID()
         {
-            return "[LOW] Hide Task view button on taskbar";
+            return "Hide Task view button on taskbar";
         }
 
         public override string Info()

@@ -9,7 +9,7 @@ namespace Features.Feature.System
 
         public override string ID()
         {
-            return "[LOW] Remove Fax Printer";
+            return "Remove Fax Printer";
         }
 
         public override string Info()

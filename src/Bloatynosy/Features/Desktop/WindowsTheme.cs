@@ -12,7 +12,7 @@ namespace Features.Feature.Desktop
 
         public override string ID()
         {
-            return "[LOW] Use Windows dark theme";
+            return "Use Windows dark theme";
         }
 
         public override string Info()

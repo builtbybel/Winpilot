@@ -13,7 +13,7 @@ namespace Features.Feature.Explorer
 
         public override string ID()
         {
-            return "[HIGH] Show hidden file name extensions";
+            return "Show hidden file name extensions";
         }
 
         public override string Info()

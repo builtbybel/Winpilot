@@ -12,7 +12,7 @@ namespace Features.Feature.Gaming
 
         public override string ID()
         {
-            return "[MIDDLE] Adjust visual effects for best performance";
+            return "Adjust visual effects for best performance";
         }
 
         public override string Info()

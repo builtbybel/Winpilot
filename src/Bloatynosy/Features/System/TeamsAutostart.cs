@@ -13,7 +13,7 @@ namespace Features.Feature.System
 
         public override string ID()
         {
-            return "[LOW] Disable Microsoft Teams on Startup";
+            return "Disable Microsoft Teams on Startup";
         }
 
         public override string Info()

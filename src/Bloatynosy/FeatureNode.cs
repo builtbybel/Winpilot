@@ -6,7 +6,6 @@ namespace Features.Feature
 {
     internal class FeatureNode : TreeNode
     {
-
         public FeatureBase Feature { get; }
         public string ScriptFilePath { get; set; } // Path to the external script file
 
@@ -22,7 +21,5 @@ namespace Features.Feature
         {
             return Feature.Info();
         }
-
     }
-
 }

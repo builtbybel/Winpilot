@@ -13,7 +13,7 @@ namespace Features.Feature.Taskbar
 
         public override string ID()
         {
-            return "[LOW] Hide Chat icon (Microsoft Teams) on taskbar";
+            return "Hide Chat icon (Microsoft Teams) on taskbar";
         }
 
         public override string Info()

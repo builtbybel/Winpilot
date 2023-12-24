@@ -16,7 +16,7 @@ namespace Features.Feature.Gaming
 
         public override string ID()
         {
-            return "[MIDDLE] Disable Game DVR feature";
+            return "Disable Game DVR feature";
         }
 
         public override string Info()

@@ -15,7 +15,7 @@ namespace Features.Feature.Privacy
 
         public override string ID()
         {
-            return "[HIGH] Disable Suggested content in Settings app";
+            return "Disable Suggested content in Settings app";
         }
 
         public override string Info()

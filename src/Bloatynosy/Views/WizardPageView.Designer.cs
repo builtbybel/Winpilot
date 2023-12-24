@@ -48,7 +48,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.lblHeader.AutoEllipsis = true;
             this.lblHeader.Font = new System.Drawing.Font("Segoe UI Variable Text Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblHeader.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.lblHeader.ForeColor = System.Drawing.Color.Black;
             this.lblHeader.Location = new System.Drawing.Point(60, 4);
             this.lblHeader.Name = "lblHeader";
             this.lblHeader.Size = new System.Drawing.Size(973, 26);
@@ -169,12 +169,12 @@
             // 
             // lnkConfigure
             // 
-            this.lnkConfigure.ActiveLinkColor = System.Drawing.Color.HotPink;
+            this.lnkConfigure.ActiveLinkColor = System.Drawing.Color.Violet;
             this.lnkConfigure.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lnkConfigure.AutoEllipsis = true;
             this.lnkConfigure.Font = new System.Drawing.Font("Segoe UI Variable Display", 10.25F);
             this.lnkConfigure.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
-            this.lnkConfigure.LinkColor = System.Drawing.Color.MediumVioletRed;
+            this.lnkConfigure.LinkColor = System.Drawing.Color.MediumOrchid;
             this.lnkConfigure.Location = new System.Drawing.Point(657, 668);
             this.lnkConfigure.Name = "lnkConfigure";
             this.lnkConfigure.Size = new System.Drawing.Size(160, 19);
@@ -187,11 +187,11 @@
             // 
             this.btnCustomize.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnCustomize.AutoEllipsis = true;
-            this.btnCustomize.BackColor = System.Drawing.Color.MediumVioletRed;
+            this.btnCustomize.BackColor = System.Drawing.Color.Orchid;
             this.btnCustomize.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
             this.btnCustomize.FlatAppearance.BorderSize = 0;
             this.btnCustomize.Font = new System.Drawing.Font("Segoe UI Variable Display", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCustomize.ForeColor = System.Drawing.Color.White;
+            this.btnCustomize.ForeColor = System.Drawing.Color.Black;
             this.btnCustomize.Location = new System.Drawing.Point(823, 661);
             this.btnCustomize.Name = "btnCustomize";
             this.btnCustomize.Padding = new System.Windows.Forms.Padding(0, 0, 5, 0);

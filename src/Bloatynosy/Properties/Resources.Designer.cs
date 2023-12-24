@@ -61,6 +61,16 @@ namespace Bloatynosy.Properties {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap GitHubIcon {
+            get {
+                object obj = ResourceManager.GetObject("GitHubIcon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die 1527c705-839a-4832-9118-54d4Bd6a0c89
         ///c5e2524a-ea46-4f67-841f-6a9465d9d515
         ///E2A4F912-2574-4A75-9BB0-0D023378592B

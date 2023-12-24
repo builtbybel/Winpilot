@@ -13,7 +13,7 @@ namespace Features.Feature.Privacy
 
         public override string ID()
         {
-            return "[HIGH] Disable Diagnostic data";
+            return "Disable Diagnostic data";
         }
 
         public override string Info()

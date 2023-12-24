@@ -13,7 +13,7 @@ namespace Features.Feature.Taskbar
 
         public override string ID()
         {
-            return "[LOW] Hide most used apps in start menu";
+            return "Hide most used apps in start menu";
         }
 
         public override string Info()
