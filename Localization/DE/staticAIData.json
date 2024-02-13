@@ -74,7 +74,7 @@
   {
     "question": "Screenshot aufnehmen #SnippingTool",
     "response": "Screenshot aufgenommen und in die Zwischenablage gelegt.",
-    "action": "takeDesktopScreenshot"
+    "action": "takeScreenshot"
   },
   {
     "question": "Apps anzeigen, die mit Windows starten",
