@@ -1,24 +1,31 @@
-# Let's customize your Windows 11 experience with - Bloatynosy and BloatynosyAI -
+# Upgrade your Windows 10 and Windows 11 journey with the sleek power of Bloatynosy and its next-gen successor, BloatynosyAI – the AI-driven way to customize your digital world.
 
-_Universal Debloater and PC Manager for the most up-to-date version of the Redmond OS (Windows 11) and Windows 10_
+# BloatynosyAI
+Universal Debloater and PC Manager for the most up-to-date version of the Redmond OS (Windows 11) and Windows 10
+The latest release of BloatynosyAI introduces a significant milestone with its hybrid web app foundation. This update not only empowers users with the capability to remove AI features in Windows but also emphasizes the app's intelligent approach, driven by a novel hybrid and web-based core."
 
 ## Download
-### GitHub (Recommended)
-You can download Bloatynosy directly from the [GitHub releases page](https://github.com/builtbybel/Bloatynosy/releases)
+[Latest Preview AI release](https://github.com/builtbybel/BloatynosyAI/releases)
+[Latest old Bloatynosy 1.5 release]([https://github.com/builtbybel/BloatynosyAI/release](https://github.com/builtbybel/Bloatynosy/releases/tag/1.5.0)s)
 
-_The app is also distributed within [App Installer](https://github.com/builtbybel/Bloatynosy/releases) package._
+## How-to
+Simply run the BloatynosyAI.exe. You can delete the cache folder BloatynosyAI.exe.WebView2 at any time.
 
-## Features
-Windows 11 has a gazillion toggles and settings options. And general users don’t know where to find most of these features, what to make of them, and which setting to enable or disable. **Bloatynosy** streamlines and houses all the essential settings under one app and allows you to disable and remove unnecessary features with just a simple click. 
+You have the chat box in front of you and enter search terms, inquiries, keywords, and the results are presented to you in real-time.
 
-- Via the link in the lower right corner **"I want to set up Windows 11 for the first time"**, you can call a **Windows 11 Wizard** and customize your system step by step and debloat it.
-- You can skip the assistant and let the app module on the main page handle the analysis entirely. It will check and fix a tons of unnecessary components and creating a debloated Windows 11.
-- It features a **Bloatpilot app**, which allows you to remove pre-installed apps automatically or the manual way. 
-- Next to this the app installer **Packages** is integrated, which allows you to install some of the most important apps with a click and in bulk.
+As an example, let's say you're searching for 'I want to install an app.' You can also search for the short keyword 'install' here. The result is the same. By the way, this search query allows you to install some popular apps with 'winget'. Another popular keyword you can remember should be 'bloat' 'appx' or 'uninstall.' This allows you to remove unwanted default apps in Windows 10/11. And so it continues. Have fun and play around with the queries. Currently popular keywords are '#ai'
 
-More infos here https://www.builtbybel.com/apps/bloatynosy
+## Support statement for the AI Version
+WebView2 apps can run on the following versions of Windows:
 
-## Star History
+- Windows 11
+- Windows 10
+- Windows 10 IoT Enterprise LTSC x32 2019
+- Windows 10 IoT Enterprise LTSC x64 2019
+- Windows 10 IoT Enterprise 21h1 x64
+- Windows Server 2022
+- Windows Server 2019
+- Windows Server 2016
 
-[![Star History Chart](https://api.star-history.com/svg?repos=builtbybel/Bloatynosy&type=Timeline)](https://star-history.com/#builtbybel/Bloatynosy&Timeline)
+https://learn.microsoft.com/en-US/microsoft-edge/webview2/
 
