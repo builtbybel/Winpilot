@@ -1,8 +1,6 @@
 # Let's customize your Windows 11 experience with - Bloatynosy (Bloaty & nosy) -
 
-![screenshot](https://github.com/builtbybel/Bloatynosy/blob/main/assets/bloatynosy.png?raw=true)
-
-_Universal Debloater and PC Manager for the most up-to-date version of the Redmond OS (Windows 11)_
+_Universal Debloater and PC Manager for the most up-to-date version of the Redmond OS (Windows 11) and Windows 10 with BloatnosyAI_
 
 ## Download
 ### GitHub (Recommended)
