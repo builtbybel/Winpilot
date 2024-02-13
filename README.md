@@ -12,7 +12,7 @@ This update not only empowers users with the capability to remove AI features in
 
 
 ## Download
-**Recommended:** [Latest Preview AI release](https://github.com/builtbybel/BloatynosyAI/releases)
+**Recommended:** [Latest Preview AI release](https://github.com/builtbybel/Bloatynosy/releases)
 
 **Classic version:** [Last classic Bloatynosy 1.5 release](https://github.com/builtbybel/Bloatynosy/releases/tag/1.5.0)
 
