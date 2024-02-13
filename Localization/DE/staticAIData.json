@@ -1,0 +1,176 @@
+[
+  {
+    "question": "Hi!",
+    "response": "Hallo! Wie kann ich Ihnen heute helfen?",
+    "action": "none"
+  },
+  {
+    "question": "Ich möchte ein Problem mit BloatynosyAI #reddit #help #issue #github #deskmodder",
+    "response": "Ich kümmere mich darum! 🚀 #BugBuster",
+    "action": "https://www.deskmodder.de/blog/?s=bloatynosy"
+  },
+  {
+    "question": "Wie kann ich mein Microsoft-Konto hinzufügen?",
+    "response": "Natürlich, ich werde Sie führen. Account-Einstellungen werden geöffnet...",
+    "action": "ms-settings:privacy-accountinfo"
+  },
+  {
+    "question": "Ich möchte eine PIN erstellen",
+    "response": "Natürlich, ich helfe Ihnen. Anmeldeeinstellungen werden geöffnet...",
+    "action": "ms-settings:signinoptions"
+  },
+  {
+    "question": "Nach Windows-Updates suchen",
+    "response": "Natürlich, ich werde nach Updates suchen. Überprüfung auf Updates...",
+    "action": "ms-settings:windowsupdate"
+  },
+  {
+    "question": "Ich möchte mein Hintergrundbild ändern",
+    "response": "Natürlich sollte ein Windows-Desktop Ihre Persönlichkeit widerspiegeln. Lassen Sie uns das ändern.",
+    "action": "changeWallpaper"
+  },
+  {
+    "question": "Ich möchte das Erscheinungsbild und die Leistung von Windows anpassen",
+    "response": "Natürlich, lassen Sie uns zu den Leistungsoptionen wechseln",
+    "action": "SystemPropertiesPerformance.exe"
+  },
+  {
+    "question": "Ich möchte zwischen dunklem und hellem Windows-Modus wechseln",
+    "response": "Lassen Sie uns der dunklen oder hellen Seite beitreten...",
+    "action": "toggleThemeMode"
+  },
+  {
+    "question": "Wie kann ich Sicherungskopien wiederherstellen? #appcopier #backup",
+    "response": "Natürlich! Appcopier wird geöffnet...",
+    "action": "openFile",
+    "appPath": "packages\\Appcopier\\Appcopier.exe"
+  },
+  {
+    "question": "Ich möchte einen Wiederherstellungspunkt erstellen",
+    "response": "Jetzt sind Sie auf der sicheren Seite. Der Wiederherstellungspunkt wurde erstellt.",
+    "action": "createRestorePoint",
+    "powershellCommand": "$desc = 'BloatynosyAI Restore'; Checkpoint-Computer -Description \"$desc\" -RestorePointType \"Modify_Settings\""
+  },
+  {
+    "question": "Wie kann ich mein System zurücksetzen?",
+    "response": "Das Zurücksetzen Ihres PCs ermöglicht eine saubere Neuinstallation und Aktualisierung von Windows, während Ihre persönlichen Daten und die meisten Windows-Einstellungen intakt bleiben.",
+    "action": "runSystemReset"
+  },
+  {
+    "question": "Ich möchte meinen Speicher aufräumen #cleanmgr",
+    "response": "Intelligenter Speicherplatz wird bereinigt.",
+    "action": "runStorageSense"
+  },
+  {
+    "question": "Was ist meine Windows-Version? #winver",
+    "response": "Sie verwenden Build: [buildNumber]",
+    "action": "showWindowsVersion"
+  },
+  {
+    "question": "Zeigen Sie mir den verfügbaren Festplattenspeicher meines Systems an",
+    "response": "Verfügbarer Speicherplatz auf Ihrer Systempartition:",
+    "action": "showDiskSpace"
+  },
+  {
+    "question": "Screenshot meines Desktops aufnehmen #SnippingTool",
+    "response": "Desktop-Screenshot aufgenommen und gespeichert.",
+    "action": "takeDesktopScreenshot"
+  },
+  {
+    "question": "Apps anzeigen, die mit Windows starten",
+    "response": "Task-Manager zum Autostart-Tab wird geöffnet.",
+    "action": "switchToAutostartTab"
+  },
+  {
+    "question": "Ich möchte eine App deinstallieren",
+    "response": "Deinstallationsprogramm für Windows-Apps wird geöffnet...",
+    "action": "openWindowsAppsUninstaller"
+  },
+  {
+    "question": "Prozesse mit hohem RAM-Verbrauch anzeigen",
+    "response": "Prozesse mit hohem RAM-Verbrauch werden aufgelistet...",
+    "action": "showHighRamProcesses"
+  },
+  {
+    "question": "Ich möchte einen schnellen Scan in Windows Defender Security durchführen",
+    "response": "Windows Defender Schnellscan wird ausgeführt...",
+    "action": "runWindowsDefenderScan"
+  },
+  {
+    "question": "Geben Sie mir einen Einblick in Chris Titus-Tools in Aktion #plugin",
+    "response": "PowerShell-Skript wird interpretiert...",
+    "action": "runPowerShellScript",
+    "scriptPath": "research\\ChrisTitusAppHandler.ps1"
+  },
+  {
+    "question": "Helfen Sie mir, die Microsoft OneDrive-App zu entfernen #plugin",
+    "response": "PowerShell-Skript wird interpretiert...",
+    "action": "runPowerShellScript",
+    "scriptPath": "research\\OneDriveHandler.ps1"
+  },
+  {
+    "question": "Ich möchte eine App installieren #winget",
+    "response": "Wechsel zum Bereich Apps...",
+    "action": "installApps"
+  },
+  {
+    "question": "Ich möchte Bloatware-Appx-Pakete deinstallieren",
+    "response": "Wechsel zum Bereich Crapware...",
+    "action": "uninstallAppx"
+  },
+  {
+    "question": "Ich möchte meine System- und Datenschutzeinstellungen einrichten",
+    "response": "Wechsel zum Datenschutz-Dashboard...",
+    "action": "privacyDashboard"
+  },
+  {
+    "question": "Windows Explorer neu starten (zusammen mit der Taskleiste und dem Startmenü)",
+    "response": "Explorer.exe wird neu gestartet...",
+    "action": "shell",
+    "command": "taskkill /f /im explorer.exe && start explorer.exe"
+  },
+  {
+    "question": "Taskleisten-Ausrichtung nach links ändern",
+    "response": "Die Taskleiste wurde nach links ausgerichtet.",
+    "action": "shell",
+    "command": "reg add HKEY_CURRENT_USER\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced /v TaskbarAl /t REG_DWORD /d 0 /f"
+  },
+  {
+    "question": "Taskleisten-Ausrichtung in die Mitte ändern",
+    "response": "Die Taskleiste wurde in die Mitte ausgerichtet.",
+    "action": "shell",
+    "command": "reg add HKEY_CURRENT_USER\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced /v TaskbarAl /t REG_DWORD /d 1 /f"
+  },
+  {
+    "question": "Die Widgets-Schaltfläche in die Taskleiste aufnehmen",
+    "response": "Lassen Sie uns die Widgets aktivieren.",
+    "action": "shell",
+    "command": "reg add HKEY_CURRENT_USER\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced /v TaskbarDa /t REG_DWORD /d 1 /f"
+  },
+  {
+    "question": "Die Widgets-Schaltfläche in der Taskleiste entfernen",
+    "response": "Lassen Sie uns die Widgets-Schaltfläche deaktivieren.",
+    "action": "shell",
+    "command": "reg add HKEY_CURRENT_USER\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced /v TaskbarDa /t REG_DWORD /d 0 /f"
+  },
+  {
+    "question": "Kopiloten-Schaltfläche in der Taskleiste entfernen #ai",
+    "response": "Kopiloten-Schaltfläche in der Taskleiste wurde deaktiviert.",
+    "action": "shell",
+    "command": "reg add HKEY_CURRENT_USER\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced /v ShowCopilotButton /t REG_DWORD /d 0 /f"
+  },
+  {
+    "question": "Kopiloten-Schaltfläche in Microsoft Edge entfernen #ai",
+    "response": "Kopiloten-Schaltfläche in Edge wurde deaktiviert.",
+    "action": "shell",
+    "command": "reg add HKEY_CURRENT_USER\\Software\\Policies\\Microsoft\\Windows /v TurnOffWindowsCopilot /t REG_DWORD /d 0 /f"
+  },
+  {
+    "question": "Copilot Pro-Anzeigen in Windows 11 deaktivieren #vivetool",
+    "response": "ViveTool-Aktion erfolgreich durchgeführt.",
+    "action": "viveTool",
+    "viveCommand": "disable",
+    "viveFeatureId": "47942561",
+    "viveBuildAvailability": "Dies ist in den neuesten Windows 11 Dev- und Beta-Builds ausgeblendet."
+  }
+]

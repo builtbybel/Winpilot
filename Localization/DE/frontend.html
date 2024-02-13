@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comachina</title>
+    <link rel="stylesheet" type="text/css" href="UI.css">
+    <script src="backend.js"></script>
+</head>
+
+<body>
+ <!-- Form caption -->
+	<div class="emoji-container">
+		<a href="https://github.com/builtbybel/Bloatynosy" target="_blank">
+			<span class="emoji" title="Folge BloatynosyAI auf GitHub">&#9863;</span>
+		</a>
+		<h1>BloatynosyAI</h1>
+	</div>
+
+ <!-- Assisted Chatbox container with its autocomplete input -->
+	<div class="chatbox-container">
+		<input type="text" id="chatbox" placeholder="Passe Apps an und wende Einstellungen und Anpassungen an">
+		    <!-- Add Copilot button -->
+		<button id="copilotButton" onclick="openCopilot()" title="Copilot öffnen">Copilot fragen</button>
+	</div>
+
+	  <!-- Ava logContainer -->
+        <div id="logContainer">
+            Hi, ich bin Ava, dein freundlicher Begleiter aus Redmond, WA. Möchtest du Unterstützung erhalten?
+        </div>
+	
+    <!-- HOME: Pinned section -->
+	<div class="glassy-box" id="homeHeader">
+		<div id="avaHeader" class="header-caption">Angeheftet</div>
+		<p></p>
+		
+		<!-- Random AI buttons -->
+		<div id="buttons-container">
+			<!-- Die Schaltflächen werden dynamisch aus C# geladen -->
+		</div>
+		<!-- Statische Update-Schaltfläche -->
+		<button id="update-button" onclick="openUpdateSettings()">Nach Updates suchen</button>
+
+		<!-- Refresh-Schaltfläche oben rechts -->
+		<button id="refreshButton" onclick="refreshWebView()" title="Aktualisieren">⟳</button>
+	</div>
+
+
+    <!-- SYSTEM: Recommended section -->
+    <div class="glassy-box" id="systemHeader">
+        <div id="avaHeader" class="header-caption">Empfohlen</div>
+        <p>Wählen Sie aus, wie viele Informationen Sie mit Microsoft teilen möchten.</p>
+        <div id="statusContainer">
+            <button id="btnSearch" onclick="searchFeatures()">Mein Windows-Setup überprüfen</button>
+        </div>
+    </div>
+
+    <div class="glassy-box" id="systemContainer">
+        <div class="glassy-box">
+            <button id="btnEnable" onclick="disableFeatures()">Ausgewählte ablehnen</button>
+            <button id="btnDisable" onclick="enableFeatures()">Ausgewählte zulassen</button>
+        </div>
+
+     <div>
+            <p>
+                Windows 11 ist mit Werbung integriert. Microsoft weist Ihnen eine eindeutige Kennung zu, um Ihre Aktivitäten im Microsoft Store und in UWP-Apps zu verfolgen und Sie mit relevanten Anzeigen zu targetieren.
+            </p>
+            <label class="toggle-switch" for="Advertising">
+                <input type="checkbox" id="Advertising">
+                <span class="toggle-switch-label"></span>
+            </label>
+            <span class="checkbox-label">Lassen Sie Apps personalisierte Anzeigen anzeigen, indem Sie meine Werbekennung verwenden.</span>
+        </div>
+
+        <div>
+            <p>Tipps und Vorschläge Benachrichtigungen auf Ihrem Windows-Gerät für ein fokussierteres Computererlebnis.</p>
+            <label class="toggle-switch" for="Tips and suggestions">
+                <input type="checkbox" id="Tips and suggestions">
+                <span class="toggle-switch-label"></span>
+            </label>
+            <span class="checkbox-label">Erhalten Sie Tipps und Vorschläge beim Verwenden von Windows.</span>
+        </div>
+
+        <div>
+            <p>Windows kann Ihnen nicht helfen, Ihr Gerät zu finden, wenn Sie es verlieren.</p>
+            <label class="toggle-switch" for="Find my device">
+                <input type="checkbox" id="Find my device">
+                <span class="toggle-switch-label"></span>
+            </label>
+            <span class="checkbox-label">Mein Gerät finden</span>
+        </div>
+
+        <div>
+            <p>
+                Senden Sie nur Informationen über Ihr Gerät, dessen Einstellungen und Fähigkeiten sowie darüber, ob es ordnungsgemäß funktioniert. Diagnosedaten werden verwendet, um Windows sicher und aktuell zu halten, Probleme zu beheben und Produktverbesserungen vorzunehmen.
+            </p>
+            <label class="toggle-switch" for="Diagnostic data">
+                <input type="checkbox" id="Diagnostic data">
+                <span class="toggle-switch-label"></span>
+            </label>
+            <span class="checkbox-label">Diagnosedaten</span>
+        </div>
+
+        <div>
+            <p>
+                Helfen Sie Microsoft, Ihr Windows-Erlebnis zu verbessern und Probleme schneller zu beheben, indem Sie uns zusätzliche Diagnosedaten senden. Dazu gehören Daten zu den von Ihnen besuchten Websites, zur Verwendung von Apps und Funktionen sowie zur erweiterten Fehlerberichterstattung.
+            </p>
+            <label class="toggle-switch" for="Send optional diagnostic data">
+                <input type="checkbox" id="Send optional diagnostic data">
+                <span class="toggle-switch-label"></span>
+            </label>
+            <span class="checkbox-label">Optionale Diagnosedaten senden</span>
+        </div>
+
+        <div>
+            <p>
+                Sie können Ihren Sperrbildschirm anpassen. Versuchen Sie, den Hintergrund auf ein Lieblingsfoto oder eine Diashow zu ändern. Sie können auch schnelle Statusbenachrichtigungen auswählen, um bevorstehende Kalenderereignisse, Aktualisierungen sozialer Netzwerke oder andere App- und Systembenachrichtigungen anzuzeigen.
+            </p>
+            <label class="toggle-switch" for="Lock screen">
+                <input type="checkbox" id="Lock screen">
+                <span class="toggle-switch-label"></span>
+            </label>
+            <span class="checkbox-label">Personalisierten Sperrbildschirm verwenden</span>
+        </div>
+
+        <div>
+            <p>
+                Wenn Ihr PC Verlangsamungen oder unerklärliche Abstürze aufweist, sollten Sie es zur Priorität machen, herauszufinden, was diese Probleme verursacht. Sie können Windows so konfigurieren, dass Sie ausführliche Statusmeldungen zum Starten, Herunterfahren, Anmelden und Abmelden erhalten. Ausführliche Statusmeldungen können hilfreich sein, wenn Sie langsame Start-, Shutdown-, Anmelde- oder Abmeldeverhalten diagnostizieren.
+            </p>
+            <label class="toggle-switch" for="Display highly detailed status messages">
+                <input type="checkbox" id="Display highly detailed status messages">
+                <span class="toggle-switch-label"></span>
+            </label>
+            <span class="checkbox-label">Hochdetaillierte Statusmeldungen anzeigen</span>
+        </div>
+
+        <div>
+            <p>
+                Wenn Sie ein neues Konto in Windows erstellen, werden Optionen zum Datenschutz angezeigt. Zum Beispiel sehen Sie die Option zum Aktivieren oder Deaktivieren von Spracherkennung, Standortdienst, Mein Gerät finden, Eingabe und Typisierung usw.
+            </p>
+            <label class="toggle-switch" for="Privacy Settings Experience at sign-in">
+                <input type="checkbox" id="Privacy Settings Experience at sign-in">
+                <span class="toggle-switch-label"></span>
+            </label>
+            <span class="checkbox-label">Datenschutzeinstellungserfahrung beim Anmelden</span>
+        </div>
+
+        <div>
+            <p>
+                Das Windows 11-Startmenü wird mit einer standardmäßigen Bing-Suchmaschine geliefert. Es wird angezeigt, wenn Sie die Windows-Suche verwenden oder das Startmenü öffnen. Für lokale Suchen funktioniert es nicht gut und verlangsamt das Sucherlebnis.
+            </p>
+            <label class="toggle-switch" for="Bing Cloud content search">
+                <input type="checkbox" id="Bing Cloud content search">
+                <span class="toggle-switch-label"></span>
+            </label>
+            <span class="checkbox-label">Verabschieden Sie sich von der Bing Cloud-Inhaltssuche</span>
+        </div>
+
+        <div>
+            <p>
+                Visuelle Effekte sind die visuellen Spielereien für das Erscheinungsbild von Windows für Ihr Konto. Diese visuellen Spielereien können jedoch die Leistung von Windows auf dem PC beeinträchtigen. Dies schaltet alle visuellen Effekte unter Mein Computer > Eigenschaften > Erweitert > Einstellungen > und setzt sie auf "Anpassen für beste Leistung" aus.
+            </p>
+            <label class="toggle-switch" for="VisualFX">
+                <input type="checkbox" id="VisualFX">
+                <span class="toggle-switch-label"></span>
+            </label>
+            <span class="checkbox-label">Visuelle Effekte für beste Leistung anpassen</span>
+        </div>
+		
+		<div>
+            <p>
+               Die integrierte Game DVR-Funktion hilft Ihnen, Ihr Gameplay aufzuzeichnen, Screenshots zu machen und sie online zu teilen.
+               Aber es kann auch die Leistung Ihres Spiels beeinträchtigen. Die Hintergrundaufzeichnung erfordert einen Teil Ihrer GPU-Leistung, und einige Spieler möchten alle GPU-Leistung erhalten, die sie bekommen können.
+               Wenn Sie nach dem Upgrade auf Windows 11 eine niedrige FPS oder FPS-Verluste feststellen, können Sie das Problem durch Deaktivieren der Xbox DVR-Funktion beheben.
+            </p>
+            <label class="toggle-switch" for="GameDVR">
+                <input type="checkbox" id="GameDVR">
+                <span class="toggle-switch-label"></span>
+            </label>
+            <span class="checkbox-label">Game DVR-Funktion</span>
+        </div>
+		
+		<div>
+            <p>
+               Mit dem Windows 10 Fall Creators Update hat Microsofts Betriebssystem eine Funktion namens Power Throttling hinzugefügt
+               Power Throttling ist nur auf Intel-Prozessoren der 6. Generation und höher verfügbar), eine Möglichkeit, die Akkulaufzeit von Laptops zu erhöhen, indem Hintergrundprozesse verlangsamt werden.
+               Diese Funktion ist standardmäßig auf Laptops und Tablets aktiviert. Obwohl Windows gut darin ist, Hintergrund-Apps zu erkennen und die Leistung zu begrenzen, kann es Situationen geben, in denen diese Funktion nicht so erwünscht ist.
+            </p>
+            <label class="toggle-switch" for="PowerThrottling">
+                <input type="checkbox" id="PowerThrottling">
+                <span class="toggle-switch-label"></span>
+            </label>
+            <span class="checkbox-label">Power Throttling</span>
+        </div>
+		
+    </div>
+
+        <!-- Weitere Inhalte folgen hier -->
+
+    </div>
+
+    <!-- APPX UNINSTALLER -->
+    <div class="glassy-box" id="appxHeader">
+        <div id="avaHeader" class="header-caption">
+            Den digitalen Spielplatz mit Bloatpilot aufräumen
+            <span style="color: red; font-size: 11px; margin-left: 12px;">*Diese Option wird von Microsoft nicht unterstützt</span>
+        </div>
+        Microsoft hat Vereinbarungen mit Drittanbietern für App-Symbole im neuen Windows 11 Startmenü geschlossen. Klicken Sie einfach auf Symbole wie Picsart Pro oder WhatsApp, um sie zu installieren. Windows 11 hat auch Spotify, Instagram und TikTok. Wenn Sie möchten, können Sie hier diese Apps überprüfen und entfernen.
+        <h2>Installierte App-Pakete<span id="installedPackagesCount"></span></h2>
+
+        <button onclick="removeSelectedPackages()">Ausgewählte entfernen</button>
+        <button id="btnsearchCustomCrapware" onclick="searchCustomCrapware()">Crapware-Datenbank durchsuchen (optional)</button>
+        <button id="btnremoveCustomCrapware" onclick="removeCustomCrapware()">Crapware in optionaler Datenbank entfernen</button>
+        </p>
+
+        <div id="appPackagesContainer">
+            <!-- Schalter für installierte App-Pakete werden hier dynamisch geladen -->
+        </div>
+    </div>
+
+	
+	<!-- APP INSTALLER -->
+	<div class="glassy-box" id="appsHeader">
+		<div id="avaHeader" class="header-caption">Fehlende Apps installieren</div>
+    <p>
+        Avas App-Empfehlungen für ein angenehmes Windows-Erlebnis! Windows wird mit grundlegenden Apps für viele Zwecke geliefert, aber viele der besten Windows-Software sind nicht vorinstalliert. Sie können sich entscheiden, einen Webbrowser herunterzuladen und zu installieren, der nicht Microsoft Edge ist, wie z. B. Chrome oder Firefox. Weil jede App ein neues Abenteuer ist!
+    </p>
+
+    <button id="btnInstallSelectedApps" onclick="installSelectedApps()">Ausgewählte installieren</button>
+    </p>
+
+    <div id="appList">
+        <div class="app-item">
+            <div class="toggle-switch">
+                <input type="checkbox" class="toggle-switch-checkbox" id="app1Toggle">
+                <label class="toggle-switch-label" for="app1Toggle"></label>
+            </div>
+            <label class="checkbox-label" for="app1Toggle">Google Chrome</label>
+            <p>ID <span id="app1WingetId">Google.Chrome</span></p>
+            <p>Einfacher, sicherer und schneller Webbrowser als je zuvor, mit Googles Intelligenz integriert.</p>
+        </div>
+
+        <div class="app-item">
+            <div class="toggle-switch">
+                <input type="checkbox" class="toggle-switch-checkbox" id="app2Toggle">
+                <label class="toggle-switch-label" for="app2Toggle"></label>
+            </div>
+            <label class="checkbox-label" for="app2Toggle">Mozilla Firefox</label>
+            <p>ID <span id="app2WingetId">Mozilla.Firefox</span></p>
+            <p>
+                Mozilla Firefox ist kostenlose und Open-Source-Software, entwickelt von einer Community von Tausenden aus der ganzen Welt.
+            </p>
+        </div>
+
+        <div class="app-item">
+            <div class="toggle-switch">
+                <input type="checkbox" class="toggle-switch-checkbox" id="app3Toggle">
+                <label class="toggle-switch-label" for="app3Toggle"></label>
+            </div>
+            <label class="checkbox-label" for="app3Toggle">Opera</label>
+            <p>ID <span id="app3WingetId">Opera.Opera</span></p>
+            <p>
+                Der Opera-Browser enthält alles, was Sie für privates, sicheres und effizientes Surfen benötigen, sowie eine Vielzahl einzigartiger Funktionen zur Verbesserung Ihrer Online-Fähigkeiten.
+            </p>
+        </div>
+
+        <div class="app-item">
+            <div class="toggle-switch">
+                <input type="checkbox" class="toggle-switch-checkbox" id="app4Toggle">
+                <label class="toggle-switch-label" for="app4Toggle"></label>
+            </div>
+            <label class="checkbox-label" for="app4Toggle">Vivaldi</label>
+            <p>ID <span id="app4WingetId">VivaldiTechnologies.Vivaldi</span></p>
+            <p>Webbrowser basierend auf Chromium mit zusätzlichen Funktionen, die von Opera inspiriert sind.</p>
+        </div>
+
+        <div class="app-item">
+            <div class="toggle-switch">
+                <input type="checkbox" class="toggle-switch-checkbox" id="app5Toggle">
+                <label class="toggle-switch-label" for="app5Toggle"></label>
+            </div>
+            <label class="checkbox-label" for="app5Toggle">VLC-Mediaplayer</label>
+            <p>ID <span id="app5WingetId">VideoLAN.VLC</span></p>
+            <p>
+                VLC ist ein kostenloser und Open-Source-Cross-Platform-Multimedia-Player und Framework, das die meisten Multimedia-Dateien und verschiedene Streaming-Protokolle abspielt.
+            </p>
+        </div>
+
+        <div class="app-item">
+            <div class="toggle-switch">
+                <input type="checkbox" class="toggle-switch-checkbox" id="app6Toggle">
+                <label class="toggle-switch-label" for="app6Toggle"></label>
+            </div>
+            <label class="checkbox-label" for="app6Toggle">7-Zip</label>
+            <p>ID <span id="app6WingetId">7Zip.7zip</span></p>
+            <p>Kostenloser und Open-Source-Dateiarchivierer mit hoher Kompressionsrate.</p>
+        </div>
+
+        <div class="app-item">
+            <div class="toggle-switch">
+                <input type="checkbox" class="toggle-switch-checkbox" id="app7Toggle">
+                <label class="toggle-switch-label" for="app7Toggle"></label>
+            </div>
+            <label class="checkbox-label" for="app7Toggle">Notepad++</label>
+            <p>ID <span id="app7WingetId">Notepad++.Notepad++</span></p>
+            <p>Notepad++ ist ein kostenloser Quellcode-Editor, der mehrere Sprachen unterstützt.</p>
+        </div>
+
+        <div class="app-item">
+            <div class="toggle-switch">
+                <input type="checkbox" class="toggle-switch-checkbox" id="app8Toggle">
+                <label class="toggle-switch-label" for="app8Toggle"></label>
+            </div>
+            <label class="checkbox-label" for="app8Toggle">Microsoft PowerToys</label>
+            <p>ID <span id="app8WingetId">Microsoft.PowerToys</span></p>
+            <p>Microsoft PowerToys ist eine Reihe von Dienstprogrammen für Power-User zur Anpassung und Optimierung ihres Windows-Erlebnisses für mehr Produktivität.</p>
+        </div>
+
+        <div class="app-item">
+            <div class="toggle-switch">
+                <input type="checkbox" class="toggle-switch-checkbox" id="app9Toggle">
+                <label class="toggle-switch-label" for="app9Toggle"></label>
+            </div>
+            <label class="checkbox-label" for="app9Toggle">Adobe Acrobat Reader DC</label>
+            <p>ID <span id="app9WingetId">Adobe.Acrobat.Reader.64-bit </span></p>
+            <p>Der kostenlose weltweite Standard zum zuverlässigen Anzeigen, Drucken, Signieren und Kommentieren von PDF-Dokumenten.</p>
+        </div>
+
+        <div class="app-item">
+            <div class="toggle-switch">
+                <input type="checkbox" class="toggle-switch-checkbox" id="app10Toggle">
+                <label class="toggle-switch-label" for="app10Toggle"></label>
+            </div>
+            <label class="checkbox-label" for="app10Toggle">IrfanView</label>
+            <p>ID <span id="app10WingetId">IrfanSkiljan.IrfanView</span></p>
+            <p>Schneller und kompakter Bildbetrachter und -konverter</p>
+        </div>
+        <!-- Weitere App-Elemente können hier nach Bedarf hinzugefügt werden -->
+
+    </div>
+</body>
+</html>
