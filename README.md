@@ -1,6 +1,6 @@
 # Let's customize your Windows 11 experience with - Bloatynosy and BloatynosyAI -
 
-_Universal Debloater and PC Manager for the most up-to-date version of the Redmond OS (Windows 11) and Windows 10 with BloatnosyAI_
+_Universal Debloater and PC Manager for the most up-to-date version of the Redmond OS (Windows 11) and Windows 10
 
 ## Download
 ### GitHub (Recommended)
