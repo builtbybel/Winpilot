@@ -154,14 +154,14 @@
     "command": "reg add HKEY_CURRENT_USER\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced /v TaskbarDa /t REG_DWORD /d 0 /f"
   },
   {
-    "question": "Kopiloten-Schaltfläche in der Taskleiste entfernen #ai",
-    "response": "Kopiloten-Schaltfläche in der Taskleiste wurde deaktiviert.",
+    "question": "Copiloten-Schaltfläche in der Taskleiste entfernen #ai",
+    "response": "Copiloten-Schaltfläche in der Taskleiste wurde deaktiviert.",
     "action": "shell",
     "command": "reg add HKEY_CURRENT_USER\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced /v ShowCopilotButton /t REG_DWORD /d 0 /f"
   },
   {
-    "question": "Kopiloten-Schaltfläche in Microsoft Edge entfernen #ai",
-    "response": "Kopiloten-Schaltfläche in Edge wurde deaktiviert.",
+    "question": "Copiloten-Schaltfläche in Microsoft Edge entfernen #ai",
+    "response": "Copiloten-Schaltfläche in Edge wurde deaktiviert.",
     "action": "shell",
     "command": "reg add HKEY_CURRENT_USER\\Software\\Policies\\Microsoft\\Windows /v TurnOffWindowsCopilot /t REG_DWORD /d 0 /f"
   },
