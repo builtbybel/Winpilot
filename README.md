@@ -1,4 +1,4 @@
-# Upgrade your Windows 10 and Windows 11 journey with the sleek power of Bloatynosy and its next-gen successor, BloatynosyAI – the AI-driven way to customize your digital world.
+#### Upgrade your Windows 10 and Windows 11 journey with the sleek power of Bloatynosy and its next-gen successor, BloatynosyAI – the AI-driven way to customize your digital world.
 
 # BloatynosyAI
 Universal Debloater and PC Manager for the most up-to-date version of the Redmond OS (Windows 11) and Windows 10
