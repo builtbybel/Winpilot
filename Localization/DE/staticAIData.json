@@ -72,8 +72,8 @@
     "action": "showDiskSpace"
   },
   {
-    "question": "Screenshot meines Desktops aufnehmen #SnippingTool",
-    "response": "Desktop-Screenshot aufgenommen und gespeichert.",
+    "question": "Screenshot aufnehmen #SnippingTool",
+    "response": "Screenshot aufgenommen und in die Zwischenablage gelegt.",
     "action": "takeDesktopScreenshot"
   },
   {
