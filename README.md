@@ -21,7 +21,7 @@ Simply execute BloatynosyAI.exe. Feel free to delete the cache folder Bloatynosy
 
 With the chat box in front of you, input your search terms, inquiries, or keywords, and enjoy real-time results. For instance, if you need to 'install an app,' simply type 'install' or any related keyword, and you'll receive the same outcome. Additionally, using this search function, you can easily install popular apps using 'winget.' Remember other useful keywords such as 'bloat,' 'appx,' or 'uninstall' to effortlessly remove unwanted default apps in Windows 10/11. The possibilities are endless. Have fun experimenting with different queries! 
 
-Currently trending keywords include '#ai'."
+Currently trending keywords include '#ai'.
 
 ## Support statement for the AI Version
 WebView2 apps can run on the following versions of Windows:
