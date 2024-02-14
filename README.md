@@ -12,9 +12,9 @@ This update not only empowers users with the capability to remove AI features in
 
 
 ## Download
-**Recommended:** [Latest Preview AI release](https://github.com/builtbybel/Bloatynosy/releases)
+**Recommended AI Version:** [Latest Preview AI release](https://github.com/builtbybel/Bloatynosy/releases)
 
-**Classic version:** [Last classic Bloatynosy 1.5 release](https://github.com/builtbybel/Bloatynosy/releases/tag/1.5.0)
+**Classic Bloatynosy version:** [Last classic Bloatynosy 1.5 release](https://github.com/builtbybel/Bloatynosy/releases/tag/1.5.0)
 
 ## How-to
 Simply run the BloatynosyAI.exe. You can delete the cache folder BloatynosyAI.exe.WebView2 at any time.
