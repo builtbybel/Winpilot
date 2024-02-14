@@ -6,8 +6,8 @@
     <img width="33%" src="https://github.com/builtbybel/BloatynosyAI/assets/57478606/122de929-86cd-4422-9e92-491669c15c3f">
 </p>
 
-## About the app!
-[h38B5YXwpu](https://github.com/builtbybel/BloatynosyAI/assets/57478606/7a745f88-26a7-4829-875f-3ae3d2d76357)
+## About the app
+![h38B5YXwpu](https://github.com/builtbybel/BloatynosyAI/assets/57478606/5863102b-2316-432a-9997-0b5be11b9fc4)
 
 Universal Debloater and PC Manager for the most up-to-date version of the Redmond OS (Windows 11) and Windows 10.
 
