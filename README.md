@@ -6,7 +6,9 @@
     <img width="33%" src="https://github.com/builtbybel/BloatynosyAI/assets/57478606/122de929-86cd-4422-9e92-491669c15c3f">
 </p>
 
-## About the app
+## About the app!
+[h38B5YXwpu](https://github.com/builtbybel/BloatynosyAI/assets/57478606/7a745f88-26a7-4829-875f-3ae3d2d76357)
+
 Universal Debloater and PC Manager for the most up-to-date version of the Redmond OS (Windows 11) and Windows 10.
 
 The latest release of BloatynosyAI introduces a significant milestone with its hybrid web app foundation. 
