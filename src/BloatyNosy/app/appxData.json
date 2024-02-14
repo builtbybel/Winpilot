@@ -1,0 +1,82 @@
+[
+  {
+    "name": "BingNews",
+    "description": "News app from Microsoft",
+    "removeCommand": "Get-AppxPackage -AllUsers *BingNews* | Remove-AppxPackage"
+  },
+  {
+    "name": "ZuneVideo",
+    "description": "Video app from Microsoft",
+    "removeCommand": "Get-AppxPackage -AllUsers *ZuneVideo* | Remove-AppxPackage"
+  },
+  {
+    "name": "MicrosoftOfficeHub",
+    "description": "This is preinstalled Microsoft crapware.",
+    "removeCommand": "Get-AppxPackage -AllUsers *MicrosoftOfficeHub* | Remove-AppxPackage"
+  },
+  {
+    "name": "GetHelp",
+    "description": "The Get Help app empowers customers to self-help with troubleshooters, instant answers, Microsoft support articles, and more, before contacting assisted support.",
+    "removeCommand": "Get-AppxPackage -AllUsers *GetHelp* | Remove-AppxPackage"
+  },
+  {
+    "name": "WhatsApp",
+    "description": "WhatsApp has a UWP app for Windows 11, and while it’s not a web wrapper, it doesn’t have as many features as its mobile counterpart. If you dont use it, remove it.",
+    "removeCommand": "Get-AppxPackage -AllUsers *WhatsApp* | Remove-AppxPackage"
+  },
+  {
+    "name": "Netflix",
+    "description": "Netflix is a popular streaming service that grants users the key to a vast library of TV shows, movies, and documentaries. This is the official Windows 11 app.",
+    "removeCommand": "Get-AppxPackage -AllUsers *Netflix* | Remove-AppxPackage"
+  },
+  {
+    "name": "Instagram",
+    "description": "Instagram app on Microsoft Store is basically a PWA.",
+    "removeCommand": "Get-AppxPackage -AllUsers *Instagram* | Remove-AppxPackage"
+  },
+  {
+    "name": "OneDrive",
+    "description": "Official Microsoft crapware again.",
+    "removeCommand": "Get-AppxPackage -AllUsers *OneDriveSync* | Remove-AppxPackage"
+  },
+  {
+    "name": "Microsoft MixedReality.Portal",
+    "description": "Official Microsoft crapware.",
+    "removeCommand": "Get-AppxPackage -AllUsers *Microsoft.MixedReality* | Remove-AppxPackage"
+  },
+  {
+    "name": "Microsoft Print3D",
+    "description": "Official Microsoft crapware again.",
+    "removeCommand": "Get-AppxPackage -AllUsers *Microsoft.Print3D* | Remove-AppxPackage"
+  },
+  {
+    "name": "Microsoft People",
+    "description": "Official Microsoft crapware again.",
+    "removeCommand": "Get-AppxPackage -AllUsers *Microsoft.People* | Remove-AppxPackage"
+  },
+  {
+    "name": "BytedancePte.Ltd.TikTok",
+    "description": "The app is a PWA, which is available not only for Windows 11, but also for Windows 10.",
+    "removeCommand": "Get-AppxPackage -AllUsers *TikTok* | Remove-AppxPackage"
+  },
+  {
+    "name": "Clipchamp.Clipchamp",
+    "description": "Clipchamp is a web-based application. It's also not entirely free!",
+    "removeCommand": "Get-AppxPackage -AllUsers *Clipchamp* | Remove-AppxPackage"
+  },
+  {
+    "name": "Microsoft.SkypeApp",
+    "description": "The official Microsoft Skype app",
+    "removeCommand": "Get-AppxPackage -AllUsers *Skype* | Remove-AppxPackage"
+  },
+  {
+    "name": "Spotify",
+    "description": "Spotify’s Desktop app is basically Chromium instance.",
+    "removeCommand": "Get-AppxPackage -AllUsers *Spotify* | Remove-AppxPackage"
+  },
+  {
+    "name": "9E2F88E3.TWITTER",
+    "description": "Nothing more than a frontend for the X website. You really don't need it.",
+    "removeCommand": "Get-AppxPackage -AllUsers *Twitter* | Remove-AppxPackage"
+  }
+]
