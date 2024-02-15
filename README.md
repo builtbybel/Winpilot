@@ -12,7 +12,7 @@
 The latest release of BloatynosyAI introduces a significant milestone with its hybrid web app foundation. 
 This update not only empowers users with the capability to remove AI features in Windows but also emphasizes the app's intelligent approach, driven by a novel hybrid and web-based core.
 
-![Screenshot 2024-02-15 125631](https://github.com/builtbybel/BloatynosyAI/assets/57478606/5ef3f3e6-ce54-41b1-aaf0-f27c7fbd77ac)
+![Screenshot 2024-02-15 131725](https://github.com/builtbybel/BloatynosyAI/assets/57478606/0f0aef4c-4577-43fb-ab6f-92728da42280)
 
 ## Download
 **Recommended AI Version:** [Latest Preview AI release](https://github.com/builtbybel/Bloatynosy/releases)
