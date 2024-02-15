@@ -47,20 +47,28 @@
 
 
     <!-- SYSTEM: Recommended section -->
+  <div class="container">
     <div class="glassy-box" id="systemHeader">
-        <div id="avaHeader" class="header-caption">Empfohlen</div>
-        <p>Wählen Sie aus, wie viele Informationen Sie mit Microsoft teilen möchten.</p>
+        <div id="avaHeader" class="header-caption">Schnellzugriff</div>
+        <p>Schneller und einfacher Zugriff auf gängige Funktionen und Einstellungen.</p>
         <div id="statusContainer">
             <button id="btnSearch" onclick="searchFeatures()">Mein Windows-Setup überprüfen</button>
         </div>
     </div>
+	
+	<div class="glassy-box" id="qcContainer">
+		<p>Bist du kein TikToker, Instagram-Fan oder Notizenthusiast? Nun, dann brauchst du diese Apps wahrscheinlich nicht zu sehen. Fühle dich frei, sie zu entfernen.</p>
+		  <button onclick="scrollToAppxHeader()">Entferne Bloatware</button>
+		</div>
+
+ </div>
 
     <div class="glassy-box" id="systemContainer">
-        <div class="glassy-box">
+  	   <div id="avaHeader" class="header-caption">Empfohlen</div>
+	     <p>Lege fest, wie viele Informationen du mit Microsoft teilen möchtest.</p>
+		
             <button id="btnEnable" onclick="disableFeatures()">Ausgewählte ablehnen</button>
             <button id="btnDisable" onclick="enableFeatures()">Ausgewählte zulassen</button>
-        </div>
-
      <div>
             <p>
                 Windows 11 ist mit Werbung integriert. Microsoft weist Ihnen eine eindeutige Kennung zu, um Ihre Aktivitäten im Microsoft Store und in UWP-Apps zu verfolgen und Sie mit relevanten Anzeigen zu targetieren.
