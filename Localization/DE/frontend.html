@@ -17,14 +17,19 @@
 		<h1>BloatynosyAI</h1>
 	</div>
 	
+<!-- Switch to Microsoft Copilot -->
+<label class="copilot-button" onclick="toggleSwitch()">
+       Use Copilot
+    <div class="copilot-switch" id="toggleSwitch"></div>
+</label>
+	
 <!-- Settings button -->
 <button id="settingsButton" onclick="openSettings()">&#8230;</button>
+	
  <!-- Assisted Chatbox container with its autocomplete input -->
-	<div class="chatbox-container">
-		<input type="text" id="chatbox" placeholder="Nach Apps, Einstellungen und Tweaks suchen">
-		    <!-- Add Copilot button -->
-		<button id="copilotButton" onclick="openCopilot()" title="Copilot öffnen">Copilot fragen</button>
-	</div>
+<div class="chatbox-container">
+	<input type="text" id="chatbox" placeholder="Nach Apps, Einstellungen und Tweaks suchen">
+</div>
 
   <!-- Ava logContainer -->
     <div id="logContainer">
