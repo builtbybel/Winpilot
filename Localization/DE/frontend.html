@@ -46,7 +46,7 @@
 	</div>
 
 
-    <!-- SYSTEM: Recommended section -->
+    <!-- SYSTEM: Quick Controls -->
   <div class="container">
     <div class="glassy-box" id="systemHeader">
         <div id="avaHeader" class="header-caption">Schnellzugriff</div>
@@ -55,14 +55,17 @@
             <button id="btnSearch" onclick="searchFeatures()">Mein Windows-Setup überprüfen</button>
         </div>
     </div>
-	
+	    <!-- SYSTEM: Pinned apps  > -->
 	<div class="glassy-box" id="qcContainer">
 		<div id="avaHeader" class="header-caption">Angeheftete apps</div>
 		<p>Bist du kein TikToker, Instagram-Fan oder Notizenthusiast? Nun, dann brauchst du diese Apps wahrscheinlich nicht zu sehen. Fühle dich frei, sie zu entfernen.</p>
-		  <button onclick="scrollToAppxHeader()">Entferne Bloatware</button>
+		<div id="buttonsAppx-container">
+		<!-- The buttons will be dynamically loaded from C# -->
 		</div>
+		  <button id="viewAppxButton" onclick="scrollToAppxHeader()">Mehr</button>
+		</div>	
  	</div>
-
+	    <!-- SYSTEM: Recommended  > -->
     <div class="glassy-box" id="systemContainer">
   	   <div id="avaHeader" class="header-caption">Empfohlen</div>
 	     <p>Lege fest, wie viele Informationen du mit Microsoft teilen möchtest.</p>
