@@ -26,7 +26,7 @@ Currently trending keywords include '#ai'.
 
 ## Localization support
 Language files are already available. A German language file can be directly and live installed via the user interface. To do this, simply search for "translate" and/or "German" in the search/chat box and execute. 
-Language files, including the [French](https://github.com/orgs/builtbybel/discussions/133#discussioncomment-8456415) one attached, can also be manually installed. Simply download the .zip file and unpack it into the "app" directory of BloatynosyAI (allowing existing files to be overwritten). In the future, additional language files will be installable by default via the search box.
+Language files, including the [French](https://github.com/orgs/builtbybel/discussions/141#discussioncomment-8508698) one attached, can also be manually installed. Simply download the .zip file and unpack it into the "app" directory of BloatynosyAI (allowing existing files to be overwritten). In the future, additional language files will be installable by default via the search box.
 
 ## Support statement for the AI Version
 WebView2 apps can run on the following versions of Windows:
