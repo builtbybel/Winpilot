@@ -25,6 +25,11 @@
     "action": "ms-settings:windowsupdate"
   },
   {
+    "question": "Wie kann ich Sicherungskopien wiederherstellen? #backup"?",
+    "response": "Natürlich! Öffne die Windows-Backup-Einstellungen (Ich kann dir auch die coole Appcopier-App https://github.com/builtbybel/Appcopier von Belim empfehlen)...",
+    "action": "ms-settings:backup",
+  },
+  {
     "question": "Ich möchte mein Hintergrundbild ändern",
     "response": "Natürlich sollte ein Windows-Desktop Ihre Persönlichkeit widerspiegeln. Lassen Sie uns das ändern.",
     "action": "changeWallpaper"
@@ -38,12 +43,6 @@
     "question": "Ich möchte zwischen dunklem und hellem Windows-Modus wechseln",
     "response": "Lassen Sie uns der dunklen oder hellen Seite beitreten...",
     "action": "toggleThemeMode"
-  },
-  {
-    "question": "Wie kann ich Sicherungskopien wiederherstellen? #appcopier #backup",
-    "response": "Natürlich! Appcopier wird geöffnet...",
-    "action": "openFile",
-    "appPath": "packages\\Appcopier\\Appcopier.exe"
   },
   {
     "question": "Ich möchte einen Wiederherstellungspunkt erstellen",
