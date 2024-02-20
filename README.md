@@ -12,11 +12,8 @@
 The latest release of BloatynosyAI introduces a significant milestone with its hybrid web app foundation. 
 This update not only empowers users with the capability to remove AI features in Windows but also emphasizes the app's intelligent approach, driven by a novel hybrid and web-based core.
 
-![304485154-8a0b823d-e46d-43ce-a232-b8a95ca74962](https://github.com/builtbybel/Bloatynosy/assets/57478606/ab491161-466c-4a13-95b9-24e56404c79b)
-
-
 ## Download
-**Recommended AI Version:** [Latest Preview AI release](https://github.com/builtbybel/Bloatynosy/releases)
+**Recommended AI Version:** [Latest Preview AI release](https://github.com/builtbybel/BloatynosyAI/releases)
 
 **Classic Bloatynosy version:** [Last classic Bloatynosy 1.5 release](https://github.com/builtbybel/Bloatynosy/releases/tag/1.5.0)
 
@@ -29,7 +26,7 @@ Currently trending keywords include '#ai'.
 
 ## Localization support
 Language files are already available. A German language file can be directly and live installed via the user interface. To do this, simply search for "translate" and/or "German" in the search/chat box and execute. 
-Language files, including the [French](https://github.com/orgs/builtbybel/discussions/133#discussioncomment-8456415) one attached, can also be manually installed. Simply download the .zip file and unpack it into the "app" directory of BloatynosyAI (allowing existing files to be overwritten). In the future, additional language files will be installable by default via the search box.
+Language files, including the [French](https://github.com/orgs/builtbybel/discussions/141#discussioncomment-8508698) one attached, can also be manually installed. Simply download the .zip file and unpack it into the "app" directory of BloatynosyAI (allowing existing files to be overwritten). In the future, additional language files will be installable by default via the search box.
 
 ## Support statement for the AI Version
 WebView2 apps can run on the following versions of Windows:

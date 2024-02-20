@@ -12,22 +12,29 @@
  <!-- Form caption -->
 	<div class="emoji-container">
 		<a href="https://github.com/builtbybel/Bloatynosy" target="_blank">
-			<span class="emoji" title="Folge BloatynosyAI auf GitHub">&#9863;</span>
+		<span class="emoji" title="Folge BloatynosyAI auf GitHub">&#9863;</span>
 		</a>
 		<h1>BloatynosyAI</h1>
 	</div>
-
+	
+<!-- Switch to Microsoft Copilot -->
+<label class="copilot-button" onclick="toggleSwitch()">
+    Copilot verwenden
+    <div class="copilot-switch" id="toggleSwitch"></div>
+</label>
+	
+<!-- Settings button -->
+<button id="settingsButton" onclick="openSettings()">&#8230;</button>
+	
  <!-- Assisted Chatbox container with its autocomplete input -->
-	<div class="chatbox-container">
-		<input type="text" id="chatbox" placeholder="Nach Apps, Einstellungen und Tweaks suchen">
-		    <!-- Add Copilot button -->
-		<button id="copilotButton" onclick="openCopilot()" title="Copilot öffnen">Copilot fragen</button>
-	</div>
+<div class="chatbox-container">
+	<input type="text" id="chatbox" placeholder="Nach Apps, Einstellungen und Tweaks suchen">
+</div>
 
-	  <!-- Ava logContainer -->
-        <div id="logContainer">
-            Hi, ich bin Ava, dein freundlicher Begleiter aus Redmond, WA. Möchtest du Unterstützung erhalten?
-        </div>
+  <!-- Ava logContainer -->
+    <div id="logContainer">
+    <p> Hallo! Ich bin Ava, dein freundlicher Begleiter aus Redmond, WA. Brauchst du Hilfe? Du kannst mich gerne "CoMachina" nennen. Übrigens, lustige Tatsache: Mein Bruder ist Microsoft Copilot, aber wir sind nicht immer einer Meinung. <a href="https://github.com/builtbybel/BloatynosyAI" target="_blank">Möchtest du mehr erfahren?</a> </p>
+	</div>
 	
     <!-- HOME: Pinned section -->
 	<div class="glassy-box" id="homeHeader">
@@ -46,21 +53,35 @@
 	</div>
 
 
-    <!-- SYSTEM: Recommended section -->
+    <!-- SYSTEM: Quick Controls -->
+  <div class="container">
     <div class="glassy-box" id="systemHeader">
-        <div id="avaHeader" class="header-caption">Empfohlen</div>
-        <p>Wählen Sie aus, wie viele Informationen Sie mit Microsoft teilen möchten.</p>
+        <div id="avaHeader" class="header-caption">Schnellzugriff</div>
+        <p>Schneller und einfacher Zugriff auf gängige Funktionen und Einstellungen.</p>
         <div id="statusContainer">
             <button id="btnSearch" onclick="searchFeatures()">Mein Windows-Setup überprüfen</button>
         </div>
     </div>
-
+	    <!-- SYSTEM: Pinned apps  > -->
+	<div class="glassy-box" id="qcContainer">
+		<div id="avaHeader" class="header-caption">Angeheftete apps</div>
+		<p>Bist du kein TikToker, Instagram-Fan oder Notizenthusiast? Nun, dann brauchst du diese Apps wahrscheinlich nicht zu sehen. Fühle dich frei, sie zu entfernen.</p>
+		<div id="imageAppx-container">
+		<!-- The image will be dynamically loaded from C# -->
+		</div>
+		<div id="buttonsAppx-container">
+		<!-- The buttons will be dynamically loaded from C# -->
+		</div>
+		  <button id="viewAppxButton" onclick="scrollToAppxHeader()">Alle</button>
+		</div>	
+ 	</div>
+	    <!-- SYSTEM: Recommended  > -->
     <div class="glassy-box" id="systemContainer">
-        <div class="glassy-box">
+  	   <div id="avaHeader" class="header-caption">Empfohlen</div>
+	     <p>Lege fest, wie viele Informationen du mit Microsoft teilen möchtest.</p>
+		
             <button id="btnEnable" onclick="disableFeatures()">Ausgewählte ablehnen</button>
             <button id="btnDisable" onclick="enableFeatures()">Ausgewählte zulassen</button>
-        </div>
-
      <div>
             <p>
                 Windows 11 ist mit Werbung integriert. Microsoft weist Ihnen eine eindeutige Kennung zu, um Ihre Aktivitäten im Microsoft Store und in UWP-Apps zu verfolgen und Sie mit relevanten Anzeigen zu targetieren.
