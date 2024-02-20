@@ -99,13 +99,13 @@
     "question": "Geben Sie mir einen Einblick in Chris Titus-Tools in Aktion #plugin",
     "response": "PowerShell-Skript wird interpretiert...",
     "action": "runPowerShellScript",
-    "scriptPath": "research\\ChrisTitusAppHandler.ps1"
+    "scriptPath": "plugins\\ChrisTitusAppHandler.ps1"
   },
   {
     "question": "Helfen Sie mir, die Microsoft OneDrive-App zu entfernen #plugin",
     "response": "PowerShell-Skript wird interpretiert...",
     "action": "runPowerShellScript",
-    "scriptPath": "research\\OneDriveHandler.ps1"
+    "scriptPath": "plugins\\OneDriveHandler.ps1"
   },
   {
     "question": "Ich möchte eine App installieren #winget",
