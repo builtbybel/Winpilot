@@ -98,15 +98,21 @@
   {
     "question": "Geben Sie mir einen Einblick in Chris Titus-Tools in Aktion #plugin",
     "response": "PowerShell-Skript wird interpretiert...",
-    "action": "runPowerShellScript",
+    "action": "runPSFile",
     "scriptPath": "plugins\\ChrisTitusAppHandler.ps1"
   },
   {
     "question": "Helfen Sie mir, die Microsoft OneDrive-App zu entfernen #plugin",
     "response": "PowerShell-Skript wird interpretiert...",
-    "action": "runPowerShellScript",
+    "action": "runPSFile",
     "scriptPath": "plugins\\OneDriveHandler.ps1"
   },
+  {
+   "question": "Papierkorb leeren",
+   "response": "Papierkorb wird geleert...",
+   "action": "runPS",
+	 "command": "Clear-RecycleBin -Force"
+	},
   {
     "question": "Ich möchte eine App installieren #winget",
     "response": "Wechsel zum Bereich Apps...",
