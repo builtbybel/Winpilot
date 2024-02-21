@@ -25,9 +25,9 @@
     "action": "ms-settings:windowsupdate"
   },
   {
-    "question": "Wie kann ich Sicherungskopien wiederherstellen? #backup"?",
+    "question": "Wie kann ich Sicherungskopien wiederherstellen? #backup",
     "response": "Natürlich! Öffne die Windows-Backup-Einstellungen (Ich kann dir auch die coole Appcopier-App https://github.com/builtbybel/Appcopier von Belim empfehlen)...",
-    "action": "ms-settings:backup",
+    "action": "ms-settings:backup"
   },
   {
     "question": "Ich möchte mein Hintergrundbild ändern",
