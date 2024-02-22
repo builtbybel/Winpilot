@@ -170,6 +170,11 @@
     "action": "shell",
     "command":"reg add HKEY_CURRENT_USER\\Software\\Policies\\Microsoft\\Edge /v HubsSidebarEnabled /t REG_DWORD /d 0 /f"
   },
+ {
+    "question": "Suche nach KI auf meinem System #ki",
+    "response": "Überprüfung auf aktivierte KI-Funktionen läuft...",
+    "action": "detectAI",
+  },
   {
     "question": "Copilot Pro-Anzeigen in Windows 11 deaktivieren #vivetool",
     "response": "ViveTool-Aktion erfolgreich durchgeführt.",
