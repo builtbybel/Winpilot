@@ -1,6 +1,6 @@
-# BloatynosyAI - The Anti-assistant assistant
+# Winpilot (former Bloatynosy)
 
-#### Upgrade your Windows 10 and Windows 11 journey with the sleek power of Bloatynosy and its next-gen successor, BloatynosyAI – the AI-driven way to customize your digital world.
+#### Upgrade your Windows 10 and Windows 11 journey with the sleek power of Winpilot – the AI-driven way to customize your digital world.
 
 <p align="center" width="50%">
     <img width="33%" src="https://github.com/builtbybel/BloatynosyAI/assets/57478606/122de929-86cd-4422-9e92-491669c15c3f">
