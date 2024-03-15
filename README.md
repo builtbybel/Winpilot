@@ -13,7 +13,7 @@ The latest release of BloatynosyAI introduces a significant milestone with its h
 This update not only empowers users with the capability to remove AI features in Windows but also emphasizes the app's intelligent approach, driven by a novel hybrid and web-based core.
 
 ## Download
-**Recommended AI Version:** [Latest AI release](https://github.com/builtbybel/BloatynosyAI/releases)
+**Recommended Winpilot Version:** [Latest AI release](https://github.com/builtbybel/Winpilot/releases)
 
 **Classic Bloatynosy version:** [Last classic Bloatynosy 1.5 release](https://github.com/builtbybel/Bloatynosy/releases/tag/1.5.0)
 
