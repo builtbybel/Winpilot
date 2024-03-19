@@ -43,6 +43,8 @@ Winpilot can be used to change various settings and access various pieces of sys
 - Ask to restart Windows Explorer and Taskbar 
 - Ask to run vive tool feature configurations (static)
   
+You can use these skills via a type prompt in Winpilot, such as "toggle dark theme" or "uninstall apps or bloatware"; Winpilots Assistant Clippy will take the appropriate action and confirm completion.
+  
 ## Download
 **Recommended Winpilot Version:** [Latest AI release](https://github.com/builtbybel/Winpilot/releases)
 
