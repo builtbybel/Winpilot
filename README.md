@@ -47,7 +47,7 @@ Winpilot can be used to change various settings and access various pieces of sys
 You can use these skills via a type prompt in Winpilot, such as "toggle dark theme" or "uninstall apps or bloatware"; Winpilots Assistant Clippy will take the appropriate action and confirm completion.
   
 ## Download
-**Recommended Winpilot Version:** [Latest AI release](https://github.com/builtbybel/Winpilot/releases)
+**Recommended Winpilot Version:** [Latest release](https://github.com/builtbybel/Winpilot/releases)
 
 **Classic Bloatynosy version:** [Last classic Bloatynosy 1.5 release](https://github.com/builtbybel/Bloatynosy/releases/tag/1.5.0)
 
