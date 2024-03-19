@@ -10,11 +10,6 @@
 The latest release of Winpilot introduces a significant milestone with its hybrid web app foundation. 
 This update not only empowers users with the capability to remove AI features in Windows but also emphasizes the app's intelligent approach, driven by a novel hybrid and web-based core.
 
-## Download
-**Recommended Winpilot Version:** [Latest AI release](https://github.com/builtbybel/Winpilot/releases)
-
-**Classic Bloatynosy version:** [Last classic Bloatynosy 1.5 release](https://github.com/builtbybel/Bloatynosy/releases/tag/1.5.0)
-
 Winpilot can be used to change various settings and access various pieces of system information. 
 **Windows-specific features**
 - Ask to add a device
@@ -47,6 +42,11 @@ Winpilot can be used to change various settings and access various pieces of sys
 - Chat with Microsoft Copilot
 - Ask to restart Windows Explorer and Taskbar 
 - Ask to run vive tool feature configurations (static)
+  
+## Download
+**Recommended Winpilot Version:** [Latest AI release](https://github.com/builtbybel/Winpilot/releases)
+
+**Classic Bloatynosy version:** [Last classic Bloatynosy 1.5 release](https://github.com/builtbybel/Bloatynosy/releases/tag/1.5.0)
 
 ## How-to
 Simply execute Winpilot.exe. Feel free to delete the cache folder Winpilot.exe.WebView2 whenever necessary.
