@@ -11,6 +11,7 @@ The latest release of Winpilot introduces a significant milestone with its hybri
 This update not only empowers users with the capability to remove AI features in Windows but also emphasizes the app's intelligent approach, driven by a novel hybrid and web-based core.
 
 Winpilot can be used to change various settings and access various pieces of system information. 
+
 **Windows-specific features**
 - Ask to add a device
 - Ask to add Microsoft Account
