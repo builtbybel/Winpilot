@@ -5,11 +5,23 @@
 ![winpilot](https://github.com/builtbybel/Winpilot/assets/57478606/a864eac4-d372-40ed-922e-c5e788cf9fb9)
 
 ## About the app
+Winpilot will pick up where Bloatynosy left off. The plan was originally just to rename the AI version, but this time we'll do it right and completely turn our backs on Bloatynosy. I've been playing around with a few names over the past few weeks, which are now making their way into Winpilot as plugins, such as CoTweaker and ClippySupreme, which also doubles as the main assistant in the Winpilot app designed as a chatbot. I might also introduce some classic Bloatynosy functions natively as "plugins". Otherwise, the new Winpilot app is largely based on a hybrid web basis.
+
+![explorer_FYkwJJaf91](https://github.com/builtbybel/Winpilot/assets/57478606/22488a48-3dce-4860-b029-34381ed4e106)
+
+
 The latest release of Winpilot introduces a significant milestone with its hybrid web app foundation. 
 This update not only empowers users with the capability to remove AI features in Windows but also emphasizes the app's intelligent approach, driven by a novel hybrid and web-based core.
 
-Winpilot can be used to change various settings and access various pieces of system information. 
+Here are the individual plugins briefly explained:
 
+- **CoTweaker**: It enhances Windows privacy settings and optimizes system and gaming configurations.
+- **Decrapify**: It removes unwanted apps and also handles advanced debloating.
+- **WingetUI**: It offers some essential base apps for download. Additionally, I recommend checking out the excellent full version of WingetUI by marticliment.
+- **Copilotless**: It searches for AI/Copilot features in Windows and allows you to remove them. Please follow the instructions provided.
+- **ClippySupreme**: This is the assistant you'll consistently see in the app, monitoring various areas of the system. It can also provide simple tips. Just keep clicking on the plugin to access them.
+
+Winpilot can also be used to change various settings and access various pieces of system information. 
 **Windows-specific features**
 - Ask to add a device
 - Ask to add Microsoft Account
