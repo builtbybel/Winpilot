@@ -5,8 +5,6 @@
 ![winpilot](https://github.com/builtbybel/Winpilot/assets/57478606/a864eac4-d372-40ed-922e-c5e788cf9fb9)
 
 ## About the app
-![Winpilot_P1k7ekfodr](https://github.com/builtbybel/Winpilot/assets/57478606/a6352e42-5c39-44c2-bb2a-125a0cb139a9)
-
 The latest release of Winpilot introduces a significant milestone with its hybrid web app foundation. 
 This update not only empowers users with the capability to remove AI features in Windows but also emphasizes the app's intelligent approach, driven by a novel hybrid and web-based core.
 
