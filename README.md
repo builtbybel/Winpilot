@@ -1,6 +1,6 @@
 # Winpilot (former Bloatynosy)
 
-#### Upgrade your Windows 10 and Windows 11 journey with the sleek power of Winpilot – the AI-driven way to customize your digital world.
+#### A new journey with Windows
 
 ![winpilot](https://github.com/builtbybel/Winpilot/assets/57478606/a864eac4-d372-40ed-922e-c5e788cf9fb9)
 
