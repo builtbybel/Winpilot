@@ -17,7 +17,7 @@ Here are the individual plugins briefly explained:
 
 - **CoTweaker**: It enhances Windows privacy settings and optimizes system and gaming configurations.
 - **Decrapify**: It removes unwanted apps and also handles advanced debloating.
-- **WingetUI**: It offers some essential base apps for download. Additionally, I recommend checking out the excellent full version of WingetUI by marticliment.
+- **WingetUI**: It offers some essential base apps for download.
 - **Copilotless**: It searches for AI/Copilot features in Windows and allows you to remove them. Please follow the instructions provided.
 - **ClippySupreme**: This is the assistant you'll consistently see in the app, monitoring various areas of the system. It can also provide simple tips. Just keep clicking on the plugin to access them.
 
