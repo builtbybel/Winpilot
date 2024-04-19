@@ -28,6 +28,4 @@ foreach ($app in $allApps) {
 if ($reinstalledCount -eq $totalApps) {
     Write-Host "All apps reinstalled successfully." -ForegroundColor Green
     Write-Host "Winpilot and Clippy have reinstalled everything possible." -ForegroundColor Cyan
-} else {
-    Write-Host "Some apps may not have been reinstalled successfully. Check the error messages for details." -ForegroundColor Yellow
 }
