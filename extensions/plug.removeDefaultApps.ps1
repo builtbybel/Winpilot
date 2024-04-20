@@ -107,7 +107,6 @@ $apps = @(
     "ShazamEntertainmentLtd.Shazam"
     "SlingTVLLC.SlingTV"
     "SpotifyAB.SpotifyMusic"
-    #"TheNewYorkTimes.NYTCrossword"
     "ThumbmunkeysLtd.PhototasticCollage"
     "TuneIn.TuneInRadio"
     "WinZipComputing.WinZipUniversal"
@@ -126,9 +125,6 @@ $apps = @(
     #"Microsoft.XboxGameCallableUI"
     #"Microsoft.XboxIdentityProvider"
     #"Windows.ContactSupport"
-
-    # apps which other apps depend on
-    "Microsoft.Advertising.Xaml"
 )
 
 $appxprovisionedpackage = Get-AppxProvisionedPackage -Online
