@@ -50,8 +50,8 @@ $apps = @(
     "Microsoft.YourPhone"
     "Microsoft.ZuneMusic"
     "Microsoft.ZuneVideo"
-	"Microsoft.SkypeApp"
-	"Clipchamp.Clipchamp"
+    "Microsoft.SkypeApp"
+    "Clipchamp.Clipchamp"
 
     # Threshold 2 apps
     "Microsoft.CommsPhone"
@@ -118,8 +118,8 @@ $apps = @(
     "king.com.BubbleWitch3Saga"
     "king.com.CandyCrushSaga"
     "king.com.CandyCrushSodaSaga"
-	"BytedancePte.Ltd.TikTok"
-	"Facebook.InstagramBeta"
+    "BytedancePte.Ltd.TikTok"
+    "Facebook.InstagramBeta"
 
     # apps which cannot be removed using Remove-AppxPackage
     #"Microsoft.BioEnrollment"
@@ -140,7 +140,7 @@ foreach ($app in $apps) {
 
     ($appxprovisionedpackage).Where( {$_.DisplayName -EQ $app}) |
         Remove-AppxProvisionedPackage -Online
-} Write-Host "WinPilot has completed the process and removed all possible apps."
+} Write-Host "Clippy has completed the process and removed all possible apps."
 
 # Prevents Apps from re-installing
 $cdm = @(
