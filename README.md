@@ -18,7 +18,7 @@ Here are the individual plugins briefly explained:
 - **WingetUI**: It offers some essential base apps for download.
 - **Copilotless**: It searches for AI/Copilot features in Windows and allows you to remove them. Please follow the instructions provided.
 - **Clippy**: This is the assistant you'll consistently see in the app, @Microsoft Clippit, also known as Clippy, the manic cousin of Microsoft Copilot, monitoring various areas of the system. It can also provide simple tips. Just keep clicking on the plugin to access them."
-  **PimpApp (Extensions)**: A revamped collection of third-party scripts and plugins, including the iconic WinModder from Bloatynosy, now reborn as PimpApp. Originally conceived in 2020, PimpApp stirred debate with its bold name and ability to tweak systems with community templates. Now integrated into Winpilot, it offers advanced debloating and customization features. Explore plugins like RestoreInboxApps for easy application restoration and RemoveDefaultApps for swift system decluttering with a single click.
+- **PimpApp (Extensions)**: A revamped collection of third-party scripts and plugins, including the iconic WinModder from Bloatynosy, now reborn as PimpApp. Originally conceived in 2020, PimpApp stirred debate with its bold name and ability to tweak systems with community templates. Now integrated into Winpilot, it offers advanced debloating and customization features. Explore plugins like RestoreInboxApps for easy application restoration and RemoveDefaultApps for swift system decluttering with a single click.
 
 Winpilot can also be used to change various settings and access various pieces of system information. 
 
