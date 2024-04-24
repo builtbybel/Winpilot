@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.8.34330.188
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Winpilot", "Winpilot\Winpilot.csproj", "{818AC686-C9FC-4092-8806-6E3994D9AF31}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{818AC686-C9FC-4092-8806-6E3994D9AF31}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{818AC686-C9FC-4092-8806-6E3994D9AF31}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{818AC686-C9FC-4092-8806-6E3994D9AF31}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{818AC686-C9FC-4092-8806-6E3994D9AF31}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E0BA52A7-AD9F-44C0-BD92-59C3BC170260}
+	EndGlobalSection
+EndGlobal

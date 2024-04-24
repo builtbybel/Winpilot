@@ -1,0 +1,682 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(to right, rgba(242, 242, 242, 0.7), rgba(242, 242, 242, 0.7)); /* Light grey to very light grey gradient with transparency */
+    color: #333;
+    padding: 40px;
+    text-align: left;
+    margin: -30px 0 0px; /* Top -30, right 0, bottom 0, left 0 */
+    zoom: 0.9; /* WebView2 zoom level */
+}
+
+/* Styling for links, e.g. Share, GitHub etc. */
+.links-container {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+.modern-link {
+    color: #5B7BD1; /* Windows 11 Blue */
+    text-decoration: none;
+    transition: color 0.3s ease;
+    margin-right: 10px; /*Spacing between links */
+}
+
+.modern-link:hover {
+    color: #f7a0f5; 
+}
+
+/* Styles for contribution Dropdown menu */
+.dev-dropbtn {
+    background-color: transparent;
+    color: #5B7BD1;
+    padding: 8px 16px;
+    font-size: inherit;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+/* Dropdown container (hidden by default) */
+.dev-dropdown {
+    position: relative;
+    display: inline-block;
+	z-index: 99999; 
+}
+
+/* Dropdown content */
+.dev-dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    z-index: 1;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    border-radius: 5px;
+}
+
+/* Links inside dropdown */
+.dev-dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dev-dropdown-content a:hover {
+    background-color: #f1f1f1;
+}
+
+.dev-dropdown:hover .dev-dropdown-content {
+    display: block;
+}
+
+/* Change the background color of dropdown button when the dropdown content is shown */
+.dev-dropdown:hover .dev-dropbtn {
+    background-color: #5B7BD1;
+    color: white;
+}
+
+/* Styles for Pilot dropdown menu */
+.dropdown-container {
+    position: fixed;
+    left: 50%;
+	z-index: 99999; /* Top most and over Clippy */
+}
+
+.dropdown {
+    display: inline-block;
+    position: relative;
+}
+
+.dropbtn {
+    padding: 15px 25px; /* Padding for a larger touch area */
+    font-size: 18px; 
+    cursor: pointer;
+    border: none; 
+    background: linear-gradient(45deg, #a034d3, #943ad5, #744bdb); 
+    color: white;
+    border-radius: 25px; /* Increased border radius */
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.2), 
+                0px 0px 40px rgba(160, 52, 211, 0.6), /* Glow effect */
+                0px 0px 60px rgba(148, 58, 213, 0.4); /* Glow effect with magenta */
+    transition: background 0.3s, box-shadow 0.3s;
+}
+
+.dropbtn:hover {
+    background: linear-gradient(45deg, #6a49d6, #943ad5, #744bdb); /* Dark gradient on hover */
+    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.3), 
+                0px 0px 60px rgba(106, 73, 214, 0.8), /* Larger glow effect */
+                0px 0px 90px rgba(148, 58, 213, 0.6); /* Strongest glow effect with magenta */
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #ffffff;
+    box-shadow: 0px -8px 16px rgba(0, 0, 0, 0.1); 
+    min-width: 300px;
+    border-radius: 8px;
+    bottom: 100%; /* Position dropdown above the button */
+    transform: translateX(-50%); /* Center alignment */
+}
+
+.dropdown-content ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.dropdown-content ul li {
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content ul li:hover {
+    background-color: #f0f0f0; /* Light gray on hover */
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown:hover .dropbtn {
+    background-color: #f0f0f0; /* Light gray on hover */
+    border-color: #a5a5a5; /* Slightly darker border on hover */
+}
+
+/* Styles for step visibility */
+.setup-step {
+    display: none;
+}
+
+.setup-step.active {
+    display: block;
+}
+
+/* Styles for Back and Next buttons */
+.steps-assistant {
+	display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    bottom: 0px; 
+    gap: 10px; /* Minimum distance between buttons */
+    z-index: 1000;
+}
+
+.steps-assistant button:focus {
+    outline: none; /* Remove default focus outline */
+    box-shadow: 0 0 0 3px rgba(210, 54, 247, 0.3);
+}
+
+/* Bottom Navigation container */
+.bottom-container {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #f2f2f2; /* Light gray background */
+    padding: 20px;
+    border-top: 1px solid #d1d1d1; /* Light seperation border at top */
+    backdrop-filter: blur(10px); 
+    z-index: 999; /* Ensure it stays below steps assistant */
+}
+
+/* Step-by-step Back/Next buttons */
+.bottom-container button {
+    padding: 10px 20px;
+    font-size: 14px;
+    border: none;
+    border-radius: 8px;
+    background-color: #4d4ccb;
+    color: #ffffff; 
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.bottom-container button:hover {
+    background-color: #8f3cd5;
+}
+
+.bottom-container button:disabled {
+    background-color: #c4c4c4; /* Light gray for disabled state */
+    color: #7a7a7a; /* Dark gray text color */
+    cursor: not-allowed;
+}
+
+/* Styling for back button */
+#btnBack {
+	position: absolute;
+    top: 10px;
+    left: 10px;
+    background-color: transparent; 
+	border: none;
+}
+
+#btnBack .icon {
+    font-family: 'Segoe MDL2 Assets';
+    font-size: 14px;
+}
+#btnBack:hover {
+    background-color: #f0f0f0; 
+}
+
+/* Show app related menus like Switch to Copilot, Settings next to each other */
+.menu-flex-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.left-menu,
+.right-menu {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+/* Ask Clippy item */
+.ask-clippy {
+    font-weight: bold;
+}
+
+/* Basic styling for Plugins Dropdown menu */
+.menu {
+    list-style: none;
+    font-size: 14px;
+    padding: 0;
+    margin: 0;
+    background-color: rgba(231, 222, 225, 0.2); /* Glassy and transparent background color */
+    border: 1px solid #e1e1e1;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+}
+
+.menu li {
+    padding: 10px;
+	margin-right: 3px;
+	margin-left: 3px;
+    border-radius: 8px;
+}
+
+.menu li:last-child {
+    border-bottom: none;
+}
+
+.menu li:hover {
+    background-color: #ffffff; /* Hover background color */
+}
+
+.menu li span.menu-icon {
+    margin-right: 10px;
+}
+
+/* Container styling */
+.glassy-box {
+    position: relative; 
+	flex: 1; /* Make glassy-box grow to fill remaining space */
+    max-width: 100%;
+    margin-right: 20px;
+}
+
+/* UI: Glassy-Box buttons in Headers/Plugins, e.g. CoTweaker, Decrapify etc. */
+.glassy-box button {
+	position: relative; /* Needed for the pseudo-element */
+	font-family: "Segoe UI";
+	font-size: 14px;
+    display: inline-block;
+    padding: 10px 20px;
+    border: 1px solid #e0d0dd; /* Transparent border */
+	margin-bottom: 5px;
+    border-radius: 10px;
+    color: black;
+    background: #fefdfe;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); /* Shadow effect */
+    cursor: pointer;
+}
+
+.glassy-box button:hover {
+    border: 1px solid #ff008e;
+}
+
+/* Clippy Animation */
+@keyframes clippyAnimation {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0); }
+}
+
+/* Styling for Clippy container */
+#clippy-container {
+    position: fixed;
+    bottom: 20px; 
+    right: -150px; 
+    z-index: 999;
+	animation: clippyAnimation 2s infinite;
+}
+
+/* Styling for Clippy image */
+#clippy-container img {
+    width: 180px; 
+    height: auto; 
+    filter: drop-shadow(0 0 5px rgba(0, 0, 0, 0.5));
+}
+
+/* Styling for Assisted butttons container inside logContainer */
+.assisted-container {
+    display: flex;
+}
+
+/* Styling for logContainer */
+#logContainer {
+    position: fixed;
+    bottom: 110px; 
+	left: 20px;
+    right: calc(20% + 100px); 
+    z-index: 999; /* Ensure it's below Clippy */
+    background-color: #f7f6ca; /* Yellow color */
+	font-size: 14px;
+    color: #000000; 
+    border: 2px solid #000000;
+    border-radius: 10px;
+    padding: 2px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Triangle pointer for logContainer */
+#logContainer::before {
+    content: "";
+    position: absolute;
+    bottom: calc(50% - 10px); /* Center vertically */
+    right: -20px; /* Position on the right side */
+    border-width: 10px;
+    border-style: solid;
+    border-color: transparent transparent transparent #000; 
+    z-index: -1; /* Ensure it's behind logContainer */
+}
+
+/* UI: Chatbox Container */
+.chatbox-container {
+    left: 30px;
+    width: 65%;
+    max-height: 80%; 
+    padding: 10px; 
+    backdrop-filter: blur(10px); /* Apply blur effect to the background */
+}
+
+/* Additional style for chatbox container */
+.chatbox-container input {
+    border-radius: 8px;
+    padding: 15px;
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+    color: #000;
+}
+
+/* Chatbox: input styling */
+#chatbox {
+    background-color: rgba(255, 255, 255, 0.9); 
+    width: 92%;
+    height: 20px;
+    padding: 12px;
+    font-size: 16px;
+    border: none; /* Remove default border */
+    border: 1px solid #d0d0d0; 
+    border-radius: 10px;
+    margin-bottom: 10px;
+    border-bottom: 1px solid #7a336c; /* Magenta bottom border */
+    outline: none;
+}
+
+.chatbox-items div {
+	display: inline-block; 
+    padding: 5px;
+	font-size: 14px;
+    cursor: pointer;
+    background-color: #fff;
+    border: 2px solid #7a336c; /* Rounded Microsoft Copilot magenta border for each result */
+    border-radius: 8px; /* Rounded corners */
+	margin-bottom: 10px;
+}
+
+.chatbox-items div:hover {
+    background-color: #e9e9e9;
+    color: magenta;
+}
+
+/* Assisted buttons container */
+/* Button sizes for the buttons container */
+#buttons-container,
+#buttonsAppx-container {
+    display: flex;
+    flex-wrap: wrap; /* Allow buttons to wrap to the next line if necessary */
+    gap: 8px; /* Let's add some spacing between buttons */
+	margin-bottom: 8px; /* Add some space after buttons-container */
+}
+
+/* Common button styles */
+#buttons-container button,
+#buttonsAppx-container button,
+#refreshButton {
+	font-family: "Comic Sans MS", sans-serif; /* Because Clippy loved Comic Sans! */
+    font-size: 13px;
+	text-align: left;
+    margin-bottom: 8px;
+    border-radius: 10px;
+    background: transparent; /* Transparent background */
+    cursor: pointer;
+    min-width: 150px;
+    transition: transform 0.3s ease;
+    flex: 1;
+    border: none;
+}
+
+/* Styling for the middle/third button */
+#buttons-container button:nth-child(3) {
+    font-weight: 500;
+    background: white;
+    border: 1px solid #7a336c; /* Add cool border */
+}
+
+/* Pink border on hover */
+#buttons-container button:hover,
+#buttonsAppx-container button:hover,
+#refreshButton:hover {
+    border: 1px solid magenta;
+}
+
+/* Scale up the button on hover */
+#buttonsAppx-container button:hover {
+    transform: scale(1.2);
+}
+
+/* Add a trash/bin icon before the button text */
+#buttonsAppx-container button::before {
+    content: "📱 Remove ";
+}
+
+#refreshButton:hover {
+	height: 20px;
+    border-color: #0078cf; 
+}
+
+/* ASSISTED BUTTONS: Additional buttons are shown progressively as the container width increases, 
+with a maximum of 6 buttons being displayed at widths of 1200px or larger based on the size of the viewport. */
+
+/* Initially hide all buttons */
+#buttons-container button {
+    display: none;
+}
+
+/* Show the first two buttons initially */
+#buttons-container button:nth-child(-n+2) {
+    display: inline-block;
+}
+
+/* Show additional buttons as container width increases */
+@media screen and (min-width: 400px) {
+    #buttons-container button:nth-child(-n+2) {
+        display: inline-block;
+    }
+}
+
+@media screen and (min-width: 600px) {
+    #buttons-container button:nth-child(-n+4) {
+        display: inline-block;
+    }
+}
+
+@media screen and (min-width: 800px) {
+    #buttons-container button:nth-child(-n+5) {
+        display: inline-block;
+    }
+}
+
+@media screen and (min-width: 1000px) {
+    #buttons-container button:nth-child(-n+6) {
+        display: inline-block;
+    }
+}
+
+/* Ensure a maximum of 6 buttons are shown */
+@media screen and (min-width: 1200px) {
+    #buttons-container button {
+        display: inline-block;
+    }
+}
+
+/* Header styling */
+#stepHomeHeader,
+#stepSystemHeader, 
+#stepAppsHeader,
+#stepAppxHeader,
+#steptweakHeader,
+#stepCopilotlessHeader {
+	top: 30px;
+	background: linear-gradient(45deg, #e9ddf2 40%, #cbe4ff 100%);
+    border-radius: 12px;
+    padding: 20px;
+    margin: 10px 0;
+    margin-bottom: 50px;  /* Add margin to Chatbox */
+    z-index: 998;  /* Always lower z-index than logContainer */
+}
+
+/* PLUGIN: CoTweaker */
+/* UI:  Header styling for Toggle Switches in CoTweaker */
+/* Highlight Feature status in CoTweaker js backend */
+ .CoTweakerFeatureON { color: green; }
+ .CoTweakerFeatureOFF { color: red; }
+	
+/* Support statement for Handhelds */	
+.handheld-badge {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background-color: #6f4fdc;
+  color: white;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+  margin-left: 8px; 
+  border-radius: 5px;
+}
+
+/* Styling for the section headers */
+.section-header {
+    font-size: 1.2em;
+    font-weight: bold;
+    margin-top: 20px;
+    color: #000; 
+    border-bottom: 2px solid rgba(255, 0, 255, 0.4); /* Semi-transparent magenta border */
+    padding-bottom: 10px;
+}
+
+/* Styling for the settings group */
+.settings-group {
+    margin-bottom: 30px;
+    padding: 20px; 
+}
+
+/* Styling for the descriptions */
+.description {
+    display: none; /* Initially hide descriptions */
+    margin-top: 10px; 
+}
+
+/* Styling for the individual settings */
+.toggle-switch-label {
+    position: relative;
+    display: inline-block;
+    width: 40px;
+    height: 20px;
+    background-color: #ccc;
+    border-radius: 20px;
+    transition: background-color 0.3s;
+    vertical-align: middle;
+    margin-right: 10px;
+}
+
+.toggle-switch-label:before {
+    content: '';
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background-color: white;
+    top: 2px;
+    left: 2px;
+    transition: transform 0.3s;
+}
+
+input[type="checkbox"] {
+    display: none;
+}
+
+input[type="checkbox"]:checked + .toggle-switch-label {
+    background-color: #86d993; /* Green color when checked */
+}
+
+input[type="checkbox"]:checked + .toggle-switch-label:before {
+    transform: translateX(20px); /* Move the circle to the right when checked */
+}
+
+.checkbox-label {
+cursor: help;
+}	
+	
+/* PLUGIN: WingetUI */
+#appList {
+   display: flex;
+   flex-wrap: wrap;
+   justify-content: space-between; /
+}
+
+.app-item {
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 12px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 100%;
+    box-sizing: border-box;
+    transition: transform 0.3s;
+	width: calc(33.33% - 20px); /* Width of each app item */
+    margin-bottom: 20px; /* Space between rows */
+}
+
+.app-item:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.2); /* Slightly larger shadow on hover */
+}
+
+/* PLUGIN: Extensions */
+#plugin-categories-container {
+    display: flex;
+    flex-wrap: wrap;
+	gap: 10px; 	
+}
+
+/* Preinstalled badge */
+.plugin-badge {
+   background-color: #8f3cd5;
+   color: white;
+   padding: 4px 8px;
+   border-radius: 4px;
+   font-size: 12px;
+   margin-left: 8px; 
+}
+
+.plugin-entry {
+    width: calc(33.33% - 20px);
+    background-color: #f2effd;
+    border: 1px solid #e8e8ed;
+    border-radius: 5px;
+    padding: 20px;
+    margin-bottom: 10px;
+}
+
+.plugin-entry h3 {
+    color: #333;
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.plugin-entry p {
+    color: #666;
+    font-size: 14px;
+    margin-bottom: 15px;
+}
+
+.plugin-entry .execute-button {
+    background-color: #e26bf8;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    padding: 5px 10px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+.plugin-entry .execute-button:hover {
+    background-color: #8f3cd5;
+}

@@ -1,0 +1,254 @@
+[
+	{
+		"question": "🐞 Found a bug in the app",
+		"response": "Fear not! I'll squash those bugs! #BugBuster",
+		"action": "https://github.com/builtbybel/Winpilot/issues"
+	},
+	{
+		"question": "🔒 Add my Microsoft Account?",
+		"response": "Absolutely! Let's navigate to Account settings... 🧭",
+		"action": "ms-settings:privacy-accountinfo"
+	},	
+	{
+		"question": "🤓 Ready to set up a PIN",
+		"response": "Absolutely! Let's dive into Sign-in settings...",
+		"action": "ms-settings:signinoptions"
+	},
+	{
+		"question": "🔄 Check for Windows updates",
+		"response": "Right away! I'll initiate the update check...",
+		"action": "updateCheck"
+	},
+	{
+		"question": "🔄 Restore backups",
+		"response": "Of course! Let's navigate to Windows Backup settings...",
+		"action": "ms-settings:backup"
+	},
+	{
+		"question": "🗑️ Uninstall an App",
+		"response": "Sure thing! Opening Windows Apps Uninstaller...",
+		"action": "ms-settings:appsfeatures"
+	},
+	{
+		"question": "🔄 Reset my system",
+		"response": "Need a fresh start? Let's get you sorted! 🔄",
+		"action": "systemreset"
+	},
+	{	
+		"question": "🖼️ Change desktop wallpaper",
+		"response": "Absolutely! Let's change it up!",
+		"action": "changeWallpaper"
+	},
+	{
+		"question": "💻 Tweak Windows appearance and performance",
+		"response": "Let's head over to Performance Options together.",
+		"action": "SystemPropertiesPerformance.exe"
+	},
+	{
+		"question": "🌗 Toggle Dark/Light mode",
+		"response": "Join me as we switch themes...",
+		"action": "toggleThemeMode"
+	},
+	{
+		"question": "🛡️ Create a Restore point",
+		"response": "Your system is now on the safe side! Restore point created.",
+		"action": "createRestorePoint",
+		"powershellCommand": "$desc = 'BloatynosyAI Restore'; Checkpoint-Computer -Description \"$desc\" -RestorePointType \"Modify_Settings\"",
+		"description": "Create a restore point",
+        "category": "Plugin"
+	},
+	{
+		"question": "🧹 Clean up storage",
+		"response": "Time to tidy up! Running Storage Sense...",
+		"action": "runStorageSense",
+		"description": "Run improved version of cleanmgr.exe to clean-up your system",
+        "category": "Plugin"
+	},
+	{
+		"question": "🪟 Check Windows version",
+		"response": "You're currently rocking Build: [buildNumber]. Looking good! 🎉",
+		"action": "showWindowsVersion"
+	},
+	{
+		"question": "💾 Check available disk space",
+		"response": "Need to check disk space? Let's take a peek...",
+		"action": "showDiskSpace"
+	},
+	{
+		"question": "📸 Take a screenshot using SnippingTool",
+		"response": "Screenshot captured and sent to clipboard. Ready for the next step!",
+		"action": "takeScreenshot"
+	},
+	{
+		"question": "🔔 Show autostart apps",
+		"response": "Opening Task Manager to the autostart tab...",
+		"action": "switchToAutostartTab"
+	},
+	{
+		"question": "🚀 Show Processes with High RAM Usage",
+		"response": "Let's take a look! Listing processes...",
+		"action": "showHighRamProcesses"
+	},
+	{
+		"question": "🛡️ Run a quick scan in Windows Defender Security",
+		"response": "No problem! Running a quick scan...",
+		"action": "runWindowsDefenderScan"
+	},
+	{
+		"question": "🎮 Show Chris Titus tool in action",
+		"response": "Absolutely! Interpreting PowerShell script...",
+		"action": "runPSFile",
+		"scriptPath": "plugins\\ChrisTitusAppHandler.ps1",
+		"description": "Launch the Chris Titus app for a demonstration",
+		"category": "Plugin",
+		"githubURL": "https://raw.githubusercontent.com/builtbybel/Winpilot/main/extensions/ChrisTitusAppHandler.ps1"
+	},
+	{
+		"question": "🔒 Enable Secure AutoLogon on Windows",
+		"response": "Sure thing! Running PowerShell script...",
+		"action": "runPlugin",
+		"scriptPath": "plugins\\AutoLogonHandler.ps1",
+		"description": "Configure Windows for secure AutoLogon with enhanced security measures.",
+		"category": "Plugin",
+		"githubURL": "https://raw.githubusercontent.com/builtbybel/Winpilot/main/extensions/AutoLogonHandler.ps1"
+	},
+	{
+		"question": "🧹 Clear Windows Event Logs",
+		"response": "No problem! Executing PowerShell script...",
+		"action": "runPlugin",
+		"scriptPath": "plugins\\ClearEventLogsHandler.ps1",
+		"description": "Clear all Windows event logs to free up space and maintain system performance.",
+		"category": "Plugin",
+		"githubURL": "https://raw.githubusercontent.com/builtbybel/Winpilot/main/extensions/ClearEventLogsHandler.ps1"
+	},
+	{
+		"question": "🔄 Restore Windows Inbox Default Apps",
+		"response": "Certainly! Initiating PowerShell script...",
+		"action": "runPSFile",
+		"scriptPath": "plugins\\plug.restoreInboxApps.ps1",
+		"description": "Restore the default inbox apps on Windows using the Get-AppxPackage command if they were previously removed.",
+		"category": "Plugin",
+		"githubURL": "https://raw.githubusercontent.com/builtbybel/Winpilot/main/extensions/plug.restoreInboxApps.ps1"			
+	},
+	{
+		"question": "🚀 Remove Microsoft OneDrive app",
+		"response": "Of course! Interpreting PowerShell script...",
+		"action": "runPSFile",
+		"scriptPath": "plugins\\OneDriveHandler.ps1",
+	    "description": "Uninstall the OneDrive app from your system",
+        "category": "Plugin",
+		"githubURL": "https://raw.githubusercontent.com/builtbybel/Winpilot/main/extensions/OneDriveHandler.ps1"		
+	},
+	{
+		"question": "🛡️ Disable telemetry for third-party apps",
+		"response": "Sure! Disabling telemetry for selected apps...",
+		"action": "runPSFile",
+		"scriptPath": "plugins\\plug.appsPrivacyTemplate.ps1",
+		"description": "Disable telemetry data collection for third-party applications Media Player, Office, Mozilla Firefox, Google Chrome Software Reporter Tool, CCleaner Monitoring, Dropbox and Google Update service",
+		"category": "Plugin",
+		"githubURL": "https://raw.githubusercontent.com/builtbybel/Winpilot/main/extensions/plug.appsPrivacyTemplate.ps1"		
+	},
+	{
+		"question": "🔒 Disable specific Windows telemetry services",
+		"response": "Certainly! Disabling selected Windows services...",
+		"action": "runPSFile",
+		"scriptPath": "plugins\\plug.disableServices.ps1",
+		"description": "This will disable following services: diagnosticshub.standardcollector.service, DiagTrack, dmwappushservice, lfsvc, MapsBroker, NetTcpPortSharing, RemoteAccess, RemoteRegistry, SharedAccess, TrkWks, WbioSrvc, WMPNetworkSvc, XblAuthManager, XblGameSave, XboxNetApiSvc, ndu",
+		"category": "Plugin",
+		"githubURL": "https://raw.githubusercontent.com/builtbybel/Winpilot/main/extensions/plug.disableServices.ps1"
+	},
+	{
+		"question": "🧹 Remove default inbox apps in Windows",
+		"response": "Sure! Removing default inbox apps...",
+		"action": "runPSFile",
+		"scriptPath": "plugins\\plug.removeDefaultApps.ps1",
+		"description": "Removes default inbox apps in Windows, including Cortana, 3D Builder, Bing apps, Microsoft Office Hub, Minecraft, Skype, Xbox apps, and various third-party apps.",
+		"category": "Plugin",
+		"githubURL": "https://raw.githubusercontent.com/builtbybel/Winpilot/main/extensions/plug.removeDefaultApps.ps1"
+	},
+	{
+		"question": "♻️ Empty the Recycle Bin",
+		"response": "Got it! Emptying the Recycle Bin...",
+		"action": "runPS",
+		"command": "Clear-RecycleBin -Force"
+	},
+	{
+		"question": "🌐 Check my IP Address",
+		"response": "Absolutely! Checking your public IP address...",
+		"action": "ipCheck"
+	},	
+	{
+		"question": "🛠️ Tweak privacy and system",
+		"response": "Switching to CoTweaker...",
+		"action": "plugCotweaker",
+	},
+	{
+		"question": "🎮 Tweak gaming settings",
+		"response": "Switching to CoTweaker...",
+		"action": "plugCotweaker",
+	},
+	{
+		"question": "💩 Debloat my system",
+		"response": "Time to clean up! Switching to Decrapify...",
+		"action": "plugDecrapify"
+	},
+	{
+		"question": "📦 Install an app using winget",
+		"response": "Let's make it happen! Switching to WingetUI...",
+		"action": "plugWingetUI"
+	},
+	{
+		"question": "🔍 Search for AI on my system",
+		"response": "Absolutely! Let's see what AI features are enabled.",
+		"action": "plugCopilotless"
+	},
+	{
+		"question": "👋 Show me a Clippy tip",
+		"response": "You're in luck! How about a tip? 📎",
+		"action": "plugClippySupreme"
+	},
+	{
+		"question": "♻️ Restart Windows Explorer",
+		"response": "No problem! Restarting explorer.exe...",
+		"action": "shell",
+		"command": "taskkill /f /im explorer.exe && start explorer.exe"
+	},
+	{
+		"question": "📏 Change Taskbar alignment to left",
+		"response": "Sure thing! Taskbar aligned to the left.",
+		"action": "shell",
+		"command": "reg add HKEY_CURRENT_USER\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced /v TaskbarAl /t REG_DWORD /d 0 /f"
+	},
+	{
+		"question": "📐 Align Taskbar to center",
+		"response": "Taskbar aligned to center.",
+		"action": "shell",
+		"command": "reg add HKEY_CURRENT_USER\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced /v TaskbarAl /t REG_DWORD /d 1 /f"
+	},
+	{
+		"question": "➕ Add Widgets Button to Taskbar",
+		"response": "Adding Widgets Button to Taskbar...",
+		"action": "shell",
+		"command": "reg add HKEY_CURRENT_USER\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced /v TaskbarDa /t REG_DWORD /d 1 /f"
+	},
+	{
+		"question": "➖ Remove Widgets Button from Taskbar",
+		"response": "Removing Widgets Button from Taskbar...",
+		"action": "shell",
+		"command": "reg add HKEY_CURRENT_USER\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced /v TaskbarDa /t REG_DWORD /d 0 /f"
+	},
+	{
+		"question": "🔙 Go back to classic Outlook for Windows",
+		"response": "Redirecting to classic Outlook for Windows...",
+		"action": "runPS",
+		"command": "Get-AppxPackage -AllUsers | Where-Object {$_.Name -Like '*OutlookForWindows*'} | Remove-AppxPackage -AllUsers -ErrorAction Continue; Write-Host 'The new Outlook app has been removed for all users. It may take a few minutes for the old Mail and Calendar app to be restored and for you to be able to launch it.'"
+	},
+	{
+		"question": "🛑 Disable Copilot Pro ads on Windows 11",
+		"response": "Copilot Pro ads disabled. Feature hidden in latest Windows 11 builds.",
+		"action": "viveTool",
+		"viveCommand": "disable",
+		"viveFeatureId": "47942561",
+		"viveBuildAvailability": "Hidden in latest Windows 11 Dev and Beta builds."
+	}
+]

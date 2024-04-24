@@ -1,0 +1,1 @@
+Only assembly files of the classic Bloatynosy/AI version were kept to allow old versions to update to Winpilot. The update check is based on the AssemblyInfo file
