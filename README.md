@@ -1,6 +1,6 @@
 # Winpilot (former Bloatynosy) The manic cousin of Microsoft Copilot
 
-![325277124-31c607b5-6ab8-4414-ba0f-902ab6e17b88](https://github.com/builtbybel/Winpilot/assets/57478606/ecdd30d5-7185-49c8-ad87-5a538f4add5a)
+![explorer_ZguNvWozUv](https://github.com/builtbybel/Winpilot/assets/57478606/46e974d5-c00e-4f91-b261-4676b25e465f)
 
 ## About the app
 Winpilot will pick up where Bloatynosy left off. The plan was originally just to rename the AI version, but this time we'll do it right and completely turn our backs on Bloatynosy. I've been playing around with a few names over the past few weeks, which are now making their way into Winpilot as plugins, such as CoTweaker and ClippySupreme, which also doubles as the main assistant in the Winpilot app designed as a chatbot. I might also introduce some classic Bloatynosy functions natively as "plugins". 
