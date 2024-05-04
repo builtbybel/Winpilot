@@ -1,4 +1,4 @@
-# Winpilot (former Bloatynosy) The manic cousin of Microsoft Copilot
+# Winpilot (former Bloatynosy)
 
 ![explorer_ZguNvWozUv](https://github.com/builtbybel/Winpilot/assets/57478606/46e974d5-c00e-4f91-b261-4676b25e465f)
 
