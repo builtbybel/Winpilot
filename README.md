@@ -5,6 +5,9 @@
 ## About the app
 **Clippits, aka Clippy's legacy, now lives on in Winpilot**. It was inevitable, Microsoft betrayed Clippy, and now we're bringing him back. But what exactly does the Winpilot app do, and why is Clippy on board? It all started with the spin-off of the predecessor project Bloatynosy to BloatynosyAI. I know, the app names are quirky and fun (hence the name change to Winpilot), but with the latter app, I hopped on the AI train and wanted to create the first tool of its kind—besides Copilot (even though it can barely handle any meaningful Windows management functions)—which can intelligently assist us in Windows and even take over certain functions. For this, I needed a mascot, an assistant to interact with the user. Clippy seemed to be just the right fit for this, as he somehow annoyed most people back in his day, and nowadays, he isn't associated with much positivity. That's the whole point of the story—putting Clippy into a debloating/tweaking app, which somewhat gets back at Microsoft and maybe even contributes some valuable insights to the W11 OS.
 
+The rights to Clippit still belong to Microsoft (copyright notice is set in the app), even though when we talk about Clippy here, specifically in Winpilot, we mean NeoClippy. 
+**So what can Winpilot (including NeoClippy) really do for you?** Winpilot can spare you from advertising pop-ups in the W11 UI, optimize your privacy, system, and gaming settings, including those of your Legion GO or Rog Ally, and assist you in removing unnecessary apps.
+
 (Neo)Clippy in Winpilot can also be used to change various settings and access various pieces of system information. 
 
 **Windows-specific features**
