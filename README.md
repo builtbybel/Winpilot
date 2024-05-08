@@ -3,24 +3,9 @@
 ![explorer_ZguNvWozUv](https://github.com/builtbybel/Winpilot/assets/57478606/46e974d5-c00e-4f91-b261-4676b25e465f)
 
 ## About the app
-Winpilot will pick up where Bloatynosy left off. The plan was originally just to rename the AI version, but this time we'll do it right and completely turn our backs on Bloatynosy. I've been playing around with a few names over the past few weeks, which are now making their way into Winpilot as plugins, such as CoTweaker and ClippySupreme, which also doubles as the main assistant in the Winpilot app designed as a chatbot. I might also introduce some classic Bloatynosy functions natively as "plugins". 
+**Clippits, aka Clippy's legacy, now lives on in Winpilot**. It was inevitable, Microsoft betrayed Clippy, and now we're bringing him back. But what exactly does the Winpilot app do, and why is Clippy on board? It all started with the spin-off of the predecessor project Bloatynosy to BloatynosyAI. I know, the app names are quirky and fun (hence the name change to Winpilot), but with the latter app, I hopped on the AI train and wanted to create the first tool of its kind—besides Copilot (even though it can barely handle any meaningful Windows management functions)—which can intelligently assist us in Windows and even take over certain functions. For this, I needed a mascot, an assistant to interact with the user. Clippy seemed to be just the right fit for this, as he somehow annoyed most people back in his day, and nowadays, he isn't associated with much positivity. That's the whole point of the story—putting Clippy into a debloating/tweaking app, which somewhat gets back at Microsoft and maybe even contributes some valuable insights to the W11 OS.
 
-
-
-
-The latest release of Winpilot introduces a significant milestone with its hybrid web app foundation. 
-This update not only empowers users with the capability to remove AI features in Windows but also emphasizes the app's intelligent approach, driven by a novel hybrid and web-based core.
-
-Here are the individual plugins briefly explained:
-
-- **CoTweaker**: It enhances Windows privacy settings and optimizes system and gaming configurations.
-- **Decrapify**: It removes unwanted apps and also handles advanced debloating.
-- **WingetUI**: It offers some essential base apps for download.
-- **Copilotless**: It searches for AI/Copilot features in Windows and allows you to remove them. Please follow the instructions provided.
-- **Clippy**: This is the assistant you'll consistently see in the app, @Microsoft Clippit, also known as Clippy, the manic cousin of Microsoft Copilot, monitoring various areas of the system. It can also provide simple tips. Just keep clicking on the plugin to access them."
-- **PimpApp (Extensions)**: A revamped collection of third-party scripts and plugins, including the iconic WinModder from Bloatynosy, now reborn as PimpApp. Originally conceived in 2020, PimpApp stirred debate with its bold name and ability to tweak systems with community templates. Now integrated into Winpilot, it offers advanced debloating and customization features. Explore plugins like RestoreInboxApps for easy application restoration and RemoveDefaultApps for swift system decluttering with a single click.
-
-Winpilot can also be used to change various settings and access various pieces of system information. 
+(Neo)Clippy in Winpilot can also be used to change various settings and access various pieces of system information. 
 
 **Windows-specific features**
 - Ask to add a device
