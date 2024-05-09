@@ -1,6 +1,6 @@
 # Winpilot
+![explorer_uR3GXgtB3H](https://github.com/builtbybel/Winpilot/assets/57478606/d5dd7bf7-60cf-4bca-93a3-f25b32f77a1b)
 
-![explorer_ZguNvWozUv](https://github.com/builtbybel/Winpilot/assets/57478606/46e974d5-c00e-4f91-b261-4676b25e465f)
 
 ## About the app
 ### Alright, first off, the app's called Winpilot, not Clippy. But Clippy's in the mix, we'll get into that later.
