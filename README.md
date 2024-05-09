@@ -14,7 +14,8 @@ The rights to Clippit still belong to Microsoft (copyright notice is set in the 
 **So what can Winpilot (including NeoClippy) really do for you?** 
 
 **I'll be back! To remove annoying Windows 11 ads.**
-![terminator-clippy2](https://github.com/builtbybel/Winpilot/assets/57478606/64286e65-925e-468a-9353-f96ce2bcbe96)
+![terminator_clippit](https://github.com/builtbybel/Winpilot/assets/57478606/3edabd92-0919-450b-8b24-48fd53389f8c)
+
 
 Winpilot can spare you from advertising pop-ups in the W11 UI, optimize your privacy, system, and gaming settings, including those of your Legion GO or Rog Ally, and assist you in removing unnecessary apps.
 
