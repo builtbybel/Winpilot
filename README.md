@@ -3,7 +3,8 @@
 ![explorer_ZguNvWozUv](https://github.com/builtbybel/Winpilot/assets/57478606/46e974d5-c00e-4f91-b261-4676b25e465f)
 
 ## About the app
-**Clippits, aka Clippy's legacy, now lives on in Winpilot**. 
+### Alright, first off, the app's called Winpilot, not Clippy. But Clippy's in the mix, we'll get into that later.
+Clippits, aka Clippy's legacy, now lives on in Winpilot. 
 It was inevitable, Microsoft betrayed Clippy, and now we're bringing him back. 
 
 **But what exactly does the Winpilot app do, and why is Clippy on board?** It all started with the spin-off of the predecessor project Bloatynosy to BloatynosyAI. I know, the app names are quirky and fun (hence the name change to Winpilot), but with the latter app, I hopped on the AI train and wanted to create the first tool of its kind—besides Copilot (even though it can barely handle any meaningful Windows management functions)—which can intelligently assist us in Windows and even take over certain functions (The AI story got too bloated and convoluted, so I ditched it). For this, I needed a mascot, an assistant to interact with the user. Clippy seemed to be just the right fit for this, as he somehow annoyed most people back in his day, and nowadays, he isn't associated with much positivity. That's the whole point of the story—putting Clippy into a debloating/tweaking app, which is a bit of revenge against Microsoft and maybe now contributes some valuable additions to the W11 OS to somewhat restore its honor.
