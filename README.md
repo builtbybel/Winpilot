@@ -1,4 +1,5 @@
-# Winpilot
+# Winpilot 
+### and the Tragic Hero Clippy, just out here trying to be helpful.
 ![explorer_uR3GXgtB3H](https://github.com/builtbybel/Winpilot/assets/57478606/d5dd7bf7-60cf-4bca-93a3-f25b32f77a1b)
 
 
