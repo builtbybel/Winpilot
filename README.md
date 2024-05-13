@@ -1,24 +1,27 @@
-# Winpilot (former Bloatynosy) The manic cousin of Microsoft Copilot
+# Winpilot 
+### and the tragic hero Clippy, just out here trying to be helpful.
+![explorer_uR3GXgtB3H](https://github.com/builtbybel/Winpilot/assets/57478606/d5dd7bf7-60cf-4bca-93a3-f25b32f77a1b)
 
-![winpilot](https://github.com/builtbybel/Winpilot/assets/57478606/a864eac4-d372-40ed-922e-c5e788cf9fb9)
 
 ## About the app
-Winpilot will pick up where Bloatynosy left off. The plan was originally just to rename the AI version, but this time we'll do it right and completely turn our backs on Bloatynosy. I've been playing around with a few names over the past few weeks, which are now making their way into Winpilot as plugins, such as CoTweaker and ClippySupreme, which also doubles as the main assistant in the Winpilot app designed as a chatbot. I might also introduce some classic Bloatynosy functions natively as "plugins". 
+### Alright, first off, the app's called Winpilot, not Clippy. But Clippy's in the mix, we'll get into that later.
+Clippits, aka Clippy's legacy, now lives on in Winpilot. 
+It was inevitable, Microsoft betrayed Clippy, and now we're bringing him back. 
 
-![explorer_FYkwJJaf91](https://github.com/builtbybel/Winpilot/assets/57478606/22488a48-3dce-4860-b029-34381ed4e106)
+**But what exactly does the Winpilot app do, and why is Clippy on board?** It all started with the spin-off of the predecessor project Bloatynosy to BloatynosyAI. I know, the app names are quirky and fun (hence the name change to Winpilot), but with the latter app, I hopped on the AI train and wanted to create the first tool of its kind—besides Copilot (even though it can barely handle any meaningful Windows management functions)—which can intelligently assist us in Windows and even take over certain functions (The AI story got too bloated and convoluted, so I ditched it). For this, I needed a mascot, an assistant to interact with the user. Clippy seemed to be just the right fit for this, as he somehow annoyed most people back in his day, and nowadays, he isn't associated with much positivity. That's the whole point of the story—putting Clippy into a debloating/tweaking app, which is a bit of revenge against Microsoft and maybe now contributes some valuable additions to the W11 OS to somewhat restore its honor.
 
-The latest release of Winpilot introduces a significant milestone with its hybrid web app foundation. 
-This update not only empowers users with the capability to remove AI features in Windows but also emphasizes the app's intelligent approach, driven by a novel hybrid and web-based core.
+The rights to Clippit still belong to Microsoft (copyright notice is set in the app), even though when we talk about Clippy here, specifically in Winpilot, we mean NeoClippy. 
 
-Here are the individual plugins briefly explained:
+**So what can Winpilot (including NeoClippy) really do for you?** 
 
-- **CoTweaker**: It enhances Windows privacy settings and optimizes system and gaming configurations.
-- **Decrapify**: It removes unwanted apps and also handles advanced debloating.
-- **WingetUI**: It offers some essential base apps for download.
-- **Copilotless**: It searches for AI/Copilot features in Windows and allows you to remove them. Please follow the instructions provided.
-- **ClippySupreme**: This is the assistant you'll consistently see in the app, monitoring various areas of the system. It can also provide simple tips. Just keep clicking on the plugin to access them.
+**I'll be back! To remove annoying Windows 11 ads.**
+![terminator_clippit](https://github.com/builtbybel/Winpilot/assets/57478606/3edabd92-0919-450b-8b24-48fd53389f8c)
 
-Winpilot can also be used to change various settings and access various pieces of system information. 
+
+Winpilot can spare you from advertising pop-ups in the W11 UI, optimize your privacy, system, and gaming settings, including those of your Legion GO or Rog Ally, and assist you in removing unnecessary apps.
+
+(Neo)Clippy in Winpilot can also be used to change various settings and access various pieces of system information. 
+
 **Windows-specific features**
 - Ask to add a device
 - Ask to add Microsoft Account
@@ -54,15 +57,12 @@ Winpilot can also be used to change various settings and access various pieces o
 You can use these skills via a type prompt in Winpilot, such as "toggle dark theme" or "uninstall apps or bloatware"; Winpilots Assistant Clippy will take the appropriate action and confirm completion.
   
 ## Download
-**Recommended Winpilot Version:** [Latest release](https://github.com/builtbybel/Winpilot/releases)
+### Recommended Winpilot Version: [Latest release](https://github.com/builtbybel/Winpilot/releases)
 
 **Classic Bloatynosy version:** [Last classic Bloatynosy 1.5 release](https://github.com/builtbybel/Bloatynosy/releases/tag/1.5.0)
 
 ## How-to
 Simply execute Winpilot.exe. Feel free to delete the cache folder Winpilot.exe.WebView2 whenever necessary.
-
-With the chat box in front of you, input your search terms, inquiries, or keywords, and enjoy real-time results. For instance, if you need to 'install an app,' simply type 'install' or any related keyword, and you'll receive the same outcome. Additionally, using this search function, you can easily install popular apps using 'winget.' Remember other useful keywords such as 'bloat,' 'appx,' or 'uninstall' to effortlessly remove unwanted default apps in Windows 10/11. The possibilities are endless. Have fun experimenting with different queries! 
-
 
 ## Support statement
 WebView2 apps can run on the following versions of Windows:
