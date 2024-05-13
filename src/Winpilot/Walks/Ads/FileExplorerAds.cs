@@ -5,29 +5,34 @@ using System.Drawing;
 
 namespace Walks
 {
-    public class Advertising : WalksBase
+    internal class FileExplorerAds : WalksBase
     {
-        public Advertising(MainForm form, Logger logger) : base(form, logger)
+        public FileExplorerAds(MainForm form, Logger logger) : base(form, logger)
         {
         }
 
-        private const string keyName = @"HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\AdvertisingInfo";
+        private const string keyName = @"HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced";
         private const int desiredValue = 0;
 
-        public override string ID() => "Advertising";
+        public override string ID()
+        {
+            return "File Explorer Ads";
+        }
 
         public override bool CheckFeature()
         {
-            return !Utils.IntEquals(keyName, "Enabled", 0);
+            return !(
+                   Utils.IntEquals(keyName, "ShowSyncProviderNotifications", desiredValue)
+             );
         }
 
         public override bool DoFeature()
         {
             try
             {
-                Registry.SetValue(keyName, "Enabled", 1, Microsoft.Win32.RegistryValueKind.DWord);
-
+                Registry.SetValue(keyName, "ShowSyncProviderNotifications", 1, RegistryValueKind.DWord);
                 return true;
+
             }
             catch (Exception ex)
             {
@@ -41,8 +46,7 @@ namespace Walks
         {
             try
             {
-                Registry.SetValue(keyName, "Enabled", 0, Microsoft.Win32.RegistryValueKind.DWord);
-
+                Registry.SetValue(keyName, "ShowSyncProviderNotifications", desiredValue, RegistryValueKind.DWord);
                 return true;
             }
             catch (Exception ex)

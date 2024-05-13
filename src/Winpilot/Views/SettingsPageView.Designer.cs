@@ -28,45 +28,31 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SettingsPageView));
             this.linkAppInfo = new System.Windows.Forms.LinkLabel();
-            this.label1 = new System.Windows.Forms.Label();
             this.lblVersion = new System.Windows.Forms.Label();
             this.linkFollow = new System.Windows.Forms.LinkLabel();
             this.lblDev = new System.Windows.Forms.Label();
             this.linkCreditsAppIcon = new System.Windows.Forms.LinkLabel();
             this.btnBack = new System.Windows.Forms.Button();
             this.lblSettings = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.linkLicensesClippit = new System.Windows.Forms.LinkLabel();
             this.SuspendLayout();
             // 
             // linkAppInfo
             // 
-            this.linkAppInfo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.linkAppInfo.AutoEllipsis = true;
-            this.linkAppInfo.Font = new System.Drawing.Font("Segoe UI Variable Text", 9.25F);
+            this.linkAppInfo.Font = new System.Drawing.Font("Segoe UI Variable Display", 9.75F);
             this.linkAppInfo.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
             this.linkAppInfo.LinkColor = System.Drawing.Color.RoyalBlue;
-            this.linkAppInfo.Location = new System.Drawing.Point(22, 219);
+            this.linkAppInfo.Location = new System.Drawing.Point(35, 108);
             this.linkAppInfo.Name = "linkAppInfo";
-            this.linkAppInfo.Size = new System.Drawing.Size(161, 17);
+            this.linkAppInfo.Size = new System.Drawing.Size(315, 24);
             this.linkAppInfo.TabIndex = 6;
             this.linkAppInfo.TabStop = true;
             this.linkAppInfo.Text = "More infos about this app";
+            this.linkAppInfo.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.linkAppInfo.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkAppInfos_LinkClicked);
-            // 
-            // label1
-            // 
-            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.label1.AutoEllipsis = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI Variable Text Semiligh", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label1.Location = new System.Drawing.Point(20, 73);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(302, 186);
-            this.label1.TabIndex = 7;
-            this.label1.Text = resources.GetString("label1.Text");
             // 
             // lblVersion
             // 
@@ -81,49 +67,44 @@
             // 
             // linkFollow
             // 
-            this.linkFollow.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.linkFollow.AutoEllipsis = true;
-            this.linkFollow.Font = new System.Drawing.Font("Segoe MDL2 Assets", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.linkFollow.Font = new System.Drawing.Font("Segoe Fluent Icons", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.linkFollow.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
-            this.linkFollow.LinkColor = System.Drawing.Color.DeepPink;
-            this.linkFollow.Location = new System.Drawing.Point(190, 217);
+            this.linkFollow.LinkColor = System.Drawing.Color.MediumVioletRed;
+            this.linkFollow.Location = new System.Drawing.Point(35, 135);
             this.linkFollow.Name = "linkFollow";
-            this.linkFollow.Size = new System.Drawing.Size(106, 27);
+            this.linkFollow.Size = new System.Drawing.Size(315, 24);
             this.linkFollow.TabIndex = 9;
             this.linkFollow.TabStop = true;
             this.linkFollow.Text = "Follow on GitHub";
+            this.linkFollow.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.linkFollow.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkFollow_LinkClicked);
             // 
             // lblDev
             // 
-            this.lblDev.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.lblDev.AutoEllipsis = true;
-            this.lblDev.Font = new System.Drawing.Font("Segoe UI Variable Text Semiligh", 8.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDev.Font = new System.Drawing.Font("Segoe UI Variable Display", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDev.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.lblDev.Location = new System.Drawing.Point(3, 602);
+            this.lblDev.Location = new System.Drawing.Point(35, 80);
             this.lblDev.Name = "lblDev";
-            this.lblDev.Size = new System.Drawing.Size(344, 24);
+            this.lblDev.Size = new System.Drawing.Size(315, 24);
             this.lblDev.TabIndex = 10;
-            this.lblDev.Text = "A Belim app creation (C) 2024";
-            this.lblDev.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.lblDev.Text = "A Belim app creation © 2024";
+            this.lblDev.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // linkCreditsAppIcon
             // 
-            this.linkCreditsAppIcon.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.linkCreditsAppIcon.AutoEllipsis = true;
-            this.linkCreditsAppIcon.Font = new System.Drawing.Font("Segoe UI Variable Text Semiligh", 7.75F);
+            this.linkCreditsAppIcon.Font = new System.Drawing.Font("Segoe UI Variable Display", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.linkCreditsAppIcon.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
             this.linkCreditsAppIcon.LinkColor = System.Drawing.Color.RoyalBlue;
-            this.linkCreditsAppIcon.Location = new System.Drawing.Point(3, 626);
+            this.linkCreditsAppIcon.Location = new System.Drawing.Point(35, 199);
             this.linkCreditsAppIcon.Name = "linkCreditsAppIcon";
-            this.linkCreditsAppIcon.Size = new System.Drawing.Size(347, 15);
+            this.linkCreditsAppIcon.Size = new System.Drawing.Size(315, 24);
             this.linkCreditsAppIcon.TabIndex = 11;
             this.linkCreditsAppIcon.TabStop = true;
-            this.linkCreditsAppIcon.Text = "Icon created by Icon Hubs - Flaticon";
-            this.linkCreditsAppIcon.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.linkCreditsAppIcon.Text = "Icon credits go to at Firecube";
+            this.linkCreditsAppIcon.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.linkCreditsAppIcon.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkCreditsAppIcon_LinkClicked);
             // 
             // btnBack
@@ -147,15 +128,47 @@
             this.lblSettings.Font = new System.Drawing.Font("Segoe UI Variable Text Semibold", 9.75F, System.Drawing.FontStyle.Bold);
             this.lblSettings.Location = new System.Drawing.Point(41, 3);
             this.lblSettings.Name = "lblSettings";
-            this.lblSettings.Size = new System.Drawing.Size(99, 17);
+            this.lblSettings.Size = new System.Drawing.Size(109, 17);
             this.lblSettings.TabIndex = 13;
-            this.lblSettings.Text = "About this app";
+            this.lblSettings.Text = "App Information";
+            // 
+            // label1
+            // 
+            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI Variable Small Semibol", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.label1.Location = new System.Drawing.Point(20, 171);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(129, 17);
+            this.label1.TabIndex = 14;
+            this.label1.Text = "Third-party licenses";
+            // 
+            // linkLicensesClippit
+            // 
+            this.linkLicensesClippit.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.linkLicensesClippit.AutoEllipsis = true;
+            this.linkLicensesClippit.Font = new System.Drawing.Font("Segoe UI Variable Display", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.linkLicensesClippit.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
+            this.linkLicensesClippit.LinkColor = System.Drawing.Color.RoyalBlue;
+            this.linkLicensesClippit.Location = new System.Drawing.Point(35, 232);
+            this.linkLicensesClippit.Name = "linkLicensesClippit";
+            this.linkLicensesClippit.Size = new System.Drawing.Size(315, 33);
+            this.linkLicensesClippit.TabIndex = 15;
+            this.linkLicensesClippit.TabStop = true;
+            this.linkLicensesClippit.Text = "Clippit is a registered trademark of © Microsoft Corporation.";
+            this.linkLicensesClippit.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.linkLicensesClippit.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLicensesClippit_LinkClicked);
             // 
             // SettingsPageView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
+            this.Controls.Add(this.linkLicensesClippit);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.lblSettings);
             this.Controls.Add(this.btnBack);
             this.Controls.Add(this.linkCreditsAppIcon);
@@ -163,7 +176,6 @@
             this.Controls.Add(this.linkFollow);
             this.Controls.Add(this.lblVersion);
             this.Controls.Add(this.linkAppInfo);
-            this.Controls.Add(this.label1);
             this.Name = "SettingsPageView";
             this.Size = new System.Drawing.Size(350, 643);
             this.Load += new System.EventHandler(this.SettingsPageView_Load);
@@ -174,12 +186,13 @@
 
         #endregion
         private System.Windows.Forms.LinkLabel linkAppInfo;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label lblVersion;
         private System.Windows.Forms.LinkLabel linkFollow;
         private System.Windows.Forms.Label lblDev;
         private System.Windows.Forms.LinkLabel linkCreditsAppIcon;
         private System.Windows.Forms.Button btnBack;
         private System.Windows.Forms.Label lblSettings;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.LinkLabel linkLicensesClippit;
     }
 }

@@ -37,18 +37,8 @@ namespace Winpilot
 
         private async void MainForm_Shown(object sender, EventArgs e)
         {
-            // Position
-            SetUI();
             // Init WebView
             await InitializeWebView();
-        }
-
-        private void SetUI()
-        {
-            // Position
-            int margin = 10; // Margin from Taskbar
-            this.Location = new Point((Screen.PrimaryScreen.WorkingArea.Width - this.Width) / 2,
-                                      (Screen.PrimaryScreen.WorkingArea.Height - this.Height) - margin);
         }
 
         private async Task InitializeWebView()
@@ -87,9 +77,33 @@ namespace Winpilot
         {
             try
             {
-                // Construct the full file paths for HTML, CSS, JS files
+                // Default theme preference
+                bool isDarkMode = false;
+
+                // Check if the settings.txt file exists in "app" directory
+                string darkModeFilePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "app", "settings.txt");
+                if (File.Exists(darkModeFilePath))
+                {
+                    // Determine theme preference
+                    string fileContent = File.ReadAllText(darkModeFilePath);
+                    if (fileContent.Contains("Theme=1"))
+                    {
+                        // If file indicates dark mode, enable dark mode
+                        isDarkMode = true;
+                    }
+                }
+                else
+                {
+                    // If file doesn't exist or contain theme preference, default to light mode
+                    isDarkMode = false;
+
+                    // Write default theme preference to settings file
+                    File.WriteAllText(darkModeFilePath, isDarkMode ? "Theme=1" : "Theme=0");
+                }
+
+                // Construct full file paths for HTML, CSS, JS files
                 string htmlFilePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "app", "frontend.html");
-                string cssFilePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "app", "ui.css");
+                string cssFilePath = isDarkMode ? Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "app", "ui_dark.css") : Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "app", "ui.css");
                 string jsFilePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "app", "backend.js");
 
                 // Get all PNG files with "clippy" in their names
@@ -127,12 +141,39 @@ namespace Winpilot
                 // Subscribe to NavigationCompleted event before navigating
                 webView.CoreWebView2.NavigationCompleted += WebView_NavigationCompleted;
 
-                // Navigate to the modified HTML content
+                // Navigate to modified HTML content
                 webView.CoreWebView2.NavigateToString(finalHtmlContent);
             }
             catch (Exception ex)
             {
                 Console.WriteLine($"Error loading frontend: {ex.Message}");
+            }
+        }
+
+        private void ToggleDarkLightMode()
+        {
+            try
+            {
+                string darkModeFilePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "app", "settings.txt");
+                if (File.Exists(darkModeFilePath))
+                {
+                    string fileContent = File.ReadAllText(darkModeFilePath);
+                    // Toggle theme preference
+                    bool isDarkMode = fileContent.Contains("Theme=1");
+                    isDarkMode = !isDarkMode;
+
+                    // Write the updated theme preference to settings file
+                    File.WriteAllText(darkModeFilePath, isDarkMode ? "Theme=1" : "Theme=0");
+                }
+                else
+                {
+                    // If settings file doesn't exist, create it with light mode enabled
+                    File.WriteAllText(darkModeFilePath, "Theme=0");
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error toggling mode: {ex.Message}");
             }
         }
 
@@ -189,14 +230,23 @@ namespace Winpilot
             var logger = new Logger(webView);
             coTweaker = new List<WalksBase>
             {
+                // Ads
+                new StartmenuAds(this,logger),
+                new PersonalizedAds(this,logger),
+                new WelcomeExperienceAds(this,logger),
+                new FinishSetupAds(this,logger),
+                new TipsAndSuggestions(this,logger),
+                new SettingsAds(this,logger),
+                new LockScreenAds(this,logger),
+                new FileExplorerAds(this,logger),
+                new TailoredExperiences(this,logger),
+
                 // Privacy
-                new Advertising(this,logger),
                 new BackgroundApps(this,logger),
                 new DiagnosticData(this,logger),
                 new FindMyDevice(this,logger),
                 new PrivacyExperience(this,logger),
                 new Telemetry(this,logger),
-                new TipsAndSuggestions(this,logger),
 
                 // System
                 new FullContextMenus(this,logger),
@@ -212,7 +262,6 @@ namespace Winpilot
 
                 // Taskbar and Start Menu
                 new BingSearch(this,logger),
-                new StartmenuAds(this,logger),
                 new MostUsedApps(this,logger),
                 new StartmenuLayout(this,logger),
                 new TaskbarChat(this,logger),
@@ -318,11 +367,27 @@ namespace Winpilot
             // Instantiate Feature classes with logger
             WalksBase appCustomCrapware = new CAppxPackages(this, logger);
             AIFeaturesHandler aiFeaturesHandler = new AIFeaturesHandler(logger);
+            ClippyDataHandler clippyDataHandler = new ClippyDataHandler(logger);
 
             // Handle non-JSON content (e.g., interop classes)
             switch (message)
             {
-                // About this app
+                case "tiny11maker":
+                    clippyDataHandler.Tiny11Maker();
+                    break;
+
+                // Back button
+                case "goBack":
+                    await LoadHtmlContent();
+                    break;
+
+                // Toggle Dark/Light mode
+                case "toggleDarkLightMode":
+                    ToggleDarkLightMode();
+                    await LoadHtmlContent();
+                    break;
+
+                // Open Settings (About this app)
                 case "openSettings":
                     OpenSettings();
                     break;
@@ -339,10 +404,6 @@ namespace Winpilot
                 // Show Clippy's AI sayings
                 case "plugClippySupreme":
                     clippyConversationHandler.ShowPseudoAISayings();
-                    break;
-
-                case "openCopilot":
-                    webView.CoreWebView2.Navigate("https://copilot.microsoft.com/");
                     break;
 
                 // Refresh Assisted buttons
@@ -407,6 +468,35 @@ namespace Winpilot
                 default:
                     MessageBox.Show($"Unhandled non-JSON message: {message}");
                     break;
+            }
+        }
+
+        private async Task RunPowerShellScript()
+        {
+            Logger logger = new Logger(webView);
+            ProcessStartInfo psi = new ProcessStartInfo
+            {
+                FileName = "powershell.exe",
+                Arguments = $"-ExecutionPolicy Bypass -File \"{Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Downloads", "tiny11maker.ps1")}\"",
+                RedirectStandardOutput = true,
+                RedirectStandardError = true,
+                UseShellExecute = false,
+                CreateNoWindow = true
+            };
+
+            Process process = Process.Start(psi);
+            await process.WaitForExitAsync();
+
+            string output = process.StandardOutput.ReadToEnd();
+            string error = process.StandardError.ReadToEnd();
+
+            if (!string.IsNullOrEmpty(error))
+            {
+                logger.Log($"Error running PowerShell script: {error}", Color.Red);
+            }
+            else
+            {
+                logger.Log($"PowerShell script executed successfully: {output}", Color.Green);
             }
         }
 

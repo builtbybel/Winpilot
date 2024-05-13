@@ -1,56 +1,73 @@
-function goToStep(direction) {
-    const steps = document.querySelectorAll('.setup-step');
-    let currentStep = Array.from(steps).findIndex(step => step.classList.contains('active'));
+/* Toggles the visibility of additional buttons in Worskpace */
+ 
+var visibleButtons = 1; // Track the number of visible buttons
+var buttonIds = ['btnAppxHeader', 'btnStoreHeader', 'btnTiny11']; // IDs of additional buttons
 
-    switch (direction) {
-        case 'home':
-            currentStep = 0;
-            break;
-        case 'next':
-            currentStep = Math.min(currentStep + 1, steps.length - 1);
-            break;
-        case 'back':
-            currentStep = Math.max(currentStep - 1, 0);
-            break;
+function toggleButtons(isMore) {
+    if (isMore) {
+        // Show more buttons
+        if (visibleButtons < 4) {
+            document.getElementById(buttonIds[visibleButtons - 1]).style.display = 'block';
+            visibleButtons++;
+            document.getElementById('lessButton').disabled = false;
+            if (visibleButtons === 4) {
+                document.querySelector('.additional-buttons button:first-child').disabled = true; // Disable "More" button
+            }
+        }
+    } else {
+        // Show fewer buttons
+        if (visibleButtons > 1) {
+            document.getElementById(buttonIds[visibleButtons - 2]).style.display = 'none';
+            visibleButtons--;
+            document.querySelector('.additional-buttons button:first-child').disabled = false; // Enable "More" button
+            if (visibleButtons === 1) {
+                document.getElementById('lessButton').disabled = true;
+            }
+        }
     }
-
-    steps.forEach(step => step.classList.remove('active'));
-    steps[currentStep].classList.add('active');
-
-    // Enable searchFeatures() only if in stepSystemHeader
-    if (steps[currentStep].id === 'stepSystemHeader') {
-        searchFeatures();
-    }
-
-    // Button states
-    const btnBack = document.getElementById('btnBack');
-    const btnNext = document.getElementById('btnNext');
-
-    btnBack.disabled = currentStep === 0;
-    btnNext.disabled = currentStep === steps.length - 1;
 }
 
-// Initialize button states when the page loads
-window.onload = function() {
-    const btnBack = document.getElementById('btnBack');
-    btnBack.disabled = true; // Disable 'Back' button initially
-};
-
-
-function activateStep(stepId) {
-    const steps = document.querySelectorAll('.setup-step');
-    steps.forEach(step => {
-        if (step.id === stepId) {
-            step.classList.add('active');
-        } else {
-            step.classList.remove('active');
+/* Toggle the visibility of the different containers based on which navigation menu item is clicked. Also ensure that the left-container with the stepHomeHeader 
+is not hidden when switching between the navigation menu items. */
+function showContainer(containerId) {
+    // Hide all containers except the left-container
+    var containers = document.querySelectorAll('.workspace-content .glassy-box');
+    containers.forEach(function(container) {
+        if (container.id !== 'stepLeftHeader') {
+            container.style.display = 'none';
         }
     });
+
+    // Show the selected container
+    var selectedContainer = document.getElementById(containerId);
+    if (selectedContainer) {
+        selectedContainer.style.display = 'block';
+        
+        // Trigger searchFeatures() function if system header is selected
+        if (containerId === 'stepSystemHeader') {
+            searchFeatures();
+        }
+    }
 }
 
 /* 
 UI Button handling
 */
+
+// Handle downloader
+ function handleTiny11maker() {
+    window.chrome.webview.postMessage('tiny11maker');
+}
+	
+// Switch Theming
+ function handleUIMode() {
+    window.chrome.webview.postMessage('toggleDarkLightMode');
+}
+		
+// Go back
+function handleBackClick() {
+    window.chrome.webview.postMessage('goBack');
+}
 
 // Plugin ClippySupreme > Handle button Clippy Tips
 function plugClippySupreme() {
@@ -65,11 +82,6 @@ function handleSettingsClick() {
 // Check for app updates button
 function handleUpdatesClick() {
     window.chrome.webview.postMessage('checkAppUpdates');
-}
-
-// Microsoft Copilot button
-function handleOpenCopilotClick() {
-    window.chrome.webview.postMessage('openCopilot');
 }
 
 // Refresh button
@@ -283,14 +295,6 @@ function searchFeatures() {
     console.log('Detect current settings clicked');
     var selectedItems = getSelectedItems();
     window.chrome.webview.postMessage(JSON.stringify({ action: 'search', checkboxes: selectedItems }));
-}
-
-// Enable CoTweaker > searchFeatures() when hitting Pilot > CoTweaker list button
-function activateAndSearch(stepId) {
-    activateStep(stepId);
-    if (stepId === 'stepSystemHeader') {
-        searchFeatures();
-    }
 }
 
 // This function toggles Descriptions on/off

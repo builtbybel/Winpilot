@@ -39,7 +39,7 @@
             this.pnlForm.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlForm.Location = new System.Drawing.Point(0, 0);
             this.pnlForm.Name = "pnlForm";
-            this.pnlForm.Size = new System.Drawing.Size(584, 639);
+            this.pnlForm.Size = new System.Drawing.Size(483, 661);
             this.pnlForm.TabIndex = 2;
             // 
             // pnlMain
@@ -47,14 +47,14 @@
             this.pnlMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlMain.Location = new System.Drawing.Point(0, 0);
             this.pnlMain.Name = "pnlMain";
-            this.pnlMain.Size = new System.Drawing.Size(584, 639);
+            this.pnlMain.Size = new System.Drawing.Size(483, 661);
             this.pnlMain.TabIndex = 0;
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
-            this.ClientSize = new System.Drawing.Size(584, 639);
+            this.ClientSize = new System.Drawing.Size(483, 661);
             this.Controls.Add(this.pnlForm);
             this.Name = "MainForm";
             this.ShowIcon = false;

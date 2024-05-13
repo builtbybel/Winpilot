@@ -117,10 +117,4 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="label1.Text" xml:space="preserve">
-    <value>Unlock the power of AI for Windows customization today with Winpilot.
-
-Utilize Clippy's chatbox to search keywords and get real-time results. For example, search 'version' to check the Windows version currently installed on your system.
-You can also try 'wallpaper' or 'performance' to explore some of the customization options available for Windows 10/11.</value>
-  </data>
 </root>

@@ -24,7 +24,7 @@ namespace Views
         {
             btnBack.Text = "\uE72B";
             linkFollow.Text = "\uE8E1 GitHub";
-            lblVersion.Text = "Version " + Program.GetCurrentVersionTostring() + " (Stargate)";
+            lblVersion.Text = "Version " + Program.GetCurrentVersionTostring() + " Stargate";
         }
 
         private void linkAppInfos_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -34,9 +34,12 @@ namespace Views
             => Process.Start("https://github.com/builtbybel/Winpilot");
 
         private void linkCreditsAppIcon_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-             => Process.Start("https://www.flaticon.com/free-icon/maintenance_8794698");
+             => Process.Start("https://github.com/FireCubeStudios/Clippy/tree/master/Clippy/Assets/Clippy");
 
         private void btnBack_Click(object sender, EventArgs e)
             => Views.SwitchView.SetMainFormAsView();
+
+        private void linkLicensesClippit_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+         => Process.Start("https://github.com/FireCubeStudios/Clippy/tree/master/Clippy/Assets/Clippy");
     }
 }

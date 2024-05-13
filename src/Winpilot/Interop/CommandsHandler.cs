@@ -1,9 +1,9 @@
-﻿using Winpilot;
-using System;
+﻿using System;
 using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Threading.Tasks;
+using Winpilot;
 
 namespace Interop
 {
@@ -49,7 +49,7 @@ namespace Interop
                         {
                             if (!string.IsNullOrEmpty(e.Data))
                             {
-                                // Handle error data 
+                                // Handle error data
                                 logger.Log($"Error: {e.Data}", Color.Red);
                             }
                         };
@@ -57,7 +57,6 @@ namespace Interop
                         process.Start();
                         process.BeginOutputReadLine();
                         process.BeginErrorReadLine();
-         
                     }
                     else
                     {
@@ -70,7 +69,6 @@ namespace Interop
                 logger.Log($"Error starting process ({fileName}): {ex.Message}", Color.Red);
             }
         }
-
 
         public void ExecutePowerShellCommand(string command)
         {
@@ -232,6 +230,5 @@ namespace Interop
                 logger.Log($"Error running PowerShell command: {ex.Message}", Color.DarkRed);
             }
         }
-
     }
 }

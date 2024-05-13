@@ -46,14 +46,22 @@ namespace Winpilot
             ");
 
             string formattedMessage = $"<div style='color:{ColorToHex(color)}'><strong>{message}</strong></div>";
-            // Replace URLs with clickable links
-            formattedMessage = System.Text.RegularExpressions.Regex.Replace(formattedMessage, @"(https?://\S+)", "<strong><a href=\"$1\" target=\"_blank\">$1</a></strong>");
-            webView.CoreWebView2.PostWebMessageAsString(formattedMessage);
 
+            // Replace URLs with clickable links
+            formattedMessage = System.Text.RegularExpressions.Regex.Replace(formattedMessage,
+              @"<strong>(.*?)(https?://\S+)(.*?)</strong>",
+              match =>
+              {
+                  string beforeUrl = match.Groups[1].Value; // Capture text before URL
+                  string url = match.Groups[2].Value; // Capture URL
+                  string afterUrl = match.Groups[3].Value; // Capture text after URL
+                  return $"<strong>{beforeUrl}<a href=\"{url}\" target=\"_blank\">{url}</a>{afterUrl}</strong>";
+              });
+
+            webView.CoreWebView2.PostWebMessageAsString(formattedMessage);
 
             // Some JS to append formatted message to logContainer
             await webView.ExecuteScriptAsync($"document.getElementById('logContainer').innerHTML += '{formattedMessage}';");
-
 
             // Ensure log container is visible
             await webView.ExecuteScriptAsync("document.getElementById('logContainer').style.display = 'block';");

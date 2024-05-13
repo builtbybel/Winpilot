@@ -57,6 +57,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.IO.Compression.FileSystem" />
     <Reference Include="System.Management" />
     <Reference Include="System.Management.Automation, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -88,11 +89,17 @@
     <Compile Include="Views\SettingsPageView.Designer.cs">
       <DependentUpon>SettingsPageView.cs</DependentUpon>
     </Compile>
+    <Compile Include="Walks\Ads\FileExplorerAds.cs" />
+    <Compile Include="Walks\Ads\FinishSetupAds.cs" />
+    <Compile Include="Walks\Ads\LockScreenAds.cs" />
+    <Compile Include="Walks\Ads\SettingsAds.cs" />
+    <Compile Include="Walks\Ads\TailoredExperiences.cs" />
+    <Compile Include="Walks\Ads\WelcomeExperienceAds.cs" />
     <Compile Include="Walks\AI\CopilotMSEdge.cs" />
     <Compile Include="Walks\AI\CopilotTaskbar.cs" />
-    <Compile Include="Walks\Privacy\Advertising.cs" />
+    <Compile Include="Walks\Ads\PersonalizedAds.cs" />
     <Compile Include="Walks\Privacy\BackgroundApps.cs" />
-    <Compile Include="Walks\Taskbar\StartmenuAds.cs" />
+    <Compile Include="Walks\Ads\StartmenuAds.cs" />
     <Compile Include="Walks\System\FaxPrinter.cs" />
     <Compile Include="Walks\System\XPSWriter.cs" />
     <Compile Include="Walks\Taskbar\BingSearch.cs" />
@@ -105,7 +112,7 @@
     <Compile Include="Walks\Privacy\DiagnosticData.cs" />
     <Compile Include="Walks\System\LockScreen.cs" />
     <Compile Include="Walks\Privacy\Telemetry.cs" />
-    <Compile Include="Walks\Privacy\TipsAndSuggestions.cs" />
+    <Compile Include="Walks\Ads\TipsAndSuggestions.cs" />
     <Compile Include="InteropBase.cs" />
     <Compile Include="Helpers\Logger.cs" />
     <Compile Include="MainForm.cs">

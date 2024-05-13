@@ -1,10 +1,13 @@
+/* Dark Mode for Winpilot by Belim */
+
+/* Main body */
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: linear-gradient(to right, rgba(242, 242, 242, 0.7), rgba(242, 242, 242, 0.7)); /* Light grey to very light grey gradient with transparency */
-    color: #333;
+    background: linear-gradient(to right, #1e1e1e, #2b2b2b); /* Modern dark gradient */
+    color: #ffffff; /* White text color */
     padding: 40px;
     text-align: left;
-    margin: 0px 0 0px; /* Top -30, right 0, bottom 0, left 0 */
+    margin: 0;
     zoom: 0.9; /* WebView2 zoom level */
 }
 
@@ -17,20 +20,21 @@ body {
 .workspace-action-buttons {
     display: flex;
     flex-wrap: wrap;
-    gap: 10px;
+    gap: 5px;
 }
 
 .workspace-btn {
     flex: 1 1 auto; /* Each button will take equal space */
 	text-align: left;
-    background-color: transparent !important;
+	background-color: transparent !important;
 	border: none !important; 
 	box-shadow: none !important;
 }
 
 .workspace-btn:hover {
-    background: linear-gradient(45deg, #926CFF, #FDCBFF); /* Purple Gradient on hover */
-    color: white;
+    background: linear-gradient(45deg, #4E148C, #FFD54F); /* Dark Purple Gradient on hover */
+    transform: scale(1.05);
+    padding: 10px 18px;
 }
 
 .workspace-btn .ws-action-title {
@@ -41,22 +45,21 @@ body {
 
 .workspace-btn .ws-action-description {
     font-size: 14px;
-    color: #666;
     margin-bottom: 8px;
 }
 
 /* More and Less buttons */
 .additional-buttons {
     display: flex;
-    justify-content: space-between;
+	justify-content: space-between;
 }
 
 .additional-buttons .ws-add-button {
     border: none; 
-    background-color: transparent;
+	background-color: transparent;
     font-size: 13px; 
     margin: 4px 2px; 
-    box-shadow: none !important; 
+	box-shadow: none !important; 
 }
 
 .ws-add-button:disabled {
@@ -66,6 +69,12 @@ body {
 }
 
 /* Global container */
+.container {
+    display: flex;
+    flex-wrap: wrap; /* Wrap to next line */
+}
+
+/* Gloabel container */
 .container {
     display: flex;
     flex-wrap: wrap; /* Wrap to next line */
@@ -109,25 +118,27 @@ body {
 
 /* Menu item styles */
 .navigation-menu a {
-	text-decoration: none;
-    color: #333; 
-    font-weight: 600; /* Semi-bold font */
+    margin-right: 10px;
+    text-decoration: none;
+    color: #999;
+    font-weight: bold;
     font-size: 16px;
     transition: color 0.3s ease, transform 0.3s ease;
     position: relative;
-	margin-right: 20px;
+    margin-right: 20px;
 }
 
 /* Hover effect */
 .navigation-menu a:hover {
-    color: #0078d4; /* Blue accent color */
+    color: #ff00dd; /* Light magenta on hover */
 }
 
 /* Active/focus state */
 .navigation-menu a.active,
 .navigation-menu a:focus {
-    color: #0078d4; 
+    color: #ff00dd; /* Light magenta for active link */
     outline: none;
+    transform: scale(1.1);
 }
 
 /* Indicator for active menu item */
@@ -136,32 +147,30 @@ body {
     content: '';
     position: absolute;
     top: 50%;
-    left: -15px; 
+    left: -15px;
     transform: translateY(-50%);
     width: 10px;
     height: 10px;
-    background: radial-gradient(circle, #aa00ff, #ff00dd); /* Purple to pink gradient */
-    border-radius: 50%; /* Round shape */
-    animation: blink 1s infinite alternate; /* Blinking animation */
+    background: radial-gradient(circle, #aa00ff, #ff00dd); /* Light magenta to pink gradient */
+    border-radius: 50%;
+    animation: blink 1s infinite alternate;
 }
 
 /* OPTIONAL: Navigation menu Tooltip text */
 .navigation-menu a::after {
-    content: attr(data-tooltip);
-    position: absolute;
-    color: #000;
-    padding: 5px 10px;
-    border-radius: 5px;
-    font-size: 14px;
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.3s, visibility 0.3s;
-    bottom: -35px;
-    left: 70px;
-    transform: translateX(-50%);
-    white-space: nowrap;
-    background-color: rgba(255, 255, 255, 0.9);
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+  content: attr(data-tooltip);
+  position: absolute;
+  color: #fff;
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: 14px;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s, visibility 0.3s;
+  bottom: -35px;
+  left: 60px;
+  transform: translateX(-50%);
+  white-space: nowrap; /* Prevent long text from breaking */
 }
 
 /* OPTIONAL: Show tooltip on hover */
@@ -173,55 +182,55 @@ body {
 /* Navigation menu Active Blinking animation */
 @keyframes blink {
     from {
-        opacity: 1; /* Fully visible */
+        opacity: 1;
     }
     to {
-        opacity: 0; /* Fully transparent */
+        opacity: 0;
     }
 }
-	
-/* Workspace / Home Header styling */
+
+/* Workspace Header styling */
 #stepHomeHeader {
     top: 30px;
-    background: #f2e6f0;
+    background: linear-gradient(45deg, #1f1f1f 0%, #303030 50%, #1f1f1f 100%); /* Dark gradient */
     border-radius: 12px;
     padding: 20px;
     margin: 10px 10px;
-    z-index: 998; 
+    z-index: 998;
 }
 
 /* All other Header styling */
 #stepClippyHeader,
-#stepSystemHeader, 
+#stepSystemHeader,
 #stepAppsHeader,
 #stepAppxHeader,
 #stepStoreHeader {
     top: 30px;
-    background: linear-gradient(45deg, #f0f0f0 0%, #dfe3f1 50%, #f0f0f0 100%); /* Light gradient */
+    background: linear-gradient(45deg, #1f1f1f 0%, #303030 50%, #1f1f1f 100%); /* Dark gradient */
     border-radius: 12px;
     padding: 20px;
     margin: 10px 10px;
     margin-bottom: 50px;
-    z-index: 998; 
-    transition: background-color 0.3s ease; /* Smooth transition */
+    z-index: 998;
+    transition: background-color 0.3s ease;
 }
- 
+
 /* Hover effect */
 #stepClippyHeader:hover,
 #stepSystemHeader:hover,
 #stepAppsHeader:hover,
 #stepAppxHeader:hover,
 #stepStoreHeader:hover {
-    background: linear-gradient(45deg, #f5f5f5 0%, #c9d6ff 50%, #f5f5f5 100%); /* Light gradient on hover */
+    background: linear-gradient(45deg, #303030 0%, #424242 50%, #303030 100%); /* Dark gradient on hover */
 }
 
 /* Background color */
 #stepClippyHeader,
-#stepSystemHeader, 
+#stepSystemHeader,
 #stepAppsHeader,
 #stepAppxHeader,
 #stepStoreHeader {
-    background: linear-gradient(45deg, #f0f0f0 0%, #ffccff 50%, #f0f0f0 100%); /* Light magenta/pink gradient */
+    background: linear-gradient(45deg, #1f1f1f 0%, #990099 50%, #1f1f1f 100%); /* Dark magenta/purple gradient */
 }
 
 /* Styling for links */
@@ -232,13 +241,13 @@ body {
 }
 
 .modern-link {
-    color: #5B7BD1; /* Windows 11 Blue */
+    color: #ff00dd; /* Light magenta */
     text-decoration: none;
     transition: color 0.3s ease;
 }
 
 .modern-link:hover {
-    color: #f7a0f5; 
+    color: #ff99ff; /* Lighter magenta on hover */
 }
 
 /* Styling for the GitHub follow link */
@@ -249,7 +258,7 @@ body {
     font-weight: bold;
     color: #fff;
     text-decoration: none;
-    background-image: linear-gradient(to right, #ff82a9, #d291bc, #ffb6c1);
+    background-image: linear-gradient(to right, #9b59b6, #ff00ff, #ff6ec7);
     border-radius: 30px;
     border: none;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -257,7 +266,7 @@ body {
 
 .github-follow-link:hover {
     transform: scale(1.05);
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 10px rgba(255, 255, 255, 0.1);
 }
 
 .github-follow-link::before {
@@ -303,22 +312,25 @@ body {
 /* Recommended badge color */
 .recommended-badge {
     background-color: #4CAF50; /* Green */
+    color: white;
 }
 
 /* Advanced badge color */
 .advanced-badge {
     background-color: #2196F3; /* Blue */
+    color: white;
 }
 
 /* Expert badge color */
 .expert-badge {
     background-color: #DD3333; /* Red */
+    color: white;
 }
-
 
 /* Toggle light/dark mode */
 .ui-toggle-button {
-    color: black;
+    background-color: #292929;
+    color: white;
     border: none;
     border-radius: 5px; 
     font-size: 16px; 
@@ -326,12 +338,13 @@ body {
 }
 
 .ui-toggle-button:hover {
-    background: linear-gradient(135deg, #FFBBFF, #D699D6, #FFBBFF);
+    background: linear-gradient(135deg, #FF00FF, #800080, #FF1493);
 }
 
 /* Settings menu */
 .settings-dropbtn {
     background-color: transparent;
+    color: #e8e8e8;
     padding: 0;
     font-size: 24px; 
     border: none;
@@ -345,86 +358,85 @@ body {
     position: relative;
     display: inline-block;
     z-index: 99999;
-    margin-right: 10px; /* Spacing between GitHub icon and dropdown */
 }
 
 /* Dropdown content */
 .settings-dropdown-content {
     display: none;
     position: absolute;
-    background-color: #f9f9f9;
+    background-color: #1f1f1f; /* Dark background */
     min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     z-index: 1;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     border-radius: 5px;
     right: 0;
 }
 
-/* Show the dropdown menu on hover */
-.settings-dropdown:hover .settings-dropdown-content {
-    display: block;
-}
-
-/* Dropdown links */
+/* Links inside dropdown */
 .settings-dropdown-content a {
-    color: black;
+    color: #ffffff; /* White text */
     padding: 12px 16px;
     text-decoration: none;
     display: block;
 }
 
-/* Change color of dropdown links on hover */
 .settings-dropdown-content a:hover {
-    background-color: #ddd;
+    background-color: #424242; /* Darker background on hover */
 }
 
-/* Change color of dropdown button on hover */
+.settings-dropdown:hover .settings-dropdown-content {
+    display: block;
+}
+
+/* Change the background color of dropdown button when the dropdown content is shown */
 .settings-dropdown:hover .settings-dropbtn {
-    color: #000;
-    background-color: #f7e2f5;
+    background-color: #ff00dd; /* Light magenta */
+    color: #ffffff; /* White text */
 }
 
 /* Styling for back button */
 #btnBack {
-	position: absolute;
+    position: absolute;
     top: 10px;
     left: 10px;
-    background-color: transparent; 
-	border: none;
+    background-color: transparent;
+	color: #999;
+    border: none;
 }
 
 #btnBack .icon {
     font-family: 'Segoe MDL2 Assets';
     font-size: 14px;
 }
+
 #btnBack:hover {
-    background-color: #f0f0f0; 
+    background-color: #333333; /* Darker background on hover */
 }
 
 /* Main Container styling */
 .glassy-box {
-    position: relative; 
-	flex: 1; /* Make glassy-box grow to fill remaining space */
+    position: relative;
+    flex: 1;
     max-width: 100%;
 }
 
 /* UI: Glassy-Box buttons in Headers/Plugins, e.g. CoTweaker, Decrapify etc. */
 .glassy-box button {
-	position: relative; /* Needed for the pseudo-element */
-	font-family: "Segoe UI";
-	font-size: 14px;
+    position: relative;
+    font-family: "Segoe UI";
+    font-size: 14px;
     display: inline-block;
     padding: 10px 20px;
-    border: 1px solid #e0d0dd; /* Transparent border */
-	margin-bottom: 5px;
+    border: 1px solid #ffffff; /* White border */
+    margin-bottom: 5px;
     border-radius: 10px;
-    color: black;
-    background: #fefdfe;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); /* Shadow effect */
+    color: #ffffff; /* White text */
+    background: #990099; /* Dark magenta background */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
 }
 
 .glassy-box button:hover {
-    border: 1px solid #ff008e;
+    border: 1px solid #ff00dd; /* Light magenta border on hover */
 }
 
 /* Clippy Animation */
@@ -443,20 +455,20 @@ body {
 /* Styling for Clippy container */
 #clippy-container {
     position: fixed;
-    bottom: 20px; 
-    right: -150px; 
+    bottom: 20px;
+    right: -150px;
     z-index: 999;
-	animation: clippyAnimation 2s infinite;
+    animation: clippyAnimation 2s infinite;
 }
 
 /* Styling for Clippy image */
 #clippy-container img {
-    width: 180px; 
-    height: auto; 
-    filter: drop-shadow(0 0 5px rgba(0, 0, 0, 0.5));
+    width: 180px;
+    height: auto;
+    filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.5)); /* White drop shadow */
 }
 
-/* Styling for Assisted butttons container inside logContainer */
+/* Styling for Assisted buttons container inside logContainer */
 .assisted-container {
     display: flex;
 }
@@ -468,33 +480,34 @@ body {
 	left: 20px;
 	right: calc(20% + 100px);
 	z-index: 998;
-	background-color: #fff5c4;
+	background-color: rgba(255, 255, 204, 0.8); /* Light transparent yellow-orange background */
 	font-family: "Comic Sans MS", "MS Sans Serif", Arial, sans-serif; /* Vintage-inspired font stack */
 	font-size: 14px; 
 	color: #000080; /* Blue-ish color to match Clippy's text */
-	border: 2px solid #000080;
+	border: 3px solid #000080;
 	border-radius: 10px;
-	padding: 5px;
+	padding: 5px; 
 	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 /* Triangle pointer for logContainer */
 #logContainer::before {
-	content: "";
-	position: absolute;
-	bottom: 15px; /* Distance from the bottom */
-	right: -16px;  /* from the right */
-	border-width: 8px; 
-	border-style: solid;
-	border-color: transparent transparent transparent #000080;
-	z-index: -1;
+    content: "";
+    position: absolute;
+    bottom: 20px; /* Distance from the bottom */
+    right: -16px; /* from the right */
+    border-width: 8px;
+    border-style: solid;
+    border-color: transparent transparent transparent rgba(255, 255, 204, 0.9); /* Light transparent yellow-orange triangle pointer */
+    z-index: -1;
 }
 
 /* UI: Chatbox Container */
 .chatbox-container {
     left: 30px;
-    max-height: 80%; 
-    padding: 10px; 
+    width: 65%;
+    max-height: 80%;
+    padding: 10px;
     backdrop-filter: blur(10px); /* Apply blur effect to the background */
 }
 
@@ -503,17 +516,18 @@ body {
     border-radius: 8px;
     padding: 15px;
     box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
-    color: #000;
+    color: #f0f0f0;
 }
 
 /* Chatbox: input styling */
 #chatbox {
-    background-color: rgba(255, 255, 255, 0.9); 
+    background-color: rgba(51, 51, 51, 0.9);
+    width: 120%;
     height: 20px;
     padding: 12px;
     font-size: 16px;
     border: none; /* Remove default border */
-    border: 1px solid #d0d0d0; 
+    border: 1px solid #666666;
     border-radius: 10px;
     margin-bottom: 10px;
     border-bottom: 1px solid #7a336c; /* Magenta bottom border */
@@ -521,18 +535,18 @@ body {
 }
 
 .chatbox-items div {
-	display: inline-block; 
+    display: inline-block;
     padding: 5px;
-	font-size: 14px;
+    font-size: 14px;
     cursor: pointer;
-    background-color: #fff;
+    background-color: #333333;
     border: 2px solid #7a336c; /* Rounded Microsoft Copilot magenta border for each result */
     border-radius: 8px; /* Rounded corners */
-	margin-bottom: 10px;
+    margin-bottom: 10px;
 }
 
 .chatbox-items div:hover {
-    background-color: #e9e9e9;
+    background-color: #555555;
     color: magenta;
 }
 
@@ -543,16 +557,16 @@ body {
     display: flex;
     flex-wrap: wrap; /* Allow buttons to wrap to the next line if necessary */
     gap: 8px; /* Let's add some spacing between buttons */
-	margin-bottom: 8px; /* Add some space after buttons-container */
+    margin-bottom: 8px; /* Add some space after buttons-container */
 }
 
 /* Common button styles */
 #buttons-container button,
 #buttonsAppx-container button,
 #refreshButton {
-	font-family: "Comic Sans MS", sans-serif; /* Because Clippy loved Comic Sans! */
+    font-family: "Comic Sans MS", sans-serif; /* Because Clippy loved Comic Sans! */
     font-size: 13px;
-	text-align: left;
+    text-align: left;
     margin-bottom: 8px;
     border-radius: 10px;
     background: transparent;
@@ -565,16 +579,15 @@ body {
 /* Styling for the middle/third button */
 #buttons-container button:nth-child(3) {
     font-weight: 500;
-    background: white;
-    border: 1px solid #c0c0c0;
-    border-radius: 1px;
+    border: 1px solid #808080;
+	border-radius: 1px;
 }
 
 #buttons-container button:hover,
 #buttonsAppx-container button:hover,
 #refreshButton:hover {
-	border: 1px dashed #7f7f7f;
-	box-shadow: 0 0 2px rgba(0, 0, 0, 0.2); 
+    border: 1px dashed #808080; 
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.3); 
 }
 
 /* Scale up the button on hover */
@@ -588,11 +601,11 @@ body {
 }
 
 #refreshButton:hover {
-	height: 20px;
-    border-color: #0078cf; 
+    height: 20px;
+    border-color: #0078cf;
 }
 
-/* ASSISTED BUTTONS: Additional buttons are shown progressively as the container width increases, 
+/* ASSISTED BUTTONS: Additional buttons are shown progressively as the container width increases,
 with a maximum of 6 buttons being displayed at widths of 1200px or larger based on the size of the viewport. */
 
 /* Initially hide all buttons */
@@ -638,17 +651,17 @@ with a maximum of 6 buttons being displayed at widths of 1200px or larger based 
 }
 
 /* PLUGIN: CoTweaker */
-/* UI:  Header styling for Toggle Switches in CoTweaker */
+/* UI: Header styling for Toggle Switches in CoTweaker */
 /* Highlight Feature status in CoTweaker js backend */
- .CoTweakerFeatureON { color: green; }
- .CoTweakerFeatureOFF { color: red; }
+.CoTweakerFeatureON { color: green; }
+.CoTweakerFeatureOFF { color: red; }
 
 /* Styling for the section headers */
 .section-header {
     font-size: 1.2em;
     font-weight: bold;
     margin-top: 20px;
-    color: #000; 
+    color: #f0f0f0;
     border-bottom: 2px solid rgba(255, 0, 255, 0.4); /* Semi-transparent magenta border */
     padding-bottom: 10px;
 }
@@ -656,13 +669,13 @@ with a maximum of 6 buttons being displayed at widths of 1200px or larger based 
 /* Styling for the settings group */
 .settings-group {
     margin-bottom: 30px;
-    padding: 20px; 
+    padding: 20px;
 }
 
 /* Styling for the descriptions */
 .description {
     display: none; /* Initially hide descriptions */
-    margin-top: 10px; 
+    margin-top: 10px;
 }
 
 /* Styling for the individual settings */
@@ -703,9 +716,9 @@ input[type="checkbox"]:checked + .toggle-switch-label:before {
 }
 
 .checkbox-label {
-cursor: help;
-}	
-	
+    cursor: help;
+}
+
 /* PLUGIN: Decrapify */
 .package-group {
   margin-bottom: 20px;
@@ -713,7 +726,7 @@ cursor: help;
 
 .package-group h2 {
   font-size: 24px;
-  color: #333;
+  color: #fff; /* Light text color */
   margin-bottom: 10px;
 }
 
@@ -734,32 +747,33 @@ cursor: help;
 
 .package-toggle-switch label {
   cursor: pointer;
-  background-color: #ccc;
+  background-color: #212121; /* Darker background */
   border-radius: 10px;
   padding: 8px 12px;
+  color: #fff;
 }
 
 .package-toggle-switch input:checked + label {
-  background-color: #4CAF50;
+  background-color: #1976D2; /* Windows 11 accent color */
   color: #fff;
 }
 
 /* PLUGIN: WingetUI */
 #appList {
-   display: flex;
-   flex-wrap: wrap;
-   justify-content: space-between; /
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
 }
 
 .app-item {
-    background: rgba(255, 255, 255, 0.9);
+    background: linear-gradient(45deg, #2c2c2c 0%, #333333 20%, #444444 40%, #555555 60%, #666666 80%, #2c2c2c 100%);
     border-radius: 12px;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
     padding: 20px;
     width: 100%;
     box-sizing: border-box;
     transition: transform 0.3s;
-	width: calc(33.33% - 20px); /* Width of each app item */
+    width: calc(33.33% - 20px); /* Width of each app item */
     margin-bottom: 20px; /* Space between rows */
 }
 
@@ -768,21 +782,21 @@ cursor: help;
     box-shadow: 0 0 30px rgba(0, 0, 0, 0.2); /* Slightly larger shadow on hover */
 }
 
-/* STORE: Extensions */
+/* PLUGIN: Extensions */
 #plugin-categories-container {
     display: flex;
     flex-wrap: wrap;
-	gap: 10px; 	
+    gap: 10px;
 }
 
 /* Preinstalled badge */
 .plugin-badge {
-   background-color: #8f3cd5;
-   color: white;
-   padding: 4px 8px;
-   border-radius: 4px;
-   font-size: 12px;
-   margin-left: 8px; 
+    background-color: #8f3cd5;
+    color: white;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+    margin-left: 8px;
 }
 
 .plugin-entry {
@@ -815,6 +829,7 @@ cursor: help;
     font-size: 14px;
     transition: background-color 0.3s;
 }
+
 .plugin-entry .execute-button:hover {
     background-color: #8f3cd5;
 }

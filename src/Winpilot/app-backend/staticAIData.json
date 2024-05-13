@@ -1,10 +1,5 @@
 [
 	{
-		"question": "🐞 Found a bug in the app",
-		"response": "Fear not! I'll squash those bugs! #BugBuster",
-		"action": "https://github.com/builtbybel/Winpilot/issues"
-	},
-	{
 		"question": "🔒 Add my Microsoft Account?",
 		"response": "Absolutely! Let's navigate to Account settings... 🧭",
 		"action": "ms-settings:privacy-accountinfo"
@@ -114,7 +109,7 @@
 	},
 	{
 		"question": "🧹 Clear Windows Event Logs",
-		"response": "No problem! Executing PowerShell script...",
+		"response": "Mission accomplished! The logs have been successfully cleared",
 		"action": "runPlugin",
 		"scriptPath": "plugins\\ClearEventLogsHandler.ps1",
 		"description": "Clear all Windows event logs to free up space and maintain system performance.",
@@ -236,19 +231,5 @@
 		"response": "Removing Widgets Button from Taskbar...",
 		"action": "shell",
 		"command": "reg add HKEY_CURRENT_USER\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced /v TaskbarDa /t REG_DWORD /d 0 /f"
-	},
-	{
-		"question": "🔙 Go back to classic Outlook for Windows",
-		"response": "Redirecting to classic Outlook for Windows...",
-		"action": "runPS",
-		"command": "Get-AppxPackage -AllUsers | Where-Object {$_.Name -Like '*OutlookForWindows*'} | Remove-AppxPackage -AllUsers -ErrorAction Continue; Write-Host 'The new Outlook app has been removed for all users. It may take a few minutes for the old Mail and Calendar app to be restored and for you to be able to launch it.'"
-	},
-	{
-		"question": "🛑 Disable Copilot Pro ads on Windows 11",
-		"response": "Copilot Pro ads disabled. Feature hidden in latest Windows 11 builds.",
-		"action": "viveTool",
-		"viveCommand": "disable",
-		"viveFeatureId": "47942561",
-		"viveBuildAvailability": "Hidden in latest Windows 11 Dev and Beta builds."
 	}
 ]

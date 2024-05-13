@@ -16,7 +16,7 @@ namespace Walks
 
         public override string ID()
         {
-            return "Ads in Windows 11 Start";
+            return "Start menu Ads";
         }
 
         public override bool CheckFeature()

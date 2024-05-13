@@ -12,6 +12,8 @@ using System.Net;
 using System.Runtime.InteropServices;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Collections.Generic;
+using System.IO.Compression;
 
 namespace Interop
 {
@@ -35,6 +37,100 @@ namespace Interop
         {
             this.logger = logger;
             command = new CommandsHandler(logger);
+        }
+
+        public async void Tiny11Maker()
+        {
+            // Inform the user about the third-party script
+            MessageBox.Show("This process utilizes a third-party script from ntdevlabs/tiny11builder. " +
+                            "The script expects a downloaded Windows 11 ISO file and will create a trimmed-down Windows 11 ISO named Tiny11.iso without inbox apps and Edge Browser." +
+                            "\nFor more details, visit: https://github.com/ntdevlabs/tiny11builder", "Important Note", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            // Initialize necessary handlers
+            DownloadHandler downloadHandler = new DownloadHandler(logger);
+            CommandsHandler commandsHandler = new CommandsHandler(logger);
+
+            // Download the necessary files
+            string desktopPath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+            string zipFilePath = Path.Combine(desktopPath, "tiny11builder_01-05-24.zip");
+            string extractPath = desktopPath;
+
+            await downloadHandler.DownloadFiles(new Dictionary<string, string>
+                {
+                    { "tiny11builder", "https://github.com/ntdevlabs/tiny11builder/releases/download/01-05-24/tiny11builder_01-05-24.zip" }
+                }, desktopPath);
+
+            // Extract tiny11builder archive
+            try
+            {
+                ZipFile.ExtractToDirectory(zipFilePath, extractPath);
+            }
+            catch (Exception ex)
+            {
+                logger.Log($"Error extracting files: {ex.Message}", Color.Red);
+            }
+
+            // Log steps
+            logger.Log("1. Please download Windows 11 from the Microsoft website: https://www.microsoft.com/software-download/windows11", Color.Red);
+            logger.Log("2. Mounting the downloaded ISO image using Windows Explorer...", Color.Blue);
+            logger.Log("3. Selecting the drive letter where the image is mounted...", Color.Green);
+            logger.Log("4. Selecting the SKU for the image...", Color.Green);
+            logger.Log("5. Sit back and relax :)", Color.Green);
+            logger.Log("More details here https://github.com/ntdevlabs/tiny11builder", Color.Magenta);
+
+            // Ask to mount ISO image
+            DialogResult result = MessageBox.Show("Do you want to mount the ISO image?", "Mount ISO", MessageBoxButtons.YesNo);
+            if (result == DialogResult.Yes)
+            {
+                // Allow selecting ISO image file
+                using (OpenFileDialog openFileDialog = new OpenFileDialog())
+                {
+                    openFileDialog.Filter = "ISO files (*.iso)|*.iso|All files (*.*)|*.*";
+                    openFileDialog.InitialDirectory = desktopPath;
+                    openFileDialog.RestoreDirectory = true;
+
+                    if (openFileDialog.ShowDialog() == DialogResult.OK)
+                    {
+                        string selectedIsoFilePath = openFileDialog.FileName;
+
+                        // Log selected ISO file path
+                        logger.Log($"Selected ISO file: {selectedIsoFilePath}", Color.Green);
+
+                        // Mount ISO file using PowerShell
+                        ProcessStartInfo psi = new ProcessStartInfo
+                        {
+                            FileName = "powershell.exe",
+                            Arguments = $"-Command Mount-DiskImage -ImagePath \"{selectedIsoFilePath}\"",
+                            RedirectStandardOutput = true,
+                            RedirectStandardError = true,
+                            UseShellExecute = false,
+                            CreateNoWindow = true
+                        };
+
+                        Process process = Process.Start(psi);
+                        await process.WaitForExitAsync();
+
+                        string output = process.StandardOutput.ReadToEnd();
+                        string error = process.StandardError.ReadToEnd();
+
+                        if (!string.IsNullOrEmpty(error))
+                        {
+                            MessageBox.Show($"Error mounting ISO: {error}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                        else
+                        {
+                            MessageBox.Show($"ISO mounted successfully: {output}", "ISO Mounted", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                            // Run PowerShell script once the ISO image is mounted
+                            commandsHandler.StartProcess("powershell.exe", $"-ExecutionPolicy Bypass -File \"{desktopPath}\\tiny11maker.ps1\"", true, createNoWindow: false);
+                        }
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("Skipping mounting the ISO image.", "Mount ISO", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
 
         // E.g. Support for my own Apps, like Appcopier
@@ -207,8 +303,8 @@ namespace Interop
             {
                 logger.Log($"Error handling processes: {ex.Message}", Color.DarkRed);
             }
-
         }
+
         public async Task CheckIPAddress()
         {
             try

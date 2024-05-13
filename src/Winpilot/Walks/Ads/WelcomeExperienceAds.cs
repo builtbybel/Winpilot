@@ -5,27 +5,27 @@ using System.Drawing;
 
 namespace Walks
 {
-    public class PrivacyExperience : WalksBase
+    public class WelcomeExperienceAds : WalksBase
     {
-        public PrivacyExperience(MainForm form, Logger logger) : base(form, logger)
+        public WelcomeExperienceAds(MainForm form, Logger logger) : base(form, logger)
         {
         }
 
-        private const string keyName = @"HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\OOBE";
-        private const int desiredValue = 1;
+        private const string keyName = @"HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager";
+        private const int desiredValue = 0;
 
-        public override string ID() => "Privacy Settings Experience at sign-in";
+        public override string ID() => "Welcome Experience Ads";
 
         public override bool CheckFeature()
         {
-            return !Utils.IntEquals(keyName, "DisablePrivacyExperience", desiredValue);
+            return !Utils.IntEquals(keyName, "SubscribedContent-310093Enabled", 0);
         }
 
         public override bool DoFeature()
         {
             try
             {
-                Registry.SetValue(keyName, "DisablePrivacyExperience", 0, Microsoft.Win32.RegistryValueKind.DWord);
+                Registry.SetValue(keyName, "SubscribedContent-310093Enabled", 1, Microsoft.Win32.RegistryValueKind.DWord);
 
                 return true;
             }
@@ -41,7 +41,7 @@ namespace Walks
         {
             try
             {
-                Registry.SetValue(keyName, "DisablePrivacyExperience", 1, Microsoft.Win32.RegistryValueKind.DWord);
+                Registry.SetValue(keyName, "SubscribedContent-310093Enabled", 0, Microsoft.Win32.RegistryValueKind.DWord);
 
                 return true;
             }

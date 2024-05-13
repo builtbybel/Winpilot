@@ -61,7 +61,7 @@ namespace Interop
 
             // Keywords for non-Microsoft apps
             string[] nonMicrosoftKeywords = { "Netflix", "Instagram", "Spotify", "Twitter", "WhatsApp",
-                                      "HP", "TikTok", "Adobe", "Asana", "Google", "Facebook", "Messenger",
+                                      "AD2F1837", "HP", "TikTok", "Adobe", "Asana", "Google", "Facebook", "Messenger",
                                       "Candy", "Disney", "Dolby", "Duolingo", "Eclipse", "Fitbit", "Flipboard", "Fresh",
                                       "Gameloft", "Gears", "Hulu", "Google", "iHeartRadio", "iTunes", "Khan", "King",
                                       "Lenovo", "Minecraft", "Netflix", "NordVPN", "Norton", "Opera", "Pandora",
@@ -207,73 +207,30 @@ namespace Interop
 
                 foreach (var package in group)
                 {
-                    // Individual toggle switch with new class 'custom-toggle-switch'
-                    htmlBuilder.AppendLine("<div class=\"custom-toggle-switch\">");
+                    // Individual toggle switch with new class 'package-toggle-switch'
+                    htmlBuilder.AppendLine("<div class=\"package-toggle-switch\">");
                     htmlBuilder.AppendLine($"<input type=\"checkbox\" id=\"{package}\" onchange=\"updateSelectedPackages('{package}')\">");
                     htmlBuilder.AppendLine($"<label for=\"{package}\">{package}</label>");
                     htmlBuilder.AppendLine("</div>");
                 }
 
-                // Close the grid container and group container
+                // Close grid container and group container
                 htmlBuilder.AppendLine("</div>"); // End of toggle-switch-grid
                 htmlBuilder.AppendLine("</div>"); // End of package-group
             }
 
-            // Close the main container
+            // Close main container
             htmlBuilder.AppendLine("</div>");
 
-            // CSS styles for the toggle switches
-            htmlBuilder.AppendLine("<style>");
-            htmlBuilder.AppendLine(".package-group {");
-            htmlBuilder.AppendLine("  margin-bottom: 20px;");
-            htmlBuilder.AppendLine("}");
-            htmlBuilder.AppendLine(".package-group h2 {");
-            htmlBuilder.AppendLine("  font-size: 24px;");
-            htmlBuilder.AppendLine("  color: #333;");
-            htmlBuilder.AppendLine("  margin-bottom: 10px;");
-            htmlBuilder.AppendLine("}");
-            htmlBuilder.AppendLine(".toggle-switch-grid {");
-            htmlBuilder.AppendLine("  display: grid;");
-            htmlBuilder.AppendLine("  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));"); // Automatic sizing
-            htmlBuilder.AppendLine("  grid-gap: 10px;");
-            htmlBuilder.AppendLine("}");
-            htmlBuilder.AppendLine(".custom-toggle-switch {"); // Specific styling for custom toggle switches
-            htmlBuilder.AppendLine("  display: flex;");
-            htmlBuilder.AppendLine("  align-items: center;");
-            htmlBuilder.AppendLine("}");
-            htmlBuilder.AppendLine(".custom-toggle-switch input {");
-            htmlBuilder.AppendLine("  display: none;");
-            htmlBuilder.AppendLine("}");
-            htmlBuilder.AppendLine(".custom-toggle-switch label {");
-            htmlBuilder.AppendLine("  cursor: pointer;");
-            htmlBuilder.AppendLine("  background-color: #ccc;");
-            htmlBuilder.AppendLine("  border-radius: 10px;");
-            htmlBuilder.AppendLine("  padding: 8px 12px;");
-            htmlBuilder.AppendLine("}");
-            htmlBuilder.AppendLine(".custom-toggle-switch input:checked + label {");
-            htmlBuilder.AppendLine("  background-color: #4CAF50;");
-            htmlBuilder.AppendLine("  color: #fff;");
-            htmlBuilder.AppendLine("}");
-            htmlBuilder.AppendLine("</style>");
-
-            // JavaScript functions for updating and removing selected packages
+            // JS functions for updating and removing selected packages
             htmlBuilder.AppendLine("<script>");
             htmlBuilder.AppendLine("var selectedPackages = [];");
             htmlBuilder.AppendLine("function updateSelectedPackages(packageFamilyName) {");
-            htmlBuilder.AppendLine("var index = selectedPackages.indexOf(packageFamilyName);");
-            htmlBuilder.AppendLine("if (index === -1) {");
-            htmlBuilder.AppendLine("selectedPackages.push(packageFamilyName);");
-            htmlBuilder.AppendLine("} else {");
-            htmlBuilder.AppendLine("selectedPackages.splice(index, 1);");
-            htmlBuilder.AppendLine("}");
-            htmlBuilder.AppendLine("}");
-            htmlBuilder.AppendLine("function removeSelectedPackages() {");
-            htmlBuilder.AppendLine("window.chrome.webview.postMessage(JSON.stringify({ action: 'removeSelectedPackages', selectedPackages: selectedPackages }));");
-            htmlBuilder.AppendLine("}");
             htmlBuilder.AppendLine("</script>");
 
             return htmlBuilder.ToString();
         }
+
 
         public async void RemoveSelectedPackages(List<string> selectedPackages)
         {
@@ -302,6 +259,7 @@ namespace Interop
                 }
 
                 await LoadInstalledAppPackages(); // Global refresh
+
                 // Refresh our appx packages shown in Pinned apps section after removal
                 string refreshedHtml = await GetPinnedAppPackages();
                 await form.WebView.CoreWebView2.ExecuteScriptAsync($"document.getElementById('buttonsAppx-container').innerHTML = `{refreshedHtml}`;");

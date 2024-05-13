@@ -29,11 +29,6 @@ namespace Interop
         public string Description { get; set; } // Extensions plugin
         public Dictionary<string, string> DownloadUri { get; set; } // download handler  (e.g. multiple files, localizations)
 
-        // Support for Vive tool (optional package)
-        public string ViveCommand { get; set; }
-
-        public string ViveFeatureId { get; set; }
-        public string ViveBuildAvailability { get; set; }
     }
 
     public class ClippyLogicHandler : InteropBase
@@ -245,11 +240,11 @@ namespace Interop
                     // Adjust button text based on installation status and hardcoded parameter
                     if (isInstalled || isHardcoded)
                     {
-                        pluginHtml.AppendLine($"<button class='execute-button' onclick='executePluginEntry(\"{entry.Question}\")'>Run plugin</button>");
+                        pluginHtml.AppendLine($"<button class='execute-button' onclick='executePluginEntry(\"{entry.Question}\")'>RUN</button>");
                     }
                     else
                     {
-                        pluginHtml.AppendLine($"<button class='install-button' onclick='installPlugin(\"{pluginName}\", \"{entry.GithubURL}\")'>Install</button>");
+                        pluginHtml.AppendLine($"<button class='install-button' onclick='installPlugin(\"{pluginName}\", \"{entry.GithubURL}\")'>GET</button>");
                     }
 
                     pluginHtml.AppendLine("</div>");
@@ -411,15 +406,15 @@ namespace Interop
 
                 // Here Winpilot plugins are called, trigger js functions to scroll to the respective sections
                 case "plugCotweaker":
-                    await form.WebView.CoreWebView2.ExecuteScriptAsync("activateStep('stepSystemHeader');");
+                    await form.WebView.CoreWebView2.ExecuteScriptAsync("showContainer('stepSystemHeader');");
                     break;
 
                 case "plugDecrapify":
-                    await form.WebView.CoreWebView2.ExecuteScriptAsync("activateStep('stepAppxHeader');");
+                    await form.WebView.CoreWebView2.ExecuteScriptAsync("showContainer('stepAppxHeader');");
                     break;
 
                 case "plugWingetUI":
-                    await form.WebView.CoreWebView2.ExecuteScriptAsync("activateStep('stepAppsHeader');");
+                    await form.WebView.CoreWebView2.ExecuteScriptAsync("showContainer('stepAppsHeader');");
                     break;
 
                 case "plugCopilotless":
@@ -438,32 +433,6 @@ namespace Interop
                     // Download files to target directory
                     await downloadHandler.DownloadFiles(selectedAnswer.DownloadUri, targetDirectoryLocale);
                     Logger.Log(selectedAnswer.Response, Color.Magenta);
-                    break;
-
-                // File downloader for e.g., plugins in plugins directory
-                case "coDownload":
-                    string filesDirectory = Path.GetDirectoryName(System.Reflection.Assembly.GetEntryAssembly().Location);
-                    string targetDirectoryPlugins = Path.Combine(filesDirectory, "plugins");
-                    await downloadHandler.DownloadFiles(selectedAnswer.DownloadUri, targetDirectoryPlugins);
-                    break;
-
-                // Vive tool (optional package)
-                case "viveTool":
-                    string viveToolPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory + "\\plugins\\vivetool\\", "vivetool.exe");
-                    string featureId = selectedAnswer.ViveFeatureId;
-
-                    // Construct ViveTool command to enable feature
-                    if (selectedAnswer.ViveCommand.Equals("enable", StringComparison.OrdinalIgnoreCase))
-                    {
-                        string viveToolCommand = $" /enable /id:{featureId}";
-                        commandHandler.StartProcess(viveToolPath, viveToolCommand, true, createNoWindow: true);
-                    }      // Construct ViveTool command to disable feature
-                    else if (selectedAnswer.ViveCommand.Equals("disable", StringComparison.OrdinalIgnoreCase))
-                    {
-                        string viveToolCommand = $" /disable /id:{featureId}";
-                        commandHandler.StartProcess(viveToolPath, viveToolCommand, true, createNoWindow: true);
-                    }
-                    Logger.Log($"Build Availability: {selectedAnswer.ViveBuildAvailability}", Color.MediumPurple);
                     break;
 
                 // Default for running external processes, URIs and opening linkhandler

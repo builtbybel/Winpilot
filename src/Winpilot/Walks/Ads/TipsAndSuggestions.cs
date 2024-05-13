@@ -1,31 +1,32 @@
 ﻿using Microsoft.Win32;
-using Winpilot;
 using System;
 using System.Drawing;
+using Winpilot;
 
 namespace Walks
 {
-    public class PrivacyExperience : WalksBase
+    internal class TipsAndSuggestions : WalksBase
     {
-        public PrivacyExperience(MainForm form, Logger logger) : base(form, logger)
+        public TipsAndSuggestions(MainForm form, Logger logger) : base(form, logger)
         {
         }
 
-        private const string keyName = @"HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\OOBE";
-        private const int desiredValue = 1;
+        private const string keyName = @"HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\ContentDeliveryManager";
+        private const int desiredValue = 0;
 
-        public override string ID() => "Privacy Settings Experience at sign-in";
+        public override string ID() => "General Tips and Ads";
 
         public override bool CheckFeature()
         {
-            return !Utils.IntEquals(keyName, "DisablePrivacyExperience", desiredValue);
+            return !(Utils.IntEquals(keyName, "SubscribedContent-338389Enabled", desiredValue)
+                 );
         }
 
         public override bool DoFeature()
         {
             try
             {
-                Registry.SetValue(keyName, "DisablePrivacyExperience", 0, Microsoft.Win32.RegistryValueKind.DWord);
+                Registry.SetValue(keyName, "SubscribedContent-338389Enabled", 1, Microsoft.Win32.RegistryValueKind.DWord);
 
                 return true;
             }
@@ -41,7 +42,7 @@ namespace Walks
         {
             try
             {
-                Registry.SetValue(keyName, "DisablePrivacyExperience", 1, Microsoft.Win32.RegistryValueKind.DWord);
+                Registry.SetValue(keyName, "SubscribedContent-338389Enabled", desiredValue, Microsoft.Win32.RegistryValueKind.DWord);
 
                 return true;
             }

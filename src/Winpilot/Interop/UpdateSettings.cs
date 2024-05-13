@@ -27,7 +27,7 @@ namespace Interop
 
                 if (appUpdatesAvailable)
                 {
-                    logger.Log("Winpilot update is available.", Color.Magenta);
+                    logger.Log("Winpilot update is available. https://github.com/builtbybel/Winpilot/releases", Color.Magenta);
                 }
                 else
                 {
@@ -103,7 +103,7 @@ namespace Interop
                     {
                         if (MessageBox.Show($"App version {latestVersion} available.\nDo you want to open the Download page?", "App update available", MessageBoxButtons.YesNo, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1) == DialogResult.Yes)
                         {
-                            Process.Start("https://github.com/builtbybel/Winpilot");
+                            Process.Start("https://github.com/builtbybel/Winpilot/releases");
                         }
                         return true;
                     }

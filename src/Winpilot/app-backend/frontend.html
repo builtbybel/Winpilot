@@ -1,586 +1,609 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Winpilot</title>
-    <link rel="stylesheet" type="text/css" href="UI.css">
-    <script src="backend.js"></script>
-</head>
-<body>
-
-<!-- Contribution menu -->
-<div class="links-container">
-  <div class="dev-dropdown">
-    <div class="dev-dropdown-content"> 
-      <a href="https://github.com/builtbybel/Winpilot/issues/new?labels=help%20wanted&template=help-wanted.md" target="_blank">Help Wanted</a>
-	   <a href="https://github.com/builtbybel/Winpilot/tree/main/src/Winpilot/Winpilot">Help with C# Code</a>
-      <a href="https://github.com/builtbybel/Winpilot/blob/main/src/Winpilot/app-backend/backend.js">Improve Backend with JS </a>
-      <a href="https://github.com/builtbybel/Winpilot/blob/main/src/Winpilot/app-backend/UI.css">Improve UI with HTML/CSS</a>
-      <a href="https://twitter.com/share?url=https://github.com/builtbybel/Winpilot;text=Introducing%20Winpilot:%20Your%20Personal%20Windows%20Companion%20%F0%9F%9A%80%20Upgrade%20to%20Winpilot,%20the%20sleek%20evolution%20of%20Bloatynosy!%20No%20more%20bloatware,%20just%20a%20faster,%20smoother%20Windows%20experience!%20%23Winpilot%20%23Windows11%20%23Microsoft%20%23windows10%20%23app%20%23AI" target="_blank">Share on Twitter</a>
-      <a href="https://github.com/builtbybel/Winpilot" target="_blank">Follow on GitHub</a>
-    </div>
-    <button class="dev-dropbtn">Join the Code</button>
-  </div>
-  <a href="https://github.com/builtbybel/Winpilot" target="_blank" class="modern-link" title="Follow Winpilot on GitHub">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg" alt="GitHub Logo" width="16" height="16">
-  </a>
-</div>
-
-<!-- Step: Home -->
-<div class="glassy-box setup-step active" id="stepHomeHeader">
-    <h1>Winpilot</h1>
-    <p>Winpilot is the upgraded version of Bloatynosy. Customize Windows 10 and 11 step-by-step or chat with Clippy for quick system actions.</p>  
-<!-- Assisted Chatbox container with its autocomplete input -->   
-    <div class="chatbox-container">
-        <input type="text" id="chatbox" placeholder="Ask the savvy Clippy">
-    </div>
-</div>
-
-<div id="setupContainer">
-
-<!--  Step: CoTweaker  -->
-    <div class="glassy-box setup-step" id="stepSystemHeader">
-			<p id="systemHeader-sub" style="display: none;">
-			<div class="handheld-badge">Improved Legion Go and ROG Ally support</div>
-			<h2>Let's customize your experience</h2>
-            <p>Utilize the CoTweaker Plugin to customize your privacy, system, and gaming settings. Simply toggle features on or off based on your preferences. It's an easy way to fine-tune your Windows experience to suit your needs.</p>	
-     <!--    <button id="btnSearch" onclick="searchFeatures()">Detect current settings</button>	 -->		   
-        <div>
-	<div>
-	
-   <!-- Privacy Settings -->
-    <div class="section-header">Privacy</div>
-    <div class="settings-group">
-        <div>   
-            <label class="toggle-switch" for="Advertising">
-                <input type="checkbox" id="Advertising">
-                <span class="toggle-switch-label"></span>
-            </label>
-            <span class="checkbox-label" onclick="toggleDescription(this)">Let apps show me personalized ads by using my advertising ID</span>
-			 <p class="description">
-                Windows 11 comes integrated with advertising. Microsoft assigns a unique identifier to track your
-                activity in the Microsoft Store and on UWP apps to target you with relavant ads
-            </p>
-        </div>
-		
-		 <div>
-            <label class="toggle-switch" for="Tips and suggestions">
-                <input type="checkbox" id="Tips and suggestions">
-                <span class="toggle-switch-label"></span>
-            </label>
-            <span class="checkbox-label" onclick="toggleDescription(this)">Get tips and suggestions when using Windows</span>
-		    <p class="description">Tips and Suggestions Notifications on your Windows device for a more focused computing experience</p>
-        </div>
-
-        <div>
-            <label class="toggle-switch" for="Find my device">
-                <input type="checkbox" id="Find my device">
-                <span class="toggle-switch-label"></span>
-            </label>
-            <span class="checkbox-label" onclick="toggleDescription(this)">Find my device</span>
-			<p class="description">Windows won't be able to help you keep track of your device if you lose it.</p>
-        </div>
-
-        <div>
-            <label class="toggle-switch" for="Diagnostic data">
-                <input type="checkbox" id="Diagnostic data">
-                <span class="toggle-switch-label"></span>
-            </label>
-            <span class="checkbox-label" onclick="toggleDescription(this)">Diagnostic data</span>            
-			<p class="description">
-                Send only info about your device, its settings and capabilities, and whether it is performing properly.
-                Diagnostic data is used to help keep Windows secure and up to date, troubleshoot problems, and make
-                product improvements
-            </p>
-        </div>
-
-        <div>
-            <label class="toggle-switch" for="Send optional diagnostic data">
-                <input type="checkbox" id="Send optional diagnostic data">
-                <span class="toggle-switch-label"></span>
-            </label>
-            <span class="checkbox-label" onclick="toggleDescription(this)">Send optional diagnostic data</span>
-			<p class="description">
-                Help Microsoft improve your Windows experience and fix problems more quickly by sending us additional
-                diagnostic data. This includes data about websites you browse, how you use apps and features, and
-                enhanced error reporting.
-            </p>
-        </div>
-		     
-			 <div>
-            <label class="toggle-switch" for="Running apps in background">
-                <input type="checkbox" id="Running apps in background">
-                <span class="toggle-switch-label"></span>
-            </label>
-            <span class="checkbox-label" onclick="toggleDescription(this)">Running Apps in background</span>
-			<p class="description">
-            This will disable Microsoft Store apps from running in the background.
-            </p>
-        </div>
-		
-		  <div>
-            <label class="toggle-switch" for="Privacy Settings Experience at sign-in">
-                <input type="checkbox" id="Privacy Settings Experience at sign-in">
-                <span class="toggle-switch-label"></span>
-            </label>
-            <span class="checkbox-label" onclick="toggleDescription(this)">Privacy Settings Experience at sign-in</span>
-		    <p class="description">
-                When you create a new account in Windows, it comes up with options related to privacy. For example, you
-                will see the option to enable or disable Speech recognition, Location service, Find my device, Inking &
-                typing, and so on.
-            </p>
-        </div>
-     </div> 
-   </div>
-
-  <!-- System Settings -->
-    <div class="section-header">System</div>
-    <div class="settings-group">
-	     <div>
-            <label class="toggle-switch" for="Full context menus">
-                <input type="checkbox" id="Full context menus">
-                <span class="toggle-switch-label"></span>
-            </label>
-            <span class="checkbox-label" onclick="toggleDescription(this)">Full Context Menus in Windows 11</span>
-		    <p class="description">
-               Truncated context menus are Windows 11 worst feature.
-            </p>
-        </div>
-		
-        <div>
-            <label class="toggle-switch" for="Lock screen">
-                <input type="checkbox" id="Lock screen">
-                <span class="toggle-switch-label"></span>
-            </label>
-            <span class="checkbox-label" onclick="toggleDescription(this)">Use personalized lock screen</span>
-		    <p class="description">
-                You can customize your lock screen. Try changing the background to a favorite photo or slide show. You
-                can also choose quick status notifications to show you upcoming calendar events, social network updates,
-                or other app and system notifications.
-            </p>
-        </div>
-		
-	   <div>
-            <label class="toggle-switch" for="Display highly detailed status messages">
-                <input type="checkbox" id="Display highly detailed status messages">
-                <span class="toggle-switch-label"></span>
-            </label>
-            <span class="checkbox-label" onclick="toggleDescription(this)">Display highly detailed status messages</span>
-	        <p class="description">
-                If your PC is experiencing slowdowns or inexplicable crashes, then you should make it your priority to
-                diagnose what’s causing those problems. You can configure Windows so that you receive verbose startup,
-                shutdown, logon, and logoff status messages. Verbose status messages may be helpful when you're
-                troubleshooting slow startup, shutdown, logon, or logoff behavior.
-            </p>
-        </div>
-		
-		<div>
-            <label class="toggle-switch" for="Uninstall Fax Printer">
-                <input type="checkbox" id="Uninstall Fax Printer">
-                <span class="toggle-switch-label"></span>
-            </label>
-            <span class="checkbox-label" onclick="toggleDescription(this)">Uninstall Fax Printer</span>
-		    <p class="description">
-               This will uninstall the Fax Printer. This action can not be undone.
-            </p>
-        </div>
-		
-		<div>
-            <label class="toggle-switch" for="Uninstall XPS Writer">
-                <input type="checkbox" id="Uninstall XPS Writer">
-                <span class="toggle-switch-label"></span>
-            </label>
-            <span class="checkbox-label" onclick="toggleDescription(this)">Uninstall XPS Writer</span>
-		    <p class="description">
-               This will install or uninstall the XPS Writer.
-            </p>
-        </div>
-		
-      </div>	  
-    </div>
-
-    <!-- Gaming Settings -->
-    <div class="section-header">Gaming</div>
-    <div class="settings-group">
-        <div>
-            <label class="toggle-switch" for="VisualFX">
-                <input type="checkbox" id="VisualFX">
-                <span class="toggle-switch-label"></span>
-            </label>
-            <span class="checkbox-label" onclick="toggleDescription(this)">Adjust visual effects for best performance</span>
-		    <p class="description">
-                Visual effects are the visual bells and whistles for the appearance of Windows for your account.
-                These visual bells and whistles can affect the performance of Windows on the PC though.
-                This will turn off all visual effects under My computer > Properties > Advanced > Settings > and set to "Adjust for best performance".
-            </p>
-        </div>
-		
-		<div>
-            <label class="toggle-switch" for="GameDVR">
-                <input type="checkbox" id="GameDVR">
-                <span class="toggle-switch-label"></span>
-            </label>
-            <span class="checkbox-label" onclick="toggleDescription(this)">Game DVR feature</span>
-			<p class="description">
-               The built-in Game DVR feature helps you record your gameplay, capture screenshots, and share them online.
-               But it can interfere with your game’s performance, too. Background recording requires some of your GPU power, and some gamers will want all the GPU power they can get.
-               If you experience low FPS or FPS loss after upgrading to Windows 11, you may resolve the issue by disabling the Xbox DVR feature.
-            </p>
-        </div>
-		
-		<div>
-            <label class="toggle-switch" for="PowerThrottling">
-                <input type="checkbox" id="PowerThrottling">
-                <span class="toggle-switch-label"></span>
-            </label>
-            <span class="checkbox-label" onclick="toggleDescription(this)">Power Throttling</span>
-			 <p class="description">
-               With the Windows 10 Fall Creators Update, Microsoft’s OS has added feature called Power Throttling
-               Power Throttling is only available on Intel 6th gen and higher processors), a way to increase the battery life of laptops by slowing down background processes.
-               This feature is enabled by default in laptops and tablets. Though Windows is good at detecting background apps and limiting power, there might be situations where this feature is not so desirable.
-            </p>
-        </div>
-    </div>
-
-  <!-- Taskbar Settings -->
-    <div class="section-header">Taskbar and Start menu</div>
-    <div class="settings-group">
-		<div>
-            <label class="toggle-switch" for="Bing Cloud content search">
-                <input type="checkbox" id="Bing Cloud content search">
-                <span class="toggle-switch-label"></span>
-            </label>
-            <span class="checkbox-label" onclick="toggleDescription(this)" >Say goodbye to Bing Cloud content search</span>
-			 <p class="description">
-                The Windows 11 Start menu comes with a default Bing search engine. It shows up when you use Windows
-                Search or open the Start menu. For local searches, it doesn't work well and slows down the search
-                experience.
-            </p>
-        </div>
-		
-		<div>
-            <label class="toggle-switch" for="Ads in Windows 11 Start">
-                <input type="checkbox" id="Ads in Windows 11 Start">
-                <span class="toggle-switch-label"></span>
-            </label>
-            <span class="checkbox-label" onclick="toggleDescription(this)">Show recommendations for tips, app promotions, and more 			  <a href="https://blogs.windows.com/windows-insider/2024/04/12/announcing-windows-11-insider-preview-build-22635-3495-beta-channel/" target="_blank">(more Info)</a></span>
-		    <p class="description">
-              Microsoft says the app ads will appear only on Windows Insiders' systems in the U.S. and not on managed devices in enterprise environments.
-			  These ads will be displayed in the Start menu's Recommended section, among recently added applications and frequently opened files and programs. 
-            </p>
-        </div>
-		
-	     <div>
-            <label class="toggle-switch" for="Most used apps in start menu">
-                <input type="checkbox" id="Most used apps in start menu">
-                <span class="toggle-switch-label"></span>
-            </label>
-            <span class="checkbox-label" onclick="toggleDescription(this)">Hide most used apps in start menu</span>
-		    <p class="description">
-              Show or hide most used apps in Windows 11 start menu.
-            </p>
-        </div>
-		
-        <div>
-            <label class="toggle-switch" for="Pin more Apps on Start menu">
-                <input type="checkbox" id="Pin more Apps on Start menu">
-                <span class="toggle-switch-label"></span>
-            </label>
-            <span class="checkbox-label" onclick="toggleDescription(this)">Pin more Apps on Start menu</span>
-		    <p class="description">
-				Pin more Apps on Start menu in Windows 11 start menu.
-            </p>
-        </div>
-		
-		 <div>
-            <label class="toggle-switch" for="Chat icon on taskbar">
-                <input type="checkbox" id="Chat icon on taskbar">
-                <span class="toggle-switch-label"></span>
-            </label>
-            <span class="checkbox-label" onclick="toggleDescription(this)">Chat icon on taskbar</span>
-		    <p class="description">
-			      Show or hide Chat icon of Microsoft Teams on Windows 11 taskbar.
-            </p>
-        </div>
-		
-		<div>
-            <label class="toggle-switch" for="Task view button on taskbar">
-                <input type="checkbox" id="Task view button on taskbar">
-                <span class="toggle-switch-label"></span>
-            </label>
-            <span class="checkbox-label" onclick="toggleDescription(this)">Task view button on taskbar</span>
-		    <p class="description">
-			      Show or hide Task view button on Windows 11 taskbar.
-            </p>
-        </div>  
-	 </div>  
-	 
-	 	<!-- AI/Copilot Settings -->
-		<div class="section-header">🤖 AI/Copilot features in Windows</div>
-		<div class="settings-group">
-			 <p>
-			  Feel free to search for AI/Copilot features right here in Windows, whether it's in the Edge browser or the taskbar. 
-			 If Copilot activities are detected, you can easily disable them on the initial page using the search box.
-			 </p>
-		  <button class="wizard-button" onclick="plugCopilotless()">Search for AI/Copilot features in Windows</button>
-	  </div>	
-	  
-	  	<div>
-            <label class="toggle-switch" for="Copilot in Edge">
-                <input type="checkbox" id="Copilot in Edge">
-                <span class="toggle-switch-label"></span>
-            </label>
-            <span class="checkbox-label" onclick="toggleDescription(this)">Copilot Button in Microsoft Edge</span>
-		    <p class="description">
-			   This will remove Copilot/AI in Microsoft Edge browser.
-            </p>
-        </div>  
-	 
-	 	 <div>
-            <label class="toggle-switch" for="Copilot in Taskbar">
-                <input type="checkbox" id="Copilot in Taskbar">
-                <span class="toggle-switch-label"></span>
-            </label>
-            <span class="checkbox-label" onclick="toggleDescription(this)">Copilot Icon in Taskbar</span>
-		    <p class="description">
-			   This will remove Copilot/AI Icon in the Taskbar.
-            </p>
-        </div>  
-	
- </div>
-
-<!--  Step: Decrapify -->
-<div class="glassy-box setup-step" id="stepAppxHeader">
-    <h2>Debloat with Decrapify</h2>
-    <p>Say goodbye to unwanted apps with the Decrapify plugin! You have two options: either manually select and remove specific apps, or utilize the Assisted search button to let Decrapify effortlessly handle the entire process for you.</p> 
-    <!-- Recommended for removal -->
-    <h3>Recommended for removal<span id="recommendedPackagesCount"></span></h3>
-    <!-- Decrapify appx removal buttons -->
-    <div id="buttonsAppx-container" title="Click to remove this app">
-        <!-- The buttons will be dynamically loaded from C# -->
-    </div>
-    <h3>Installed App Packages<span id="installedPackagesCount"></span></h3>
-    <button onclick="removeSelectedPackages()">Remove selected (manual)</button>
-    <button id="btnsearchCustomCrapware" onclick="searchCustomCrapware()">Assisted search for crapware (optional)</button>
-    <button id="btnremoveCustomCrapware" onclick="removeCustomCrapware()">Remove found crapware with Assisted scan</button>
-    <div id="appPackagesContainer">
-        <!-- Toggle switches for installed app packages will be dynamically loaded here -->
-    </div>
-</div>
-
-
-<!--  Step: WingetUI -->
-    <div class="glassy-box setup-step" id="stepAppsHeader">
-	   <h2>Install with WingetUI</h2>
-        <p>Experience the convenience of WingetUI. This user-friendly interface simplifies app installations, making the process quick and hassle-free. Say goodbye to tedious downloads and installations - WingetUI has got you covered.</p>
-        <button id="btnInstallSelectedApps" onclick="installSelectedApps()">Install selected</button>
-        </p>
-        <div id="appList">
-            <div class="app-item">
-                <div class="toggle-switch">
-                    <input type="checkbox" class="toggle-switch-checkbox" id="app1Toggle">
-                    <label class="toggle-switch-label" for="app1Toggle"></label>
-                </div>
-                <label class="checkbox-label" for="app1Toggle">Google Chrome</label>
-                <p>ID <span id="app1WingetId">Google.Chrome</span></p>
-                <p>A more simple, secure, and faster web browser than ever, with Google’s smarts built-in.</p>
-            </div>
-
-            <div class="app-item">
-                <div class="toggle-switch">
-                    <input type="checkbox" class="toggle-switch-checkbox" id="app2Toggle">
-                    <label class="toggle-switch-label" for="app2Toggle"></label>
-                </div>
-                <label class="checkbox-label" for="app2Toggle">Mozilla Firefox</label>
-                <p>ID <span id="app2WingetId">Mozilla.Firefox</span></p>
-                <p>
-                    Mozilla Firefox is free and open source software, built by a community of thousands from all over the
-                    world.
-                </p>
-            </div>
-
-            <div class="app-item">
-                <div class="toggle-switch">
-                    <input type="checkbox" class="toggle-switch-checkbox" id="app3Toggle">
-                    <label class="toggle-switch-label" for="app3Toggle"></label>
-                </div>
-                <label class="checkbox-label" for="app3Toggle">Opera</label>
-                <p>ID <span id="app3WingetId">Opera.Opera</span></p>
-                <p>
-                    The Opera browser includes everything you need for private, safe, and efficient browsing, along with
-                    a variety of unique features to enhance your capabilities online.
-                </p>
-            </div>
-
-            <div class="app-item">
-                <div class="toggle-switch">
-                    <input type="checkbox" class="toggle-switch-checkbox" id="app4Toggle">
-                    <label class="toggle-switch-label" for="app4Toggle"></label>
-                </div>
-                <label class="checkbox-label" for="app4Toggle">Vivaldi</label>
-                <p>ID <span id="app4WingetId">VivaldiTechnologies.Vivaldi</span></p>
-                <p>Web browser based on Chromium with added features inspired by Opera.</p>
-            </div>
-
-            <div class="app-item">
-                <div class="toggle-switch">
-                    <input type="checkbox" class="toggle-switch-checkbox" id="app5Toggle">
-                    <label class="toggle-switch-label" for="app5Toggle"></label>
-                </div>
-                <label class="checkbox-label" for="app5Toggle">VLC media player</label>
-                <p>ID <span id="app5WingetId">VideoLAN.VLC</span></p>
-                <p>
-                    VLC is a free and open source cross-platform multimedia player and framework that plays most
-                    multimedia files, and various streaming protocols.
-                </p>
-            </div>
-
-            <div class="app-item">
-                <div class="toggle-switch">
-                    <input type="checkbox" class="toggle-switch-checkbox" id="app6Toggle">
-                    <label class="toggle-switch-label" for="app6Toggle"></label>
-                </div>
-                <label class="checkbox-label" for="app6Toggle">7-Zip</label>
-                <p>ID <span id="app6WingetId">7Zip.7zip</span></p>
-                <p>Free and open source file archiver with a high compression ratio.</p>
-            </div>
-
-            <div class="app-item">
-                <div class="toggle-switch">
-                    <input type="checkbox" class="toggle-switch-checkbox" id="app7Toggle">
-                    <label class="toggle-switch-label" for="app7Toggle"></label>
-                </div>
-                <label class="checkbox-label" for="app7Toggle">Notepad++</label>
-                <p>ID <span id="app7WingetId">Notepad++.Notepad++</span></p>
-                <p>Notepad++ is a free source code editor that supports several languages.</p>
-            </div>
-
-            <div class="app-item">
-                <div class="toggle-switch">
-                    <input type="checkbox" class="toggle-switch-checkbox" id="app8Toggle">
-                    <label class="toggle-switch-label" for="app8Toggle"></label>
-                </div>
-                <label class="checkbox-label" for="app8Toggle">Microsoft PowerToys</label>
-                <p>ID <span id="app8WingetId">Microsoft.PowerToys</span></p>
-                <p>Microsoft PowerToys is a set of utilities for power users to tune and streamline their Windows experience for greater productivity.</p>
-            </div>
-
-            <div class="app-item">
-                <div class="toggle-switch">
-                    <input type="checkbox" class="toggle-switch-checkbox" id="app9Toggle">
-                    <label class="toggle-switch-label" for="app9Toggle"></label>
-                </div>
-                <label class="checkbox-label" for="app9Toggle">Adobe Acrobat Reader DC</label>
-                <p>ID <span id="app9WingetId">Adobe.Acrobat.Reader.64-bit </span></p>
-                <p>The free global standard for reliably viewing, printing, signing, and commenting on PDF documents.</p>
-            </div>
-
-            <div class="app-item">
-                <div class="toggle-switch">
-                    <input type="checkbox" class="toggle-switch-checkbox" id="app10Toggle">
-                    <label class="toggle-switch-label" for="app10Toggle"></label>
-                </div>
-                <label class="checkbox-label" for="app10Toggle">IrfanView</label>
-                <p>ID <span id="app10WingetId">IrfanSkiljan.IrfanView</span></p>
-                <p>Fast and compact image viewer and converter</p>
-            </div>
-            <!-- Here we can add more app items as needed -->
-        </div>
-    </div>
-	
-<!-- Step: Extensions -->
-<div class="glassy-box setup-step" id="steptweakHeader">
-    <div class="links-container">
-        <a href="https://github.com/builtbybel/Winpilot/issues/new" target="_blank" class="modern-link" style="display: block;">Suggest a new Extension</a>
-    </div>
-    <h2>PimpApp (Extensions)</h2>
-	<p>Discover external scripts and plugins to enhance your Winpilot experience and customize Windows to your preferences. 
-	With these extensions, you can modify Windows with tweaks just like you would manually with RegEdit or PowerShell, but in a simpler and more intuitive way. 
-	</p>
-    <div id="plugin-categories-container">
-        <!-- Plugin entries will be injected here -->
-    </div>
-</div>
-
-<!-- UI: Clippy -->
-	<div id="clippy-container">
-		<!-- The image will be dynamically loaded from C# -->
-		<img id="clippy-image">
-	</div>
-	
-	<div id="logContainer">
-		<p>Would you like help?</p>
-		<div class="assisted-container">
-				<p></p>
-				<!-- Assisted AI buttons -->
-				<div id="buttons-container">
-					<!-- The buttons will be dynamically loaded from C# -->
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Winpilot</title>
+      <link rel="stylesheet" type="text/css" href="UI.css">
+      <script src="backend.js"></script>
+   </head>
+   <body>
+      <div class="container">
+         <!-- Left side: Clippy Container -->
+         <div class="clippy-container">
+            <div class="glassy-box" id="stepClippyHeader">	
+			<h3>Hey there!</h3>
+			<p>I'm <a href="https://en.wikipedia.org/wiki/Office_Assistant" target="_blank" class="modern-link">Clippy</a>, your friendly Windows assistant. Need a hand today?</p>
+			<p><span style="font-size: x-small; color: gray;">Clippit is a registered trademark of © Microsoft Corporation. <a href="https://www.microsoft.com" class="modern-link" target="_blank">Learn more about Clippy and Microsoft</a>.</span></p>
+				  <!-- Assisted Chatbox container with its autocomplete input -->   
+                  <div class="chatbox-container">
+                     <input type="text" id="chatbox" placeholder="Ask the savvy Clippy"> 
+                  </div>
+               </div>
+         </div>
+		 
+         <!-- Right side: Workspace Containers -->
+         <div class="workspace-container">
+			<!-- Navigation Menu -->
+			<div class="navigation-menu">
+			   <a href="#" onclick="showContainer('stepSystemHeader')" data-tooltip="Personalize and remove ads">Setup</a>
+			   <a href="#" onclick="showContainer('stepAppxHeader')" data-tooltip="Remove unnecessary apps">Debloat</a>
+			   <a href="#" onclick="showContainer('stepAppsHeader')" data-tooltip="Install essential apps">Install</a>
+			   <a href="#" onclick="showContainer('stepStoreHeader')" data-tooltip="Explore extensions for Clippy (CLX)">Store</a>
+			</div>
+			<!-- Settings menu -->
+			<div class="links-container">
+				<!-- Toggle UI mode -->
+				<button class="ui-toggle-button" onclick="handleUIMode()">
+					Light/Dark 🌗
+				</button>
+				<!-- Vertical three dots menu -->
+				<div class="settings-dropdown">
+					<button class="settings-dropbtn">⋮</button>
+						<!-- Dropdown items -->
+					<div class="settings-dropdown-content">
+						<!-- Share -->
+						<a href="https://twitter.com/intent/tweet?text=Purge%20bloatware%2C%20ads%2C%20and%20annoyances%20from%20Windows%2011%20with%20Winpilot%20and%20Clippy!%20Upgrade%20your%20Windows%20experience%20now%3A%20https%3A%2F%2Fgithub.com%2Fbuiltbybel%2FWinpilot%20%23Winpilot%20%23Microsoft%20%23Windows11" target="_blank">
+							Share on X
+						</a>
+						<!-- GitHub -->
+						<a href="https://github.com/builtbybel/Winpilot" target="_blank" title="Follow Winpilot on GitHub" class="github-follow-link">
+							GitHub
+						</a>
+						<a href="https://github.com/builtbybel/Winpilot/tree/main/src/Winpilot">Help with Code</a>
+						<a href="https://github.com/builtbybel/Winpilot/issues/new?labels=help%20wanted&template=help-wanted.md" target="_blank">Help Wanted</a>
+						<a href="#" onclick="handleUpdatesClick()">Check for updates</a>
+						<a href="#" onclick="handleSettingsClick()">App Information</a>
+					</div>
 				</div>
-				<!-- Refresh button at the top-right corner -->
-				<div id="refreshButton" onclick="refreshAB()" title="Refresh">...</div>
-		</div>
-	</div>
+			</div>
+		<!-- Workspace Content -->
+		<div class="workspace-content">
+			<!-- Welcome Message & Options -->
+			<div class="glassy-box" id="stepHomeHeader">
+				<!-- Action Buttons in Workspace -->
+				<div class="workspace-action-buttons">
+					<button id="btnSystemHeader" class="workspace-btn" onclick="showContainer('stepSystemHeader')">
+						<span class="ws-action-title" style="font-size: x-large;">⭕ Block Ads in Windows 11</span>
+						<span class="ws-action-description">Unlock the potential of Windows 11 with these fixes or get assistance from Clippy</span>
+						<span class="handheld-badge recommended-badge">Recommended</span>
+					</button>
+					<!-- Additional buttons initially hidden -->
+					<button id="btnAppxHeader" class="workspace-btn" style="display: none;" onclick="showContainer('stepAppxHeader')">
+						<span class="ws-action-title" style="font-size: large;">Skip the Bloat</span>
+						<span class="ws-action-description">Unbloat PC yourself or assisted</span>
+						<span class="handheld-badge recommended-badge">Recommended</span>
+					</button>
+					<button id="btnStoreHeader" class="workspace-btn" style="display: none;" onclick="showContainer('stepStoreHeader')">
+						<span class="ws-action-title">Community Power</span>
+						<span class="ws-action-description">Explore Community extensions</span>
+						<span class="handheld-badge advanced-badge">Advanced</span>
+					</button>
+					<button id="btnTiny11" class="workspace-btn" style="display: none;" onclick="handleTiny11maker()">
+						<span class="ws-action-title">Tiny11</span>
+						<span class="ws-action-description">Build a trimmed-down Windows 11 image</span>
+						<span class="handheld-badge expert-badge">Expert</span>
+					</button>
+				</div>
+			   <!-- Additional Buttons for "More" and "Less" -->
+				<div class="additional-buttons">
+					<button class="ws-add-button" onclick="toggleButtons(true)">More &#8595;</button>
+					<button id="lessButton" class="ws-add-button" onclick="toggleButtons(false)" disabled>&#8593; Less</button>
+				</div>	
+				
+			</div>	
 
-<!-- Step Back button -->
-<button id="btnBack" onclick="goToStep('back')">
-    <span class="icon">&#xE72B;</span> <!-- Unicode for the back arrow -->
-</button>
-
-<!-- UI: Bottom Navigation container -->
-<div class="bottom-container">
-    <!-- Step Buttons Container -->
-    <div class="steps-assistant">
-        <button id="btnNext" onclick="goToStep('next')">Next</button>
-        <div class="dropdown-container">
-            <div class="dropdown">
-                <span class="dropbtn">Pilot</span>
-                <div class="dropdown-content">
-                    <ul class="menu">
-                        <div class="menu-flex-container">
-                            <div class="left-menu">
-                                <li class="menu-item switch-to-copilot" onclick="handleOpenCopilotClick()" title="Switch to Copilot for advanced assistance">
-                                    Switch to Copilot
-                                </li>
-							   <li class="menu-item" onclick="activateAndSearch('stepSystemHeader')" title="Enhance system performance, privacy, and gaming setup">
-									<span class="menu-icon">🕵️</span>
-									CoTweaker
-								</li>
-                                <li id="menu-item" class="menu-item" onclick="activateStep('stepAppxHeader')" title="Clean up your system from unnecessary apps">
-                                    <span class="menu-icon">🧼</span>
-                                    Decrapify
-                                </li>
-                                <li class="menu-item" onclick=" activateStep('stepAppsHeader')" title="Install apps easily with a user-friendly interface">
-                                    <span class="menu-icon">📱</span>
-                                    WingetUI
-                                </li>
-								 <li class="menu-item" onclick=" activateStep('steptweakHeader')" title="Modify Windows with tweaks just like you would manually with RegEdit or PowerShell.">
-                                    <span class="menu-icon">🧩</span>
-                                    PimpApp
-                                </li>
-                                <li class="menu-item" onclick="activateStep('stepHomeHeader')" style="font-weight: bold;" title="Need Clippy assistance?">
-                                    <span class="menu-icon">📎</span>
-                                    Ask Clippy?
-                                </li>
-                            </div>
-                            <div class="right-menu">
-                                <li class="menu-item" onclick="handleUpdatesClick()" style="color: blue;" title="Check for app updates">
-                                    Check for updates
-                                </li>
-                                <li class="menu-item" onclick="handleSettingsClick()" style="color: blue;" title="About Winpilot">
-                                    About this app
-                                </li>
-                            </div>
+               <!-- Container: Setup -->
+               <div class="glassy-box" id="stepSystemHeader" style="display: none;">
+                  <div class="handheld-badge">Improved Legion Go and ROG Ally support</div>
+                  <h2>Let's customize your experience</h2>
+                  <p>Simply toggle features on or off based on your preferences. It's an easy way to fine-tune your Windows experience to suit your needs.</p>
+                  <!--    <button id="btnSearch" onclick="searchFeatures()">Detect current settings</button>	 -->		   
+                  <div>	  
+				  
+				<!-- Ads Settings -->
+				<div class="section-header">Adblock for Windows 11</div>
+				<p>
+				Windows 11 includes ads by default in the form of Microsoft promoting its own services and apps. These ads can include fun facts, tips, tricks, recommendations, and suggestions within the UI of Windows 11.</a>
+				</p>
+				<div class="settings-group">	
+					<div>
+						<label class="toggle-switch" for="Start menu Ads">
+							<input type="checkbox" id="Start menu Ads">
+							<span class="toggle-switch-label"></span>
+						</label>
+						<span class="checkbox-label" onclick="toggleDescription(this)">Start Menu Ads </span>
+						<p class="description">
+							Show recommendations for tips, app promotions, and more on Start menu. <a href="https://blogs.windows.com/windows-insider/2024/04/12/announcing-windows-11-insider-preview-build-22635-3495-beta-channel/" target="_blank" class="modern-link">More Info</a>
+						</p>
+					</div>
+					<div>
+						<label class="toggle-switch" for="Personalized Ads">
+							<input type="checkbox" id="Personalized Ads">
+							<span class="toggle-switch-label"></span>
+						</label>
+						<span class="checkbox-label" onclick="toggleDescription(this)">Personalized Ads</span>
+						<p class="description">Let apps show me personalized ads by using my advertising ID</p>
+					</div>
+					<div>
+						<label class="toggle-switch" for="Welcome Experience Ads">
+							<input type="checkbox" id="Welcome Experience Ads">
+							<span class="toggle-switch-label"></span>
+						</label>
+						<span class="checkbox-label" onclick="toggleDescription(this)">Welcome Experience Ads</span>
+						<p class="description">
+							Show the "Windows welcome experience" after updates and occasionally signing in to highlight what's new and suggested.
+						</p>
+					</div>
+					<div>
+						<label class="toggle-switch" for="Finish Setup Ads">
+							<input type="checkbox" id="Finish Setup Ads">
+							<span class="toggle-switch-label"></span>
+						</label>
+						<span class="checkbox-label" onclick="toggleDescription(this)">Finish Setup Ads</span>
+						<p class="description">
+							Suggest ways to get the most out of Windows and finish setting up this device.
+						</p>
+					</div>
+					<div>
+						<label class="toggle-switch" for="General Tips and Ads">
+							<input type="checkbox" id="General Tips and Ads">
+							<span class="toggle-switch-label"></span>
+						</label>
+						<span class="checkbox-label" onclick="toggleDescription(this)">General Tips and Ads</span>
+						<p class="description">Tips and Suggestions Notifications on your Windows device for a more focused computing experience</p>
+					</div>
+					<div>
+						<label class="toggle-switch" for="Settings Ads">
+							<input type="checkbox" id="Settings Ads">
+							<span class="toggle-switch-label"></span>
+						</label>
+						<span class="checkbox-label" onclick="toggleDescription(this)">Settings Ads</span>
+						<p class="description">Show suggested content in Settings app.</p>
+					</div>
+					<div>
+						<label class="toggle-switch" for="Lock Screen Tips and Ads">
+							<input type="checkbox" id="Lock Screen Tips and Ads">
+							<span class="toggle-switch-label"></span>
+						</label>
+						<span class="checkbox-label" onclick="toggleDescription(this)">Lock Screen Tips and Ads</span>
+						<p class="description">Get fun facts, tips, tricks, and more on your lock screen.</p>
+					</div>
+					<div>
+						<label class="toggle-switch" for="File Explorer Ads">
+							<input type="checkbox" id="File Explorer Ads">
+							<span class="toggle-switch-label"></span>
+						</label>
+						<span class="checkbox-label" onclick="toggleDescription(this)">File Explorer Ads</span>
+						<p class="description">Sync provider notifications in File Explorer.</p>
+					</div>
+					<div>
+						<label class="toggle-switch" for="Tailored experiences">
+							<input type="checkbox" id="Tailored experiences">
+							<span class="toggle-switch-label"></span>
+						</label>
+						<span class="checkbox-label" onclick="toggleDescription(this)">Tailored experiences</span>
+						<p class="description">
+							Tailored experiences uses your Windows diagnostic data to offer you personalized tips, ads, and recommendations to enhance Microsoft experiences.</a>
+						</p>
+					</div>
+				</div>
+			  
+                     <!-- Privacy Settings -->
+                     <div class="section-header">Privacy</div>
+                     <div class="settings-group">
+                        <div>
+                           <label class="toggle-switch" for="Find my device">
+                           <input type="checkbox" id="Find my device">
+                           <span class="toggle-switch-label"></span>
+                           </label>
+                           <span class="checkbox-label" onclick="toggleDescription(this)">Find my device</span>
+                           <p class="description">Windows won't be able to help you keep track of your device if you lose it.</p>
                         </div>
-                    </ul>
-                </div>
+                        <div>
+                           <label class="toggle-switch" for="Diagnostic data">
+                           <input type="checkbox" id="Diagnostic data">
+                           <span class="toggle-switch-label"></span>
+                           </label>
+                           <span class="checkbox-label" onclick="toggleDescription(this)">Diagnostic data</span>            
+                           <p class="description">
+                              Send only info about your device, its settings and capabilities, and whether it is performing properly.
+                              Diagnostic data is used to help keep Windows secure and up to date, troubleshoot problems, and make
+                              product improvements
+                           </p>
+                        </div>
+                        <div>
+                           <label class="toggle-switch" for="Send optional diagnostic data">
+                           <input type="checkbox" id="Send optional diagnostic data">
+                           <span class="toggle-switch-label"></span>
+                           </label>
+                           <span class="checkbox-label" onclick="toggleDescription(this)">Send optional diagnostic data</span>
+                           <p class="description">
+                              Help Microsoft improve your Windows experience and fix problems more quickly by sending us additional
+                              diagnostic data. This includes data about websites you browse, how you use apps and features, and
+                              enhanced error reporting.
+                           </p>
+                        </div>
+                        <div>
+                           <label class="toggle-switch" for="Running apps in background">
+                           <input type="checkbox" id="Running apps in background">
+                           <span class="toggle-switch-label"></span>
+                           </label>
+                           <span class="checkbox-label" onclick="toggleDescription(this)">Running Apps in background</span>
+                           <p class="description">
+                              This will disable Microsoft Store apps from running in the background.
+                           </p>
+                        </div>
+                        <div>
+                           <label class="toggle-switch" for="Privacy Settings Experience at sign-in">
+                           <input type="checkbox" id="Privacy Settings Experience at sign-in">
+                           <span class="toggle-switch-label"></span>
+                           </label>
+                           <span class="checkbox-label" onclick="toggleDescription(this)">Privacy Settings Experience at sign-in</span>
+                           <p class="description">
+                              When you create a new account in Windows, it comes up with options related to privacy. For example, you
+                              will see the option to enable or disable Speech recognition, Location service, Find my device, Inking &
+                              typing, and so on.
+                           </p>
+                        </div>
+                     </div>
+                  </div>
+                  <!-- System Settings -->
+                  <div class="section-header">System</div>
+                  <div class="settings-group">
+                     <div>
+                        <label class="toggle-switch" for="Full context menus">
+                        <input type="checkbox" id="Full context menus">
+                        <span class="toggle-switch-label"></span>
+                        </label>
+                        <span class="checkbox-label" onclick="toggleDescription(this)">Full Context Menus in Windows 11</span>
+                        <p class="description">
+                           Truncated context menus are Windows 11 worst feature.
+                        </p>
+                     </div>
+                     <div>
+                        <label class="toggle-switch" for="Lock screen">
+                        <input type="checkbox" id="Lock screen">
+                        <span class="toggle-switch-label"></span>
+                        </label>
+                        <span class="checkbox-label" onclick="toggleDescription(this)">Use personalized lock screen</span>
+                        <p class="description">
+                           You can customize your lock screen. Try changing the background to a favorite photo or slide show. You
+                           can also choose quick status notifications to show you upcoming calendar events, social network updates,
+                           or other app and system notifications.
+                        </p>
+                     </div>
+                     <div>
+                        <label class="toggle-switch" for="Display highly detailed status messages">
+                        <input type="checkbox" id="Display highly detailed status messages">
+                        <span class="toggle-switch-label"></span>
+                        </label>
+                        <span class="checkbox-label" onclick="toggleDescription(this)">Display highly detailed status messages</span>
+                        <p class="description">
+                           If your PC is experiencing slowdowns or inexplicable crashes, then you should make it your priority to
+                           diagnose what’s causing those problems. You can configure Windows so that you receive verbose startup,
+                           shutdown, logon, and logoff status messages. Verbose status messages may be helpful when you're
+                           troubleshooting slow startup, shutdown, logon, or logoff behavior.
+                        </p>
+                     </div>
+                     <div>
+                        <label class="toggle-switch" for="Uninstall Fax Printer">
+                        <input type="checkbox" id="Uninstall Fax Printer">
+                        <span class="toggle-switch-label"></span>
+                        </label>
+                        <span class="checkbox-label" onclick="toggleDescription(this)">Uninstall Fax Printer</span>
+                        <p class="description">
+                           This will uninstall the Fax Printer. This action can not be undone.
+                        </p>
+                     </div>
+                     <div>
+                        <label class="toggle-switch" for="Uninstall XPS Writer">
+                        <input type="checkbox" id="Uninstall XPS Writer">
+                        <span class="toggle-switch-label"></span>
+                        </label>
+                        <span class="checkbox-label" onclick="toggleDescription(this)">Uninstall XPS Writer</span>
+                        <p class="description">
+                           This will install or uninstall the XPS Writer.
+                        </p>
+                     </div>
+                  </div>
+                  <!-- Gaming Settings -->
+                  <div class="section-header">Gaming</div>
+                  <div class="settings-group">
+                     <div>
+                        <label class="toggle-switch" for="VisualFX">
+                        <input type="checkbox" id="VisualFX">
+                        <span class="toggle-switch-label"></span>
+                        </label>
+                        <span class="checkbox-label" onclick="toggleDescription(this)">Adjust visual effects for best performance</span>
+                        <p class="description">
+                           Visual effects are the visual bells and whistles for the appearance of Windows for your account.
+                           These visual bells and whistles can affect the performance of Windows on the PC though.
+                           This will turn off all visual effects under My computer > Properties > Advanced > Settings > and set to "Adjust for best performance".
+                        </p>
+                     </div>
+                     <div>
+                        <label class="toggle-switch" for="GameDVR">
+                        <input type="checkbox" id="GameDVR">
+                        <span class="toggle-switch-label"></span>
+                        </label>
+                        <span class="checkbox-label" onclick="toggleDescription(this)">Game DVR feature</span>
+                        <p class="description">
+                           The built-in Game DVR feature helps you record your gameplay, capture screenshots, and share them online.
+                           But it can interfere with your game’s performance, too. Background recording requires some of your GPU power, and some gamers will want all the GPU power they can get.
+                           If you experience low FPS or FPS loss after upgrading to Windows 11, you may resolve the issue by disabling the Xbox DVR feature.
+                        </p>
+                     </div>
+                     <div>
+                        <label class="toggle-switch" for="PowerThrottling">
+                        <input type="checkbox" id="PowerThrottling">
+                        <span class="toggle-switch-label"></span>
+                        </label>
+                        <span class="checkbox-label" onclick="toggleDescription(this)">Power Throttling</span>
+                        <p class="description">
+                           With the Windows 10 Fall Creators Update, Microsoft’s OS has added feature called Power Throttling
+                           Power Throttling is only available on Intel 6th gen and higher processors), a way to increase the battery life of laptops by slowing down background processes.
+                           This feature is enabled by default in laptops and tablets. Though Windows is good at detecting background apps and limiting power, there might be situations where this feature is not so desirable.
+                        </p>
+                     </div>
+                  </div>
+                  <!-- Taskbar Settings -->
+                  <div class="section-header">Taskbar and Start menu</div>
+                  <div class="settings-group">
+                     <div>
+                        <label class="toggle-switch" for="Bing Cloud content search">
+                        <input type="checkbox" id="Bing Cloud content search">
+                        <span class="toggle-switch-label"></span>
+                        </label>
+                        <span class="checkbox-label" onclick="toggleDescription(this)" >Say goodbye to Bing Cloud content search</span>
+                        <p class="description">
+                           The Windows 11 Start menu comes with a default Bing search engine. It shows up when you use Windows
+                           Search or open the Start menu. For local searches, it doesn't work well and slows down the search
+                           experience.
+                        </p>
+                     </div>
+                     <div>
+                        <label class="toggle-switch" for="Most used apps in start menu">
+                        <input type="checkbox" id="Most used apps in start menu">
+                        <span class="toggle-switch-label"></span>
+                        </label>
+                        <span class="checkbox-label" onclick="toggleDescription(this)">Hide most used apps in start menu</span>
+                        <p class="description">
+                           Show or hide most used apps in Windows 11 start menu.
+                        </p>
+                     </div>
+                     <div>
+                        <label class="toggle-switch" for="Pin more Apps on Start menu">
+                        <input type="checkbox" id="Pin more Apps on Start menu">
+                        <span class="toggle-switch-label"></span>
+                        </label>
+                        <span class="checkbox-label" onclick="toggleDescription(this)">Pin more Apps on Start menu</span>
+                        <p class="description">
+                           Pin more Apps on Start menu in Windows 11 start menu.
+                        </p>
+                     </div>
+                     <div>
+                        <label class="toggle-switch" for="Chat icon on taskbar">
+                        <input type="checkbox" id="Chat icon on taskbar">
+                        <span class="toggle-switch-label"></span>
+                        </label>
+                        <span class="checkbox-label" onclick="toggleDescription(this)">Chat icon on taskbar</span>
+                        <p class="description">
+                           Show or hide Chat icon of Microsoft Teams on Windows 11 taskbar.
+                        </p>
+                     </div>
+                     <div>
+                        <label class="toggle-switch" for="Task view button on taskbar">
+                        <input type="checkbox" id="Task view button on taskbar">
+                        <span class="toggle-switch-label"></span>
+                        </label>
+                        <span class="checkbox-label" onclick="toggleDescription(this)">Task view button on taskbar</span>
+                        <p class="description">
+                           Show or hide Task view button on Windows 11 taskbar.
+                        </p>
+                     </div>
+                  </div>
+                  <!-- AI/Copilot Settings -->
+                  <div class="section-header">🤖 AI/Copilot features in Windows</div>
+                  <div class="settings-group">
+                     <p>
+                        Feel free to search for AI/Copilot features right here in Windows, whether it's in the Edge browser or the taskbar. 
+                        If Copilot activities are detected, you can easily disable them here.
+                     </p>
+                     <button class="wizard-button" onclick="plugCopilotless()">Search for AI/Copilot features in Windows</button>
+                  </div>
+                  <div>
+                     <label class="toggle-switch" for="Copilot in Edge">
+                     <input type="checkbox" id="Copilot in Edge">
+                     <span class="toggle-switch-label"></span>
+                     </label>
+                     <span class="checkbox-label" onclick="toggleDescription(this)">Copilot Button in Microsoft Edge</span>
+                     <p class="description">
+                        This will remove Copilot/AI in Microsoft Edge browser.
+                     </p>
+                  </div>
+                  <div>
+                     <label class="toggle-switch" for="Copilot in Taskbar">
+                     <input type="checkbox" id="Copilot in Taskbar">
+                     <span class="toggle-switch-label"></span>
+                     </label>
+                     <span class="checkbox-label" onclick="toggleDescription(this)">Copilot Icon in Taskbar</span>
+                     <p class="description">
+                        This will remove Copilot/AI Icon in the Taskbar.
+                     </p>
+                  </div>
+               </div>
+			   
+               <!-- Other Workspace Containers -->
+               <div class="glassy-box" id="stepAppxHeader" style="display: none;">
+                  <!-- Content of Debloat Container -->
+                  <h2>Debloat your system</h2>
+                  <p>You have two options: either manually select and remove specific apps, or utilize the Assisted search button to let Clippy effortlessly handle the entire process for you.</p>
+                  <!-- Recommended for removal -->
+                  <h3>Recommended for removal<span id="recommendedPackagesCount"></span></h3>
+                  <!-- Decrapify appx removal buttons -->
+                  <div id="buttonsAppx-container" title="Click to remove this app">
+                     <!-- The buttons will be dynamically loaded from C# -->
+                  </div>
+                  <h3>Installed App Packages<span id="installedPackagesCount"></span></h3>
+                  <button onclick="removeSelectedPackages()">Remove selected (manual)</button>
+                  <button id="btnsearchCustomCrapware" onclick="searchCustomCrapware()">Assisted search for crapware (optional)</button>
+                  <button id="btnremoveCustomCrapware" onclick="removeCustomCrapware()">Remove found crapware with Assisted scan</button>
+                  <div id="appPackagesContainer">
+                     <!-- Toggle switches for installed app packages will be dynamically loaded here -->
+                  </div>
+               </div>	  
+			  
+			  <!-- Content of Install Container -->
+               <div class="glassy-box" id="stepAppsHeader">
+                  <h2>Install apps</h2>
+                  <p>This user-friendly interface simplifies app installations, making the process quick and hassle-free.</p>
+                  <button id="btnInstallSelectedApps" onclick="installSelectedApps()">Install selected</button>
+                  </p>
+                  <div id="appList">
+                     <div class="app-item">
+                        <div class="toggle-switch">
+                           <input type="checkbox" class="toggle-switch-checkbox" id="app1Toggle">
+                           <label class="toggle-switch-label" for="app1Toggle"></label>
+                        </div>
+                        <label class="checkbox-label" for="app1Toggle">Google Chrome</label>
+                        <p>ID <span id="app1WingetId">Google.Chrome</span></p>
+                        <p>A more simple, secure, and faster web browser than ever, with Google’s smarts built-in.</p>
+                     </div>
+                     <div class="app-item">
+                        <div class="toggle-switch">
+                           <input type="checkbox" class="toggle-switch-checkbox" id="app2Toggle">
+                           <label class="toggle-switch-label" for="app2Toggle"></label>
+                        </div>
+                        <label class="checkbox-label" for="app2Toggle">Mozilla Firefox</label>
+                        <p>ID <span id="app2WingetId">Mozilla.Firefox</span></p>
+                        <p>
+                           Mozilla Firefox is free and open source software, built by a community of thousands from all over the
+                           world.
+                        </p>
+                     </div>
+                     <div class="app-item">
+                        <div class="toggle-switch">
+                           <input type="checkbox" class="toggle-switch-checkbox" id="app3Toggle">
+                           <label class="toggle-switch-label" for="app3Toggle"></label>
+                        </div>
+                        <label class="checkbox-label" for="app3Toggle">Opera</label>
+                        <p>ID <span id="app3WingetId">Opera.Opera</span></p>
+                        <p>
+                           The Opera browser includes everything you need for private, safe, and efficient browsing, along with
+                           a variety of unique features to enhance your capabilities online.
+                        </p>
+                     </div>
+                     <div class="app-item">
+                        <div class="toggle-switch">
+                           <input type="checkbox" class="toggle-switch-checkbox" id="app4Toggle">
+                           <label class="toggle-switch-label" for="app4Toggle"></label>
+                        </div>
+                        <label class="checkbox-label" for="app4Toggle">Vivaldi</label>
+                        <p>ID <span id="app4WingetId">VivaldiTechnologies.Vivaldi</span></p>
+                        <p>Web browser based on Chromium with added features inspired by Opera.</p>
+                     </div>
+                     <div class="app-item">
+                        <div class="toggle-switch">
+                           <input type="checkbox" class="toggle-switch-checkbox" id="app5Toggle">
+                           <label class="toggle-switch-label" for="app5Toggle"></label>
+                        </div>
+                        <label class="checkbox-label" for="app5Toggle">VLC media player</label>
+                        <p>ID <span id="app5WingetId">VideoLAN.VLC</span></p>
+                        <p>
+                           VLC is a free and open source cross-platform multimedia player and framework that plays most
+                           multimedia files, and various streaming protocols.
+                        </p>
+                     </div>
+                     <div class="app-item">
+                        <div class="toggle-switch">
+                           <input type="checkbox" class="toggle-switch-checkbox" id="app6Toggle">
+                           <label class="toggle-switch-label" for="app6Toggle"></label>
+                        </div>
+                        <label class="checkbox-label" for="app6Toggle">7-Zip</label>
+                        <p>ID <span id="app6WingetId">7Zip.7zip</span></p>
+                        <p>Free and open source file archiver with a high compression ratio.</p>
+                     </div>
+                     <div class="app-item">
+                        <div class="toggle-switch">
+                           <input type="checkbox" class="toggle-switch-checkbox" id="app7Toggle">
+                           <label class="toggle-switch-label" for="app7Toggle"></label>
+                        </div>
+                        <label class="checkbox-label" for="app7Toggle">Notepad++</label>
+                        <p>ID <span id="app7WingetId">Notepad++.Notepad++</span></p>
+                        <p>Notepad++ is a free source code editor that supports several languages.</p>
+                     </div>
+                     <div class="app-item">
+                        <div class="toggle-switch">
+                           <input type="checkbox" class="toggle-switch-checkbox" id="app8Toggle">
+                           <label class="toggle-switch-label" for="app8Toggle"></label>
+                        </div>
+                        <label class="checkbox-label" for="app8Toggle">Microsoft PowerToys</label>
+                        <p>ID <span id="app8WingetId">Microsoft.PowerToys</span></p>
+                        <p>Microsoft PowerToys is a set of utilities for power users to tune and streamline their Windows experience for greater productivity.</p>
+                     </div>
+                     <div class="app-item">
+                        <div class="toggle-switch">
+                           <input type="checkbox" class="toggle-switch-checkbox" id="app9Toggle">
+                           <label class="toggle-switch-label" for="app9Toggle"></label>
+                        </div>
+                        <label class="checkbox-label" for="app9Toggle">Adobe Acrobat Reader DC</label>
+                        <p>ID <span id="app9WingetId">Adobe.Acrobat.Reader.64-bit </span></p>
+                        <p>The free global standard for reliably viewing, printing, signing, and commenting on PDF documents.</p>
+                     </div>
+                     <div class="app-item">
+                        <div class="toggle-switch">
+                           <input type="checkbox" class="toggle-switch-checkbox" id="app10Toggle">
+                           <label class="toggle-switch-label" for="app10Toggle"></label>
+                        </div>
+                        <label class="checkbox-label" for="app10Toggle">IrfanView</label>
+                        <p>ID <span id="app10WingetId">IrfanSkiljan.IrfanView</span></p>
+                        <p>Fast and compact image viewer and converter</p>
+                     </div>
+                     <!-- Here we can add more app items as needed -->
+                  </div>
+               </div>
+			   
+			 <!-- Content of Extensions Container -->
+               <div class="glassy-box setup-step" id="stepStoreHeader">
+                  <div class="links-container">
+                     <a href="https://github.com/builtbybel/Winpilot/issues/new" target="_blank" class="modern-link" style="display: block;">Suggest a new Extension</a>
+                  </div>
+                  <h2>Extensions for NeoClippy</h2>
+                  <p>Discover external scripts and plugins to enhance your Winpilot experience and customize Windows to your preferences. 
+                     With these extensions, you can modify Windows with tweaks just like you would manually with RegEdit or PowerShell, but in a simpler and more intuitive way. 
+                  </p>
+                  <div id="plugin-categories-container">
+                     <!-- Plugin entries will be injected here -->
+                  </div>
+               </div>
             </div>
-        </div>
-    </div>
-    <!-- Additional content for the bottom container goes here  -->
- </div>
+         </div>
+      </div>  
+	  
+      <!-- UI: Clippy -->
+      <div id="clippy-container">
+         <!-- The image will be dynamically loaded from C# -->
+         <img id="clippy-image">
+      </div>
+      <div id="logContainer">
+         <p>Would you like help?</p>
+         <div class="assisted-container">
+            <p></p>
+            <!-- Assisted AI buttons -->
+            <div id="buttons-container">
+               <!-- The buttons will be dynamically loaded from C# -->
+            </div>
+            <!-- Refresh button at the top-right corner -->
+            <div id="refreshButton" onclick="refreshAB()" title="Refresh">...</div>
+         </div>
+      </div>
+      <!-- Step Back button -->
+		<button id="btnBack" onclick="handleBackClick()">
+			<span class="icon">&#xE72B;</span> <!-- Unicode for the back arrow -->
+		</button>
 
-
- </div>
-</body>
+	 
+      </div>
+   </body>
 </html>
