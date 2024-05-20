@@ -1,6 +1,6 @@
 # Winpilot 
 ### and the tragic hero Clippy, just out here trying to be helpful.
-![explorer_uR3GXgtB3H](https://github.com/builtbybel/Winpilot/assets/57478606/d5dd7bf7-60cf-4bca-93a3-f25b32f77a1b)
+![explorer_xKcsHW5xYa](https://github.com/builtbybel/Winpilot/assets/57478606/7d4f1b30-0178-4712-a2a6-cae52f8b667a)
 
 
 ## About the app
