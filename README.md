@@ -9,7 +9,7 @@ Its primarily designed for Windows 11, but it can also be used on Windows 10, th
 
 ### Features:
 
-- Native experience (no web app nonsense)
+- Native stuff (no web app crap)
 - Back to basics: efficient and user-friendly
 - No AI/Copilot integration
 - Focused on the essentials
