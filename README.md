@@ -7,6 +7,13 @@ I had a hard time committing to it, but in the end, I went for it. Now I can pro
 
 Its primarily designed for Windows 11, but it can also be used on Windows 10, though not all settings are applicable there.
 
+### Features:
+
+- Native experience (no web app nonsense)
+- Back to basics: efficient and user-friendly
+- No AI/Copilot integration
+- Focused on the essentials
+
 ### What's next:
 - WinModder returns for even more customizations
 - Localizations coming soon for a global reach
