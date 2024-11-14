@@ -1,6 +1,0 @@
-*.js linguist-detectable=true
-*.html linguist-detectable=true
-*.xml linguist-detectable=true
-*.json linguist-detectable=true
-*.cs linguist-detectable=true
-*.ps1 linguist-detectable=false
