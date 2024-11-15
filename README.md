@@ -15,7 +15,6 @@ Its primarily designed for Windows 11, but it can also be used on Windows 10, th
 - Focused on the essentials
 
 ### What's next:
-- WinModder returns for even more customizations
 - Localizations coming soon for a global reach
   
 And much more to come, stay tuned. Feel free to vote for or suggest new features, including those that were part of the classic Bloatynosy but are still missing
